@@ -1,0 +1,2274 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="博客, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/matery.css">
+    <link rel="stylesheet" type="text/css" href="../css/my.css">
+
+
+    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script>
+    <script src="../libs/jquery/jquery.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.2.0">
+    <link rel="alternate" href="../xml/atom.xml" title="闪烁之狐" type="application/atom+xml">
+    <link rel="prefetch">
+    <style type="text/css">
+        .heart {
+            width: 10px;
+            height: 10px;
+            position: fixed;
+            background: #f00;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+        }
+
+        .heart:after, .heart:before {
+            content: '';
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            position: fixed;
+        }
+
+        .heart:after {
+            top: -5px;
+        }
+
+        .heart:before {
+            left: -5px;
+        }
+    </style>
+</head>
+
+
+<body data-aos-easing="ease-in-out-sine" data-aos-duration="700" data-aos-delay="100">
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+
+                    <img src="../img/medias/logo.png" class="logo-img" alt="LOGO">
+
+                    <span class="logo-span">闪烁之狐</span>
+                </a>
+            </div>
+
+
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+            <ul class="right nav-menu">
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="../html/home.html" class="waves-effect waves-light">
+
+                        <i class="fas fa-home" style="zoom: 0.6;"></i>
+
+                        <span>首页</span>
+                    </a>
+
+                </li>
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="/tags" class="waves-effect waves-light">
+
+                        <i class="fas fa-tags" style="zoom: 0.6;"></i>
+
+                        <span>标签</span>
+                    </a>
+
+                </li>
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="/categories" class="waves-effect waves-light">
+
+                        <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+
+                        <span>分类</span>
+                    </a>
+
+                </li>
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="./archive.html" class="waves-effect waves-light">
+
+                        <i class="fas fa-archive" style="zoom: 0.6;"></i>
+
+                        <span>时光轴</span>
+                    </a>
+
+                </li>
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="/about" class="waves-effect waves-light">
+
+                        <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+
+                        <span>关于</span>
+                    </a>
+
+                </li>
+
+                <li class="hide-on-med-and-down nav-item">
+
+                    <a href="/friends" class="waves-effect waves-light">
+
+                        <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+
+                        <span>友情链接</span>
+                    </a>
+
+                </li>
+
+                <li>
+                    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+                        <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+                    </a>
+                </li>
+            </ul>
+
+<!--移动端 侧面导航-->
+            <div id="mobile-nav" class="side-nav sidenav">
+
+                <div class="mobile-head bg-color">
+
+                    <img src="../medias/logo.png" class="logo-img circle responsive-img">
+
+                    <div class="logo-name">闪烁之狐</div>
+                    <div class="logo-desc">
+
+                        从来没有真正的绝境，只有心灵的迷途
+
+                    </div>
+                </div>
+
+
+                <ul class="menu-list mobile-menu-list">
+
+                    <li class="m-nav-item">
+
+                        <a href="/" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-home"></i>
+
+                            首页
+                        </a>
+
+                    </li>
+
+                    <li class="m-nav-item">
+
+                        <a href="/tags" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-tags"></i>
+
+                            标签
+                        </a>
+
+                    </li>
+
+                    <li class="m-nav-item">
+
+                        <a href="/categories" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-bookmark"></i>
+
+                            分类
+                        </a>
+
+                    </li>
+
+                    <li class="m-nav-item">
+
+                        <a href="/archives" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-archive"></i>
+
+                            归档
+                        </a>
+
+                    </li>
+
+                    <li class="m-nav-item">
+
+                        <a href="/about" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-user-circle-o"></i>
+
+                            关于
+                        </a>
+
+                    </li>
+
+                    <li class="m-nav-item">
+
+                        <a href="/friends" class="waves-effect waves-light">
+
+                            <i class="fa-fw fas fa-address-book"></i>
+
+                            友情链接
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li>
+                        <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light"
+                           target="_blank">
+                            <i class="fab fa-github-square fa-fw"></i>Fork Me
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+
+        <style>
+            .nav-transparent .github-corner {
+                display: none !important;
+            }
+
+            .github-corner {
+                position: absolute;
+                z-index: 10;
+                top: 0;
+                right: 0;
+                border: 0;
+                transform: scale(1.1);
+            }
+
+            .github-corner svg {
+                color: #eaeaea;
+                fill: #161515a1;
+                height: 64px;
+                width: 64px;
+            }
+
+            .github-corner:hover .octo-arm {
+                animation: a 0.56s ease-in-out;
+            }
+
+            .github-corner .octo-arm {
+                animation: none;
+            }
+
+            @keyframes a {
+                0%,
+                to {
+                    transform: rotate(0);
+                }
+                20%,
+                60% {
+                    transform: rotate(-25deg);
+                }
+                40%,
+                80% {
+                    transform: rotate(10deg);
+                }
+            }
+        </style>
+
+        <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down"
+           target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+            <svg viewBox="0 0 250 250" aria-hidden="true">
+                <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+            </svg>
+        </a>
+
+    </nav>
+
+</header>
+
+
+<style>
+    .carousel-control {
+        width: 45px;
+        height: 45px;
+        line-height: 55px;
+        border-radius: 45px;
+        background: transparent;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    #prev-cover {
+        position: absolute;
+        top: 48%;
+        left: 8px;
+    }
+
+    #next-cover {
+        position: absolute;
+        top: 48%;
+        right: 8px;;
+    }
+
+    #prev-cover i {
+        margin-right: 3px;
+    }
+
+    #next-cover i {
+        margin-left: 3px;
+    }
+
+    .carousel-control:hover {
+        background-color: rgba(0, 0, 0, .4);
+    }
+
+    .carousel-control i {
+        color: #fff;
+        font-size: 2.4rem;
+    }
+</style>
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true"     style="margin-top: -64px; height: 945px;">
+
+    <div id="prev-cover" class="left waves-effect carousel-control">
+        <i class="icon fa fa-angle-left"></i>
+    </div>
+    <div id="next-cover" class="right waves-effect carousel-control">
+        <i class="icon fa fa-angle-right"></i>
+    </div>
+
+
+    <div class="carousel-item red white-text bg-cover about-cover"
+         style="background-image: url(&quot;../medias/banner/4.jpg&quot;); z-index: -1; opacity: 1; visibility: visible; transform: translateX(0px) translateX(-1170px) translateZ(0px);">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                    <div class="brand">
+                        <div class="title center-align">
+
+                            闪烁之狐
+
+                        </div>
+
+                        <div class="description center-align">
+
+                            <span id="subtitle">从来没有真正的绝境, </span><span class="typed-cursor">|</span>
+                            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                            <script>
+                                var typed = new Typed("#subtitle", {
+                                    strings: ['从来没有真正的绝境, 只有心灵的迷途', 'Never really desperate, only the lost of the soul'],
+                                    startDelay: 300,
+                                    typeSpeed: 100,
+                                    loop: true,
+                                    backSpeed: 50,
+                                    showCursor: true
+                                });
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                // 每天切换 banner 图.  Switch banner image every day.
+                var bannerUrl = "../medias/banner/" + new Date().getDay() + '.jpg';
+                $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+            </script>
+
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>开始阅读
+                </a>
+
+
+                <a href=""
+                   class="waves-effect waves-light btn" target="_blank">
+                    <i class="fab fa-cloud-download"></i>下载主题
+                </a>
+
+            </div>
+            <div class="cover-social-link">
+                <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+                   data-position="top" data-delay="50">
+                    <i class="fab fa-github"></i>
+                </a>
+
+
+                <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+                   data-position="top" data-delay="50">
+                    <i class="fas fa-envelope-open"></i>
+                </a>
+
+
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1181062873"
+                   class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top"
+                   data-delay="50">
+                    <i class="fab fa-qq"></i>
+                </a>
+
+
+                <a href="/xml/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
+                   data-delay="50">
+                    <i class="fas fa-rss"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel-item amber white-text carousel-post bg-cover active"
+         style="background-image: url(&quot;https://statics.sh1a.qingstor.com/2019/02/14/stalker.jpg&quot;); transform: translateX(0px) translateX(0px) translateX(0px) translateZ(0px); z-index: 0; opacity: 1; visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Java代码性能评估库Stalker介绍</div>
+                    <div class="description center-align">
+
+                        English Document
+
+                        这是一个简单的用来对Java代码做性能评估的工具库。
+
+                        特性
+                        轻量级（jar包仅26kb）
+                        API简单易用
+                        易于集成或扩展
+
+                        Maven集成&lt;dependency&gt;
+                        &lt;groupId&gt;
+
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/02/14/hou-duan/java/java-dai-ma-xing-neng-ping-gu-ku-stalker-jie-shao/"
+                           class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+         style="background-image: url(&quot;https://statics.sh1a.qingstor.com/2019/01/25/minitable.jpg&quot;); transform: translateX(0px) translateX(1170px) translateZ(0px); z-index: -1; opacity: 1; visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">一个极简的 Java ASCII 表格生成库</div>
+                    <div class="description center-align">
+
+
+                        一个轻量级、零依赖的 Java ASCII 表格生成库。
+
+                        特性
+                        轻量级、无依赖（jar包仅9kb）
+                        API简单易用
+                        易于集成或定制修改，仅一个Java文件，且代码规范
+
+                        集成使用Maven集成&lt;dependency&gt;
+                        &amp;l
+
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/01/25/hou-duan/java/yi-ge-ji-jian-de-java-ascii-biao-ge-sheng-cheng-ku/"
+                           class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+         style="background-image: url(&quot;https://statics.sh1a.qingstor.com/2019/08/20/jpa.png&quot;); transform: translateX(0px) translateX(2340px) translateZ(0px); z-index: -2; opacity: 1; visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库</div>
+                    <div class="description center-align">
+
+
+                        Fenix（菲尼克斯）是一个比 MyBatis 更加强大，为解决复杂、动态 SQL (JPQL) 而生的 Spring Data JPA
+                        扩展库，目的是辅助开发者更方便、快捷的书写复杂、动态且易于维护的 SQL，支持 XML 和 Java
+
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/08/20/hou-duan/jpa/fenix-bi-mybatis-geng-jia-qiang-da-de-spring-data-jpa-kuo-zhan-ku/"
+                           class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+         style="background-image: url(&quot;https://statics.sh1a.qingstor.com/2018/11/19/vue.jpg&quot;); transform: translateX(0px) translateX(-3510px) translateZ(0px); z-index: -3; opacity: 1; visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Vue 文档风格的 Typora 主题</div>
+                    <div class="description center-align">
+
+
+                        typora-vue-theme 是 Typora Markdown 文档编辑器中一款类似Vue文档风格的主题。
+
+                        简介Typora是一款支持实时预览的 Markdown 编辑器和阅读器，支持Windows、macOS、Linux三大平台
+
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/"
+                           class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
+
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+         style="background-image: url(&quot;../medias/featureimages/9.jpg&quot;); transform: translateX(0px) translateX(-2340px) translateZ(0px); z-index: -2; opacity: 1; visibility: visible;">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Hexo博客主题之hexo-theme-matery的介绍</div>
+                    <div class="description center-align">
+
+                        English Document | 演示示例 | QQ交流群:926552981
+
+                        这是一个采用Material Design和响应式设计的 Hexo 博客主题。
+
+                        特性
+                        简单漂亮，文章内容美观易读
+                        Material Design 设计
+
+
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/"
+                           class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+<!--
+    <ul class="indicators">
+        <li class="indicator-item"></li>
+        <li class="indicator-item active"></li>
+        <li class="indicator-item"></li>
+        <li class="indicator-item"></li>
+        <li class="indicator-item"></li>
+        <li class="indicator-item"></li>
+    </ul>
+    -->
+</div>
+<style type="text/css" data-typed-js-css="true">
+    .typed-cursor {
+        opacity: 1;
+    }
+
+    .typed-cursor.typed-cursor--blink {
+        animation: typedjsBlink 0.7s infinite;
+        -webkit-animation: typedjsBlink 0.7s infinite;
+        animation: typedjsBlink 0.7s infinite;
+    }
+
+    @keyframes typedjsBlink {
+        50% {
+            opacity: 0.0;
+        }
+    }
+
+    @-webkit-keyframes typedjsBlink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<script>
+    $(function () {
+        let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
+        coverSlider.carousel({
+            duration: Number('120'),
+            fullWidth: true,
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
+
+        let carouselIntervalId;
+
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
+
+
+        function restartPlay() {
+
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+
+        };
+
+
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
+
+    });
+</script>
+
+
+<main class="content" style="min-height: 780px;">
+
+
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+
+                    <div class="dream">
+
+                        <div class="title center-align">
+                            <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
+                        </div>
+
+                        <div class="row">
+                            <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+                                不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <link rel="stylesheet" href="../libs/dplayer/DPlayer.min.css">
+                    <div class="video-player">
+
+                        <div class="title center-align">
+                            <i class="fas fa-video-camera"></i>&nbsp;&nbsp;精彩视频
+                        </div>
+
+                        <div class="row">
+                            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                                <div id="dplayer" class="dplayer-video dplayer dplayer-no-danmaku">
+                                    <div class="dplayer-mask"></div>
+                                    <div class="dplayer-video-wrap">
+
+                                        <video class="dplayer-video dplayer-video-current" webkit-playsinline=""
+                                               playsinline="" poster="../medias/videos/demo-pic.png" preload="auto"
+                                               src="../medias/videos/demo.mp4">
+
+                                        </video>
+
+                                        <div class="dplayer-danmaku">
+                                            <div class="dplayer-danmaku-item dplayer-danmaku-item--demo"></div>
+                                        </div>
+                                        <div class="dplayer-subtitle"></div>
+                                        <div class="dplayer-bezel">
+                                            <span class="dplayer-bezel-icon"></span>
+
+                                            <span class="diplayer-loading-icon"><svg version="1.1" viewBox="0 0 22 22"><svg
+                                                    x="7" y="1"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-0" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="11" y="3"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-1" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="13" y="7"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-2" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="11" y="11"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-3" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="7" y="13"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-4" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="3" y="11"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-5" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="1" y="7"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-6" cx="4" cy="4"
+                                                    r="2"></circle></svg><svg x="3" y="3"><circle
+                                                    class="diplayer-loading-dot diplayer-loading-dot-7" cx="4" cy="4"
+                                                    r="2"></circle></svg></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="dplayer-controller-mask"></div>
+                                    <div class="dplayer-controller">
+                                        <div class="dplayer-icons dplayer-comment-box">
+                                            <button class="dplayer-icon dplayer-comment-setting-icon" data-balloon="设置"
+                                                    data-balloon-pos="up">
+                                                <span class="dplayer-icon-content"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                        viewBox="0 0 32 32"><path
+                                                        d="M19.357 2.88c1.749 0 3.366 0.316 4.851 0.946 1.485 0.632 2.768 1.474 3.845 2.533s1.922 2.279 2.532 3.661c0.611 1.383 0.915 2.829 0.915 4.334 0 1.425-0.304 2.847-0.915 4.271-0.611 1.425-1.587 2.767-2.928 4.028-0.855 0.813-1.811 1.607-2.869 2.38s-2.136 1.465-3.233 2.075c-1.099 0.61-2.198 1.098-3.296 1.465-1.098 0.366-2.115 0.549-3.051 0.549-1.343 0-2.441-0.438-3.296-1.311-0.854-0.876-1.281-2.41-1.281-4.608 0-0.366 0.020-0.773 0.060-1.221s0.062-0.895 0.062-1.343c0-0.773-0.183-1.353-0.55-1.738-0.366-0.387-0.793-0.58-1.281-0.58-0.652 0-1.21 0.295-1.678 0.886s-0.926 1.23-1.373 1.921c-0.447 0.693-0.905 1.334-1.372 1.923s-1.028 0.886-1.679 0.886c-0.529 0-1.048-0.427-1.556-1.282s-0.763-2.259-0.763-4.212c0-2.197 0.529-4.241 1.587-6.133s2.462-3.529 4.21-4.912c1.75-1.383 3.762-2.471 6.041-3.264 2.277-0.796 4.617-1.212 7.018-1.253zM7.334 15.817c0.569 0 1.047-0.204 1.434-0.611s0.579-0.875 0.579-1.404c0-0.569-0.193-1.047-0.579-1.434s-0.864-0.579-1.434-0.579c-0.529 0-0.987 0.193-1.373 0.579s-0.58 0.864-0.58 1.434c0 0.53 0.194 0.998 0.58 1.404 0.388 0.407 0.845 0.611 1.373 0.611zM12.216 11.79c0.691 0 1.292-0.254 1.8-0.763s0.762-1.107 0.762-1.8c0-0.732-0.255-1.343-0.762-1.831-0.509-0.489-1.109-0.732-1.8-0.732-0.732 0-1.342 0.244-1.831 0.732-0.488 0.488-0.732 1.098-0.732 1.831 0 0.693 0.244 1.292 0.732 1.8s1.099 0.763 1.831 0.763zM16.366 25.947c0.692 0 1.282-0.214 1.77-0.64s0.732-0.987 0.732-1.678-0.244-1.261-0.732-1.709c-0.489-0.448-1.078-0.671-1.77-0.671-0.65 0-1.21 0.223-1.678 0.671s-0.702 1.018-0.702 1.709c0 0.692 0.234 1.25 0.702 1.678s1.027 0.64 1.678 0.64zM19.113 9.592c0.651 0 1.129-0.203 1.433-0.611 0.305-0.406 0.459-0.874 0.459-1.404 0-0.488-0.154-0.947-0.459-1.373-0.304-0.427-0.782-0.641-1.433-0.641-0.529 0-1.008 0.193-1.434 0.58s-0.64 0.865-0.64 1.434c0 0.571 0.213 1.049 0.64 1.434 0.427 0.389 0.905 0.581 1.434 0.581zM24.848 12.826c0.57 0 1.067-0.213 1.495-0.64 0.427-0.427 0.64-0.947 0.64-1.556 0-0.57-0.214-1.068-0.64-1.495-0.428-0.427-0.927-0.64-1.495-0.64-0.611 0-1.129 0.213-1.555 0.64-0.428 0.427-0.642 0.926-0.642 1.495 0 0.611 0.213 1.129 0.642 1.556s0.947 0.64 1.555 0.64z"></path></svg></span>
+                                            </button>
+                                            <div class="dplayer-comment-setting-box">
+                                                <div class="dplayer-comment-setting-color">
+                                                    <div class="dplayer-comment-setting-title">设置弹幕颜色</div>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0" value="#fff"
+                                                               checked="">
+                                                        <span style="background: #fff;"></span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0"
+                                                               value="#e54256">
+                                                        <span style="background: #e54256"></span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0"
+                                                               value="#ffe133">
+                                                        <span style="background: #ffe133"></span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0"
+                                                               value="#64DD17">
+                                                        <span style="background: #64DD17"></span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0"
+                                                               value="#39ccff">
+                                                        <span style="background: #39ccff"></span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-color-0"
+                                                               value="#D500F9">
+                                                        <span style="background: #D500F9"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="dplayer-comment-setting-type">
+                                                    <div class="dplayer-comment-setting-title">设置弹幕类型</div>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-type-0" value="1">
+                                                        <span>顶部</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-type-0" value="0"
+                                                               checked="">
+                                                        <span>滚动</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="dplayer-danmaku-type-0" value="2">
+                                                        <span>底部</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <input class="dplayer-comment-input" type="text" placeholder="输入弹幕，回车发送"
+                                                   maxlength="30">
+                                            <button class="dplayer-icon dplayer-send-icon" data-balloon="发送"
+                                                    data-balloon-pos="up">
+                                                <span class="dplayer-icon-content"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                        viewBox="0 0 32 32"><path
+                                                        d="M13.725 30l3.9-5.325-3.9-1.125v6.45zM0 17.5l11.050 3.35 13.6-11.55-10.55 12.425 11.8 3.65 6.1-23.375-32 15.5z"></path></svg></span>
+                                            </button>
+                                        </div>
+                                        <div class="dplayer-icons dplayer-icons-left">
+                                            <button class="dplayer-icon dplayer-play-icon">
+                                                <span class="dplayer-icon-content"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                        viewBox="0 0 16 32"><path
+                                                        d="M15.552 15.168q0.448 0.32 0.448 0.832 0 0.448-0.448 0.768l-13.696 8.512q-0.768 0.512-1.312 0.192t-0.544-1.28v-16.448q0-0.96 0.544-1.28t1.312 0.192z"></path></svg></span>
+                                            </button>
+                                            <div class="dplayer-volume">
+                                                <button class="dplayer-icon dplayer-volume-icon">
+                                                    <span class="dplayer-icon-content"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                            viewBox="0 0 21 32"><path
+                                                            d="M13.728 6.272v19.456q0 0.448-0.352 0.8t-0.8 0.32-0.8-0.32l-5.952-5.952h-4.672q-0.48 0-0.8-0.352t-0.352-0.8v-6.848q0-0.48 0.352-0.8t0.8-0.352h4.672l5.952-5.952q0.32-0.32 0.8-0.32t0.8 0.32 0.352 0.8zM20.576 16q0 1.344-0.768 2.528t-2.016 1.664q-0.16 0.096-0.448 0.096-0.448 0-0.8-0.32t-0.32-0.832q0-0.384 0.192-0.64t0.544-0.448 0.608-0.384 0.512-0.64 0.192-1.024-0.192-1.024-0.512-0.64-0.608-0.384-0.544-0.448-0.192-0.64q0-0.48 0.32-0.832t0.8-0.32q0.288 0 0.448 0.096 1.248 0.48 2.016 1.664t0.768 2.528z"></path></svg></span>
+                                                </button>
+                                                <div class="dplayer-volume-bar-wrap" data-balloon-pos="up"
+                                                     data-balloon="70%">
+                                                    <div class="dplayer-volume-bar">
+                                                        <div class="dplayer-volume-bar-inner"
+                                                             style="background: rgb(66, 185, 131); width: 70%;">
+                                                            <span class="dplayer-thumb"
+                                                                  style="background: #42b983"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="dplayer-time">
+            <span class="dplayer-ptime">0:00</span> /
+            <span class="dplayer-dtime">00:48</span>
+        </span>
+
+                                        </div>
+                                        <div class="dplayer-icons dplayer-icons-right">
+
+
+                                            <div class="dplayer-comment">
+                                                <button class="dplayer-icon dplayer-comment-icon" data-balloon="发送弹幕"
+                                                        data-balloon-pos="up">
+                                                    <span class="dplayer-icon-content"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                            viewBox="0 0 32 32"><path
+                                                            d="M27.128 0.38h-22.553c-2.336 0-4.229 1.825-4.229 4.076v16.273c0 2.251 1.893 4.076 4.229 4.076h4.229v-2.685h8.403l-8.784 8.072 1.566 1.44 7.429-6.827h9.71c2.335 0 4.229-1.825 4.229-4.076v-16.273c0-2.252-1.894-4.076-4.229-4.076zM28.538 19.403c0 1.5-1.262 2.717-2.819 2.717h-8.36l-0.076-0.070-0.076 0.070h-11.223c-1.557 0-2.819-1.217-2.819-2.717v-13.589c0-1.501 1.262-2.718 2.819-2.718h19.734c1.557 0 2.819-0.141 2.819 1.359v14.947zM9.206 10.557c-1.222 0-2.215 0.911-2.215 2.036s0.992 2.035 2.215 2.035c1.224 0 2.216-0.911 2.216-2.035s-0.992-2.036-2.216-2.036zM22.496 10.557c-1.224 0-2.215 0.911-2.215 2.036s0.991 2.035 2.215 2.035c1.224 0 2.215-0.911 2.215-2.035s-0.991-2.036-2.215-2.036zM15.852 10.557c-1.224 0-2.215 0.911-2.215 2.036s0.991 2.035 2.215 2.035c1.222 0 2.215-0.911 2.215-2.035s-0.992-2.036-2.215-2.036z"></path></svg></span>
+                                                </button>
+                                            </div>
+
+                                            <div class="dplayer-setting">
+                                                <button class="dplayer-icon dplayer-setting-icon" data-balloon="设置"
+                                                        data-balloon-pos="up">
+                                                    <span class="dplayer-icon-content"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                            viewBox="0 0 32 28"><path
+                                                            d="M28.633 17.104c0.035 0.21 0.026 0.463-0.026 0.76s-0.14 0.598-0.262 0.904c-0.122 0.306-0.271 0.581-0.445 0.825s-0.367 0.419-0.576 0.524c-0.209 0.105-0.393 0.157-0.55 0.157s-0.332-0.035-0.524-0.105c-0.175-0.052-0.393-0.1-0.655-0.144s-0.528-0.052-0.799-0.026c-0.271 0.026-0.541 0.083-0.812 0.17s-0.502 0.236-0.694 0.445c-0.419 0.437-0.664 0.934-0.734 1.493s0.009 1.092 0.236 1.598c0.175 0.349 0.148 0.699-0.079 1.048-0.105 0.14-0.271 0.284-0.498 0.432s-0.476 0.284-0.747 0.406-0.555 0.218-0.851 0.288c-0.297 0.070-0.559 0.105-0.786 0.105-0.157 0-0.306-0.061-0.445-0.183s-0.236-0.253-0.288-0.393h-0.026c-0.192-0.541-0.52-1.009-0.982-1.402s-1-0.589-1.611-0.589c-0.594 0-1.131 0.197-1.611 0.589s-0.816 0.851-1.009 1.375c-0.087 0.21-0.218 0.362-0.393 0.458s-0.367 0.144-0.576 0.144c-0.244 0-0.52-0.044-0.825-0.131s-0.611-0.197-0.917-0.327c-0.306-0.131-0.581-0.284-0.825-0.458s-0.428-0.349-0.55-0.524c-0.087-0.122-0.135-0.266-0.144-0.432s0.057-0.397 0.197-0.694c0.192-0.402 0.266-0.86 0.223-1.375s-0.266-0.991-0.668-1.428c-0.244-0.262-0.541-0.432-0.891-0.511s-0.681-0.109-0.995-0.092c-0.367 0.017-0.742 0.087-1.127 0.21-0.244 0.070-0.489 0.052-0.734-0.052-0.192-0.070-0.371-0.231-0.537-0.485s-0.314-0.533-0.445-0.838c-0.131-0.306-0.231-0.62-0.301-0.943s-0.087-0.59-0.052-0.799c0.052-0.384 0.227-0.629 0.524-0.734 0.524-0.21 0.995-0.555 1.415-1.035s0.629-1.017 0.629-1.611c0-0.611-0.21-1.144-0.629-1.598s-0.891-0.786-1.415-0.996c-0.157-0.052-0.288-0.179-0.393-0.38s-0.157-0.406-0.157-0.616c0-0.227 0.035-0.48 0.105-0.76s0.162-0.55 0.275-0.812 0.244-0.502 0.393-0.72c0.148-0.218 0.31-0.38 0.485-0.485 0.14-0.087 0.275-0.122 0.406-0.105s0.275 0.052 0.432 0.105c0.524 0.21 1.070 0.275 1.637 0.197s1.070-0.327 1.506-0.747c0.21-0.209 0.362-0.467 0.458-0.773s0.157-0.607 0.183-0.904c0.026-0.297 0.026-0.568 0-0.812s-0.048-0.419-0.065-0.524c-0.035-0.105-0.066-0.227-0.092-0.367s-0.013-0.262 0.039-0.367c0.105-0.244 0.293-0.458 0.563-0.642s0.563-0.336 0.878-0.458c0.314-0.122 0.62-0.214 0.917-0.275s0.533-0.092 0.707-0.092c0.227 0 0.406 0.074 0.537 0.223s0.223 0.301 0.275 0.458c0.192 0.471 0.507 0.886 0.943 1.244s0.952 0.537 1.546 0.537c0.611 0 1.153-0.17 1.624-0.511s0.803-0.773 0.996-1.297c0.070-0.14 0.179-0.284 0.327-0.432s0.301-0.223 0.458-0.223c0.244 0 0.511 0.035 0.799 0.105s0.572 0.166 0.851 0.288c0.279 0.122 0.537 0.279 0.773 0.472s0.423 0.402 0.563 0.629c0.087 0.14 0.113 0.293 0.079 0.458s-0.070 0.284-0.105 0.354c-0.227 0.506-0.297 1.039-0.21 1.598s0.341 1.048 0.76 1.467c0.419 0.419 0.934 0.651 1.546 0.694s1.179-0.057 1.703-0.301c0.14-0.087 0.31-0.122 0.511-0.105s0.371 0.096 0.511 0.236c0.262 0.244 0.493 0.616 0.694 1.113s0.336 1 0.406 1.506c0.035 0.297-0.013 0.528-0.144 0.694s-0.266 0.275-0.406 0.327c-0.542 0.192-1.004 0.528-1.388 1.009s-0.576 1.026-0.576 1.637c0 0.594 0.162 1.113 0.485 1.559s0.747 0.764 1.27 0.956c0.122 0.070 0.227 0.14 0.314 0.21 0.192 0.157 0.323 0.358 0.393 0.602v0zM16.451 19.462c0.786 0 1.528-0.149 2.227-0.445s1.305-0.707 1.821-1.231c0.515-0.524 0.921-1.131 1.218-1.821s0.445-1.428 0.445-2.214c0-0.786-0.148-1.524-0.445-2.214s-0.703-1.292-1.218-1.808c-0.515-0.515-1.122-0.921-1.821-1.218s-1.441-0.445-2.227-0.445c-0.786 0-1.524 0.148-2.214 0.445s-1.292 0.703-1.808 1.218c-0.515 0.515-0.921 1.118-1.218 1.808s-0.445 1.428-0.445 2.214c0 0.786 0.149 1.524 0.445 2.214s0.703 1.297 1.218 1.821c0.515 0.524 1.118 0.934 1.808 1.231s1.428 0.445 2.214 0.445v0z"></path></svg></span>
+                                                </button>
+                                                <div class="dplayer-setting-box">
+                                                    <div class="dplayer-setting-origin-panel">
+                                                        <div class="dplayer-setting-item dplayer-setting-speed">
+                                                            <span class="dplayer-label">速度</span>
+                                                            <div class="dplayer-toggle">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                     viewBox="0 0 32 32">
+                                                                    <path d="M22 16l-10.105-10.6-1.895 1.987 8.211 8.613-8.211 8.612 1.895 1.988 8.211-8.613z"></path>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dplayer-setting-item dplayer-setting-loop">
+                                                            <span class="dplayer-label">洗脑循环</span>
+                                                            <div class="dplayer-toggle">
+                                                                <input class="dplayer-toggle-setting-input"
+                                                                       type="checkbox" name="dplayer-toggle">
+                                                                <label for="dplayer-toggle"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dplayer-setting-item dplayer-setting-showdan">
+                                                            <span class="dplayer-label">显示弹幕</span>
+                                                            <div class="dplayer-toggle">
+                                                                <input class="dplayer-showdan-setting-input"
+                                                                       type="checkbox" name="dplayer-toggle-dan">
+                                                                <label for="dplayer-toggle-dan"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dplayer-setting-item dplayer-setting-danunlimit">
+                                                            <span class="dplayer-label">海量弹幕</span>
+                                                            <div class="dplayer-toggle">
+                                                                <input class="dplayer-danunlimit-setting-input"
+                                                                       type="checkbox" name="dplayer-toggle-danunlimit">
+                                                                <label for="dplayer-toggle-danunlimit"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dplayer-setting-item dplayer-setting-danmaku">
+                                                            <span class="dplayer-label">弹幕透明度</span>
+                                                            <div class="dplayer-danmaku-bar-wrap">
+                                                                <div class="dplayer-danmaku-bar">
+                                                                    <div class="dplayer-danmaku-bar-inner">
+                                                                        <span class="dplayer-thumb"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dplayer-setting-speed-panel">
+                                                        <div class="dplayer-setting-speed-item" data-speed="0.5">
+                                                            <span class="dplayer-label">0.5</span>
+                                                        </div>
+                                                        <div class="dplayer-setting-speed-item" data-speed="0.75">
+                                                            <span class="dplayer-label">0.75</span>
+                                                        </div>
+                                                        <div class="dplayer-setting-speed-item" data-speed="1">
+                                                            <span class="dplayer-label">正常</span>
+                                                        </div>
+                                                        <div class="dplayer-setting-speed-item" data-speed="1.25">
+                                                            <span class="dplayer-label">1.25</span>
+                                                        </div>
+                                                        <div class="dplayer-setting-speed-item" data-speed="1.5">
+                                                            <span class="dplayer-label">1.5</span>
+                                                        </div>
+                                                        <div class="dplayer-setting-speed-item" data-speed="2">
+                                                            <span class="dplayer-label">2</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dplayer-full">
+                                                <button class="dplayer-icon dplayer-full-in-icon" data-balloon="页面全屏"
+                                                        data-balloon-pos="up">
+                                                    <span class="dplayer-icon-content"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                            viewBox="0 0 32 33"><path
+                                                            d="M24.965 24.38h-18.132c-1.366 0-2.478-1.113-2.478-2.478v-11.806c0-1.364 1.111-2.478 2.478-2.478h18.132c1.366 0 2.478 1.113 2.478 2.478v11.806c0 1.364-1.11 2.478-2.478 2.478zM6.833 10.097v11.806h18.134l-0.002-11.806h-18.132zM2.478 28.928h5.952c0.684 0 1.238-0.554 1.238-1.239 0-0.684-0.554-1.238-1.238-1.238h-5.952v-5.802c0-0.684-0.554-1.239-1.238-1.239s-1.239 0.556-1.239 1.239v5.802c0 1.365 1.111 2.478 2.478 2.478zM30.761 19.412c-0.684 0-1.238 0.554-1.238 1.238v5.801h-5.951c-0.686 0-1.239 0.554-1.239 1.238 0 0.686 0.554 1.239 1.239 1.239h5.951c1.366 0 2.478-1.111 2.478-2.478v-5.801c0-0.683-0.554-1.238-1.239-1.238zM0 5.55v5.802c0 0.683 0.554 1.238 1.238 1.238s1.238-0.555 1.238-1.238v-5.802h5.952c0.684 0 1.238-0.554 1.238-1.238s-0.554-1.238-1.238-1.238h-5.951c-1.366-0.001-2.478 1.111-2.478 2.476zM32 11.35v-5.801c0-1.365-1.11-2.478-2.478-2.478h-5.951c-0.686 0-1.239 0.554-1.239 1.238s0.554 1.238 1.239 1.238h5.951v5.801c0 0.683 0.554 1.237 1.238 1.237 0.686 0.002 1.239-0.553 1.239-1.236z"></path></svg></span>
+                                                </button>
+                                                <button class="dplayer-icon dplayer-full-icon" data-balloon="全屏"
+                                                        data-balloon-pos="up">
+                                                    <span class="dplayer-icon-content"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                            viewBox="0 0 32 33"><path
+                                                            d="M6.667 28h-5.333c-0.8 0-1.333-0.533-1.333-1.333v-5.333c0-0.8 0.533-1.333 1.333-1.333s1.333 0.533 1.333 1.333v4h4c0.8 0 1.333 0.533 1.333 1.333s-0.533 1.333-1.333 1.333zM30.667 28h-5.333c-0.8 0-1.333-0.533-1.333-1.333s0.533-1.333 1.333-1.333h4v-4c0-0.8 0.533-1.333 1.333-1.333s1.333 0.533 1.333 1.333v5.333c0 0.8-0.533 1.333-1.333 1.333zM30.667 12c-0.8 0-1.333-0.533-1.333-1.333v-4h-4c-0.8 0-1.333-0.533-1.333-1.333s0.533-1.333 1.333-1.333h5.333c0.8 0 1.333 0.533 1.333 1.333v5.333c0 0.8-0.533 1.333-1.333 1.333zM1.333 12c-0.8 0-1.333-0.533-1.333-1.333v-5.333c0-0.8 0.533-1.333 1.333-1.333h5.333c0.8 0 1.333 0.533 1.333 1.333s-0.533 1.333-1.333 1.333h-4v4c0 0.8-0.533 1.333-1.333 1.333z"></path></svg></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="dplayer-bar-wrap">
+                                            <div class="dplayer-bar-time hidden">00:00</div>
+                                            <div class="dplayer-bar-preview"></div>
+                                            <div class="dplayer-bar">
+                                                <div class="dplayer-loaded" style="width: 0%;"></div>
+                                                <div class="dplayer-played" style="width: 0; background: #42b983">
+                                                    <span class="dplayer-thumb" style="background: #42b983"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dplayer-info-panel dplayer-info-panel-hide">
+                                        <div class="dplayer-info-panel-close">[x]</div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-version">
+                                            <span class="dplayer-info-panel-item-title">Player version</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-fps">
+                                            <span class="dplayer-info-panel-item-title">Player FPS</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-type">
+                                            <span class="dplayer-info-panel-item-title">Video type</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-url">
+                                            <span class="dplayer-info-panel-item-title">Video url</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-resolution">
+                                            <span class="dplayer-info-panel-item-title">Video resolution</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+                                        <div class="dplayer-info-panel-item dplayer-info-panel-item-duration">
+                                            <span class="dplayer-info-panel-item-title">Video duration</span>
+                                            <span class="dplayer-info-panel-item-data"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dplayer-menu">
+
+                                        <div class="dplayer-menu-item">
+                                            <a href="javascript:void(0);">视频统计信息</a>
+                                        </div>
+
+                                        <div class="dplayer-menu-item">
+                                            <a target="_blank" href="https://diygod.me">关于作者</a>
+                                        </div>
+
+                                        <div class="dplayer-menu-item">
+                                            <a target="_blank" href="https://github.com/MoePlayer/DPlayer">DPlayer
+                                                v1.25.0</a>
+                                        </div>
+
+                                    </div>
+                                    <div class="dplayer-notice"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="../libs/dplayer/DPlayer.min.js"></script>
+                    <script>
+                        $(function () {
+                            new DPlayer({
+                                container: document.getElementById('dplayer'),
+                                autoplay: 'false' === 'true',
+                                theme: '#42b983',
+                                loop: 'false' === 'true',
+                                lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+                                preload: 'auto',
+                                volume: Number('0.7'),
+                                video: {
+                                    url: '../medias/videos/demo.mp4',
+                                    pic: '../medias/videos/demo-pic.png',
+                                    thumbnails: ''
+                                }
+                            });
+                        });
+                    </script>
+
+
+                    <div id="recommend-sections" class="recommend">
+
+
+                        <div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
+
+                        <div class="row">
+
+
+                            <div class="col s12 m6">
+
+                                <div class="post-card"
+                                     style="background-image: url('https://statics.sh1a.qingstor.com/2018/11/24/design.jpg')">
+
+                                    <div class="post-body">
+                                        <div class="post-categories">
+
+
+                                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"
+                                               class="category">软件设计</a>
+
+
+                                        </div>
+                                        <a href="/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/">
+                                            <h3 class="post-title">软件程序设计原则</h3>
+                                        </a>
+                                        <p class="post-description">
+
+                                            一、前言软件也像人一样，具有生命力，从出生到死亡，会经历多种变化。软件架构设计也不是一蹴而就的，是不断地演进发展。每个程序员都可以从理解编程
+
+                                        </p>
+                                        <a href="/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/"
+                                           class="read-more btn waves-effect waves-light"
+                                           style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)"
+                                           target="_blank">
+                                            <i class="icon far fa-eye fa-fw"></i>阅读更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col s12 m6">
+
+                                <div class="post-card"
+                                     style="background-image: url('https://statics.sh1a.qingstor.com/2018/11/05/io.jpg')">
+
+                                    <div class="post-body">
+                                        <div class="post-categories">
+
+
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category">后端</a>
+
+
+                                        </div>
+                                        <a href="/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/">
+                                            <h3 class="post-title">Java IO 知识整理</h3>
+                                        </a>
+                                        <p class="post-description">
+
+                                            各IO类关系梳理
+                                            InputStream: Java IO中的顶级的字节输入流的抽象类，定义了最基础的输入、读取的相关方法。实现了Close
+
+                                        </p>
+                                        <a href="/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/"
+                                           class="read-more btn waves-effect waves-light"
+                                           style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)"
+                                           target="_blank">
+                                            <i class="icon far fa-eye fa-fw"></i>阅读更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col s12 m6 aos-init" data-aos="zoom-in-up">
+
+                                <div class="post-card"
+                                     style="background-image: url('https://statics.sh1a.qingstor.com/2018/10/24/collections.jpg')">
+
+                                    <div class="post-body">
+                                        <div class="post-categories">
+
+
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category">后端</a>
+
+
+                                        </div>
+                                        <a href="/2018/10/24/hou-duan/java/java-ji-he-kuang-jia-zhi-shi-zheng-li/">
+                                            <h3 class="post-title">Java集合框架知识整理</h3>
+                                        </a>
+                                        <p class="post-description">
+
+                                            Java集合框架主要由Collection和Map两个根接口及其子接口、实现类组成。
+                                            集合类关系梳理
+                                            Collection接口继承了Iter
+
+                                        </p>
+                                        <a href="/2018/10/24/hou-duan/java/java-ji-he-kuang-jia-zhi-shi-zheng-li/"
+                                           class="read-more btn waves-effect waves-light"
+                                           style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)"
+                                           target="_blank">
+                                            <i class="icon far fa-eye fa-fw"></i>阅读更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col s12 m6 aos-init" data-aos="zoom-in-up">
+
+                                <div class="post-card"
+                                     style="background-image: url('https://statics.sh1a.qingstor.com/2019/03/02/spring.png')">
+
+                                    <div class="post-body">
+                                        <div class="post-categories">
+
+
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category">后端</a>
+
+
+                                        </div>
+                                        <a href="/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/">
+                                            <h3 class="post-title">SpringBoot2.x 单元测试</h3>
+                                        </a>
+                                        <p class="post-description">
+
+
+                                            一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。
+
+                                            我曾经在 单元测试指南 一文中写到过单元测试的必要性和 Java 单元
+
+                                        </p>
+                                        <a href="/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/"
+                                           class="read-more btn waves-effect waves-light"
+                                           style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)"
+                                           target="_blank">
+                                            <i class="icon far fa-eye fa-fw"></i>阅读更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles" style="position: relative; height: 1635px;">
+        <div class="row article-row">
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 0px; top: 0px;">
+                <div class="card">
+                    <a href="/2019/08/20/hou-duan/jpa/fenix-bi-mybatis-geng-jia-qiang-da-de-spring-data-jpa-kuo-zhan-ku/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2019/08/20/jpa.png" class="responsive-img"
+                                 alt="Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库">
+
+                            <span class="card-title">Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+
+                            Fenix（菲尼克斯）是一个比 MyBatis 更加强大，为解决复杂、动态 SQL (JPQL) 而生的 Spring Data JPA
+                            扩展库，目的是辅助开发者更方便、快捷的书写复杂、动态且易于维护的 SQL，支持 XML 和 Java
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-20
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/JPA/">
+                            <span class="chip bg-color">JPA</span>
+                        </a>
+
+                        <a href="/tags/Fenix/">
+                            <span class="chip bg-color">Fenix</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 351px; top: 0px;">
+                <div class="card">
+                    <a href="/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2019/03/02/spring.png" class="responsive-img"
+                                 alt="SpringBoot2.x 单元测试">
+
+                            <span class="card-title">SpringBoot2.x 单元测试</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+
+                            一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。
+
+                            我曾经在 单元测试指南 一文中写到过单元测试的必要性和 Java 单元测试相关的工具及方法。单元测试能帮助我们在早期就规避、发现和修复很多不易察觉的 bug 和漏洞，而且
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-02
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                            <span class="chip bg-color">单元测试</span>
+                        </a>
+
+                        <a href="/tags/Spring/">
+                            <span class="chip bg-color">Spring</span>
+                        </a>
+
+                        <a href="/tags/SpringBoot/">
+                            <span class="chip bg-color">SpringBoot</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 702px; top: 0px;">
+                <div class="card">
+                    <a href="/2019/02/14/hou-duan/java/java-dai-ma-xing-neng-ping-gu-ku-stalker-jie-shao/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2019/02/14/stalker.jpg" class="responsive-img"
+                                 alt="Java代码性能评估库Stalker介绍">
+
+                            <span class="card-title">Java代码性能评估库Stalker介绍</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            English Document
+
+                            这是一个简单的用来对Java代码做性能评估的工具库。
+
+                            特性
+                            轻量级（jar包仅26kb）
+                            API简单易用
+                            易于集成或扩展
+
+                            Maven集成&lt;dependency&gt;
+                            &lt;groupId&gt;
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-02-14
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                            <span class="chip bg-color">性能测试</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 0px; top: 408px;">
+                <div class="card">
+                    <a href="/2019/01/25/hou-duan/java/yi-ge-ji-jian-de-java-ascii-biao-ge-sheng-cheng-ku/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2019/01/25/minitable.jpg" class="responsive-img"
+                                 alt="一个极简的 Java ASCII 表格生成库">
+
+                            <span class="card-title">一个极简的 Java ASCII 表格生成库</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+
+                            一个轻量级、零依赖的 Java ASCII 表格生成库。
+
+                            特性
+                            轻量级、无依赖（jar包仅9kb）
+                            API简单易用
+                            易于集成或定制修改，仅一个Java文件，且代码规范
+
+                            集成使用Maven集成&lt;dependency&gt;
+                            &amp;l
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-25
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 351px; top: 408px;">
+                <div class="card">
+                    <a href="/2018/12/19/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-qiao-jie-mo-shi/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/12/19/bridge.jpg" class="responsive-img"
+                                 alt="Java面向对象设计之桥接模式">
+
+                            <span class="card-title">Java面向对象设计之桥接模式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            模式动机设想如果要绘制矩形、圆形、椭圆、正方形，我们至少需要4个形状类，但是如果绘制的图形需要具有不同的颜色，如红色、绿色、蓝色等，此时至少有如下两种设计方案：
+
+                            第一种设计方案是为每一种形状都提供一套各种颜色的版本。
+                            第二种设计方案是根据
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-19
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            <span class="chip bg-color">设计模式</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 702px; top: 408px;">
+                <div class="card">
+                    <a href="/2018/12/12/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gua-pei-qi-mo-shi/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/12/12/adapter.jpg" class="responsive-img"
+                                 alt="Java面向对象设计之适配器模式">
+
+                            <span class="card-title">Java面向对象设计之适配器模式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            模式动机
+                            在软件开发中采用类似于电源适配器的设计和编码技巧被称为适配器模式。
+                            通常情况下，客户端可以通过目标类的接口访问它所提供的服务。有时，现有的类可以满足客户类的功能需要，但是它所提供的接口不一定是客户类所期望的，这可能是因为现有类中方
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-12
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            <span class="chip bg-color">设计模式</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 0px; top: 817px;">
+                <div class="card">
+                    <a href="/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/24/design.jpg" class="responsive-img"
+                                 alt="软件程序设计原则">
+
+                            <span class="card-title">软件程序设计原则</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            一、前言软件也像人一样，具有生命力，从出生到死亡，会经历多种变化。软件架构设计也不是一蹴而就的，是不断地演进发展。每个程序员都可以从理解编程原则和模式中受益。
+                            软件设计原则是一组帮助我们避开不良设计的指导方针。根据Robert Martin
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-24
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    软件设计
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">
+                            <span class="chip bg-color">面向对象编程</span>
+                        </a>
+
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+                            <span class="chip bg-color">设计原则</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 351px; top: 817px;">
+                <div class="card">
+                    <a href="/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/22/gitlab-ci-machine.png"
+                                 class="responsive-img" alt="GitLab CI/CD 介绍和使用">
+
+                            <span class="card-title">GitLab CI/CD 介绍和使用</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            一、持续集成介绍
+                            持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许多团队
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-22
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    软件工具
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/GitLab-CI/">
+                            <span class="chip bg-color">GitLab CI</span>
+                        </a>
+
+                        <a href="/tags/DevOps/">
+                            <span class="chip bg-color">DevOps</span>
+                        </a>
+
+                        <a href="/tags/Jenkins/">
+                            <span class="chip bg-color">Jenkins</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 702px; top: 817px;">
+                <div class="card">
+                    <a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/19/vue.jpg" class="responsive-img"
+                                 alt="Vue 文档风格的 Typora 主题">
+
+                            <span class="card-title">Vue 文档风格的 Typora 主题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+
+                            typora-vue-theme 是 Typora Markdown 文档编辑器中一款类似Vue文档风格的主题。
+
+                            简介Typora是一款支持实时预览的 Markdown 编辑器和阅读器，支持Windows、macOS、Linux三大平台
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-19
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    软件工具
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Typora/">
+                            <span class="chip bg-color">Typora</span>
+                        </a>
+
+                        <a href="/tags/Markdown/">
+                            <span class="chip bg-color">Markdown</span>
+                        </a>
+
+                        <a href="/tags/Vue/">
+                            <span class="chip bg-color">Vue</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 0px; top: 1226px;">
+                <div class="card">
+                    <a href="/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/18/cpu.jpg" class="responsive-img"
+                                 alt="CPU多级缓存">
+
+                            <span class="card-title">CPU多级缓存</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            一、什么是CPU缓存1. CPU缓存的来历众所周知,CPU是计算机的大脑，它负责执行程序的指令，而内存负责存数据,
+                            包括程序自身的数据。在很多年前，CPU的频率与内存总线的频率在同一层面上。内存的访问速度仅比寄存器慢一些。但是，这一局面在上
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-18
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    软件工具
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/CPU%E7%BC%93%E5%AD%98/">
+                            <span class="chip bg-color">CPU缓存</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 351px; top: 1226px;">
+                <div class="card">
+                    <a href="/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/15/unit-test.jpg" class="responsive-img"
+                                 alt="单元测试指南">
+
+                            <span class="card-title">单元测试指南</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            一、必要性在我们公司中要做单元测试，确实比较难，因为公司缺少这种氛围，有也只是局部的，大多数工程师没有这方面的习惯和素养，很多人都是有一定的抵触的心理，经过我私下的了解大概有以下几种原因吧。
+
+                            写单元测试太耗费时间了，项目要赶进度，编写单元
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-15
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                        <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                            <span class="chip bg-color">单元测试</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article col s12 m6 l4 aos-init" data-aos="zoom-in"
+                 style="position: absolute; left: 702px; top: 1226px;">
+                <div class="card">
+                    <a href="/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/">
+                        <div class="card-image">
+
+                            <img src="https://statics.sh1a.qingstor.com/2018/11/13/java8-2.jpg" class="responsive-img"
+                                 alt="Java8新特性及使用(二)">
+
+                            <span class="card-title">Java8新特性及使用(二)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+
+                            扩展注解的支持Java 8扩展了注解的上下文。现在几乎可以为任何东西添加注解：局部变量、泛型类、父类与接口的实现，就连方法的异常也能添加注解。下面演示几个例子：
+                            import java.lang.annotation.ElementType
+
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-14
+                            </span>
+                            <span class="publish-author">
+
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card-action article-tags">
+
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 5</div>
+        </div>
+        <div class="col s6 m4 l4">
+
+            <a href="/page/2/" class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+<footer class="page-footer bg-color">
+
+<!--音乐 start-->
+    <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+<!--    控制 折叠效果-->
+    <style>
+        .aplayer .aplayer-lrc p {
+
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 16px !important;
+        }
+
+        .aplayer .aplayer-lrc p.aplayer-lrc-current {
+
+            font-size: 15px;
+            color: #42b983;
+        }
+
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+
+    </style>
+    <script src="../libs/aplayer/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<!--    这段没显示，后面看-->
+ <!--   <div class="">
+
+        <div class="row">
+            <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="503838841"
+                       fixed="true" autoplay="false" theme="#42b983" loop="all" order="random" preload="auto"
+                       volume="0.7" list-folded="true">
+            </meting-js>
+        </div>
+    </div>-->
+<!--    <meting-js-->
+<!--            server="netease"-->
+<!--            type="playlist"-->
+<!--            id="60198"-->
+<!--            fixed="true"-->
+<!--            autoplay="true"-->
+<!--            loop="all"-->
+<!--            order="random"-->
+<!--            preload="auto"-->
+<!--            list-folded="ture"-->
+<!--            list-max-height="500px"-->
+<!--            lrc-type="1">-->
+<!--    </meting-js>-->
+<!--音乐 end-->
+
+<!--页脚 网站信息说明 start-->
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;©
+
+            <span id="year">2018 - 2022</span>
+
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">197k</span>&nbsp;字
+
+
+            <span id="busuanzi_container_site_pv" style="display: inline;">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color">324059</span>&nbsp;次
+            </span>
+
+
+            <span id="busuanzi_container_site_uv" style="display: inline;">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                                                                           class="white-color">67776</span>&nbsp;人
+            </span>
+
+            <br>
+
+            <span id="sitetime">本站已安全运行 3 年 117 天 16 小时 10 分钟 56 秒</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+
+                setInterval(siteTime, 1000);
+            </script>
+
+            <br>
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+               data-position="top" data-delay="50">
+                <i class="fab fa-github"></i>
+            </a>
+
+
+            <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+               data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+
+
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1181062873"
+               class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+                <i class="fab fa-qq"></i>
+            </a>
+
+
+            <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
+               data-delay="50">
+                <i class="fas fa-rss"></i>
+            </a>
+
+        </div>
+    </div>
+<!--页脚 网站信息说明 end-->
+</footer>
+
+<div class="progress-bar" style="width: 0%;"></div>
+
+
+<!-- 搜索遮罩框 start-->
+<div id="searchModal" class="modal" tabindex="0">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('../xml/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+<!-- 搜索遮罩框 end-->
+
+<!-- 回到顶部按钮 start -->
+<div id="backTop" class="top-scroll" style="display: none;">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+<!-- 回到顶部按钮 end -->
+
+<script src="../libs/materialize/materialize.min.js"></script>
+<script src="../libs/masonry/masonry.pkgd.min.js"></script>
+<script src="../libs/aos/aos.js"></script>
+<script src="../libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="../libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="../js/matery.js"></script>
+
+<!-- Baidu Analytics -->
+
+<!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+<!--点击火花-->
+<script src="../libs/others/clicklove.js" async="async"></script>
+
+<!--统计网站访问次数-->
+<script async="" src="../libs/others/busuanzi.pure.mini.js"></script>
+
+<!--浏览动态背景-->
+<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="../libs/background/ribbon-refresh.min.js"
+        async="async"></script>
+
+
+<script src="../libs/instantpage/instantpage.js" type="module"></script>
+
+
+<canvas width="1920" height="945"
+        style="opacity: 0.6; position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%; pointer-events: none;"></canvas>
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+<div class="material-tooltip">
+    <div class="tooltip-content"></div>
+</div>
+<div class="material-tooltip"
+     style="top: 724.281px; left: 812px; visibility: visible; opacity: 0; transform: translateX(0px) translateY(0px);">
+    <div class="tooltip-content">访问我的GitHub</div>
+</div>
+<div class="material-tooltip"
+     style="top: 724.281px; left: 882.5px; visibility: visible; opacity: 0; transform: translateX(0px) translateY(0px);">
+    <div class="tooltip-content">邮件联系我</div>
+</div>
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+<!--<div class="material-tooltip">-->
+<!--    <div class="tooltip-content"></div>-->
+<!--</div>-->
+</body>
+</html>
