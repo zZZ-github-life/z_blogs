@@ -1,0 +1,597 @@
+<!-- 
+    @author:  zZZ....
+    @description: 分类|标签
+    @date: 2022/1/19
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签, 闪烁之狐, Blinkfox">
+    <meta name="description" content="从来没有真正的绝境，只有心灵的迷途">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>标签 | 闪烁之狐</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/matery.css">
+    <link rel="stylesheet" type="text/css" href="../css/my.css">
+
+    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script src="/libs/jquery/jquery.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
+    <style type="text/css">
+        .heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}
+        .heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}
+        .heart:after{top: -5px;}
+        .heart:before{left: -5px;}
+    </style>
+    <link rel="prefetch">
+</head>
+
+
+
+
+<body data-aos-easing="ease-in-out-sine" data-aos-duration="700" data-aos-delay="100">
+
+<!--引入html头部 -->
+<!--<script type="text/javascript" src="../js/1_header.js"></script>-->
+<script  >
+    //开发模式下用此种方式加载 外部html，略微降低性能
+    let blogs_xhr_1 = new XMLHttpRequest();
+    blogs_xhr_1.open('get','http://localhost:8853/blogs/html/1_header.html',false);
+    blogs_xhr_1.onreadystatechange = function () {
+        if(blogs_xhr_1.readyState === 4 ){
+            document.write(blogs_xhr_1.responseText)
+        }
+    };
+    blogs_xhr_1.send(null);
+</script>
+
+<div class="bg-cover pd-header about-cover" style="background-image: url(&quot;/medias/banner/3.jpg&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+
+                        闪烁之狐
+
+                    </div>
+
+                    <div class="description center-align">
+
+                        <span id="subtitle">Never really desperate</span><span class="typed-cursor">|</span>
+                        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                        <script>
+                            var typed = new Typed("#subtitle", {
+                                strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                                startDelay: 300,
+                                typeSpeed: 100,
+                                loop: true,
+                                backSpeed: 50,
+                                showCursor: true
+                            });
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // 每天切换 banner 图.  Switch banner image every day.
+            var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+            $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+        </script>
+
+
+    </div>
+</div><style type="text/css" data-typed-js-css="true">
+    .typed-cursor{
+        opacity: 1;
+    }
+    .typed-cursor.typed-cursor--blink{
+        animation: typedjsBlink 0.7s infinite;
+        -webkit-animation: typedjsBlink 0.7s infinite;
+        animation: typedjsBlink 0.7s infinite;
+    }
+    @keyframes typedjsBlink{
+        50% { opacity: 0.0; }
+    }
+    @-webkit-keyframes typedjsBlink{
+        0% { opacity: 1; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1; }
+    }
+</style>
+
+<main class="content" style="min-height: 780px;">
+
+
+
+    <div id="tags" class="container chip-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+                </div>
+                <div class="tag-chips">
+
+
+                    <a href="/tags/Hexo/" title="Hexo: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Hexo" style="background-color: #F9EBEA;">Hexo
+                        <span class="tag-length">2</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/JavaScript/" title="JavaScript: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="JavaScript" style="background-color: #F5EEF8;">JavaScript
+                        <span class="tag-length">4</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/PostgreSQL/" title="PostgreSQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="PostgreSQL" style="background-color: #D5F5E3;">PostgreSQL
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="数据库" style="background-color: #E8F8F5;">数据库
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Java/" title="Java: 43">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Java" style="background-color: #FEF9E7;">Java
+                        <span class="tag-length">43</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" title="面向对象编程: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="面向对象编程" style="background-color: #F8F9F9;">面向对象编程
+                        <span class="tag-length">3</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/CPU%E7%BC%93%E5%AD%98/" title="CPU缓存: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="CPU缓存" style="background-color: #82E0AA;">CPU缓存
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/UML/" title="UML: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="UML" style="background-color: #D7BDE2;">UML
+                        <span class="tag-length">2</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="性能测试: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="性能测试" style="background-color: #A3E4D7;">性能测试
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/MVEL/" title="MVEL: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="MVEL" style="background-color: #85C1E9;">MVEL
+                        <span class="tag-length">2</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/JPA/" title="JPA: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="JPA" style="background-color: #F8C471;">JPA
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Fenix/" title="Fenix: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Fenix" style="background-color: #F9E79F;">Fenix
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Linux/" title="Linux: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Linux" style="background-color: #E8F8F5;">Linux
+                        <span class="tag-length">4</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Typora/" title="Typora: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Typora" style="background-color: #F8F9F9;">Typora
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Markdown/" title="Markdown: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Markdown" style="background-color: #F8F9F9;">Markdown
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Vue/" title="Vue: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Vue" style="background-color: #D5F5E3;">Vue
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式: 14">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="设计模式" style="background-color: #85C1E9;">设计模式
+                        <span class="tag-length">14</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Apache/" title="Apache: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Apache" style="background-color: #82E0AA;">Apache
+                        <span class="tag-length">4</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/hexo-theme-matery/" title="hexo-theme-matery: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="hexo-theme-matery" style="background-color: #A3E4D7;">hexo-theme-matery
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Google/" title="Google: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Google" style="background-color: #D7BDE2;">Google
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81/" title="整洁代码: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="整洁代码" style="background-color: #85C1E9;">整洁代码
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E9%87%8D%E6%9E%84/" title="重构: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="重构" style="background-color: #E8F8F5;">重构
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/" title="测试: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="测试" style="background-color: #F8C471;">测试
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="设计原则: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="设计原则" style="background-color: #FEF9E7;">设计原则
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="单元测试" style="background-color: #D7BDE2;">单元测试
+                        <span class="tag-length">2</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Spring/" title="Spring: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Spring" style="background-color: #F9E79F;">Spring
+                        <span class="tag-length">2</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/SpringBoot/" title="SpringBoot: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="SpringBoot" style="background-color: #F9E79F;">SpringBoot
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Git/" title="Git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Git" style="background-color: #F9E79F;">Git
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/GitLab-CI/" title="GitLab CI: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="GitLab CI" style="background-color: #85C1E9;">GitLab CI
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/DevOps/" title="DevOps: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="DevOps" style="background-color: #F8F9F9;">DevOps
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+
+                    <a href="/tags/Jenkins/" title="Jenkins: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Jenkins" style="background-color: #D7BDE2;">Jenkins
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <link rel="stylesheet" type="text/css" href="../libs/jqcloud/jqcloud.css">
+    <style type="text/css">
+        #tag-wordcloud {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="card">
+            <div id="tag-wordcloud" class="card-content jqcloud" style="width: 1125px; height: 300px;"><span id="tag-wordcloud_word_0" class="w10" style="position: absolute; left: 479px; top: 94.5px;"><a href="/tags/Java/">Java</a></span><span id="tag-wordcloud_word_1" class="w4" style="position: absolute; left: 376.143px; top: 121.636px;"><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span><span id="tag-wordcloud_word_2" class="w2" style="position: absolute; left: 598.342px; top: 100.126px;"><a href="/tags/JavaScript/">JavaScript</a></span><span id="tag-wordcloud_word_3" class="w2" style="position: absolute; left: 670.657px; top: 126.33px;"><a href="/tags/Linux/">Linux</a></span><span id="tag-wordcloud_word_4" class="w2" style="position: absolute; left: 616.373px; top: 138.718px;"><a href="/tags/Apache/">Apache</a></span><span id="tag-wordcloud_word_5" class="w1" style="position: absolute; left: 370.533px; top: 99.9921px;"><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程</a></span><span id="tag-wordcloud_word_6" class="w1" style="position: absolute; left: 673.747px; top: 109.754px;"><a href="/tags/Hexo/">Hexo</a></span><span id="tag-wordcloud_word_7" class="w1" style="position: absolute; left: 474.924px; top: 160.846px;"><a href="/tags/UML/">UML</a></span><span id="tag-wordcloud_word_8" class="w1" style="position: absolute; left: 531.508px; top: 76.5472px;"><a href="/tags/MVEL/">MVEL</a></span><span id="tag-wordcloud_word_9" class="w1" style="position: absolute; left: 598.654px; top: 122.004px;"><a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a></span><span id="tag-wordcloud_word_10" class="w1" style="position: absolute; left: 445.455px; top: 80.3468px;"><a href="/tags/Spring/">Spring</a></span><span id="tag-wordcloud_word_11" class="w1" style="position: absolute; left: 611.757px; top: 84.7356px;"><a href="/tags/PostgreSQL/">PostgreSQL</a></span><span id="tag-wordcloud_word_12" class="w1" style="position: absolute; left: 705.354px; top: 110.425px;"><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span id="tag-wordcloud_word_13" class="w1" style="position: absolute; left: 695.099px; top: 148.475px;"><a href="/tags/CPU%E7%BC%93%E5%AD%98/">CPU缓存</a></span><span id="tag-wordcloud_word_14" class="w1" style="position: absolute; left: 317.905px; top: 118.398px;"><a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">性能测试</a></span><span id="tag-wordcloud_word_15" class="w1" style="position: absolute; left: 315.752px; top: 139.428px;"><a href="/tags/JPA/">JPA</a></span><span id="tag-wordcloud_word_16" class="w1" style="position: absolute; left: 412.647px; top: 163.502px;"><a href="/tags/Fenix/">Fenix</a></span><span id="tag-wordcloud_word_17" class="w1" style="position: absolute; left: 563.716px; top: 163.375px;"><a href="/tags/Typora/">Typora</a></span><span id="tag-wordcloud_word_18" class="w1" style="position: absolute; left: 345.98px; top: 83.5409px;"><a href="/tags/Markdown/">Markdown</a></span><span id="tag-wordcloud_word_19" class="w1" style="position: absolute; left: 454.943px; top: 101.654px;"><a href="/tags/Vue/">Vue</a></span><span id="tag-wordcloud_word_20" class="w1" style="position: absolute; left: 299.001px; top: 153.596px;"><a href="/tags/hexo-theme-matery/">hexo-theme-matery</a></span><span id="tag-wordcloud_word_21" class="w1" style="position: absolute; left: 483.968px; top: 79.3245px;"><a href="/tags/Google/">Google</a></span><span id="tag-wordcloud_word_22" class="w1" style="position: absolute; left: 750.532px; top: 136.218px;"><a href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81/">整洁代码</a></span><span id="tag-wordcloud_word_23" class="w1" style="position: absolute; left: 533.934px; top: 160.464px;"><a href="/tags/%E9%87%8D%E6%9E%84/">重构</a></span><span id="tag-wordcloud_word_24" class="w1" style="position: absolute; left: 709.752px; top: 85.6749px;"><a href="/tags/%E6%B5%8B%E8%AF%95/">测试</a></span><span id="tag-wordcloud_word_25" class="w1" style="position: absolute; left: 499.326px; top: 56.6017px;"><a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">设计原则</a></span><span id="tag-wordcloud_word_26" class="w1" style="position: absolute; left: 302.54px; top: 98.6789px;"><a href="/tags/SpringBoot/">SpringBoot</a></span><span id="tag-wordcloud_word_27" class="w1" style="position: absolute; left: 763.615px; top: 105.324px;"><a href="/tags/Git/">Git</a></span><span id="tag-wordcloud_word_28" class="w1" style="position: absolute; left: 628.308px; top: 172.092px;"><a href="/tags/GitLab-CI/">GitLab CI</a></span><span id="tag-wordcloud_word_29" class="w1" style="position: absolute; left: 568.658px; top: 67.9524px;"><a href="/tags/DevOps/">DevOps</a></span><span id="tag-wordcloud_word_30" class="w1" style="position: absolute; left: 566.632px; top: 179.403px;"><a href="/tags/Jenkins/">Jenkins</a></span></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+    <script type="text/javascript">
+
+
+        $('#tag-wordcloud').jQCloud([{"text":"Hexo","weight":2,"link":"/tags/Hexo/"},{"text":"JavaScript","weight":4,"link":"/tags/JavaScript/"},{"text":"PostgreSQL","weight":1,"link":"/tags/PostgreSQL/"},{"text":"数据库","weight":1,"link":"/tags/数据库/"},{"text":"Java","weight":43,"link":"/tags/Java/"},{"text":"面向对象编程","weight":3,"link":"/tags/面向对象编程/"},{"text":"CPU缓存","weight":1,"link":"/tags/CPU缓存/"},{"text":"UML","weight":2,"link":"/tags/UML/"},{"text":"性能测试","weight":1,"link":"/tags/性能测试/"},{"text":"MVEL","weight":2,"link":"/tags/MVEL/"},{"text":"JPA","weight":1,"link":"/tags/JPA/"},{"text":"Fenix","weight":1,"link":"/tags/Fenix/"},{"text":"Linux","weight":4,"link":"/tags/Linux/"},{"text":"Typora","weight":1,"link":"/tags/Typora/"},{"text":"Markdown","weight":1,"link":"/tags/Markdown/"},{"text":"Vue","weight":1,"link":"/tags/Vue/"},{"text":"设计模式","weight":14,"link":"/tags/设计模式/"},{"text":"Apache","weight":4,"link":"/tags/Apache/"},{"text":"hexo-theme-matery","weight":1,"link":"/tags/hexo-theme-matery/"},{"text":"Google","weight":1,"link":"/tags/Google/"},{"text":"整洁代码","weight":1,"link":"/tags/整洁代码/"},{"text":"重构","weight":1,"link":"/tags/重构/"},{"text":"测试","weight":1,"link":"/tags/测试/"},{"text":"设计原则","weight":1,"link":"/tags/设计原则/"},{"text":"单元测试","weight":2,"link":"/tags/单元测试/"},{"text":"Spring","weight":2,"link":"/tags/Spring/"},{"text":"SpringBoot","weight":1,"link":"/tags/SpringBoot/"},{"text":"Git","weight":1,"link":"/tags/Git/"},{"text":"GitLab CI","weight":1,"link":"/tags/GitLab-CI/"},{"text":"DevOps","weight":1,"link":"/tags/DevOps/"},{"text":"Jenkins","weight":1,"link":"/tags/Jenkins/"}], {
+            autoResize: true
+        });
+    </script>
+
+
+
+</main>
+
+
+<!--引入html页尾-->
+<!--<script type="text/javascript" src="../js/2_footer.js"></script>-->
+<script  >
+    //开发模式下用此种方式加载 外部html，略微降低性能
+    let blogs_xhr_2 = new XMLHttpRequest();
+    blogs_xhr_2.open('get','http://localhost:8853/blogs/html/2_footer.html',false);
+    blogs_xhr_2.onreadystatechange = function () {
+        if(blogs_xhr_2.readyState === 4 ){
+            document.write(blogs_xhr_2.responseText)
+        }
+    };
+    blogs_xhr_2.send(null);
+</script>
+
+<div class="progress-bar" style="width: 100%;"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal" tabindex="0">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll" style="display: block;">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Baidu Analytics -->
+
+<!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+<script src="/libs/others/clicklove.js" async="async"></script>
+
+
+<script async="" src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+
+
+
+
+
+<script src="/libs/instantpage/instantpage.js" type="module"></script>
+
+
+
+
+
+<canvas width="1920" height="945" style="opacity: 0.6; position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%; pointer-events: none;"></canvas><div class="sidenav-overlay"></div><div class="drag-target"></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div></body></html>
