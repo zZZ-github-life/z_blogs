@@ -1,0 +1,84 @@
+<!-- 
+    @author:  zZZ....
+    @description:
+    @date: 2022/1/21
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zZZ....</title>
+
+    <script src="../libs/jquery/jquery.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+    <script src="../libs/materialize/materialize.min.js"></script>
+
+</head>
+<body>
+
+<!--html头部  start-->
+    <header class="navbar-fixed">
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo left">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">组件</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+<script>
+   window.onload=function () {
+       console.log($('.dropdown-button'));
+       $(".dropdown-button").dropdown();
+
+   }
+</script>
+
+
+<!--html头部  end-->
+
+
+<!--主体部分 start-->
+<main>这是主体部分</main>
+<!--主体部分 end-->
+<div style="height: 700px">
+4
+</div>
+<div style="height: 700px">
+    4
+</div>
+<!--  页脚 start  -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">页脚内容</h5>
+                <p class="grey-text text-lighten-4">你可以用行和列来组织你的页脚内容。</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">链接</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">链接 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">链接 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">链接 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">链接 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright 文本
+            <a class="grey-text text-lighten-4 right" href="#!">更多链接</a>
+        </div>
+    </div>
+</footer>
+
+<!--  页脚 end  -->
+</body>
+</html>
