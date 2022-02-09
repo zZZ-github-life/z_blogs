@@ -11,15 +11,19 @@
     <style>
         .aplayer .aplayer-lrc p {
 
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
-            line-height: 16px !important;
+            font-style: oblique;
+            line-height: 30px !important;
+
         }
 
         .aplayer .aplayer-lrc p.aplayer-lrc-current {
 
-            font-size: 15px;
-            color: #42b983;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 20px;
+            color: #69597c;
         }
 
 
@@ -30,11 +34,13 @@
         .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
             left: 0px !important;
         }
-
+        .aplayer.aplayer-fixed .aplayer-lrc{
+            text-shadow: -1px -1px 0 #b6b4b1;
+        }
 
     </style>
-    <script src="../libs/aplayer/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <script src="../libs/aplayer/APlayer.js"></script>
+    <script src="../libs/aplayer/Meting/Meting.min.js"></script>
 
     <!--    这段没显示，后面看-->
     <!--   <div class="">
@@ -49,17 +55,47 @@
     <meting-js
             server="netease"
             type="playlist"
-            id="7251136235"
+            id="7252365204"
             fixed="true"
-            autoplay="true"
+            autoplay="false"
             loop="all"
             order="random"
             preload="auto"
-            list-folded="ture"
+            list-folded="true"
             list-max-height="500px"
-
-            lrc-type="1">
+            mutex="true">
     </meting-js>
+
+ <!--   <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+    <div id="aplayer"></div>
+    <script src="../libs/aplayer/APlayer.min.js"></script>
+    <script>
+        $(function () {
+            const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                fixed: true,
+                audio: [
+                    {
+                        name: 'name1',
+                        artist: 'artist1',
+                        url: 'url1.mp3',
+                        cover: 'cover1.jpg',
+                        lrc: 'lrc1.lrc',
+                        theme: '#ebd0c2'
+                    },
+                    {
+                        name: 'name2',
+                        artist: 'artist2',
+                        url: 'url2.mp3',
+                        cover: 'cover2.jpg',
+                        lrc: 'lrc2.lrc',
+                        theme: '#46718b'
+                    }
+                ]
+            });
+        })
+
+    </script>-->
     <!--音乐 end-->
 
     <!--页脚 网站信息说明 start-->

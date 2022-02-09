@@ -722,6 +722,7 @@ header .go-back i {
 .music,
 .dplayer-video {
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 10px 20px -12px rgba(0, 0, 0, .5) !important;
+    border-radius: 25px;
 }
 
 #recommend-sections {
