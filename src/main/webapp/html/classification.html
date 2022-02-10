@@ -100,7 +100,10 @@
 
 
     </div>
-</div><style type="text/css" data-typed-js-css="true">
+</div>
+
+
+<style type="text/css" data-typed-js-css="true">
     .typed-cursor{
         opacity: 1;
     }
@@ -123,9 +126,9 @@
 
 
 <!--文章标签 start-->
-    <div id="tags" class="container chip-container">
+    <div id="tags" class="container chip-container" >
         <div class="card">
-            <div class="card-content">
+            <div class="card-content"  data-aos="fade-up">
                 <div class="tag-title center-align">
                     <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
                 </div>
@@ -183,9 +186,9 @@
 <!--文章标签 end-->
 
     <!--文章分类 start-->
-    <div id="category-cloud" class="container aos-init aos-animate" data-aos="fade-up">
+    <div id="category-cloud" class="container " >
         <div class="card">
-            <div class="card-content">
+            <div class="card-content" data-aos="zoom-in">
                 <div class="tag-title center-align">
                     <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
                 </div>
@@ -258,7 +261,7 @@
 
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="card">
-            <div id="tag-wordcloud" class="card-content jqcloud" style="width: 1125px; height: 300px;">
+            <div id="tag-wordcloud" >
 
             </div>
         </div>
@@ -269,26 +272,44 @@
     <script type="text/javascript">
 
 
-        $('#tag-wordcloud').jQCloud([{"text":"Hexo","weight":2,"link":"/tags/Hexo/"},
-            {"text":"JavaScript","weight":4,"link":"/tags/JavaScript/"},
-            {"text":"PostgreSQL","weight":1,"link":"/tags/PostgreSQL/"},
-            {"text":"数据库","weight":1,"link":"/tags/数据库/"},
-            {"text":"Java","weight":43,"link":"/tags/Java/"},
-            {"text":"面向对象编程","weight":3,"link":"/tags/面向对象编程/"},
-            {"text":"CPU缓存","weight":1,"link":"/tags/CPU缓存/"},
-            {"text":"UML","weight":2,"link":"/tags/UML/"},
-            {"text":"性能测试","weight":1,"link":"/tags/性能测试/"},
-            {"text":"MVEL","weight":2,"link":"/tags/MVEL/"},{"text":"JPA","weight":1,"link":"/tags/JPA/"},{"text":"Fenix","weight":1,"link":"/tags/Fenix/"},
-            {"text":"Linux","weight":4,"link":"/tags/Linux/"},{"text":"Typora","weight":1,"link":"/tags/Typora/"},{"text":"Markdown","weight":1,"link":"/tags/Markdown/"},
-            {"text":"Vue","weight":1,"link":"/tags/Vue/"},{"text":"设计模式","weight":14,"link":"/tags/设计模式/"},{"text":"Apache","weight":4,"link":"/tags/Apache/"},
-            {"text":"hexo-theme-matery","weight":1,"link":"/tags/hexo-theme-matery/"},{"text":"Google","weight":1,"link":"/tags/Google/"},
-            {"text":"整洁代码","weight":1,"link":"/tags/整洁代码/"},{"text":"重构","weight":1,"link":"/tags/重构/"},{"text":"测试","weight":1,"link":"/tags/测试/"},
-            {"text":"设计原则","weight":1,"link":"/tags/设计原则/"},{"text":"单元测试","weight":2,"link":"/tags/单元测试/"},{"text":"Spring","weight":2,"link":"/tags/Spring/"},
-            {"text":"SpringBoot","weight":1,"link":"/tags/SpringBoot/"},{"text":"Git","weight":1,"link":"/tags/Git/"},{"text":"GitLab CI","weight":1,"link":"/tags/GitLab-CI/"},
-            {"text":"DevOps","weight":1,"link":"/tags/DevOps/"},{"text":"Jenkins","weight":1,"link":"/tags/Jenkins/"}], {
-            autoResize: true
+        let words = [{"text":"Hexo","weight":2,"link":"/tags/Hexo/","html":{"data-aos":"zoom-in"}},
+            {"text":"JavaScript","weight":4,"link":"/tags/JavaScript/","html":{"data-aos":"zoom-in"}},
+            {"text":"PostgreSQL","weight":1,"link":"/tags/PostgreSQL/","html":{"data-aos":"zoom-in"}},
+            {"text":"数据库","weight":1,"link":"/tags/数据库/","html":{"data-aos":"zoom-in"}},
+            {"text":"Java","weight":43,"link":"/tags/Java/","html":{"data-aos":"zoom-in"}},
+            {"text":"面向对象编程","weight":3,"link":"/tags/面向对象编程/","html":{"data-aos":"zoom-in"}},
+            {"text":"CPU缓存","weight":1,"link":"/tags/CPU缓存/","html":{"data-aos":"zoom-in"}},
+            {"text":"UML","weight":2,"link":"/tags/UML/","html":{"data-aos":"zoom-in"}},
+            {"text":"性能测试","weight":1,"link":"/tags/性能测试/","html":{"data-aos":"zoom-in"}},
+            {"text":"MVEL","weight":2,"link":"/tags/MVEL/","html":{"data-aos":"zoom-in"}},
+            {"text":"JPA","weight":1,"link":"/tags/JPA/","html":{"data-aos":"zoom-in"}},
+            {"text":"Fenix","weight":1,"link":"/tags/Fenix/","html":{"data-aos":"zoom-in"}},
+            {"text":"Linux","weight":4,"link":"/tags/Linux/","html":{"data-aos":"zoom-in"}},
+            {"text":"Typora","weight":1,"link":"/tags/Typora/","html":{"data-aos":"zoom-in"}},
+            {"text":"Markdown","weight":1,"link":"/tags/Markdown/","html":{"data-aos":"zoom-in"}},
+            {"text":"Vue","weight":1,"link":"/tags/Vue/","html":{"data-aos":"zoom-in"}},
+            {"text":"设计模式","weight":14,"link":"/tags/设计模式/","html":{"data-aos":"zoom-in"}},
+            {"text":"Apache","weight":4,"link":"/tags/Apache/","html":{"data-aos":"zoom-in"}},
+            {"text":"hexo-theme-matery","weight":1,"link":"/tags/hexo-theme-matery/","html":{"data-aos":"zoom-in"}},
+            {"text":"Google","weight":1,"link":"/tags/Google/","html":{"data-aos":"zoom-in"}},
+            {"text":"整洁代码","weight":1,"link":"/tags/整洁代码/","html":{"data-aos":"zoom-in"}},
+            {"text":"重构","weight":1,"link":"/tags/重构/","html":{"data-aos":"zoom-in"}},{"text":"测试","weight":1,"link":"/tags/测试/","html":{"data-aos":"zoom-in"}},
+            {"text":"设计原则","weight":1,"link":"/tags/设计原则/","html":{"data-aos":"zoom-in"}},
+            {"text":"单元测试","weight":2,"link":"/tags/单元测试/","html":{"data-aos":"zoom-in"}},
+            {"text":"Spring","weight":2,"link":"/tags/Spring/","html":{"data-aos":"zoom-in"}},
+            {"text":"SpringBoot","weight":1,"link":"/tags/SpringBoot/","html":{"data-aos":"zoom-in"}},
+            {"text":"Git","weight":1,"link":"/tags/Git/","html":{"data-aos":"zoom-in"}},
+            {"text":"GitLab CI","weight":1,"link":"/tags/GitLab-CI/","html":{"data-aos":"zoom-in"}},
+            {"text":"DevOps","weight":1,"link":"/tags/DevOps/"},
+            {"text":"Jenkins","weight":1,"link":"/tags/Jenkins/"}]
+        $('#tag-wordcloud').jQCloud(words, {
+            autoResize: true,
+
         });
     </script>
+    <style>
+        div.jqcloud span:hover { color: #ff397e; font-weight: bolder ;}
+    </style>
 <!--   云标签 end -->
 
 

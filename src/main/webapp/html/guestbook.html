@@ -156,6 +156,7 @@
             opacity: 1;
         }
     }
+
 </style>
 
 <main class="content" style="min-height: 780px;">
@@ -163,11 +164,14 @@
     <div  class="container chip-container">
         <div class="card">
             <div class="card-content">
-                <div class="tag-title left-align">
-                    <i class="fas fa-tags"></i>&nbsp;&nbsp;留言板
+                <div data-aos="fade-left"   >
+                    <div class="tag-title left-align">
+                        <i class="fas fa-tags"></i>&nbsp;&nbsp;留言板
+                    </div>
+                    <hr/>
+                    <p>既然来了，就留下足迹吧～</p>
                 </div>
-                <hr/>
-                <p>既然来了，就留下足迹吧～</p>
+
             </div>
         </div>
     </div>
@@ -203,18 +207,15 @@
                                               p-id="4222"></path>
                                     </svg>
                                 </p>
-                                <div class="vheader item3"><input name="nick" placeholder="昵称/QQ号(必填)"
-                                                                  class="vnick vinput" type="text"><input name="mail"
-                                                                                                          placeholder="邮箱(必填)"
-                                                                                                          class="vmail vinput"
-                                                                                                          type="email"><input
-                                        name="link" placeholder="网址(https://)" class="vlink vinput" type="text"></div>
-                                <div class="vedit"><textarea id="veditor" class="veditor vinput"
-                                                             placeholder="嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~"></textarea>
+                                <div class="vheader item3">
+                                    <input name="nick" placeholder="昵称/QQ号(必填)"  class="vnick vinput" type="text">
+                                    <input name="mail" placeholder="邮箱(必填)"    class="vmail vinput" type="email">
+                                 </div>
+                                <div class="vedit"><textarea id="veditor" class="veditor vinput" placeholder="嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~"></textarea>
                                     <div class="vrow">
                                         <div class="vcol vcol-60 status-bar"></div>
-                                        <div class="vcol vcol-40 vctrl text-right"><span title="表情"
-                                                                                         class="vicon vemoji-btn"><svg
+                                        <div class="vcol vcol-40 vctrl text-right"><span title="表情"  class="vicon vemoji-btn">
+                                            <svg
                                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                 p-id="16172" width="22" height="22"><path
                                                 d="M512 1024a512 512 0 1 1 512-512 512 512 0 0 1-512 512zM512 56.888889a455.111111 455.111111 0 1 0 455.111111 455.111111 455.111111 455.111111 0 0 0-455.111111-455.111111zM312.888889 512A85.333333 85.333333 0 1 1 398.222222 426.666667 85.333333 85.333333 0 0 1 312.888889 512z"
@@ -224,10 +225,9 @@
                                                 d="M782.222222 391.964444l-113.777778 59.733334a29.013333 29.013333 0 0 1-38.684444-10.808889 28.444444 28.444444 0 0 1 10.24-38.684445l113.777778-56.888888a28.444444 28.444444 0 0 1 38.684444 10.24 28.444444 28.444444 0 0 1-10.24 36.408888z"
                                                 p-id="16175"></path><path
                                                 d="M640.568889 451.697778l113.777778 56.888889a27.875556 27.875556 0 0 0 38.684444-10.24 27.875556 27.875556 0 0 0-10.24-38.684445l-113.777778-56.888889a28.444444 28.444444 0 0 0-38.684444 10.808889 28.444444 28.444444 0 0 0 10.24 38.115556z"
-                                                p-id="16176"></path></svg></span><span title="预览"
-                                                                                       class="vicon vpreview-btn"><svg
-                                                viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                p-id="17688" width="22" height="22"><path
+                                                p-id="16176"></path></svg></span><span title="预览" class="vicon vpreview-btn">
+                                            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17688" width="22" height="22">
+                                                <path
                                                 d="M502.390154 935.384615a29.538462 29.538462 0 1 1 0 59.076923H141.430154C79.911385 994.461538 29.538462 946.254769 29.538462 886.153846V137.846154C29.538462 77.745231 79.950769 29.538462 141.390769 29.538462h741.218462c61.44 0 111.852308 48.206769 111.852307 108.307692v300.268308a29.538462 29.538462 0 1 1-59.076923 0V137.846154c0-26.899692-23.355077-49.230769-52.775384-49.230769H141.390769c-29.420308 0-52.775385 22.331077-52.775384 49.230769v748.307692c0 26.899692 23.355077 49.230769 52.775384 49.230769h360.999385z"
                                                 p-id="17689"></path><path
                                                 d="M196.923077 216.615385m29.538461 0l374.153847 0q29.538462 0 29.538461 29.538461l0 0q0 29.538462-29.538461 29.538462l-374.153847 0q-29.538462 0-29.538461-29.538462l0 0q0-29.538462 29.538461-29.538461Z"
@@ -252,7 +252,9 @@
                                         <button type="button" title="Cmd|Ctrl+Enter" class="vsubmit vbtn">提交</button>
                                     </div>
                                 </div>
-                                <div class="vemojis" style="display: none;"><i title="tieba-1"><img alt="tieba-1"
+                                <div class="vemojis" style="display: none;">
+                                    <i title="tieba-1">
+                                    <img alt="tieba-1"
                                                                                                     referrerpolicy="no-referrer"
                                                                                                     class="vemoji"
                                                                                                     src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-1.png"></i><i
@@ -1185,89 +1187,33 @@
                             </div>
                         </div>
                         <div class="vcount" style="display: block;"><span class="vnum">16</span> 评论</div>
-                        <div class="vload-top text-center" style="display:none;"><i class="vspinner"
-                                                                                    style="width:30px;height:30px;"></i>
+                        <div class="vload-top text-center" style="display:none;">
+                            <i class="vspinner"  style="width:30px;height:30px;"></i>
                         </div>
                         <div class="vcards">
-                            <div class="vcard" id="61dfd2f5fa854851990c229a"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=1004190047@qq.com,1004190047,&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
+
+                            <div class="vcard" id="60e564d353922a4cf7ecbced">
+                                <img class="vimg" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2361376452&amp;spec=100"  referrerpolicy="no-referrer">
                                 <div class="vh">
-                                    <div class="vhead"><span class="vnick">rantrism</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-chrome"></i>Chrome 97.0.4692.71</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
-                                    <div class="vmeta"><span class="vtime">2022-01-13</span><span class="vat"
-                                                                                                  data-vm-id="61dfd2f5fa854851990c229a"
-                                                                                                  data-self-id="61dfd2f5fa854851990c229a">回复</span>
+                                    <div class="vhead">
+                                        <span class="vnick"></span>
+                                        <span class="vtag vvisitor">访客</span>
+                                        <span class="vsys"><i class="fab fa-edge"></i>Edge 91.0.864.64</span>
+                                        <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
                                     </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>
-                                        您好～我是腾讯云+社区的运营，关注了您分享的技术文章，觉得内容很棒，我们诚挚邀请您加入腾讯云自媒体分享计划。完整福利和申请地址请见：<a
-                                            href="https://cloud.tencent.com/developer/support-plan" target="_blank"
-                                            rel="nofollow">https://cloud.tencent.com/developer/support-plan</a><br>作者申请此计划后将作者的文章进行搬迁同步到社区的专栏下，你只需要简单填写一下表单申请即可，我们会给作者提供包括流量、云服务器等，另外还有些周边礼物。<br>我们诚挚的邀请您并期待您的加入~
-                                    </p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="61dfd2f5fa854851990c229a"></div>
-                                    <div class="vquote" data-self-id="61dfd2f5fa854851990c229a"></div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="619fa5a0e7b84562fe6e1bf3"><img class="vimg"
-                                                                                  src="https://gravatar.loli.net/avatar/d05ca786e7962c360d2067240f8161aa?d=robohash&amp;v=1.4.14">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">aaa</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-chrome"></i>Chrome 96.0.4664.45</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
-                                    <div class="vmeta"><span class="vtime">2021-11-25</span><span class="vat"
-                                                                                                  data-vm-id="619fa5a0e7b84562fe6e1bf3"
-                                                                                                  data-self-id="619fa5a0e7b84562fe6e1bf3">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>学习一下</p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="619fa5a0e7b84562fe6e1bf3"></div>
-                                    <div class="vquote" data-self-id="619fa5a0e7b84562fe6e1bf3"></div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="60fe285923353c0ba540d951"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=707823814@qq.com,707823814,&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">reria</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-edge"></i>Edge 92.0.902.55</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
-                                    <div class="vmeta"><span class="vtime">2021-07-26</span><span class="vat"
-                                                                                                  data-vm-id="60fe285923353c0ba540d951"
-                                                                                                  data-self-id="60fe285923353c0ba540d951">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>博主你用的主题是volantis吗，想问下右上角那个弹窗怎么配置呢
-                                        <img alt="aru-10" class="vemoji" referrerpolicy="no-referrer"
-                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-10.gif">
-                                    </p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="60fe285923353c0ba540d951"></div>
-                                    <div class="vquote" data-self-id="60fe285923353c0ba540d951"></div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="60e564d353922a4cf7ecbced"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=2361376452&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">        </span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-edge"></i>Edge 91.0.864.64</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
                                     <div class="vmeta"><span class="vtime">2021-07-07</span><span class="vat"
                                                                                                   data-vm-id="60e564d353922a4cf7ecbced"
                                                                                                   data-self-id="60e564d353922a4cf7ecbced">回复</span>
                                     </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>很喜欢这个博客 怎么弄的 我也想搞一个</p>
+                                    <div class="vcontent" data-expand="查看更多...">
+                                        <p>很喜欢这个博客 怎么弄的 我也想搞一个</p>
                                     </div>
                                     <div class="vreply-wrapper" data-self-id="60e564d353922a4cf7ecbced"></div>
                                     <div class="vquote" data-self-id="60e564d353922a4cf7ecbced"></div>
                                 </div>
                             </div>
-                            <div class="vcard" id="607967bac1d46f1cc83a0cb8"><img class="vimg"
+                            <div class="vcard" id="607967bac1d46f1cc83a0cb8">
+                                <img class="vimg"
                                                                                   src="https://gravatar.loli.net/avatar/38daa5aa4896f818b95f5d0c69b5b7da?d=robohash&amp;v=1.4.14">
                                 <div class="vh">
                                     <div class="vhead"><a class="vnick" rel="nofollow" href="http://spacexcode.com"
@@ -1328,7 +1274,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="vcard" id="6062debe0b38016dff6e7949"><img class="vimg"
+                            <div class="vcard" id="6062debe0b38016dff6e7949">
+                                <img class="vimg"
                                                                                   src="https://gravatar.loli.net/avatar/fa0f39403a7c7b35442d1082eb759c6c?d=robohash&amp;v=1.4.14">
                                 <div class="vh">
                                     <div class="vhead"><a class="vnick" rel="nofollow" href="https://cnsre.cn"
@@ -1371,89 +1318,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="vcard" id="604af9b50a01ae76d59067cf"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=530765310@qq.com,530765310,&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
-                                <div class="vh">
-                                    <div class="vhead"><a class="vnick" rel="nofollow" href="https://blog.yzncms.com/"
-                                                          target="_blank">御宅男</a><span class="vtag vvisitor">访客</span>
-                                        <span class="vsys"><i class="fab fa-chrome"></i>Chrome 88.0.4324.146</span>
-                                        <span class="vsys"><i class="fab fa-windows"></i>Windows 7</span></div>
-                                    <div class="vmeta"><span class="vtime">2021-03-12</span><span class="vat"
-                                                                                                  data-vm-id="604af9b50a01ae76d59067cf"
-                                                                                                  data-self-id="604af9b50a01ae76d59067cf">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>码农路过，留下一个爪印！！！</p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="604af9b50a01ae76d59067cf"></div>
-                                    <div class="vquote" data-self-id="604af9b50a01ae76d59067cf"></div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="604a509b1788a471927ee9ea"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=3101266624@qq.com,3101266624,&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">muggle</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-chrome"></i>Chrome 86.0.4240.198</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
-                                    <div class="vmeta"><span class="vtime">2021-03-12</span><span class="vat"
-                                                                                                  data-vm-id="604a509b1788a471927ee9ea"
-                                                                                                  data-self-id="604a509b1788a471927ee9ea">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p><img alt="aru-72" class="vemoji"
-                                                                                        referrerpolicy="no-referrer"
-                                                                                        src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-72.gif">
-                                    </p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="604a509b1788a471927ee9ea"></div>
-                                    <div class="vquote" data-self-id="604a509b1788a471927ee9ea"></div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="600028f0f42a8e5b8ef99948"><img class="vimg"
-                                                                                  src="https://q2.qlogo.cn/headimg_dl?dst_uin=1095505742@qq.com,1095505742,&amp;spec=100"
-                                                                                  referrerpolicy="no-referrer">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">心中天堂</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-chrome"></i>Chrome 87.0.4280.141</span> <span class="vsys"><i
-                                            class="fab fa-windows"></i>Windows 10.0</span></div>
-                                    <div class="vmeta"><span class="vtime">2021-01-14</span><span class="vat"
-                                                                                                  data-vm-id="600028f0f42a8e5b8ef99948"
-                                                                                                  data-self-id="600028f0f42a8e5b8ef99948">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>老哥能留下你的主题么</p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="600028f0f42a8e5b8ef99948"></div>
-                                    <div class="vquote" data-self-id="600028f0f42a8e5b8ef99948">
-                                        <div class="vcard" id="6008daae3a9b5f27cd79ddcc"><img class="vimg"
-                                                                                              src="https://gravatar.loli.net/avatar/6aa23a32294198ccc13d9d76ba26b191?d=robohash&amp;v=1.4.14">
-                                            <div class="vh">
-                                                <div class="vhead"><span class="vnick">DataScience</span><span
-                                                        class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                                        class="fab fa-chrome"></i>Chrome 87.0.4280.141</span> <span
-                                                        class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                                </div>
-                                                <div class="vmeta"><span class="vtime">2021-01-21</span><span
-                                                        class="vat" data-vm-id="600028f0f42a8e5b8ef99948"
-                                                        data-self-id="6008daae3a9b5f27cd79ddcc">回复</span></div>
-                                                <div class="vcontent" data-expand="查看更多..."><p><a
-                                                        href="#600028f0f42a8e5b8ef99948" target="_blank" rel="nofollow">@心中天堂 </a>
-                                                    , <a href="https://volantis.js.org/getting-started/" target="_blank"
-                                                         rel="nofollow">https://volantis.js.org/getting-started/</a>
-                                                    <img alt="tieba-7" class="vemoji" referrerpolicy="no-referrer"
-                                                         src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-7.png">
-                                                </p>
-                                                </div>
-                                                <div class="vreply-wrapper"
-                                                     data-self-id="6008daae3a9b5f27cd79ddcc"></div>
-                                                <div class="vquote" data-self-id="6008daae3a9b5f27cd79ddcc"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="5feb1fcb5fabea2f76f20770"><img class="vimg"
+                            <div class="vcard" id="5feb1fcb5fabea2f76f20770">
+                                <img class="vimg"
                                                                                   src="https://gravatar.loli.net/avatar/41d702fdfeee7a46f9b9dbef119b6940?d=robohash&amp;v=1.4.14">
                                 <div class="vh">
                                     <div class="vhead"><span class="vnick">benjamin</span><span
@@ -1495,27 +1361,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="vload-bottom text-center" style="display: none;"><i class="vspinner"
-                                                                                        style="width:30px;height:30px;"></i>
+                        <div class="vload-bottom text-center" style="display: none;"><i class="vspinner" style="width:30px;height:30px;"></i>
                         </div>
                         <div class="vempty" style="display:none;"></div>
                         <div class="vpage txt-center" style="display: block;">
                             <button type="button" class="vmore vbtn">加载更多...</button>
                         </div>
-                        <div class="vpower txt-right">Powered By <a href="https://valine.js.org"
-                                                                    target="_blank">Valine</a><br>v1.4.14
+                        <div class="vpower txt-right">Powered By <a href="https://valine.js.org"  target="_blank">Valine</a><br>v1.4.14
                         </div>
                     </div>
 
                 </article>
-
-
-
             </div>
-
         </div>
-
-
     </div>
 
 

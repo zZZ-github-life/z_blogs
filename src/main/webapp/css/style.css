@@ -3052,6 +3052,7 @@ article#comments #valine_container .vinput {
 article#comments #valine_container p {
     color: var(--color-text);
 }
+/*
 p,
 input,
 pre>span,
@@ -3155,6 +3156,7 @@ a.result.search-result-fix,
 .fix-cursor-pointer {
     cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
+*/
 div#rightmenu-wrapper {
     display: none;
     position: fixed;
