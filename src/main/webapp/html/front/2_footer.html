@@ -1,0 +1,204 @@
+<!--
+    @author:  zZZ....
+    @description:
+    @date: 2022/1/19
+-->
+<footer class="page-footer bg-color">
+
+    <!--音乐 start-->
+    <link rel="stylesheet" href="../../libs/aplayer/APlayer.min.css">
+    <!--    控制 折叠效果-->
+    <style>
+        .aplayer .aplayer-lrc p {
+
+            font-size: 10px;
+            font-weight: 700;
+            font-style: oblique;
+            line-height: 30px !important;
+
+        }
+
+        .aplayer .aplayer-lrc p.aplayer-lrc-current {
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 20px;
+            color: #69597c;
+        }
+
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+        .aplayer.aplayer-fixed .aplayer-lrc{
+            text-shadow: -1px -1px 0 #b6b4b1;
+        }
+
+    </style>
+    <script src="../../libs/aplayer/APlayer.js"></script>
+    <script src="../../libs/aplayer/Meting/Meting.min.js"></script>
+
+    <!--    这段没显示，后面看-->
+    <!--   <div class="">
+
+           <div class="row">
+               <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="503838841"
+                          fixed="true" autoplay="false" theme="#42b983" loop="all" order="random" preload="auto"
+                          volume="0.7" list-folded="true">
+               </meting-js>
+           </div>
+       </div>-->
+    <meting-js
+            server="netease"
+            type="playlist"
+            id="7252365204"
+            fixed="true"
+            autoplay="false"
+            loop="all"
+            order="random"
+            preload="auto"
+            list-folded="true"
+            list-max-height="500px"
+            mutex="true">
+    </meting-js>
+
+ <!--   <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+    <div id="aplayer"></div>
+    <script src="../libs/aplayer/APlayer.min.js"></script>
+    <script>
+        $(function () {
+            const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                fixed: true,
+                audio: [
+                    {
+                        name: 'name1',
+                        artist: 'artist1',
+                        url: 'url1.mp3',
+                        cover: 'cover1.jpg',
+                        lrc: 'lrc1.lrc',
+                        theme: '#ebd0c2'
+                    },
+                    {
+                        name: 'name2',
+                        artist: 'artist2',
+                        url: 'url2.mp3',
+                        cover: 'cover2.jpg',
+                        lrc: 'lrc2.lrc',
+                        theme: '#46718b'
+                    }
+                ]
+            });
+        })
+
+    </script>-->
+    <!--音乐 end-->
+
+    <!--页脚 网站信息说明 start-->
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;©
+
+            <span id="year">2018 - 2022</span>
+
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">blinkfox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">197k</span>&nbsp;字
+
+
+            <span id="busuanzi_container_site_pv" style="display: inline;">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color">324059</span>&nbsp;次
+            </span>
+
+
+            <span id="busuanzi_container_site_uv" style="display: inline;">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                                                                           class="white-color">67776</span>&nbsp;人
+            </span>
+
+            <br>
+
+            <span id="sitetime">本站已安全运行 3 年 117 天 16 小时 10 分钟 56 秒</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "09";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+
+                setInterval(siteTime, 1000);
+            </script>
+
+            <br>
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+               data-position="top" data-delay="50">
+                <i class="fab fa-github"></i>
+            </a>
+
+
+            <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+               data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+
+
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1181062873"
+               class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+                <i class="fab fa-qq"></i>
+            </a>
+
+
+            <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
+               data-delay="50">
+                <i class="fas fa-rss"></i>
+            </a>
+
+        </div>
+    </div>
+    <!--页脚 网站信息说明 end-->
+</footer>
