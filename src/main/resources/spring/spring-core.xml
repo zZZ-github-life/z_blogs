@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:properties/jdbc.properties"/>
+
+    <context:component-scan base-package="online.zouxiaolong.mvc,com.zxl.mvc.dao">
+        <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan><!--多个包用逗号分隔-->
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:/mybatis/mybatis-core.xml"/>
+        <property name="mapperLocations" value="classpath*:/mybatis/mapperXML/**/*.xml"/>
+    </bean>
+
+    <!--根据dao接口，生成对应的代理实现类，不然service层无法通过接口的方式注入依赖-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+        <property name="basePackage" value="com.zxl.mvc.dao"/>
+    </bean>
+
+    <!--事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--freemarker -->
+    <bean id="freemarkerConfig"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+      <property name="configuration" ref="freemarkerConfiguration"/>
+    </bean>
+
+    <bean id="freemarkerConfiguration"
+          class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+
+        <!-- 模板加载路径 -->
+        <property name="templateLoaderPaths">
+            <list>
+                <value>/pages/freemarker/template/</value>
+            </list>
+        </property>
+
+        <property name="defaultEncoding" value="utf-8" />
+
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="BasePath" value="${base.path}" />
+            </map>
+        </property>
+    </bean>
+
+</beans>

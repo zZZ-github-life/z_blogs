@@ -21,17 +21,17 @@
     <title>时光轴 | 闪烁之狐</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="../../libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/matery.css">
-    <link rel="stylesheet" type="text/css" href="../../css/my.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blogs/css/my.css">
 
-    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script src="../../libs/jquery/jquery.min.js"></script>
+    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script src="/blogs/libs/jquery/jquery.min.js"></script>
 
-    <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="../../xml/atom.xml" title="闪烁之狐" type="application/atom+xml">
+    <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/blogs/xml/atom.xml" title="闪烁之狐" type="application/atom+xml">
     <style type="text/css">
         .heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}
         .heart:after, .heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}
@@ -51,7 +51,7 @@
 <script  >
     //开发模式下用此种方式加载 外部html，略微降低性能
     let blogs_xhr_1 = new XMLHttpRequest();
-    blogs_xhr_1.open('get','http://localhost:8853/blogs/html/1_header.html',false);
+    blogs_xhr_1.open('get','http://localhost:8853/blogs/html/front/1_header.html',false);
     blogs_xhr_1.onreadystatechange = function () {
         if(blogs_xhr_1.readyState === 4 ){
             document.write(blogs_xhr_1.responseText)
@@ -94,7 +94,7 @@
 
         <script>
             // 每天切换 banner 图.  Switch banner image every day.
-            var bannerUrl = "../medias/banner/" + new Date().getDay() + '.jpg';
+            var bannerUrl = "/blogs/medias/banner/" + new Date().getDay() + '.jpg';
             $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
         </script>
 
@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="/blogs/libs/echarts/echarts.min.js"></script>
     <script type="text/javascript">
         let myChart = echarts.init(document.getElementById('post-calendar'));
 
@@ -502,7 +502,7 @@
 <script  >
     //开发模式下用此种方式加载 外部html，略微降低性能
     let blogs_xhr_2 = new XMLHttpRequest();
-    blogs_xhr_2.open('get','http://localhost:8853/blogs/html/2_footer.html',false);
+    blogs_xhr_2.open('get','http://localhost:8853/blogs/html/front/2_footer.html',false);
     blogs_xhr_2.onreadystatechange = function () {
         if(blogs_xhr_2.readyState === 4 ){
             document.write(blogs_xhr_2.responseText)
@@ -528,7 +528,7 @@
 
 <script type="text/javascript">
     $(function () {
-        var searchFunc = function (path, search_id, content_id) {
+        var searchFunc = function (path, search_id, content_id) {``
             'use strict';
             $.ajax({
                 url: path,
@@ -626,12 +626,12 @@
 </div>
 
 
-<script src="../../libs/materialize/materialize.min.js"></script>
-<script src="../../libs/masonry/masonry.pkgd.min.js"></script>
-<script src="../../libs/aos/aos.js"></script>
-<script src="../../libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="../../libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="../../js/matery.js"></script>
+<script src="/blogs/libs/materialize/materialize.min.js"></script>
+<script src="/blogs/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/blogs/libs/aos/aos.js"></script>
+<script src="/blogs/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/blogs/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/blogs/js/matery.js"></script>
 
 <!-- Baidu Analytics -->
 
@@ -652,19 +652,19 @@
 </script>
 
 
-<script src="../../libs/others/clicklove.js" async="async"></script>
+<script src="/blogs/libs/others/clicklove.js" async="async"></script>
 
 
-<script async="" src="../../libs/others/busuanzi.pure.mini.js"></script>
+<script async="" src="/blogs/libs/others/busuanzi.pure.mini.js"></script>
 
 
-<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="../../libs/background/ribbon-refresh.min.js" async="async"></script>
+<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="/blogs/libs/background/ribbon-refresh.min.js" async="async"></script>
 
 
 
 
 
-<script src="../../libs/instantpage/instantpage.js" type="module"></script>
+<script src="/blogs/libs/instantpage/instantpage.js" type="module"></script>
 
 
 
