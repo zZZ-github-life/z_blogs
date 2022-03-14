@@ -1,5 +1,6 @@
 package online.zouxiaolong.basics.mapper;
 
+import online.zouxiaolong.basics.entity.Page;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -21,9 +22,9 @@ public interface Mapper<T> {
     
     T selectById(Integer id);
     
-    List<T> findPageWithResult(T t);
+    List<T> findPageWithResult(Page<T> p);
     
-    Integer findPageWithCount(T t);
+    Integer findPageWithCount(Page<T> p);
     
     /**
      * 动态sql

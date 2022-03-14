@@ -1,6 +1,7 @@
 package online.zouxiaolong.basics.service;
 
 
+import online.zouxiaolong.basics.entity.Page;
 import online.zouxiaolong.basics.mapper.Mapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public abstract class BaseService<M extends Mapper<T>,T>{
     protected Logger log = Logger.getLogger(this.getClass());
     
     @Autowired
-    private M mapper;
+    protected M mapper;
     
     public int delete(Integer id){
       return  mapper.delete(id);
@@ -40,12 +41,12 @@ public abstract class BaseService<M extends Mapper<T>,T>{
         return mapper.selectById(id);
     }
     
-    public List<T> findPageWithResult(T t){
-        return mapper.findPageWithResult(t);
+    public List<T> findPageWithResult(Page<T> p){
+        return mapper.findPageWithResult(p);
     }
     
-    public Integer findPageWithCount(T t){
-        return mapper.findPageWithCount(t);
+    public Integer findPageWithCount(Page<T> p){
+        return mapper.findPageWithCount(p);
     }
     
 }

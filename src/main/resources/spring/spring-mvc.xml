@@ -10,8 +10,8 @@
 
         ">
 
-    <!--将此包的bean加入容器-->
-    <context:component-scan base-package="online.zouxiaolong.mvc">
+    <!--将此包的bean加入容器 ,use-default-filters 不使用默认的过滤器-->
+    <context:component-scan base-package="online.zouxiaolong.mvc" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 

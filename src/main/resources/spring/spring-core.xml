@@ -11,7 +11,7 @@
 
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
 
-    <context:component-scan base-package="online.zouxiaolong.mvc,com.zxl.mvc.dao">
+    <context:component-scan base-package="online.zouxiaolong.mvc.*.dao,online.zouxiaolong.mvc.*.service">
         <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
     </context:component-scan><!--多个包用逗号分隔-->
 
@@ -26,13 +26,13 @@
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:/mybatis/mybatis-core.xml"/>
-        <property name="mapperLocations" value="classpath*:/mybatis/mapperXML/**/*.xml"/>
+        <property name="mapperLocations" value="classpath*:/online/zouxiaolong/mvc/**/dao/xml/*.xml"/>
     </bean>
 
     <!--根据dao接口，生成对应的代理实现类，不然service层无法通过接口的方式注入依赖-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
-        <property name="basePackage" value="com.zxl.mvc.dao"/>
+        <property name="basePackage" value="online.zouxiaolong.mvc.**.dao"/>
     </bean>
 
     <!--事务管理器-->

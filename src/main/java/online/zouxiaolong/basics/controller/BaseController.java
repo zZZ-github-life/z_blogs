@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 /**
  * @description 基础控制层，封装常用方法
@@ -29,5 +30,24 @@ public abstract class BaseController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(responseBody);
         
+    }
+    
+    //设置分页参数
+    protected void setPageSize(Map<String,Object> map){
+        if (map.get("pageSize")!=null&&map.get("startPage")!=null){
+            int size = Integer.parseInt(map.get("pageSize").toString());
+            int start = Integer.parseInt(map.get("startPage").toString());
+            
+            if (size<=0)
+                size=10;
+            
+            if (start<=0)
+                start=0;
+            else
+                start=(start-1)*size;
+            
+            map.put("pageSize",size);
+            map.put("startPage",start);
+        }
     }
 }

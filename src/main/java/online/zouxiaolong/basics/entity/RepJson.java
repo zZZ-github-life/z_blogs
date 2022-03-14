@@ -1,4 +1,4 @@
-package online.zouxiaolong.basics.entry;
+package online.zouxiaolong.basics.entity;
 
 /**
  * 响应数据实体类

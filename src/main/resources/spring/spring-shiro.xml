@@ -45,21 +45,24 @@
         <property name="filterChainDefinitions">
             <value>
 
-             #static resources ：
-                /login = anon
-                /html/front/** =anon
-                /blogs/html/front/** =anon
-                /css/** =anon
-                /img/** =anon
-                /js/** =anon
-                /libs/** =anon
-                /medias/** =anon
-                /tabler/** =anon
-                /webfonts/** =anon
-                /xml/** =anon
+                # everything else requires authentication:
+<!--                /** = authc-->
+                /** = anon
 
-              # everything else requires authentication:
-                /** = authc
+<!--             #static resources ：-->
+<!--                /login = anon-->
+<!--                /html/front/** =anon-->
+<!--                /blogs/html/front/** =anon-->
+<!--                /css/** =anon-->
+<!--                /img/** =anon-->
+<!--                /js/** =anon-->
+<!--                /libs/** =anon-->
+<!--                /medias/** =anon-->
+<!--                /tabler/** =anon-->
+<!--                /webfonts/** =anon-->
+<!--                /xml/** =anon-->
+
+
             </value>
         </property>
     </bean>
