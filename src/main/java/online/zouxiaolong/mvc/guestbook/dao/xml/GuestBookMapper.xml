@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.zouxiaolong.mvc.guestbook.dao.GuestBookMapper">
+
+    <resultMap id="BaseResultMap" type="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="link" jdbcType="VARCHAR" property="link" />
+        <result column="head_shot" jdbcType="VARCHAR" property="headShot" />
+        <result column="browser_version" jdbcType="VARCHAR" property="browserVersion" />
+        <result column="os_version" jdbcType="VARCHAR" property="osVersion" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="ip" jdbcType="VARCHAR" property="ip" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="blog_id" jdbcType="INTEGER" property="blogId" />
+        <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+        <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+  id, nickname, email, link, head_shot, browser_version, os_version, address,ip, content,
+  id_card, create_date, blog_id, parent_id,parent_ids
+</sql>
+
+
+    <delete id="delete" parameterType="java.lang.Integer">
+  delete from blog_guest_book
+  where id = #{id,jdbcType=INTEGER}
+</delete>
+
+
+    <insert id="insert" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+        <selectKey resultType="INTEGER" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+      insert into blog_guest_book (id, nickname, email,
+        link, head_shot, browser_version,
+        os_version, address, ip,content,
+        id_card, create_date, blog_id,
+        parent_id,parent_ids)
+      values (#{id,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+        #{link,jdbcType=VARCHAR}, #{headShot,jdbcType=VARCHAR}, #{browserVersion,jdbcType=VARCHAR},
+        #{osVersion,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},#{ip,jdbcType=VARCHAR},  #{content,jdbcType=VARCHAR},
+        #{idCard,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{blogId,jdbcType=INTEGER},
+        #{parentId,jdbcType=INTEGER}, #{parentIds,jdbcType=VARCHAR})
+    </insert>
+
+
+    <insert id="insertDynamic" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+        insert into blog_guest_book
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="link != null">
+                link,
+            </if>
+            <if test="headShot != null">
+                head_shot,
+            </if>
+            <if test="browserVersion != null">
+                browser_version,
+            </if>
+            <if test="osVersion != null">
+                os_version,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="idCard != null">
+                id_card,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="blogId != null">
+                blog_id,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="parentIds != null">
+                parent_ids,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="link != null">
+                #{link,jdbcType=VARCHAR},
+            </if>
+            <if test="headShot != null">
+                #{headShot,jdbcType=VARCHAR},
+            </if>
+            <if test="browserVersion != null">
+                #{browserVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="osVersion != null">
+                #{osVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="ip != null">
+                #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="idCard != null">
+                #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="blogId != null">
+                #{blogId,jdbcType=INTEGER},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=INTEGER},
+            </if>
+            <if test="parentIds != null">
+                #{parentIds,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateDynamic" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+        update blog_guest_book
+        <set>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="link != null">
+                link = #{link,jdbcType=VARCHAR},
+            </if>
+            <if test="headShot != null">
+                head_shot = #{headShot,jdbcType=VARCHAR},
+            </if>
+            <if test="browserVersion != null">
+                browser_version = #{browserVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="osVersion != null">
+                os_version = #{osVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="ip != null">
+                address = #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="blogId != null">
+                blog_id = #{blogId,jdbcType=INTEGER},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=INTEGER},
+            </if>
+            <if test="parentIds != null">
+                parent_ids = #{parentIds,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+    <update id="update" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+  update blog_guest_book
+  set nickname = #{nickname,jdbcType=VARCHAR},
+    email = #{email,jdbcType=VARCHAR},
+    link = #{link,jdbcType=VARCHAR},
+    head_shot = #{headShot,jdbcType=VARCHAR},
+    browser_version = #{browserVersion,jdbcType=VARCHAR},
+    os_version = #{osVersion,jdbcType=VARCHAR},
+    address = #{address,jdbcType=VARCHAR},
+    ip = #{ip,jdbcType=VARCHAR},
+    content = #{content,jdbcType=VARCHAR},
+    id_card = #{idCard,jdbcType=VARCHAR},
+    create_date = #{createDate,jdbcType=TIMESTAMP},
+    blog_id = #{blogId,jdbcType=INTEGER},
+    parent_id = #{parentId,jdbcType=INTEGER},
+    parent_ids = #{parentIds,jdbcType=VARCHAR}
+  where id = #{id,jdbcType=INTEGER}
+</update>
+
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from  blog_guest_book
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <sql id="findPageWithWhere">
+        <where> 1=1
+            <if test="id != null" >
+                and id = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="nickname != null and nickname != ''" >
+                and nickname = #{nickname,jdbcType=VARCHAR}
+            </if>
+            <if test="email != null and email != ''" >
+                and email = #{email,jdbcType=VARCHAR}
+            </if>
+            <if test="link != null and link != ''" >
+                and link = #{link,jdbcType=VARCHAR}
+            </if>
+            <if test="headShot != null and headShot != ''" >
+                and head_shot = #{headShot,jdbcType=VARCHAR}
+            </if>
+            <if test="browserVersion != null and browserVersion != ''" >
+                and browser_version = #{browserVersion,jdbcType=VARCHAR}
+            </if>
+            <if test="osVersion != null and osVersion != ''" >
+                and os_version = #{osVersion,jdbcType=VARCHAR}
+            </if>
+            <if test="address != null and address != ''" >
+                and address = #{address,jdbcType=VARCHAR}
+            </if>
+            <if test="ip != null and ip != ''" >
+                and ip = #{ip,jdbcType=VARCHAR}
+            </if>
+            <if test="content != null and content != ''" >
+                and content = #{content,jdbcType=VARCHAR}
+            </if>
+            <if test="idCard != null and idCard != ''" >
+                and id_card = #{idCard,jdbcType=VARCHAR}
+            </if>
+            <if test="createDate != null" >
+                and create_date = #{createDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="blogId != null" >
+                and blog_id = #{blogId,jdbcType=INTEGER}
+            </if>
+            <if test="parentId != null" >
+                and parent_id = #{parentId,jdbcType=INTEGER}
+            </if>
+            <if test="parentIds != null" >
+                and parent_ids = #{parentIds,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="pageFindPageWithWhere">
+        <where> 1=1
+         <if test="p !=null ">
+             <if test="p.id != null" >
+                 and id = #{p.id,jdbcType=INTEGER}
+             </if>
+             <if test="p.nickname != null and p.nickname != ''" >
+                 and nickname = #{p.nickname,jdbcType=VARCHAR}
+             </if>
+             <if test="p.email != null and p.email != ''" >
+                 and email = #{p.email,jdbcType=VARCHAR}
+             </if>
+             <if test="p.link != null and p.link != ''" >
+                 and link = #{p.link,jdbcType=VARCHAR}
+             </if>
+             <if test="p.headShot != null and p.headShot != ''" >
+                 and head_shot = #{p.headShot,jdbcType=VARCHAR}
+             </if>
+             <if test="p.browserVersion != null and p.browserVersion != ''" >
+                 and browser_version = #{p.browserVersion,jdbcType=VARCHAR}
+             </if>
+             <if test="p.osVersion != null and p.osVersion != ''" >
+                 and os_version = #{p.osVersion,jdbcType=VARCHAR}
+             </if>
+             <if test="p.address != null and p.address != ''" >
+                 and address = #{p.address,jdbcType=VARCHAR}
+             </if>
+
+             <if test="p.ip != null and p.ip != ''" >
+                 and ip = #{p.ip,jdbcType=VARCHAR}
+             </if>
+             <if test="p.content != null and p.content != ''" >
+                 and content = #{p.content,jdbcType=VARCHAR}
+             </if>
+             <if test="p.idCard != null and p.idCard != ''" >
+                 and id_card = #{p.idCard,jdbcType=VARCHAR}
+             </if>
+             <if test="p.createDate != null" >
+                 and create_date = #{p.createDate,jdbcType=TIMESTAMP}
+             </if>
+             <if test="p.blogId != null" >
+                 and blog_id = #{p.blogId,jdbcType=INTEGER}
+             </if>
+             <if test="p.parentId != null" >
+                 and parent_id = #{p.parentId,jdbcType=INTEGER}
+             </if>
+             <if test="p.parentIds != null" >
+                 and parent_ids = #{p.parentIds,jdbcType=VARCHAR}
+             </if>
+         </if>
+
+        </where>
+    </sql>
+
+
+    <select id="findPageWithResult" parameterType="online.zouxiaolong.basics.entity.Page" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from  blog_guest_book
+        <include refid="pageFindPageWithWhere" />
+        limit #{start},#{pageSize}
+    </select>
+
+
+    <select id="findPageWithCount" parameterType="online.zouxiaolong.basics.entity.Page" resultType="Integer">
+        select count(1)
+        from blog_guest_book
+        <include refid="pageFindPageWithWhere" />
+    </select>
+
+
+    <select id="findPageTop" parameterType="online.zouxiaolong.basics.entity.Page"   resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from blog_guest_book
+        where parent_id = -1  and  blog_id = #{p.blogId,jdbcType=INTEGER} order by create_date desc      limit #{start},#{pageSize}
+    </select>
+
+    <select id="findPageTopCount" parameterType="online.zouxiaolong.basics.entity.Page"   resultType="int">
+        select
+        count(1)
+        from blog_guest_book
+        where parent_id = -1  and  blog_id = #{p.blogId,jdbcType=INTEGER}
+    </select>
+
+    <select id="findChildrenByTop"  resultMap="BaseResultMap" parameterType="string">
+        select <include refid="Base_Column_List" /> from blog_guest_book
+         where parent_ids like #{parentId} order by create_date
+    </select>
+</mapper>

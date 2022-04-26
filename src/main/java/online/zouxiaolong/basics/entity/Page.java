@@ -134,12 +134,12 @@ public class Page<T> {
         this.list = list;
     }
     
-    public T getT() {
+    public T getP() {
         
         return p;
     }
     
-    public void setT(T p) {
+    public void setP(T p) {
         
         this.p = p;
     }

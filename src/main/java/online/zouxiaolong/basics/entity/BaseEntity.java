@@ -7,6 +7,7 @@ package online.zouxiaolong.basics.entity;
  */
 public abstract class BaseEntity {
     
+    protected Integer id;
 
     protected Page<BaseEntity> page;
     
@@ -18,6 +19,16 @@ public abstract class BaseEntity {
     public void setPage(Page<BaseEntity> page) {
         
         this.page = page;
+    }
+    
+    public Integer getId() {
+        
+        return id;
+    }
+    
+    public void setId(Integer id) {
+        
+        this.id = id;
     }
     
 }

@@ -1,6 +1,7 @@
 package online.zouxiaolong.basics.service;
 
 
+import online.zouxiaolong.basics.entity.BaseEntity;
 import online.zouxiaolong.basics.entity.Page;
 import online.zouxiaolong.basics.mapper.Mapper;
 import org.apache.log4j.Logger;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * @description 基础的service ，减少冗余代码
  * @author  zZZ....
- * @date  2021-07-25
+ * @date  2022-02-25
     @param <M> mapper的实现类
   * @param <T> 对应的实体类
  */
@@ -39,6 +40,14 @@ public abstract class BaseService<M extends Mapper<T>,T>{
     
     public T selectById(Integer id){
         return mapper.selectById(id);
+    }
+    
+    public int save(T t){
+        if (((BaseEntity)t).getId() == null){
+          return   insert(t);
+        }else {
+          return   update(t);
+        }
     }
     
     public List<T> findPageWithResult(Page<T> p){

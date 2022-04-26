@@ -4354,7 +4354,7 @@ textarea.form-control-lg {
   color: #1a569d;
   background-color: #e2e8f0;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(32, 107, 196, 0.25);
+  /*box-shadow: 0 0 0 0.25rem rgba(32, 107, 196, 0.25);*/
 }
 
 .page-item:not(:first-child) .page-link {
@@ -4877,9 +4877,9 @@ textarea.form-control-lg {
   opacity: 0.75;
 }
 .btn-close:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(32, 107, 196, 0.25);
-  opacity: 1;
+  /*outline: 0;*/
+  /*box-shadow: 0 0 0 0.25rem rgba(32, 107, 196, 0.25);*/
+  /*opacity: 1;*/
 }
 .btn-close:disabled, .btn-close.disabled {
   pointer-events: none;
@@ -13644,7 +13644,7 @@ a.avatar {
   width: 4rem;
   height: 4rem;
   border: 1px dashed #e6e7e9;
-  background: #ffffff;
+  background: #e9e8ef;
   flex-direction: column;
   transition: color 0.3s, background-color 0.3s;
 }

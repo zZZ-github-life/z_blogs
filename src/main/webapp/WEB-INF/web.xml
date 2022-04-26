@@ -85,7 +85,7 @@
 
     <!--欢迎页-->
     <welcome-file-list>
-        <welcome-file>html/backstage/tags/list.html</welcome-file>
+        <welcome-file>html/backstage/gallery.html</welcome-file>
     </welcome-file-list>
 </web-app>
         

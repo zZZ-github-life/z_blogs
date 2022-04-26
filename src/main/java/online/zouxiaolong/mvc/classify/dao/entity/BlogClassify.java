@@ -8,10 +8,7 @@ import online.zouxiaolong.basics.entity.BaseEntity;
  * @date 2022/3/8
  */
 public class BlogClassify  extends BaseEntity {
-    /**
-     * 主键
-     */
-    private Integer id;
+
 
     /**
      * 分类key,唯一

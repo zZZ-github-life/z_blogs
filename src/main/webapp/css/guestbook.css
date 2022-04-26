@@ -93,7 +93,8 @@
     outline: none;
     padding: 10px 5px;
     max-width: 100%;
-    font-size: .775em
+    font-size: .775em;
+    box-sizing: border-box;
 }
 
 .v[data-class=v] input[type=checkbox], .v[data-class=v] input[type=radio] {
@@ -446,7 +447,8 @@
     font-size: .8125em;
     color: #ef2f11;
     cursor: pointer;
-    float: right
+    float: right;
+    margin-right:13px
 }
 
 .v[data-class=v] .vcards .vcard:last-child .vh {
@@ -460,7 +462,8 @@
     line-height: 2;
     position: relative;
     margin-bottom: .75em;
-    padding-top: .625em
+    padding-top: .625em;
+
 }
 
 .v[data-class=v] .vcards .vcard .vcontent.expand {

@@ -40,27 +40,19 @@ public class Cus_Global {
     
     private static Properties cusProperties;
     
-    /**
-     * html 不变的头和尾
-     */
-    public final static String htmlHead;
-    public final static String htmlFooter;
-    
-    
+
     
     static {
     
         try {
             cusProperties = new Properties();
-            cusProperties.load(new InputStreamReader(Objects.requireNonNull(Cus_Global.class.getClassLoader().getResourceAsStream("/properties/custom.properties")), StandardCharsets.UTF_8));
+            cusProperties.load(new InputStreamReader(Objects.requireNonNull(Cus_Global.class.getClassLoader().getResourceAsStream("/properties/blog.properties")), StandardCharsets.UTF_8));
             fileDrive= cusProperties.getProperty("file.drive","D:\\");
-            filePath= cusProperties.getProperty("file.path","customFile");
+            filePath= cusProperties.getProperty("file.path","blogFile");
             absPath = cusProperties.getProperty("file.absPath","downLoadFile");
     
-             htmlHead = cusProperties.getProperty("html.head");
-             htmlFooter = cusProperties.getProperty("html.footer");
         }catch (Exception e){
-            throw new MsgException("custom.properties load failed...");
+            throw new MsgException("blog.properties load failed...");
         }
         
     
@@ -129,7 +121,7 @@ public class Cus_Global {
      * @return
      */
     public static String getAbsPath(String realFilePath) throws IOException{
-        return absPath+realFilePath.substring( realFilePath.indexOf(fileRootPath())+fileRootPath().length());
+        return absPath+realFilePath.substring( realFilePath.indexOf(fileRootPath())+fileRootPath().length()).replaceAll("\\\\","/");
      
     }
     

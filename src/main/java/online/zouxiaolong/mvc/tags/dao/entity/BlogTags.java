@@ -1,16 +1,15 @@
 package online.zouxiaolong.mvc.tags.dao.entity;
 
+import online.zouxiaolong.basics.entity.BaseEntity;
+
 /**
  * @author zZZ....
  * @description 博客标签  实体类
  * @date 2022/3/8
  */
 
-public class BlogTags {
-    /**
-     * 主键
-     */
-    private Integer id;
+public class BlogTags extends BaseEntity {
+ 
     
     /**
      * 标签key,唯一
