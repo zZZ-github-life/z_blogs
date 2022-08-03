@@ -76,6 +76,7 @@ body .test {
 }
 body .login 
 {
+  border-radius: 18px;
   box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
   opacity: 1;
   top: 20px;

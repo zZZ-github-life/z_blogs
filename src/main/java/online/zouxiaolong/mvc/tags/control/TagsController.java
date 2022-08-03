@@ -42,7 +42,7 @@ public class TagsController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
             
         }
         return repJson;
@@ -61,7 +61,7 @@ public class TagsController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
         }
         return repJson;
     }
@@ -75,7 +75,7 @@ public class TagsController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
         }
         return repJson;
     }
@@ -91,7 +91,7 @@ public class TagsController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
         }
         return repJson;
     }

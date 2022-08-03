@@ -3690,9 +3690,7 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
-.navbar-expand-md #navbar-menu{
-  display: none;
-}
+
 @media (min-width: 768px) {
   .navbar-expand-md {
     flex-wrap: nowrap;

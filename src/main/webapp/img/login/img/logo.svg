@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" width="600" height="600" preserveAspectRatio="none"
+     version="1.1" class="svg-canvas">
+    <defs></defs>
+
+    <g id="shape_JZfIU9uh3q" transform="translate(61.2519843722876,61.173285490426224) rotate(-117,238.52861011549703,238.50288725130974) scale(1,1)" filter="" style="opacity: 1;">
+        <g>
+            <rect fill="rgba(0,0,0,0)" width="497.05722023099406" height="497.0057745026195" x="-10" y="-10"></rect>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="图层_1" x="0px" y="0px" width="477.05722023099406" height="477.0057745026195" viewBox="0 0 92.75 92.73999786376953" style="enable-background:new 0 0 92.75 92.75;" xml:space="preserve" class="style-removed" preserveAspectRatio="none">
+
+<path d="M79.47,0h-66.2C5.94,0,0,5.94,0,13.27v45.91c1.97-2.34,3.62-4.51,4.97-6.44  c11.37-16.17,15.47-33.15,26.32-33.94c0.89-0.06,1.33-0.1,1.86,0.05c7.5,2.07,2.41,28.18,14.21,40.93c0.74,0.8,1.52,1.52,2.7,1.89  c7.1,2.22,17.97-11.7,23.07-21.71c2.17-4.26,5.15-11.44,6.11-21.4c1.42,6.23,3.62,19.92-2.27,34.7  c-5.73,14.36-19.49,30.75-29.19,28.17c-12.18-3.24-8.62-34.51-18.44-36.78c-5.06-1.17-13.64,5.4-29.22,36.44  c0.8,6.56,6.39,11.65,13.16,11.65h66.2c7.33,0,13.27-5.94,13.27-13.27v-66.2C92.75,5.94,86.8,0,79.47,0z M78.42,76.18  c-1.69,0-3.06-1.37-3.06-3.06c0-1.69,1.37-3.06,3.06-3.06c1.69,0,3.06,1.37,3.06,3.06C81.48,74.81,80.11,76.18,78.42,76.18z" fill="#3cd9d9" stroke-width="0"></path>
+</svg>
+        </g>
+    </g>
+    <defs>
+        <pattern id="wm_tile" x="0" y="0" width="10%" height="27%">
+            <g id="wm_lm" transform="translate(-188.000000, -323.000000)" fill="#cccccc">
+
+            </g>
+        </pattern>
+    </defs>
+    <rect x="0" y="0" width="100%" height="100%" style="fill: url(#wm_tile);"></rect>
+</svg>

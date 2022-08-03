@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -42,17 +43,18 @@ public class GalleryController  extends BaseController {
         try{
             String[] md5s = fileMD5s.split(",");
             String[] names = fileNames.split(",");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+            String date = sdf.format(new Date());
             if ($cusFiles_v!=null && $cusFiles_v.length > 0 && $cusFiles_v.length == md5s.length && md5s.length ==names.length){
                     for (int i = 0; i < $cusFiles_v.length; i++) {
                         MultipartFile  multipartFile =  $cusFiles_v[i];
                         String suffix = Objects.requireNonNull(multipartFile.getOriginalFilename()).substring(multipartFile.getOriginalFilename().lastIndexOf(".") );
-                        String dir = Cus_Global.fileRootPath() + File.separator ;
+                        String dir = Cus_Global.fileRootPath() + File.separator + date + File.separator;
                         String filePath = dir+md5s[i];  //图片md5  防止重复
                         Cus_Global.createDir(dir);
                         File file = new File(filePath+suffix);
                         if (file.exists()) continue;
                         
-                        multipartFile.transferTo(file);
                         String absPath = Cus_Global.getAbsPath(file.getPath());
                         sb.append(",").append(absPath);
                         
@@ -65,8 +67,8 @@ public class GalleryController  extends BaseController {
                         blogGallery.setSize(multipartFile.getSize());
                         
                         galleryService.insertDuplicateKey(blogGallery);
-                        
-                }
+                        multipartFile.transferTo(file); //保存图片
+                    }
                 String s = sb.toString().replaceFirst(",", "");
                 repJson.setData(s);
             
@@ -97,7 +99,7 @@ public class GalleryController  extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
             
         }
         return repJson;
@@ -114,7 +116,7 @@ public class GalleryController  extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
             
         }
         return repJson;
@@ -131,7 +133,7 @@ public class GalleryController  extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            repJson.setMsg(e.getMessage());
+            
         }
         return repJson;
     }

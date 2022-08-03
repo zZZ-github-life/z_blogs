@@ -1,0 +1,333 @@
+/*
+* @author:  zZZ....
+* @description:博客页css
+* @date: 2022/7/15
+*
+* */
+/*顶部导航栏 菜单*/
+.navbar-fixed .nav-wrapper>ul>li>span{
+    font-size: 17px;
+}
+.navbar-fixed .nav-wrapper>ul>li>a{
+    max-height: 75px;
+    border-radius: 5px;
+}
+.nav-transparent .github-corner {
+    display: none !important;
+}
+
+
+/*顶部导航栏 github图标*/
+.github-corner {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    border: 0;
+    transform: scale(1.1);
+}
+
+.github-corner svg {
+    color: #eaeaea;
+    fill: #161515a1;
+    height: 75px;
+    width: 75px;
+}
+
+.github-corner:hover .octo-arm {
+    animation: a 0.56s ease-in-out;
+}
+
+.github-corner .octo-arm {
+    animation: none;
+}
+
+@keyframes a {
+    0%,
+    to {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}
+/*banner*/
+.blog-banner{
+
+}
+.height-100{
+    height: 100vh;
+}
+.blog-bg-img{
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position:center center;
+
+}
+.blog-home-flex{
+    display: flex;
+    align-items: center;
+}
+.blog-text-center{
+    text-align: center;
+}
+/*首页欢迎标题*/
+.blog-title{
+    margin: auto;
+    font-family: "Bodoni MT Black",sans-serif;
+    line-height: 2.3;
+    position: relative;
+    color: #fff;
+    mix-blend-mode: lighten;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: background 1s;
+}
+.blog-wh-100{
+    width: 100%;
+    height: 100%;
+}
+/*联系方式和诗词*/
+.blog-header-info {
+    width: 63%;
+    font-size: 16px;
+    color: #eaeadf;
+    background: rgb(0 0 0 / 12%);
+    padding: 15px;
+    margin: 22px auto auto;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-radius: 10px;
+    box-sizing: initial;
+    white-space: nowrap;
+}
+.blog-header-info p {
+    margin: 0;
+    font-family: Ubuntu,sans-serif;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.cover-social-link {
+    top: 23vh;
+    width: 100%;
+    text-align: center;
+}
+.cover-social-link a {
+    padding: 0 15px;
+    font-size: 1.35rem;
+    color: #fff;
+}
+/*开始阅读*/
+.blog-start{
+    position: relative;
+    top: 23vh;
+    width: 100%;
+    text-align: center;
+}
+.blog-start a{
+    margin: 10px 15px;
+    padding: 0 35px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1rem;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 30px;
+    box-shadow: none;
+}
+.blog-start a:hover{
+    border: 1px solid #f0ecf4;
+    background-color: rgba(255,255,255,0.2);
+}
+.blog-start a i{
+    font-size: 1.1rem;
+    padding-right: 5px;
+}
+.btn:focus{
+    background-color: transparent;
+}
+/*波浪*/
+.cloud {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8;
+    box-sizing: border-box;
+}
+.cloud .waves {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+.parallax>use{
+    animation: move-forever 25s  cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax>use:nth-child(1){
+    animation-delay: -2s;;
+    animation-duration: 7s;
+}
+.parallax>use:nth-child(2){
+    animation-delay: -3s;;
+    animation-duration: 10s;
+}
+.parallax>use:nth-child(3){
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.parallax>use:nth-child(4){
+    animation-delay: -5s;;
+    animation-duration: 20s;
+
+}
+@keyframes move-forever {
+    0%{
+        transform: translate3d(-90px,0,0);
+    }
+    100%{
+        transform: translate3d(85px,0,0);
+    }
+}
+@media(max-width: 700px) {
+    .waves{
+        height: 10vh;
+    }
+
+}
+@media (max-width: 768px){
+    .cloud .waves {
+        height: 40px;
+    }
+}
+
+/*主体*/
+.card {
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%) !important;
+}
+@media only screen and (min-width: 993px){
+    .container {
+        width: 90%;
+        max-width: 1125px;
+    }
+
+}
+@media only screen and (max-width: 601px){
+    .container {
+        width: 98%;
+    }
+   .blog-padding-empty .card .card-content {
+        padding: 0;
+    }
+}
+.blog-index-title{
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+#DPlayer{
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%), 0 10px 20px -12px rgb(0 0 0 / 50%);
+    border-radius: 8px;
+    border:0;
+}
+#DPlayer .dplayer-video-wrap{
+    background-color: transparent;
+}
+/*轮播图*/
+.blog-slider-body{
+    display: flex;
+
+}
+.blog-slider-body *{
+    box-sizing: border-box;
+}
+/*文章卡片*/
+.blog-border-radius-all{
+    border-radius: 8px;
+}
+.blog-border-radius-all>div{
+    float: top;
+}
+.blog-article-img{
+    display: block;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px 8px 2px 2px !important;
+    border: 0;
+    opacity:.8;
+}
+.card-image{
+    border: 0;
+    border-radius: 8px;
+    background-color: #0C1021;
+    background-image: linear-gradient(147deg, #7e71f3 0%, #8bb5f3 74%);
+}
+.blog-p-text{
+    text-align: justify;
+    overflow: hidden;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+
+}
+
+/*页脚*/
+.blog-bending-body{
+    height: 4.375rem;
+    position: relative;
+    overflow: hidden;
+}
+.blog-bending:before{
+    content: '';
+    width: 150%;
+    height: 4.375rem;
+    position: absolute;
+    left: -25%;
+    bottom: -2.18rem;
+    border-radius: 100%;
+    z-index: 2;
+    background-color: #ee6e73;
+}
+
+.blog-background-color{
+    background-color: #ee6e73;
+}
+/*进度条*/
+#nprogress .bar {
+    background: #6d39ff;
+    position: fixed;
+    z-index: 1031;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+}
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #6d39ff, 0 0 5px #4b69d0;
+    opacity: 1;
+    transform: rotate(180deg) translate(0,-4px);
+}
+/*提示通知*/
+.el-notification__content {
+    font-size: 13px;
+    line-height: 21px;
+    color: #8391a5;
+    text-align: justify;
+}

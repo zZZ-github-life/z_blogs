@@ -6,6 +6,7 @@ import online.zouxiaolong.basics.entity.Page;
 import online.zouxiaolong.basics.mapper.Mapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

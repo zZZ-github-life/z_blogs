@@ -1,5 +1,9 @@
 package online.zouxiaolong.mvc.blogs.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import online.zouxiaolong.basics.entity.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -7,7 +11,7 @@ import java.util.Date;
  * @description 文章实体类
  * @date 2022/4/25
  */
-public class BlogBlogs {
+public class BlogBlogs  extends BaseEntity {
     
     
     /**
@@ -43,6 +47,8 @@ public class BlogBlogs {
     /**
      * 发布日期
      */
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern  = "yyyy/MM/dd")
     private Date publishDate;
     
     /**
@@ -118,7 +124,7 @@ public class BlogBlogs {
         this.id = id;
     }
     
-    public Boolean getIsOriginal() {
+    public Boolean isIsOriginal() {
         return isOriginal;
     }
     
@@ -166,7 +172,7 @@ public class BlogBlogs {
         this.publishDate = publishDate;
     }
     
-    public Boolean getIsPraise() {
+    public Boolean isIsPraise() {
         return isPraise;
     }
     
@@ -174,7 +180,7 @@ public class BlogBlogs {
         this.isPraise = isPraise;
     }
     
-    public Boolean getIsUp() {
+    public Boolean isIsUp() {
         return isUp;
     }
     
@@ -182,7 +188,7 @@ public class BlogBlogs {
         this.isUp = isUp;
     }
     
-    public Boolean getIsReview() {
+    public Boolean isIsReview() {
         return isReview;
     }
     
@@ -190,7 +196,7 @@ public class BlogBlogs {
         this.isReview = isReview;
     }
     
-    public Boolean getIsDeclare() {
+    public Boolean isIsDeclare() {
         return isDeclare;
     }
     
@@ -198,7 +204,7 @@ public class BlogBlogs {
         this.isDeclare = isDeclare;
     }
     
-    public Boolean getIsPublic() {
+    public Boolean isIsPublic() {
         return isPublic;
     }
     
@@ -206,7 +212,7 @@ public class BlogBlogs {
         this.isPublic = isPublic;
     }
     
-    public Boolean getIsDraft() {
+    public Boolean isIsDraft() {
         return isDraft;
     }
     

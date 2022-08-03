@@ -40,7 +40,8 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--开启注解事务，proxy-target-class标识使用cglib动态代理，无需实现接口（好像有问题,需要在类上加注解@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)）-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 
     <!--freemarker -->
     <bean id="freemarkerConfig"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -53,7 +54,7 @@
         <!-- 模板加载路径 -->
         <property name="templateLoaderPaths">
             <list>
-                <value>/pages/freemarker/template/</value>
+                <value>/html/freemarker/</value>
             </list>
         </property>
 

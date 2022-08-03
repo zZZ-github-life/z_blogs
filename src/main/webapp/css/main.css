@@ -1,0 +1,23 @@
+/*
+* @author:  zZZ....
+* @description: 后台管理系统css
+* @date: 2022/5/20
+*
+* */
+
+
+.blog-alter{
+    width: 330px;
+    display: flex;
+    position:fixed;
+    bottom: 84px;
+    right: -332px;
+    transition: right 1s ;
+    z-index: 1046;
+}
+.blog-none{
+    display: none;
+}
+.blog-prompt{
+    right: 33px;
+}

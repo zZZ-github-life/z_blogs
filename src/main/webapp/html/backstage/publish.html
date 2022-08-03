@@ -1,23 +1,9 @@
-<!-- 
+<!--
     @author:  zZZ....
     @description: 博客发布页
     @date: 2022/2/27
 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <!-- CSS files -->
-    <link href="/blogs/tabler/dist/css/tabler.css" rel="stylesheet"/>
-    <link href="/blogs/tabler/dist/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="/blogs/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="/blogs/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
-
-    <link rel="stylesheet" href="/blogs/libs/EditorMD/css/editormd.css" />
 
 <!--    editor.md组件 添加按钮的css-->
     <style>
@@ -145,431 +131,111 @@
             background-color: #F5F5F5;
         }
 
+
+        .blog-gallery-1 {
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .all {
+
+            width: 70%;
+            height: 80%;
+            overflow: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            position: relative;
+            top: 10%;
+            left: 15%;
+            opacity: 0.8;
+            background-color: #fafbfc;
+            border-radius: 8px;
+            padding-top: 20px;
+
+        }
+
+        .smallimg {
+            position: absolute;/*子元素开启相对定位*/
+            width: 200px;/*子元素的宽固定为200*/
+        }
+
+        .column {
+            width: 300px;
+
+        }
+
+        .col-child {
+            width: 100%;
+            border-radius: 5px;
+            background-color: blue;
+            display: block;
+        }
+
+
+        .modal-1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1055;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            outline: 0;
+
+            background-color: rgb(0 0 0 / 10%);
+            transition: opacity .15s linear;
+            backdrop-filter: blur(4px);
+        }
+
+        .close-a{
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 10;
+            font-size: 20px;
+            background-color: #eee;
+            border-radius: 126px;
+            color: #6a737d;
+        }
+        .confirm-a{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            font-size: 20px;
+            background-color: #eee;
+            border-radius: 126px;
+            color: #6a737d;
+        }
+        .img-border{
+            border: 3px solid #0876f0f5;
+        }
+
+
+        .ti{
+            font-family: tabler-icons!important;
+            speak: none;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .ti-circle-check:before {
+            content: "\ea67";
+        }
+        .ti-circle-x:before {
+            content: "\ea6a";
+        }
     </style>
     <title>zZZ | 正在写blog...</title>
-</head>
-<body>
-<div class="page">
-    <header class="navbar navbar-expand-md navbar-light  sticky-top d-print-none">
-        <div class="container-xl">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                <a href=".">
-                    <img src="/blogs/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-                </a>
-            </h1>
-            <div class="navbar-nav flex-row order-md-last">
-                <div class="d-none d-md-flex">
-                    <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
-                    </a>
-                    <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
-                    </a>
-                    <div class="nav-item dropdown d-none d-md-flex me-3">
-                        <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
-                            <span class="badge bg-red"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Last updates</h3>
-                                </div>
-                                <div class="list-group list-group-flush list-group-hoverable">
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto"><span class="status-dot status-dot-animated bg-red d-block"></span></div>
-                                            <div class="col text-truncate">
-                                                <a href="#" class="text-body d-block">Example 1</a>
-                                                <div class="d-block text-muted text-truncate mt-n1">
-                                                    Change deprecated html tags to text decoration classes (#29604)
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#" class="list-group-item-actions">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto"><span class="status-dot d-block"></span></div>
-                                            <div class="col text-truncate">
-                                                <a href="#" class="text-body d-block">Example 2</a>
-                                                <div class="d-block text-muted text-truncate mt-n1">
-                                                    justify-content:between ⇒ justify-content:space-between (#29734)
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#" class="list-group-item-actions show">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-yellow" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto"><span class="status-dot d-block"></span></div>
-                                            <div class="col text-truncate">
-                                                <a href="#" class="text-body d-block">Example 3</a>
-                                                <div class="d-block text-muted text-truncate mt-n1">
-                                                    Update change-version.js (#29736)
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#" class="list-group-item-actions">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto"><span class="status-dot status-dot-animated bg-green d-block"></span></div>
-                                            <div class="col text-truncate">
-                                                <a href="#" class="text-body d-block">Example 4</a>
-                                                <div class="d-block text-muted text-truncate mt-n1">
-                                                    Regenerate package-lock.json (#29730)
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#" class="list-group-item-actions">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                        <span class="avatar avatar-sm" style="background-image: url(/blogs/tabler/static/avatars/000m.jpg)"></span>
-                        <div class="d-none d-xl-block ps-2">
-                            <div>Paweł Kuna</div>
-                            <div class="mt-1 small text-muted">UI Designer</div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a href="#" class="dropdown-item">Set status</a>
-                        <a href="#" class="dropdown-item">Profile & account</a>
-                        <a href="#" class="dropdown-item">Feedback</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Settings</a>
-                        <a href="#" class="dropdown-item">Logout</a>
-                    </div>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs/tabler/index.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Home
-                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Interface
-                    </span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-menu-columns">
-                                    <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/blogs/tabler/empty.html" >
-                                            Empty page
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/accordion.html" >
-                                            Accordion
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/blank.html" >
-                                            Blank page
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/buttons.html" >
-                                            Buttons
-                                        </a>
-                                        <div class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#sidebar-cards" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                                                Cards
-                                                <span class="badge badge-sm bg-green text-uppercase ms-2">New</span>
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a href="/blogs/tabler/cards.html" class="dropdown-item">
-                                                    Sample cards
-                                                </a>
-                                                <a href="/blogs/tabler/card-actions.html" class="dropdown-item">
-                                                    Card actions
-                                                    <span class="badge badge-sm bg-green text-uppercase ms-2">New</span>
-                                                </a>
-                                                <a href="/blogs/tabler/cards-masonry.html" class="dropdown-item">
-                                                    Cards Masonry
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="dropdown-item" href="/blogs/tabler/colors.html" >
-                                            Colors
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/dropdowns.html" >
-                                            Dropdowns
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/modals.html" >
-                                            Modals
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/maps.html" >
-                                            Maps
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/map-fullsize.html" >
-                                            Map fullsize
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/maps-vector.html" >
-                                            Vector maps
-                                            <span class="badge badge-sm bg-green text-uppercase ms-2">New</span>
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/navigation.html" >
-                                            Navigation
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/blogs/tabler/charts.html" >
-                                            Charts
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/pagination.html" >
-                                            Pagination
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/placeholder.html" >
-                                            Placeholder
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/tabs.html" >
-                                            Tabs
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/tables.html" >
-                                            Tables
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/carousel.html" >
-                                            Carousel
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/lists.html" >
-                                            Lists
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/typography.html" >
-                                            Typography
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/offcanvas.html" >
-                                            Offcanvas
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/markdown.html" >
-                                            Markdown
-                                        </a>
-                                        <div class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                                                Authentication
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a href="/blogs/tabler/sign-in.html" class="dropdown-item">
-                                                    Sign in
-                                                </a>
-                                                <a href="/blogs/tabler/sign-up.html" class="dropdown-item">
-                                                    Sign up
-                                                </a>
-                                                <a href="/blogs/tabler/forgot-password.html" class="dropdown-item">
-                                                    Forgot password
-                                                </a>
-                                                <a href="/blogs/tabler/terms-of-service.html" class="dropdown-item">
-                                                    Terms of service
-                                                </a>
-                                                <a href="/blogs/tabler/auth-lock.html" class="dropdown-item">
-                                                    Lock screen
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#sidebar-error" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                                                Error pages
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a href="/blogs/tabler/error-404.html" class="dropdown-item">
-                                                    404 page
-                                                </a>
-                                                <a href="/blogs/tabler/error-500.html" class="dropdown-item">
-                                                    500 page
-                                                </a>
-                                                <a href="/blogs/tabler/error-maintenance.html" class="dropdown-item">
-                                                    Maintenance page
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs/tabler/form-elements.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 11 12 14 20 6" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Forms
-                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Extra
-                    </span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/blogs/tabler/activity.html" >
-                                    Activity
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/gallery.html" >
-                                    Gallery
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/invoice.html" >
-                                    Invoice
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/search-results.html" >
-                                    Search results
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/pricing.html" >
-                                    Pricing cards
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/users.html" >
-                                    Users
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/license.html" >
-                                    License
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/music.html" >
-                                    Music
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/uptime.html" >
-                                    Uptime monitor
-                                    <span class="badge badge-sm bg-green text-uppercase ms-2">New</span>
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/widgets.html" >
-                                    Widgets
-                                </a>
-                                <a class="dropdown-item" href="/blogs/tabler/wizard.html" >
-                                    Wizard
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item active dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="6" height="5" rx="2" /><rect x="4" y="13" width="6" height="7" rx="2" /><rect x="14" y="4" width="6" height="7" rx="2" /><rect x="14" y="15" width="6" height="5" rx="2" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Layout
-                    </span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-menu-columns">
-                                    <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-horizontal.html" >
-                                            Horizontal
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-vertical.html" >
-                                            Vertical
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-vertical-transparent.html" >
-                                            Vertical transparent
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-vertical-right.html" >
-                                            Right vertical
-                                        </a>
-                                        <a class="dropdown-item active" href="/blogs/tabler/layout-condensed.html" >
-                                            Condensed
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-combo.html" >
-                                            Combined
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-navbar-dark.html" >
-                                            Navbar dark
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-navbar-sticky.html" >
-                                            Navbar sticky
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-navbar-overlap.html" >
-                                            Navbar overlap
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-rtl.html" >
-                                            RTL mode
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-fluid.html" >
-                                            Fluid
-                                        </a>
-                                        <a class="dropdown-item" href="/blogs/tabler/layout-fluid-vertical.html" >
-                                            Fluid vertical
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs/tabler/icons.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/ghost -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 11a7 7 0 0 1 14 0v7a1.78 1.78 0 0 1 -3.1 1.4a1.65 1.65 0 0 0 -2.6 0a1.65 1.65 0 0 1 -2.6 0a1.65 1.65 0 0 0 -2.6 0a1.78 1.78 0 0 1 -3.1 -1.4v-7" /><line x1="10" y1="10" x2="10.01" y2="10" /><line x1="14" y1="10" x2="14.01" y2="10" /><path d="M10 14a3.5 3.5 0 0 0 4 0" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      1518 icons
-                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs/tabler/docs/index.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/file-text -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><line x1="9" y1="9" x2="10" y2="9" /><line x1="9" y1="13" x2="15" y2="13" /><line x1="9" y1="17" x2="15" y2="17" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Documentation
-                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs/tabler/changelog.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/file-plus -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><line x1="12" y1="11" x2="12" y2="17" /><line x1="9" y1="14" x2="15" y2="14" /></svg>
-                    </span>
-                                <span class="nav-link-title">
-                      Changelog
-                    </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="page-wrapper">
+
+
         <div class="container-xl">
             <!-- Page title -->
             <div class="page-header d-print-none">
@@ -599,16 +265,16 @@
                                 <button type="button" class="btn dropdown-toggle " style="color: #4e81c1;border: 2px solid #4e81c1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     原创
                                 </button>
-                                <div class="dropdown-menu" style="color: #4e81c1">
-                                    <a class="dropdown-item" style="border-bottom: 1px dashed #4e81c1" href="JavaScript:void(0)">
+                                <div class="dropdown-menu" id="oriSel" style="color: #4e81c1">
+                                    <a class="dropdown-item" data-blog-isOriginal="1" style="border-bottom: 1px dashed #4e81c1" href="JavaScript:void(0)">
                                         原创
                                     </a>
-                                    <a class="dropdown-item" href="JavaScript:void(0)">
+                                    <a class="dropdown-item" data-blog-isOriginal="0" href="JavaScript:void(0)">
                                         转载
                                     </a>
                                 </div>
-                                <input type="hidden" name="">
-                                <input type="text" name="blog_title" class="form-control" placeholder="博客标题" aria-label="Text input with dropdown button">
+                                <input type="hidden" name="isOriginal" id="isOriginal" value="1">
+                                <input type="text" id="title" name="title" class="form-control" placeholder="博客标题" aria-label="Text input with dropdown button">
                             </div>
 
                             <hr/>
@@ -617,22 +283,8 @@
                                 <i class="ti ti-bookmarks"></i>
                                 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分类</font></font>
                             </div>
-                            <div class="mb-3" style="overflow: hidden">
-                                <div class="form-selectgroup"  style="height: 50px;overflow-x:hidden;overflow-y: auto">
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_classify" value="HTML" class="form-selectgroup-input" >
-                                        <span class="form-selectgroup-label">HTML</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_classify" value="CSS" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">CSS</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_classify" value="PHP" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">PHP</span>
-                                    </label>
-
-                                    <br/>
+                            <div class="mb-3" style="overflow: hidden" >
+                                <div class="form-selectgroup"  id="blog_classify" style="height: 50px;overflow-x:hidden;overflow-y: auto">
 
 
                                 </div>
@@ -644,58 +296,27 @@
                                 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标签</font></font>
                             </div>
                             <div class="mb-3" style="overflow: hidden">
-                                <div class="form-selectgroup"  style="height: 133px;overflow-x:hidden;overflow-y: auto">
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="HTML" class="form-selectgroup-input" >
-                                        <span class="form-selectgroup-label">HTML</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="CSS" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">CSS</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="PHP" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">PHP</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">JavaScript</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="PHP" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">PHP</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">JavaScript</span>
-                                    </label>
+                                <div class="form-selectgroup" id="blog_tags" style="height: 133px;overflow-x:hidden;overflow-y: auto">
 
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">JavaScript</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">JavaScript</span>
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                        <span class="form-selectgroup-label">JavaScript</span>
-                                    </label> <label class="form-selectgroup-item">
-                                    <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label">JavaScript</span>
-                                </label> <label class="form-selectgroup-item">
-                                    <input type="checkbox" name="blog_tags" value="JavaScript" class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label">JavaScript</span>
-                                </label>
                                 </div>
                             </div>
 
                             <hr/>
 
-                            <div class="subheader mb-2 " style="border-shadow: 5px 2px 6px #000;">
-                             <input id="blogs_file" type="file" name="blog_img" style="display: none">
-                                <a href="javascript:void(0)" class="btn btn-twitter w-100"  onclick="blogs_fun_fileUpload()">
+                            <style>
+                                div.subheader.mb-2.aaa:hover div{
+                                    display: block;
+                                }
+                            </style>
+
+                            <div class="subheader mb-2 aaa" style="border-shadow: 5px 2px 6px #000;"   >
+
+                                <div class="blogs-hide" style="position: relative;" >
+                                    <img id="imgHover" style="max-height:150px;width: 294px ;object-fit:cover;bottom: 14px;position: absolute;z-index: 2" src="http://localhost:8853/blogs/downLoadFile/cefc6d8e86f0817c9a87a80d706cf077.jpg">
+                                </div>
+
+                             <input id="galleryId" type="hidden" name="galleryId" >
+                                <a href="javascript:void(0)" class="btn btn-twitter w-100"  onclick="blog_publish_zhezhao()">
                                     <svg style="display: none" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M5 12l5 5l10 -10"></path>
@@ -706,15 +327,14 @@
                                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="blogs_font_img">上传图片</font></font>
                                 </a>
                             </div>
-
                             <hr/>
 
                             <div class="form-group mb-3 row">
                                 <label class="form-label col-3 col-form-label" style="padding-right: 0px">发布日期:</label>
                                 <div class="col">
                                     <div class="input-icon mb-2">
-                                        <input class="form-control " name="blog_date" placeholder="Select a date" id="datepicker-icon"/>
-                                        <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                                        <input class="form-control "  name="publishDate" placeholder="Select a date" id="publishDate"/>
+                                        <span class="input-icon-addon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                      viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                      stroke-linecap="round" stroke-linejoin="round"><path stroke="none"
@@ -737,27 +357,9 @@
 
                             <div class="subheader mb-2">
                                 <div class="form-selectgroup">
+
                                     <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="blog_check" value="sun" class="form-selectgroup-input">
-
-
-
-                                                    <span class="form-selectgroup-label yuanjiao">
-                                                         <a title="转载声明">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                                   viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                   stroke-linecap="round" stroke-linejoin="round"><path stroke="none"
-                                                                                                        d="M0 0h24v24H0z"
-                                                                                                        fill="none"></path><circle
-                                                      cx="12" cy="12" r="4"></circle><path
-                                                      d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
-                                                                   </a>
-                                            </span>
-
-                                    </label>
-                                    <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="name" value="moon" class="form-selectgroup-input">
-
+                                        <input type="checkbox" name="blogChecks" value="isPraise" class="form-selectgroup-input">
                                              <span class="form-selectgroup-label yuanjiao" >
                                             <a title="开启赞赏">赏  </a>
                                         </span>
@@ -765,7 +367,7 @@
 
                                     </label>
                                     <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="name" value="cloud-rain"
+                                        <input type="checkbox" name="blogChecks" value="isUp"
                                                class="form-selectgroup-input">
 
                                                 <span class="form-selectgroup-label yuanjiao">
@@ -779,7 +381,7 @@
 
                                     </label>
                                     <label class="form-selectgroup-item">
-                                        <input type="checkbox" name="name" value="cloud" class="form-selectgroup-input">
+                                        <input type="checkbox" name="blogChecks" value="isReview" class="form-selectgroup-input">
 
                                                  <span class="form-selectgroup-label yuanjiao">
                                                        <a title="开启评论">
@@ -788,13 +390,29 @@
                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                        <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"></path>
                                                        <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"></path>
-                                                    </svg>
-                                                             </a>
+                                                    </svg></a>
                                                </span>
 
 
                                     </label>
+                                    <label class="form-selectgroup-item">
+                                        <input type="checkbox" name="blogChecks" value="isDeclare" class="form-selectgroup-input">
 
+
+
+                                        <span class="form-selectgroup-label yuanjiao">
+                                                         <a title="转载声明">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                         stroke-linecap="round" stroke-linejoin="round"><path stroke="none"
+                                                                                                              d="M0 0h24v24H0z"
+                                                                                                              fill="none"></path><circle
+                                                            cx="12" cy="12" r="4"></circle><path
+                                                            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
+                                                                   </a>
+                                            </span>
+
+                                    </label>
                                 </div>
                             </div>
 
@@ -804,17 +422,17 @@
                                     <span class="col">是否公开</span>
                                     <span class="col-auto">
                                         <label class="form-check form-check-single form-switch">
-                                          <input class="form-check-input" type="checkbox" checked="">
+                                          <input class="form-check-input" type="checkbox" checked="" name="isPublic">
                                         </label>
                                       </span>
                                 </label>
                             </div>
                             <hr/>
                             <div class="mt-5">
-                                <a href="#" class="btn btn-primary btn-pill ">
+                                <a href="#" class="btn btn-primary btn-pill " onclick="publish(false)" id="publish">
                                     发布博客
                                 </a>
-                                <a href="#" class="btn btn-secondary btn-pill ">
+                                <a href="#" class="btn btn-secondary btn-pill " onclick="publish(true)" id="draft">
                                     存稿
                                 </a>
                             </div>
@@ -831,10 +449,10 @@
                             <div class="mb-3">
 
 
-                                <label class="form-label" style="text-shadow: 2px 2px 2px #00000038;">开始写博客吧~ <span class="form-label-description" style="text-shadow: 0 0 0 transparent">0/10000</span></label>
+                                <label class="form-label" style="text-shadow: 2px 2px 2px #00000038;">开始写博客吧~ <span class="form-label-description" style="text-shadow: 0 0 0 transparent"><span id="words">0</span>/10000</span></label>
 
-                                     <div id="editorId" style="z-index: 1021 !important; border-radius: 5px">
-                                        <textarea id="form-label" style="display:none;"></textarea>
+                                     <div id="editorId" style="z-index: 1000 !important; border-radius: 5px">
+                                        <textarea id="form-label"  ></textarea>
 <!--                                         <div id="editor-utilbar">-->
 <!--                                             <a href="javascript:;" title="关闭实时预览"><i class="fa fa-eye-slash">abab</i></a>-->
 <!--                                             <a href="javascript:;" title="全屏（按ESC还原）"><i class="fa fa-arrows-alt" >dddd</i></a>-->
@@ -850,26 +468,164 @@
                 </div>
             </div>
         </div>
-      
-    </div>
+
+
+<!--画廊模态框-->
+<div class="modal-1 modal-blur  blogs-hide" id="modal-1" >
+
+    <i class="ti ti-circle-check confirm-a" id="confirm-a"></i>
+    <i class="ti ti-circle-x close-a" id="closeId"></i>
+
+
+        <div class="all" role="document" id="all"  >
+
+
+        </div>
+
 </div>
 
 
 
+
+
+<script src="/blogs/libs/jquery/jquery.min.js"></script> <!--jq-->
+
+<script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
+
+
+
 <!-- editor.md 插件依赖 start-->
-<script src="/blogs/libs/jquery/jquery.min.js"></script>
-<!--<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
-<script src="/blogs/libs/EditorMD/editormd.js"></script>
-<!-- editor.md 插件依赖 start-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element:document.getElementById('publishDate'),
+            buttonText: {
+                previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+        }));
+    });
+    // @formatter:on
+    document.getElementById('publishDate').value= new Date().toLocaleDateString()
+
+
+
+    $(function () {
+        getImg();
+
+        document.getElementById('all').addEventListener('scroll',function (e) {
+            // 变量 scrollHeight 是滚动条的总高度
+            let scrollHeight = this.scrollHeight || this.scrollHeight;
+
+            // 变量 windowHeight 是可视区的高度
+            let windowHeight = this.clientHeight || this.clientHeight;
+
+            // 变量scrollTop为当前页面的滚动条纵坐标位置
+            let scrollTop = this.scrollTop || this.scrollTop;
+
+            // 滚动条到底部得距离 = 滚动条的总高度 - 可视区的高度 - 当前页面的滚动条纵坐标位置
+            let scrollBottom = scrollHeight - windowHeight - scrollTop;
+
+
+            if (Math.floor(Math.abs(scrollBottom)) === 0 && send){
+                getImg();
+            }
+        });
+
+
+        // window 的 onload 及 onresize 事件
+
+        window.onresize = debounce(init);
+
+
+
+    });
+
+
+</script>
+
+
+<!--表单相关操作-->
+<script>
+
+
+
+    //分类
+    $(function () {
+        //原创
+        $('#oriSel a.dropdown-item').click(function () {
+            this.parentElement.previousElementSibling.innerText = this.innerText;
+            let isOriginal = document.getElementById('isOriginal');
+            isOriginal.value = this.getAttribute('data-blog-isOriginal');
+        });
+
+       let pageData ={currentPage:'1',pageSize:'500'};
+        $.ajax({
+            url:'/blogs/classifyController/list',
+            type:'post',
+            data:pageData,
+            success:function (data) {
+                if (data.success && data.data.list.length !== 0){
+                    blog_publish_classify('blog_classify',data.data.list,{eleName:'classifyId',value:'id',name:'classifyName'},'radio');
+                }else {
+                    $('#blog_classify').html('<tr><td colspan="6" style="text-align: center;color: rgba(155,156,157,0.59)">暂无数据！</td></tr>');
+                }
+            }
+        });
+        $.ajax({
+            url:'/blogs/tagsController/list',
+            type:'post',
+            data:pageData,
+            success:function (data) {
+                if (data.success && data.data.list.length !== 0){
+                    blog_publish_classify('blog_tags',data.data.list,{eleName:'tagsIds',value:'id',name:'tagsName'},'checkbox');
+                }else {
+                    $('#blog_tags').html('<tr><td colspan="6" style="text-align: center;color: rgba(155,156,157,0.59)">暂无数据！</td></tr>');
+                }
+            }
+        });
+
+        let closeId = document.getElementById('closeId');
+        closeId.onclick=function () {
+            let element = document.querySelector('div[data-img=img]');
+            if (element){
+                element.removeAttribute('data-img');
+                element.classList.remove('img-border');
+            }
+            document.getElementById('modal-1').classList.add('blogs-hide');
+        };
+
+        let confirm = document.getElementById('confirm-a');
+        confirm.onclick=function () {
+            let element = document.querySelector('div[data-img=img]');
+            if (element){
+                element.removeAttribute('data-img');
+                element.classList.remove('img-border');
+            }else {
+                return
+            }
+
+            document.getElementById('modal-1').classList.add('blogs-hide');
+            document.getElementById('imgHover').src = element.firstElementChild.src;
+            document.getElementById('galleryId').value =  element.getAttribute('data-galleryid');
+        }
+
+
+
+
+    });
+
+
+</script>
 
 
 <script type="text/javascript">
-    var editor_s ;
+
     $(function() {
 
             $('.editormd-toolbar').mouseout(function () {
                 editor_s.hideToolbar();
-
             });
             let blog_textarea = document.getElementById('editorId');
 
@@ -886,22 +642,53 @@
                 previewTheme:"dark",  //编辑窗口主题
                 syncScrolling : "single",  //滚动条
                 lineNumbers:false, //关闭行号
+                saveHTMLToTextarea:true,
+                htmlDecode : "style,script,iframe|on*",
+                emoji : true,
+                toolbarIcons: function() {
+                    // 给工具栏full模式添加一个自定义方法
+                    return editormd.toolbarModes.full.concat(["customIcon"]);
+                },
+                // 自定义方法的图标 指定一个FontAawsome的图标类
+                toolbarIconsClass: {
+                    customIcon: "fa-paste"
+                },
+                // 没有图标可以插入内容，字符串或HTML标签
+                toolbarIconTexts: {
+                    customIcon: "从草稿箱加载"
+                },
+                // 图标的title
+                lang: {
+                    toolbar: {
+                        customIcon: "从草稿箱加载"
+                    }
+                },
+                // 自定义工具栏按钮的事件处理
+                toolbarHandlers: {
+                    customIcon: function(){
+                        // 读取缓存内容
+                        this.CodeAutoSaveGetCache();
+                    }
+                },
+
+
                 onload:function () {  // 加载editor时触发的函数
                   //  this.previewing(); //预览
                   //  this.previewed();  //取消预览效果
                    this.unwatch();
                    this.hideToolbar(); //隐藏编辑栏
-                    $('.CodeMirror-code').children().eq(0).remove()
+                    $('.CodeMirror-code').children().eq(0).remove();
 
-
-
+                    // 引入插件 执行监听方法
+                    editormd.loadPlugin("/blogs/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
+                        // 初始化插件 实现监听
+                        editor_s.CodeAutoSave();
+                    });
                 },
                 onpreviewed:function () {
                   //  this.unwatch();  //只显示编辑部分
                   // this.cm.setValue("");
                 }
-
-
             };
              editor_s = editormd("editorId", options);
 
@@ -931,6 +718,7 @@
         $("#after-div").one("click", function() {
            this.remove();
            editor_s.focus();
+            editor_s.CodeAutoSaveGetCache();
         });
 
 
@@ -942,59 +730,34 @@
             $('#blogs_font_img').text('图片已添加')
         });
 
-
-
-
     });
-    function blogs_fun_fileUpload() {
-        $('input[id=blogs_file]').click();
-    }
+
 </script>
-<!-- Libs JS -->
-<!--<script src="/blogs/tabler/dist/libs/nouislider/dist/nouislider.min.js"></script>-->
-<!--<script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>-->
-<!--<script src="/blogs/tabler/dist/libs/tom-select/dist/js/tom-select.base.min.js"></script>-->
-<!-- Tabler Core -->
-<script src="/blogs/tabler/dist/js/tabler.min.js"></script>
 
 
-<script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
+
 
 <!--日期控件-->
 <script>
+
+
     // @formatter:off
-    document.addEventListener("DOMContentLoaded", function () {
-        window.Litepicker && (new Litepicker({
-            element: document.getElementById('datepicker-icon'),
-            buttonText: {
-                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
-                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
-            },
-        }));
-    });
-    // @formatter:on
-
-
-    document.getElementById('datepicker-icon').value= new Date().toLocaleDateString()
 
 </script>
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
 <script>
-    var typed = new Typed("#after-div", {
-        strings: ['从来没有真正的绝境, 只有心灵的迷途！'],
-        startDelay: 300,
-        typeSpeed: 100,
-        loop: true,
-        backSpeed: 50,
-        showCursor: true
-    });
+
+        typed = new Typed("#after-div", {
+            strings: ['从来没有真正的绝境, 只有心灵的迷途！'],
+            startDelay: 300,
+            typeSpeed: 100,
+            loop: true,
+            backSpeed: 50,
+            showCursor: true
+        });
+
+
 </script>
-
-
-</body>
-</html>

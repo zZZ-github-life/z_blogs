@@ -21,4 +21,13 @@ public interface GuestBookMapper extends Mapper<BlogGuestBook> {
      
      int findPageTopCount(Page<BlogGuestBook> page);
      
+     List<BlogGuestBook> getListById(Integer id);
+     
+     List<BlogGuestBook> getListTopParent(Integer id);
+     List<BlogGuestBook> getChildById(Integer id);
+     List<BlogGuestBook> getParentById(Integer id);
+    
+     Integer getTopParentId(Integer id);
+     
+     Integer recycle(Integer id);
 }

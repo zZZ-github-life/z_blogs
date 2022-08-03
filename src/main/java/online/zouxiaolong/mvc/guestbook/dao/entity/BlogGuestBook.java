@@ -83,8 +83,20 @@ public class BlogGuestBook extends BaseEntity {
          * 所有父级id（方便查找）
          */
         private String parentIds;
-        
-        List<BlogGuestBook>  gBChildren;
+    
+        /**
+         * 是否已读
+         */
+        private Boolean readi;
+    
+        /**
+         * 放入回收站（是否删除）
+         */
+        private Boolean del;
+    
+ 
+    
+         List<BlogGuestBook>  gBChildren;
         
         public Integer getId() {
             return id;
@@ -220,5 +232,25 @@ public class BlogGuestBook extends BaseEntity {
             
             this.parentIds = parentIds;
         }
+    
+    public Boolean isReadi() {
         
+        return readi;
+    }
+    
+    public void setReadi(Boolean readi) {
+        
+        this.readi = readi;
+    }
+    
+    public Boolean isDel() {
+        
+        return del;
+    }
+    
+    public void setDel(Boolean del) {
+        
+        this.del = del;
+    }
+    
 }

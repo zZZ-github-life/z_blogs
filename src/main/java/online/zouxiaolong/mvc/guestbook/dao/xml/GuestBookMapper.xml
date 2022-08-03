@@ -16,6 +16,8 @@
         <result column="id_card" jdbcType="VARCHAR" property="idCard" />
         <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
         <result column="blog_id" jdbcType="INTEGER" property="blogId" />
+        <result column="readi" jdbcType="BIT" property="readi" />
+        <result column="del" jdbcType="BIT" property="del" />
         <result column="parent_id" jdbcType="INTEGER" property="parentId" />
         <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
     </resultMap>
@@ -23,7 +25,7 @@
 
     <sql id="Base_Column_List">
   id, nickname, email, link, head_shot, browser_version, os_version, address,ip, content,
-  id_card, create_date, blog_id, parent_id,parent_ids
+  id_card, create_date, blog_id,readi,del, parent_id,parent_ids
 </sql>
 
 
@@ -33,24 +35,13 @@
 </delete>
 
 
+
     <insert id="insert" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+
         <selectKey resultType="INTEGER" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID()
         </selectKey>
-      insert into blog_guest_book (id, nickname, email,
-        link, head_shot, browser_version,
-        os_version, address, ip,content,
-        id_card, create_date, blog_id,
-        parent_id,parent_ids)
-      values (#{id,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
-        #{link,jdbcType=VARCHAR}, #{headShot,jdbcType=VARCHAR}, #{browserVersion,jdbcType=VARCHAR},
-        #{osVersion,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},#{ip,jdbcType=VARCHAR},  #{content,jdbcType=VARCHAR},
-        #{idCard,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{blogId,jdbcType=INTEGER},
-        #{parentId,jdbcType=INTEGER}, #{parentIds,jdbcType=VARCHAR})
-    </insert>
 
-
-    <insert id="insertDynamic" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
         insert into blog_guest_book
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -91,6 +82,12 @@
             </if>
             <if test="blogId != null">
                 blog_id,
+            </if>
+            <if test="readi != null">
+                readi,
+            </if>
+            <if test="del != null">
+                del,
             </if>
             <if test="parentId != null">
                 parent_id,
@@ -139,6 +136,12 @@
             <if test="blogId != null">
                 #{blogId,jdbcType=INTEGER},
             </if>
+            <if test="readi != null">
+                #{readi,jdbcType=BIT},
+            </if>
+             <if test="del != null">
+                #{del,jdbcType=BIT},
+            </if>
             <if test="parentId != null">
                 #{parentId,jdbcType=INTEGER},
             </if>
@@ -149,7 +152,7 @@
     </insert>
 
 
-    <update id="updateDynamic" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
+    <update id="update" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
         update blog_guest_book
         <set>
             <if test="nickname != null">
@@ -188,6 +191,12 @@
             <if test="blogId != null">
                 blog_id = #{blogId,jdbcType=INTEGER},
             </if>
+            <if test="readi != null">
+                readi = #{readi,jdbcType=BIT},
+            </if>
+            <if test="del != null">
+                del = #{del,jdbcType=BIT},
+            </if>
             <if test="parentId != null">
                 parent_id = #{parentId,jdbcType=INTEGER},
             </if>
@@ -199,24 +208,7 @@
     </update>
 
 
-    <update id="update" parameterType="online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook">
-  update blog_guest_book
-  set nickname = #{nickname,jdbcType=VARCHAR},
-    email = #{email,jdbcType=VARCHAR},
-    link = #{link,jdbcType=VARCHAR},
-    head_shot = #{headShot,jdbcType=VARCHAR},
-    browser_version = #{browserVersion,jdbcType=VARCHAR},
-    os_version = #{osVersion,jdbcType=VARCHAR},
-    address = #{address,jdbcType=VARCHAR},
-    ip = #{ip,jdbcType=VARCHAR},
-    content = #{content,jdbcType=VARCHAR},
-    id_card = #{idCard,jdbcType=VARCHAR},
-    create_date = #{createDate,jdbcType=TIMESTAMP},
-    blog_id = #{blogId,jdbcType=INTEGER},
-    parent_id = #{parentId,jdbcType=INTEGER},
-    parent_ids = #{parentIds,jdbcType=VARCHAR}
-  where id = #{id,jdbcType=INTEGER}
-</update>
+
 
 
     <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -228,7 +220,7 @@
 
 
     <sql id="findPageWithWhere">
-        <where> 1=1
+        <where> del=0
             <if test="id != null" >
                 and id = #{id,jdbcType=INTEGER}
             </if>
@@ -268,6 +260,9 @@
             <if test="blogId != null" >
                 and blog_id = #{blogId,jdbcType=INTEGER}
             </if>
+            <if test="readi != null" >
+                and readi = #{readi,jdbcType=BIT}
+            </if>
             <if test="parentId != null" >
                 and parent_id = #{parentId,jdbcType=INTEGER}
             </if>
@@ -278,7 +273,7 @@
     </sql>
 
     <sql id="pageFindPageWithWhere">
-        <where> 1=1
+        <where> del=0
          <if test="p !=null ">
              <if test="p.id != null" >
                  and id = #{p.id,jdbcType=INTEGER}
@@ -320,6 +315,9 @@
              <if test="p.blogId != null" >
                  and blog_id = #{p.blogId,jdbcType=INTEGER}
              </if>
+             <if test="p.readi != null" >
+                 and readi = #{p.readi,jdbcType=BIT}
+             </if>
              <if test="p.parentId != null" >
                  and parent_id = #{p.parentId,jdbcType=INTEGER}
              </if>
@@ -337,7 +335,9 @@
         <include refid="Base_Column_List" />
         from  blog_guest_book
         <include refid="pageFindPageWithWhere" />
+        order by readi ,create_date desc
         limit #{start},#{pageSize}
+
     </select>
 
 
@@ -352,18 +352,73 @@
         select
         <include refid="Base_Column_List" />
         from blog_guest_book
-        where parent_id = -1  and  blog_id = #{p.blogId,jdbcType=INTEGER} order by create_date desc      limit #{start},#{pageSize}
+        where parent_id = -1 and del = 0 and  blog_id = #{p.blogId,jdbcType=INTEGER} order by create_date desc      limit #{start},#{pageSize}
     </select>
 
     <select id="findPageTopCount" parameterType="online.zouxiaolong.basics.entity.Page"   resultType="int">
         select
         count(1)
         from blog_guest_book
-        where parent_id = -1  and  blog_id = #{p.blogId,jdbcType=INTEGER}
+        where parent_id = -1 and del = 0  and  blog_id = #{p.blogId,jdbcType=INTEGER}
     </select>
 
     <select id="findChildrenByTop"  resultMap="BaseResultMap" parameterType="string">
-        select <include refid="Base_Column_List" /> from blog_guest_book
-         where parent_ids like #{parentId} order by create_date
+        select <include refid="Base_Column_List" />
+        from blog_guest_book
+         where parent_ids like #{parentId}  and del = 0 order by create_date
     </select>
+
+<!--    查找id=2的所有父节点-->
+    <select id="getParentListById"  resultMap="BaseResultMap" parameterType="INTEGER">
+        select * from blog_guest_book where  find_in_set(id,(SELECT parent_ids FROM blog_guest_book where id = #{id} and del = 0 ));
+    </select>
+    
+<!--    获取顶层id  如：,-1,2,3,4,5 结果为 2  -->
+    <select id="getTopParentId" resultType="Integer">
+        select REPLACE(substring(parent_ids,5),substring(substring(parent_ids,5),POSITION(',' in substring(parent_ids,5))),'') as topId  from  blog_guest_book where id = #{id} and del = 0
+    </select>
+
+    <select id="getListTopParent" resultMap="BaseResultMap">
+        SELECT
+             <include refid="Base_Column_List" />
+        FROM
+            blog_guest_book
+        WHERE
+            FIND_IN_SET((SELECT
+                            REPLACE(SUBSTRING(parent_ids, 5),
+                                    SUBSTRING(SUBSTRING(parent_ids, 5),
+                                        POSITION(',' IN SUBSTRING(parent_ids, 5))),
+                                    '')
+                        FROM
+                            blog_guest_book
+                        WHERE
+                            id = #{id}),
+                    parent_ids)  and del = 0
+    </select>
+
+<!--    查找id=2的子节点-->
+    <select id="getChildById" resultMap="BaseResultMap">
+        SELECT
+             <include refid="Base_Column_List" />
+        FROM
+            blog_guest_book
+        WHERE
+            FIND_IN_SET(#{id}, parent_ids) and del = 0
+    </select>
+
+
+    <update id="recycle" >
+        update blog_guest_book set del=1 where id in(
+        select id from (
+        SELECT
+        id
+        FROM
+        blog_guest_book
+        WHERE
+        FIND_IN_SET(#{id}, parent_ids)
+        ) temp
+        )
+
+        or id =#{id}
+    </update>
 </mapper>

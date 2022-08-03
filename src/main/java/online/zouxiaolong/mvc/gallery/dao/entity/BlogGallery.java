@@ -10,10 +10,7 @@ import online.zouxiaolong.basics.entity.BaseEntity;
 import java.util.Date;
 
 public class BlogGallery extends BaseEntity {
-    /**
-     * 主键
-     */
-    private Integer id;
+  
     
     /**
      * 图片名称

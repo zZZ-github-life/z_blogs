@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @description  全局工具
@@ -38,9 +39,9 @@ public class Cus_Global {
      */
     private static String absPath;
     
-    private static Properties cusProperties;
+    public static Properties cusProperties;
     
-
+    public static AtomicInteger atomicInteger;
     
     static {
     
@@ -49,8 +50,8 @@ public class Cus_Global {
             cusProperties.load(new InputStreamReader(Objects.requireNonNull(Cus_Global.class.getClassLoader().getResourceAsStream("/properties/blog.properties")), StandardCharsets.UTF_8));
             fileDrive= cusProperties.getProperty("file.drive","D:\\");
             filePath= cusProperties.getProperty("file.path","blogFile");
-            absPath = cusProperties.getProperty("file.absPath","downLoadFile");
-    
+            absPath = cusProperties.getProperty("file.absPath","blogFile");
+            atomicInteger = new AtomicInteger(Integer.parseInt(cusProperties.getProperty("article.num","0")));
         }catch (Exception e){
             throw new MsgException("blog.properties load failed...");
         }
