@@ -1,0 +1,475 @@
+<!-- 
+    @author:  zZZ....
+    @description:
+    @date: 2022/11/20
+-->
+
+
+
+
+    <!--banner-->
+    <div class=" height-100" style="margin-top: -75px">
+        <!--            <div class="video-box">-->
+        <!--                <video class="video-background" preload="auto" loop playsinline autoplay  src="/blogs/medias/videos/cloud.mp4"  tabindex="-1" muted="muted"></video>-->
+        <!--            </div>-->
+        <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+            <div class="container">
+                <div class="row">
+                    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                        <div class="brand">
+                            <h1 class="blog-text-center blog-title">当下 即是未来</h1>
+                            <div class="blog-header-info">
+                                <p>我们常常在理想与现实之间两难</p>
+                                <div class="cover-social-link">
+                                    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" >
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="mailto:976804246@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" >
+                                        <i class="fas fa-envelope-open"></i>
+                                    </a>
+                                    <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=976804246" class="tooltipped" target="_blank" data-tooltip="QQ联系我" data-position="top" >
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+                                    <a href="/xml/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" >
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="blog-start">
+                                <a  class="waves-effect waves-light btn" onclick="headertop_down('.cloud')">
+                                    <i class="fa fa-angle-double-down faa-float   animated"></i>开始阅读
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--波浪-->
+    <div class="cloud">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(250,247,239,0.7"></use>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(250,247,239,0.5)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgb(250,247,239,0.3)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(250,247,239)"></use>
+            </g>
+        </svg>
+    </div>
+    <!--主体内容-->
+    <main class="blog-main">
+        <!--头-->
+        <div class="container blog-padding-empty" style="margin-top: 20px">
+            <div class="card">
+                <div class="card-content">
+                    <!--轮播图-->
+                    <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 ">
+
+                        <div class=" blog-index-title center-align">
+                            <i class="far fa-lightbulb" aria-hidden="true"></i>
+                            我的梦想
+                        </div>
+
+                        <div class="row">
+                            <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+                                不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+                            </div>
+                        </div>
+                    </div>
+                    <!--视频-->
+                    <div >
+                        <div class=" blog-index-title center-align">
+                            <i class="fa fa-video" aria-hidden="true"></i>
+                            视频欣赏
+                        </div>
+                        <div class="row">
+                            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                                <div id="DPlayer">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--推荐-->
+                    <div>
+                        <div class="blog-index-title center-align">
+                            <i class="fas fa-video-camera"></i>
+                            置顶推荐
+                        </div>
+                    </div>
+                    <div class="blog-slider-body" >
+                        <div class="blog-slider">
+                            <div class="blog-slider_wrp swiper-wrapper">
+
+                                <div class="blog-slider_item swiper-slide">
+                                    <div class="blog-slider_img">
+                                        <img src="/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-slider_content">
+                                        <span class="blog-slider_code">21 February 2021</span>
+                                        <div class="blog-slider_title">Paperiza</div>
+                                        <div class="blog-slider_text">A beautiful and minimal wallpaper app! Change your desktop wallpaper automatically with beautiful images from Unsplash, Pixabay and Pexels.</div>
+                                        <a href="#" class="blog-slider_button">READ ME</a>
+                                    </div>
+                                </div>
+
+                                <!-- 相同的格式，复制了两次，修改自己需要的内容 -->
+                                <div class="blog-slider_item swiper-slide">
+                                    <div class="blog-slider_img">
+                                        <img src="/blogs/medias/photo-1485827404703-89b55fcc595e.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-slider_content">
+                                        <span class="blog-slider_code">21 February 2021</span>
+                                        <div class="blog-slider_title">Welcome to AMD</div>
+                                        <div class="blog-slider_text">High frame rates mean high win rates on a laptop powered by the world’s best mobile processor for gamers.</div>
+                                        <a href="#" class="blog-slider_button">READ MORE</a>
+                                    </div>
+                                </div>
+
+                                <div class="blog-slider_item swiper-slide">
+                                    <div class="blog-slider_img">
+                                        <img src="/blogs/medias/photo-1534972195531-d756b9bfa9f2.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-slider_content">
+                                        <span class="blog-slider_code">21 February 2021</span>
+                                        <div class="blog-slider_title">Artificial Intelligence</div>
+                                        <div class="blog-slider_text">AI will change the way we do business and, ultimately, change our lives. It offers your organisation personalization, prediction and security as never before.</div>
+                                        <a href="#" class="blog-slider_button">READ MORE</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-slider_pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--文章卡片-->
+        <div class="container">
+            <div class="row blog-border-radius-all">
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                        <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="#">
+                                <img src="http://localhost:8853/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
+                                <span class="card-title">Card Title</span>
+                            </a>
+                        </div>
+                        <div class="card-content article-card">
+                            <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
+                            <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
+                                        <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                                后端
+                                            </a>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="card-action cat-action-tags">
+                            <a href="/tags/深度学习/" target="_blank">
+                                <span class="tags-m bg-color">深度学习</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!--下一页-->
+    <div class="container paging">
+        <div class="row">
+            <div class="loading-m">
+                加载更多
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(function (e) {
+        //初始化DPlayer播放器
+        const dp = new DPlayer({
+            container: document.getElementById('DPlayer'),
+            video: {
+                quality: [
+                    {
+                        name: 'HD',
+                        url: '/blogs/medias/videos/demo.mp4',
+                        type: 'mp4',
+                    },
+                    {
+                        name: 'SD',
+                        url: 'demo.mp4',
+                        type: 'normal',
+                    },
+                ],
+                defaultQuality: 0,
+                pic: '/blogs/medias/videos/demo-pic.png',
+                thumbnails: 'thumbnails.jpg',
+            },
+        });
+        //轮播
+        var swiper = new Swiper('.blog-slider', {
+            spaceBetween: 30,
+            effect: 'fade',
+            loop: true,
+            mousewheel: {
+                invert: false,
+            },
+            pagination: {
+                el: '.blog-slider_pagination',
+                clickable: true,
+            }
+        });
+        $('.tooltipped').tooltip(); //开启小提示
+    })
+
+</script>

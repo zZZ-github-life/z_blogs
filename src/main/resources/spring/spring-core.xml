@@ -62,9 +62,11 @@
 
         <property name="freemarkerVariables">
             <map>
-                <entry key="BasePath" value="${base.path}" />
+                <entry key="basePath" value="${base.path}" />
             </map>
         </property>
     </bean>
+
+    <bean class="online.zouxiaolong.basics.listener.InitResource"  destroy-method="PreDestroy"/>
 
 </beans>

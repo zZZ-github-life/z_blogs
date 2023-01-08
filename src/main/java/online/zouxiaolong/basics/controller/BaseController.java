@@ -34,7 +34,7 @@ public abstract class BaseController {
     
     //设置分页参数
     protected void setPageSize(Map<String,Object> map){
-        if (map.get("pageSize")!=null&&map.get("startPage")!=null){
+        if (map.get("startPage")!=null){
             int size = Integer.parseInt(map.get("pageSize").toString());
             int start = Integer.parseInt(map.get("startPage").toString());
             
@@ -46,6 +46,19 @@ public abstract class BaseController {
             else
                 start=(start-1)*size;
             
+            map.put("pageSize",size);
+            map.put("startPage",start);
+        }else if (map.get("currentLines")!=null){
+            int size = Integer.parseInt(map.get("pageSize").toString());
+            int start = Integer.parseInt(map.get("currentLines").toString());
+    
+            if (size<=0)
+                size=10;
+    
+            if (start<=0)
+                start=0;
+           
+    
             map.put("pageSize",size);
             map.put("startPage",start);
         }

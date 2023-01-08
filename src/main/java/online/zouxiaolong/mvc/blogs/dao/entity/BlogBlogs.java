@@ -5,6 +5,7 @@ import online.zouxiaolong.basics.entity.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author zZZ....
@@ -115,6 +116,22 @@ public class BlogBlogs  extends BaseEntity {
      * 文章链接
      */
     private String href;
+    /**
+     * 修改时间
+     */
+    private Date updateTime;
+    
+    public Date getUpdateTime() {
+        
+        return updateTime;
+    }
+    
+    public void setUpdateTime(Date updateTime) {
+        
+        this.updateTime = updateTime;
+    }
+    
+    public String fileName = UUID.randomUUID().toString().replaceAll("-",""); //博客网页文件名
     
     public Integer getId() {
         return id;
@@ -124,7 +141,7 @@ public class BlogBlogs  extends BaseEntity {
         this.id = id;
     }
     
-    public Boolean isIsOriginal() {
+    public Boolean getIsOriginal() {
         return isOriginal;
     }
     
@@ -172,7 +189,7 @@ public class BlogBlogs  extends BaseEntity {
         this.publishDate = publishDate;
     }
     
-    public Boolean isIsPraise() {
+    public Boolean getIsPraise() {
         return isPraise;
     }
     
@@ -180,7 +197,7 @@ public class BlogBlogs  extends BaseEntity {
         this.isPraise = isPraise;
     }
     
-    public Boolean isIsUp() {
+    public Boolean getIsUp() {
         return isUp;
     }
     
@@ -188,7 +205,7 @@ public class BlogBlogs  extends BaseEntity {
         this.isUp = isUp;
     }
     
-    public Boolean isIsReview() {
+    public Boolean getIsReview() {
         return isReview;
     }
     
@@ -196,7 +213,7 @@ public class BlogBlogs  extends BaseEntity {
         this.isReview = isReview;
     }
     
-    public Boolean isIsDeclare() {
+    public Boolean getIsDeclare() {
         return isDeclare;
     }
     
@@ -204,7 +221,7 @@ public class BlogBlogs  extends BaseEntity {
         this.isDeclare = isDeclare;
     }
     
-    public Boolean isIsPublic() {
+    public Boolean getIsPublic() {
         return isPublic;
     }
     
@@ -212,7 +229,7 @@ public class BlogBlogs  extends BaseEntity {
         this.isPublic = isPublic;
     }
     
-    public Boolean isIsDraft() {
+    public Boolean getIsDraft() {
         return isDraft;
     }
     

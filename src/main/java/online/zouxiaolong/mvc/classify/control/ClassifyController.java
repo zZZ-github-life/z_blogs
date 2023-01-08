@@ -74,7 +74,6 @@ public class ClassifyController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            
         }
         return repJson;
     }

@@ -2945,7 +2945,7 @@ ul.staggered-list li {
 
 .page-footer {
   padding-top: 20px;
-  color: #fff;
+  color:rgb(255 255 255 / 70%);
   background-color: transparent;
 }
 
@@ -3198,7 +3198,7 @@ td, th {
 
 .progress {
   position: relative;
-  height: 4px;
+
   display: block;
   width: 100%;
   background-color: #acece6;
@@ -3218,7 +3218,7 @@ td, th {
 }
 
 .progress .indeterminate {
-  background-color: #26a69a;
+  background-color: #e0d6c252;
 }
 
 .progress .indeterminate:before {
@@ -4865,7 +4865,7 @@ small {
 
 .card .card-image img {
   display: block;
-  border-radius: 2px 2px 0 0;
+  border-radius: 8px 8px 0 0;
   position: relative;
   left: 0;
   right: 0;
@@ -4910,7 +4910,7 @@ small {
 }
 
 .card .card-action:last-child {
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 8px 8px;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
@@ -4946,6 +4946,9 @@ small {
 #toast-container {
   display: block;
   position: fixed;
+  bottom: 5%;
+  right: 2%;
+  max-width: 86%;
   z-index: 10000;
 }
 
@@ -4955,15 +4958,6 @@ small {
     bottom: 0%;
   }
 }
-
-@media only screen and (min-width: 993px) {
-  #toast-container {
-    bottom: 5%;
-    right: 2%;
-    max-width: 86%;
-  }
-}
-
 .toast {
   border-radius: 8px;
   box-shadow: 0 2px 12px 0rgba(0,0,0,.1);

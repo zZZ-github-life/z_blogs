@@ -446,6 +446,8 @@
 
     }
 
+
+    //修改
     function blogSave() {
         let blogListIsPraise = document.getElementById('blogListIsPraise').querySelector('span').getAttribute('data-blog-selected');
         let blogListIsUp = document.getElementById('blogListIsUp').querySelector('span').getAttribute('data-blog-selected');
@@ -483,7 +485,6 @@
             data:JSON.stringify(data),
             success:function (e) {
                 if (e.success){
-                    debugger
                     blogAlter();
                     $('#offcanvasTop').offcanvas('hide')
                 }else {

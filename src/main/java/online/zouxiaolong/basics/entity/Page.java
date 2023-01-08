@@ -12,6 +12,9 @@ public class Page<T> {
     //当前页
     protected Integer currentPage;
     
+    //当前页
+    protected Integer currentLines;
+    
     //mysql查询页
     protected Integer start;
     
@@ -38,12 +41,17 @@ public class Page<T> {
     
     public Integer getStart() {
         try {
-            if (this.currentPage!=null){
-                if (this.currentPage<=0)
-                    this.start=0;
-                else
-                    this.start=(this.currentPage-1)*this.pageSize;
-            }else this.start=0;
+            if (currentLines==null){ //正常计算分页
+                if (this.currentPage!=null){
+                    if (this.currentPage<=0)
+                        this.start=0;
+                    else
+                        this.start=(this.currentPage-1)*this.pageSize;
+                }else this.start=0;
+            }else { //已经算好了开始分页的位置
+                start =currentLines;
+            }
+        
         }catch (Exception e){
             this.start=0;
         }
@@ -95,9 +103,10 @@ public class Page<T> {
     
     public void setTotal(Integer total) {
         totalPage =   total % pageSize == 0 ?  total / pageSize : total / pageSize + 1;
-        if(currentPage<=1){
-            firstPage=true;
+        if(currentLines==null || currentLines<=0 || currentPage==null ||currentPage<=0){
+                firstPage=true;
         }
+       
         if (totalPage.equals(currentPage)){
             lastPage=true;
         }
@@ -142,6 +151,16 @@ public class Page<T> {
     public void setP(T p) {
         
         this.p = p;
+    }
+    
+    public Integer getCurrentLines() {
+        
+        return currentLines;
+    }
+    
+    public void setCurrentLines(Integer currentLines) {
+        
+        this.currentLines = currentLines;
     }
     
 }

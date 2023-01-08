@@ -1,0 +1,276 @@
+<!--
+    @author:  zZZ....
+    @description: 时光轴
+    @date: 2022/1/1
+-->
+
+<style>
+    .bottom-main{
+        padding-bottom: 1.6rem;
+        overflow: revert;
+    }
+    .heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}
+    .heart:after, .heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}
+    .heart:after{top: -5px;}
+    .heart:before{left: -5px;}
+
+    #post-calendar{
+        height: 225px;
+    }
+</style>
+
+
+        <!--banner-->
+        <div class="height-475px" style="margin-top: -75px">
+            <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                            <div class="brand">
+                                <h1 class="blog-text-center blog-title">标题</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="blog-main bottom-main" >
+
+            <!--弧度-->
+            <div class="blog-bending-body top ">
+                <div class="blog-bending">
+                </div>
+            </div>
+
+            <!--文章日历图表 start-->
+            <div class="container archive-calendar">
+                <div class="card" data-aos="zoom-in-up">
+                    <div id="post-calendar" class="card-content" >
+
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript" src="/blogs/libs/echarts/echarts.min.js"></script>
+            <script type="text/javascript">
+                $(function (e) {
+                    let myChart = echarts.init(document.getElementById('post-calendar'));
+                    let option = {
+                        title: {
+                            top: 0,
+                            text: '时光轴',
+                            left: 'center',
+                            textStyle: {
+                                color: '#5c9358'
+                            }
+                        },
+                        //鼠标悬浮提示样式
+                        tooltip: {
+                            padding: 1,
+                            backgroundColor: 'rgba(80,83,82,0.3)',
+                            borderColor: '#ccbfce',
+                            borderWidth: 0,
+                            formatter: function (obj) {
+                                let value = obj.value;
+                                return '<span style="font-size: 10px;color: #737474">' + value[0] + '：' + value[1] + '</span>';
+                            }
+                        },
+                        visualMap: {
+                            show: true,
+                            showLabel: true,
+                            categories: [0, 1, 2, 3, 4],
+                            calculable: true,
+                            inRange: {
+                                symbol: 'rect',
+                                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+                            },
+                            itemWidth: 20,
+                            itemHeight: 12,
+                            orient: 'horizontal',
+                            left: 'center',
+                            bottom: 0
+                        },
+                        calendar: [{
+                            left: 'right',
+                            range: ["2019-11-30", "2020-11-30"],
+                            cellSize: [13, 13],
+                            splitLine: {
+                                show: false
+                            },
+                            itemStyle: {
+                                color: '#ebedf0',
+                                borderColor: '#fff',
+                                borderWidth: 2
+                            },
+                            yearLabel: {
+                                show: true,
+                                align:'right',
+                                fontStyle:'italic',
+
+
+                            },
+                            monthLabel: {
+                                nameMap: [
+                                    '1月', '2月', '3月',
+                                    '4月', '5月', '6月',
+                                    '7月', '8月', '9月',
+                                    '10月', '11月', '12月'
+                                ],
+                                fontSize: 11,
+                                firstDayOfMonth:5,
+                                align: 'right',
+                                fontStyle:'italic',
+                            },
+                            dayLabel: {
+                                firstDay: 1,
+                                nameMap: ['日', '周:一', '二', '三', '四', '五', '六'],
+                                fontSize: 11,
+                                align: 'left',
+                                fontStyle:'italic'
+                            }
+                        }],
+                        series: [{
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            calendarIndex: 0,
+                            data: [
+                                ["2020-05-22", 0], ["2020-05-23", 0],
+                                ["2020-05-24", 0], ["2020-05-25", 0], ["2020-05-26", 0], ["2020-05-27", 0], ["2020-05-28", 0], ["2020-05-29", 0], ["2020-05-30", 0], ["2020-05-31", 0],
+                                ["2020-06-01", 0], ["2020-06-02", 0], ["2020-06-03", 0], ["2020-06-04", 0], ["2020-06-05", 0], ["2020-06-06", 0], ["2020-06-07", 0], ["2020-06-08", 0],
+                                ["2020-06-09", 0], ["2020-06-10", 0], ["2020-06-11", 0], ["2020-06-12", 0], ["2020-06-13", 0], ["2020-06-14", 0], ["2020-06-15", 0], ["2020-06-16", 0],
+                                ["2020-06-17", 0], ["2020-06-18", 0], ["2020-06-19", 0], ["2020-06-20", 0], ["2020-06-21", 0], ["2020-06-22", 0], ["2020-06-23", 0], ["2020-06-24", 0],
+                                ["2020-06-25", 0], ["2020-06-26", 0], ["2020-06-27", 0], ["2020-06-28", 0], ["2020-06-29", 0], ["2020-06-30", 0], ["2020-07-01", 0], ["2020-07-02", 0],
+                                ["2020-07-03", 0], ["2020-07-04", 0], ["2020-07-05", 0], ["2020-07-06", 0], ["2020-07-07", 0], ["2020-07-08", 0], ["2020-07-09", 0], ["2020-07-10", 0],
+                                ["2020-07-11", 0], ["2020-07-12", 0], ["2020-07-13", 0], ["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0],
+                                ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0],
+                                ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0],
+                                ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0],
+                                ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0],
+                                ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0],
+                                ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0],
+                                ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0],
+                                ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0],
+                                ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0],
+                                ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0],
+                                ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0],
+                                ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0],
+                                ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0],
+                                ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0],
+                                ["2020-11-08", 0], ["2020-11-09", 0], ["2020-11-10", 0], ["2020-11-11", 0], ["2020-11-12", 0], ["2020-11-13", 1], ["2020-11-14", 0], ["2020-11-15", 0],
+                                ["2020-11-16", 0], ["2020-11-17", 0], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0],
+                                ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 4]
+                            ]
+                        }]
+                    };
+                    myChart.setOption(option);
+                })
+            </script>
+            <!--文章日历  end-->
+
+            <div style="width: 100%;overflow-x: hidden;padding-bottom: 10px"><!--解决页面刷新时抖动-->
+
+
+            <!--时光轴 start-->
+            <div id="cd-timeline" class="container">
+
+                <div class="cd-timeline-block">
+
+                    <div class="cd-timeline-img year  aos-animate" data-aos="zoom-in-up">
+                        <a href="/archives/2019">NOW</a>
+                    </div>
+
+                    <div class="cd-timeline-img day " data-aos="zoom-in">
+                        <span><i class="fa fa-book" aria-hidden="true"></i></span>
+                        <span class="cd-date" data-aos="fade-left">Jan 14</span>
+                    </div>
+                    <article class="cd-timeline-content " data-aos="fade-right">
+                        <div class="article col s12 m6">
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <img  src="https://statics.sh1a.qingstor.com/2019/08/20/jpa.png" alt="Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content ">
+                                        <p>我是一个很简单的卡片。我很擅长于包含少量的信息。</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="cd-timeline-block">
+
+                    <div class="cd-timeline-img day " data-aos="zoom-in">
+                        <span><i class="fa fa-book" aria-hidden="true"></i></span>
+                        <span class="cd-date" data-aos="fade-right">Jan 14</span>
+                    </div>
+                    <article class="cd-timeline-content " data-aos="fade-left">
+                        <div class="article col s12 m6">
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <img  src="https://statics.sh1a.qingstor.com/2019/08/20/jpa.png" alt="Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>我是一个很简单的卡片。我很擅长于包含少量的信息。</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="cd-timeline-block">
+
+                    <div class="cd-timeline-img day " data-aos="zoom-in">
+                        <span><i class="fa fa-book" aria-hidden="true"></i></span>
+                        <span class="cd-date" data-aos="fade-left">Jan 14</span>
+                    </div>
+                    <article class="cd-timeline-content " data-aos="fade-right">
+                        <div class="article col s12 m6">
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <img  src="https://statics.sh1a.qingstor.com/2019/08/20/jpa.png" alt="Fenix — 比 MyBatis 更加强大的 Spring Data JPA 扩展库">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>我是一个很简单的卡片。我很擅长于包含少量的信息。</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                        <a href="/tags/Java/"><span class="tags-m bg-color">Java</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+            <!--时光轴 end-->
+            </div>
+        </main>
+
+        <!--下一页-->
+        <div class="container paging">
+            <div class="row">
+                <div class="loading-m loading-hover progress">
+                    <div class=""></div>
+                    <span>加载更多</span>
+                </div>
+            </div>
+        </div>
+

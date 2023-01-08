@@ -1,0 +1,1573 @@
+<!-- 
+    @author:  zZZ....
+    @description: 文章页模板
+    @date: 2022/8/5
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><!--手机端窗口大小-->
+        <meta name="keywords" content="标签,COFEBABE">
+        <meta name="description" content="我们常常在现实与理想之间两难">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="renderer" content="webkit|ie-stand|ie-comp">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <link rel="icon" type="image/png" href="/favicon.png">
+
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/typoCss/typo.css">
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/aos/aos.css"><!--动画滚动库-->
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/materialize/css/materialize.css"><!--Materialize-UI-->
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/all.css"><!--字体图标库-->
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/fontawesome-animation.min.css"><!--字体动画库-->
+        <link rel="stylesheet" type="text/css" href="/blogs/libs/nprogress/nprogress.css"><!--进度条-->
+        <link rel="stylesheet" type="text/css" href="/blogs/css/main-front.css"><!--个人css-->
+        <link rel="stylesheet" type="text/css" href="/blogs/css/main-front.css"><!--个人css-->
+        <link rel="stylesheet" href="/blogs/libs/tocbot/tocbot.css"><!--目录-->
+
+        <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook_style.css">
+        <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook.css">
+
+        <style type="text/css">
+            .bottom-main{
+                padding-bottom: 1.6rem;
+                overflow: revert;
+                overflow-x: clip;
+            }
+            .toc-widget {
+                width: 350px;
+                padding-left: 20px;
+            }
+            .toc-widget .toc-title {
+                padding: 35px 0 15px 17px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                line-height: 1.5rem;
+            }
+            #articleContent h1::before,
+            #articleContent h2::before,
+            #articleContent h3::before,
+            #articleContent h4::before,
+            #articleContent h5::before,
+            #articleContent h6::before {
+                display: block;
+                content: " ";
+                height: 100px;
+                margin-top: -100px;
+                visibility: hidden;
+            }
+            #articleContent :focus {
+                outline: none;
+            }
+            .toc-fixed {
+                position: fixed;
+                top: 64px;
+            }
+            .toc-widget .toc-title {
+                padding: 35px 0 15px 17px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                line-height: 1.5rem;
+            }
+
+            .toc-widget ol {
+                padding: 0;
+                list-style: none;
+            }
+
+            #tocbotId {
+                padding-bottom: 18px;
+                overflow: auto;
+            }
+
+            #tocbotId ol li {
+                padding-left: 24px;
+            }
+            #tocbotId li{
+                padding-bottom: 3px;
+            }
+            #tocbotId .toc-link:hover {
+               color: #857979fc;
+            }
+
+            #tocbotId .toc-link::before {
+                background-color: transparent;
+                max-height: 25px;
+
+                position: absolute;
+                right: 23.5vw;
+                display: block;
+            }
+
+            #tocbotId .is-active-link {
+                color: #42b983;
+            }
+
+            #floating-toc-btn {
+                position: fixed;
+                right: 15px;
+                bottom: 76px;
+                padding-top: 15px;
+                margin-bottom: 0;
+                z-index: 998;
+            }
+            .typo.typo-selection{
+                border-radius: 15px;
+            }
+            #floating-toc-btn .btn-floating {
+                width: 48px;
+                height: 48px;
+            }
+
+            #floating-toc-btn .btn-floating i {
+                line-height: 48px;
+                font-size: 1.4rem;
+            }
+            .shang{
+                width: 2rem;height: 2rem;border-radius: 2rem;background-color: red;margin: 0 auto;color: white;font-weight: 600;font-size: 1.3rem;
+                -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+                box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+                cursor: pointer;
+            }
+        </style>
+
+
+        <script type="text/javascript" src="/blogs/libs/jquery/jquery.min.js"></script><!--jq-->
+        <script type="text/javascript" src="/blogs/libs/materialize/js/materialize.js"></script> <!--Materialize-UI-->
+        <script src="/blogs/libs/nprogress/nprogress.js"></script><!--进度条-->
+        <script src="/blogs/js/main-front.js"></script><!--个人js-->
+        <script src="/blogs/libs/tocbot/tocbot.min.js"></script><!--目录生成-->
+
+        <title>君不见高堂明镜悲白发，朝如青丝暮成雪</title>
+
+    </head>
+    <body>
+        <!--顶部导航栏-->
+        <header class="navbar-fixed">
+            <nav class="nav-header">
+                <!--菜单-->
+                <div class="nav-wrapper container">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a onclick="pjax('index1.html')" class="waves-effect faa-parent  animated-hover">
+                                <i class="fas fa-home faa-horizontal faa-slow" style="zoom: 0.7;"></i>
+                                <span>首页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  onclick="pjax('tags.html')" class="waves-effect faa-parent animated-hover">
+                                <i class="fas fa-tags faa-horizontal faa-slow " style="zoom: 0.7;"></i>
+                                <span>标签|分类</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('classification.html')" class="waves-effect faa-parent animated-hover">
+                                <i class="fas fa-graduation-cap  faa-slow" style="zoom: 0.7;"></i>
+                                <span>随性</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('archive1.html')" class="waves-effect ">
+                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                                <span>时光轴</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('tags.html')" class="waves-effect ">
+                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                                <span>intro</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('guestbook1.html')" class="waves-effect ">
+                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                                <span>留言板</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('tags.html')" class="waves-effect faa-parent animated-hover">
+                                <i class="fas fa-home faa-horizontal " style="zoom: 0.7;"></i>
+                                <span>友情链接</span>
+                            </a>
+                        </li>
+                        <li>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </li>
+                        <li>
+                            <a href="badges.html"  class="waves-effect faa-parent animated-hover">
+                                <i class="fas fa-search fa-2x faa-pulse" ></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="/blogs/login" class="github-corner hide-on-med-and-down" target="_blank"  >
+                    <svg viewBox="0 0 250 250" aria-hidden="true">
+                        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+                    </svg>
+                </a>
+            </nav>
+        </header>
+
+        <!--banner-->
+        <div class="height-475px" style="margin-top: -75px">
+            <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                            <div class="brand">
+                                <h1 class="blog-text-center blog-title">标题</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--主体内容-->
+        <main class="blog-main bottom-main">
+            <!--弧度-->
+            <div class="blog-bending-body top ">
+                <div class="blog-bending">
+                </div>
+            </div>
+
+            <div class="container top-a">
+
+                <div class=" article-a">
+                    <!--内容-->
+                    <div class="card">
+                        <div class="card-content article-info">
+                            <div class="row tag-cate">
+                                <div class="col s7">
+
+                                    <div class="article-tag">
+
+                                        <a href="/tags/深度学习/" target="_blank">
+                                            <span class="tags-m bg-color">深度学习</span>
+                                        </a>
+
+                                        <a href="/tags/深度学习/" target="_blank">
+                                            <span class="tags-m bg-color">深度学习</span>
+                                        </a>
+
+                                        <a href="/tags/深度学习/" target="_blank">
+                                            <span class="tags-m bg-color">深度学习</span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <div class="col s5 right-align">
+
+                                    <div class="post-cate">
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+
+                                        <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                            软件设计
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="post-info">
+
+                                <div class="post-date info-break-policy">
+                                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                                    2018-11-24
+                                </div>
+
+
+
+
+
+                                <div class="info-break-policy">
+                                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                    8.4k
+                                </div>
+
+
+
+                                <div class="info-break-policy">
+                                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                                    28 分
+                                </div>
+
+
+
+                                <div id="busuanzi_container_page_pv" class="info-break-policy" style="display: inline;">
+                                    <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                                    <span id="busuanzi_value_page_pv">229666</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card-content typo typo-selection" id="typo">
+                            <div id="articleContent">
+                                <blockquote>
+                                    <p>一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。</p>
+                                </blockquote>
+                                <p>我曾经在 <a href="https://blinkfox.github.io/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/" target="_blank">单元测试指南</a> 一文中写到过单元测试的必要性和 Java 单元测试相关的工具及方法。单元测试能帮助我们在早期就规避、发现和修复很多不易察觉的 bug 和漏洞，而且更能保障后期的需求变动和代码重构时所带来的隐患，减少测试成本和维护成本。在 SpringBoot2.x 集成和写单元测试更加容易了。</p>
+                                <h2 id="toc-heading-1"><a href="#创建-SpringBoot2-x-项目" class="headerlink" title="创建 SpringBoot2.x 项目" target="_blank"></a>创建 SpringBoot2.x 项目</h2><p>在 <a target="_blank" rel="noopener" href="https://start.spring.io/">start.spring.io</a> 中创建一个自己的 SpringBoot2.x 项目，目前版本<code>2.1.3</code>。选出自己需要的一些组件生成项目即可，我这里选了如下几个：</p>
+                                <ul>
+                                    <li><code>Web</code>: Web项目</li>
+                                    <li><code>JPA</code>: 数据库持久层采用<a target="_blank" rel="noopener" href="https://spring.io/guides/gs/accessing-data-jpa/">Spring Data JPA</a>，方便实用</li>
+                                    <li><code>Lombok</code>: 可以通过注解大量减少Java中重复代码的书写</li>
+                                    <li><code>HSQLDB</code>: 内存数据库，用来对 <code>Repository</code> 层做单元测试</li>
+                                </ul>
+                                <p>生成之后可以在 <code>pom.xml</code> 中看到 SpringBoot2.x 项目中已经引入了<code>spring-boot-starter-test</code>这个启动组件，包含了几乎绝大多数测试场景需要的组件。然后通过<code>mvn clean install</code>来构建本项目或者直接导入 IDE 开发工具即可。</p>
+                                <p>下面将以对博客信息做简单修改和查询为示例来说明在 Spring Boot 中如何分别对 <code>DAO</code>，<code>Service</code>，<code>Controller</code> 做单元测试。</p>
+                                <h2 id="toc-heading-2"><a href="#DAO-层的单元测试" class="headerlink" title="DAO 层的单元测试" target="_blank"></a>DAO 层的单元测试</h2><h3 id="toc-heading-3"><a href="#新建数据库脚本" class="headerlink" title="新建数据库脚本" target="_blank"></a>新建数据库脚本</h3><p>DAO 层的测试我这里采用的是 <code>HSQLDB</code> 的内存数据库，最好准备一些初始化的数据表结构和脚本，当然也可用直接通过官方示例的 <code>JPA</code>特性和 API 代码来初始化数据。这里我还是通过脚本的方式来做，便于统一管理和维护表结构和数据。</p>
+                                <p>在 <code>src/test</code> 目录下新建 <code>resources</code> 资源目录，并在 <code>resources</code> 目录下新建 <code>db</code> 目录，在 <code>db</code> 目录下分别，新建用于管理的表结构文件(<code>schema.sql</code>)和初始化数据文件(<code>data.sql</code>)的 SQL 脚本。</p>
+                                <p><code>schema.sql</code> 文件中的内容如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">sql</div><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 创建数据库表所在的模式 schema.</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">SCHEMA</span> test<span class="token punctuation">;</span>
+<span class="token keyword">commit</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 在 test 模式下创建数据库表.</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> test<span class="token punctuation">.</span>t_test_blog<span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> test<span class="token punctuation">.</span>t_test_blog <span class="token punctuation">(</span>
+    c_id <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    c_author <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    c_content <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dt_publish_time <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    c_title <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    c_url <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    n_status <span class="token keyword">int</span><span class="token punctuation">,</span>
+    c_create_user <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dt_create_time <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    dt_update_time <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">constraint</span> pk_test_blog <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>c_id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">commit</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <p><code>data.sql</code> 文件中的内容如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">sql</div><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 初始化插入一些博客信息数据.</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">.</span>t_test_blog <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'这是内容'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:01'</span><span class="token punctuation">,</span> <span class="token string">'Spring从入门到精通'</span><span class="token punctuation">,</span> <span class="token string">'https://baidu.com'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'tom'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:33'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:36'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">.</span>t_test_blog <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token string">'这是Mybatis的内容'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:01'</span><span class="token punctuation">,</span> <span class="token string">'Mybatis基础'</span><span class="token punctuation">,</span> <span class="token string">'https://qq.com'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'jack'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:33'</span><span class="token punctuation">,</span> <span class="token string">'2019-03-01 00:41:36'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">commit</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <h3 id="toc-heading-4"><a href="#增加-yaml-配置文件及内容" class="headerlink" title="增加 yaml 配置文件及内容" target="_blank"></a>增加 yaml 配置文件及内容</h3><p>在 <code>resources</code> 目录下新建 <code>application-hsqldb.yml</code> 配置文件，用于存放 HSQLDB 及 JPA 相关的配置信息，主要配置内容如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">yaml</div><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>hsqldb<span class="token punctuation">:</span>mem<span class="token punctuation">:</span>db_test <span class="token comment"># 以内存数据库的方式来运行.</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> org.hsqldb.jdbc.JDBCDriver
+    <span class="token key atrule">platform</span><span class="token punctuation">:</span> hsqldb
+    <span class="token key atrule">schema</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>db/schema.sql
+    <span class="token key atrule">data</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>db/data.sql
+  <span class="token key atrule">jpa</span><span class="token punctuation">:</span>
+    <span class="token key atrule">show-sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">hibernate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ddl-auto</span><span class="token punctuation">:</span> none <span class="token comment"># 这里没用 JPA 的自动生成表结构等功能，你可以视自己的具体情况来开启.</span>
+    <span class="token key atrule">generate-ddl</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 启动时是否初始化数据库.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <h3 id="toc-heading-5"><a href="#准备实体-POJO-和-DAO-层-Repository-类" class="headerlink" title="准备实体 POJO 和 DAO 层 Repository 类" target="_blank"></a>准备实体 POJO 和 DAO 层 Repository 类</h3><p>博客信息的实体 POJO 类如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>persistence<span class="token punctuation">.</span></span><span class="token class-name">Column</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>persistence<span class="token punctuation">.</span></span><span class="token class-name">Entity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>persistence<span class="token punctuation">.</span></span><span class="token class-name">Id</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>persistence<span class="token punctuation">.</span></span><span class="token class-name">Table</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Getter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Setter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span></span><span class="token class-name">Accessors</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 博客实体.
+ *
+ * @author blinkfox on 2019-2-26.
+ */</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@Setter</span>
+<span class="token annotation punctuation">@Accessors</span><span class="token punctuation">(</span>chain <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Table</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"t_test_blog"</span><span class="token punctuation">,</span> schema <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Blog</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * ID.
+     */</span>
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_id"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> id<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 作者.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_author"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> author<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 标题.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_title"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> title<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 内容.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_content"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> content<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 发布时间.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"dt_publish_time"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> publishTime<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 链接地址.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_url"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> url<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 状态.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"n_status"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> status<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 创建用户.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"c_create_user"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> createUser<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 创建时间.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"dt_create_time"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> createTime<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 最后更新时间.
+     */</span>
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"dt_update_time"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> updateTime<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <p>下面是 <code>BlogRepository</code> 中的一个简单的自定义 <code>@Query</code> 查询，当然你也可以采用名称的规则来写本查询，我这里为了做示例，使用了 <code>@Query</code> 查询。</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>repository</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Blog</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jpa<span class="token punctuation">.</span>repository<span class="token punctuation">.</span></span><span class="token class-name">JpaRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jpa<span class="token punctuation">.</span>repository<span class="token punctuation">.</span></span><span class="token class-name">Query</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Repository</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogRepository.
+ *
+ * @author blinkfox on 2019-02-27.
+ */</span>
+<span class="token annotation punctuation">@Repository</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Query</span><span class="token punctuation">(</span><span class="token string">"SELECT b FROM Blog AS b WHERE b.title like 'Spring%'"</span><span class="token punctuation">)</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> <span class="token function">querySpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <h3 id="toc-heading-6"><a href="#BlogRepository-的单元测试" class="headerlink" title="BlogRepository 的单元测试" target="_blank"></a>BlogRepository 的单元测试</h3><p>然后在 Intellij IDEA 中通过 <code>Ctrl + Shift + T</code> 来为 <code>BlogRepository</code> 生成它对应的单元测试类 <code>BlogRepositoryTest</code>。</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>repository</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Blog</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Optional</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Resource</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Assert</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>runner<span class="token punctuation">.</span></span><span class="token class-name">RunWith</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>test<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>jpa<span class="token punctuation">.</span></span><span class="token class-name">DataJpaTest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>context<span class="token punctuation">.</span></span><span class="token class-name">ActiveProfiles</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>context<span class="token punctuation">.</span>junit4<span class="token punctuation">.</span></span><span class="token class-name">SpringRunner</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogRepositoryTest.
+ *
+ * @author blinkfox on 2019-03-01.
+ */</span>
+<span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">SpringRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ActiveProfiles</span><span class="token punctuation">(</span><span class="token string">"hsqldb"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@DataJpaTest</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlogRepositoryTest</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogRepository</span> blogRepository<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 测试新增博客的情况.
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> id <span class="token operator">=</span> <span class="token string">"newblogId"</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> title <span class="token operator">=</span> <span class="token string">"Java 从入门到放弃"</span><span class="token punctuation">;</span>
+        blogRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Blog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> blogOptional <span class="token operator">=</span> blogRepository<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertTrue</span><span class="token punctuation">(</span>blogOptional<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> title<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>blogOptional<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 测试查询所有 Spring 相关的博客信息.
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">querySpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> blogs <span class="token operator">=</span> blogRepository<span class="token punctuation">.</span><span class="token function">querySpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> blogs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"Spring从入门到精通"</span><span class="token punctuation">,</span> blogs<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <p>这样就完成了 DAO 层代码的测试，以上程序主要依托于内存数据库 HSQLDB 和 Spring Data JPA。</p>
+                                <h2 id="toc-heading-7"><a href="#Service-层的单元测试" class="headerlink" title="Service 层的单元测试" target="_blank"></a>Service 层的单元测试</h2><p>实际开发过程中，Service 层中的类依赖了 DAO 层中的类或其他 Service 类。为了隔离对其他 Service 类或 DAO 层中的类的依赖，只测试本 Service 类中的方法逻辑，就需要 Mock 数据和做打桩等操作。Spring Boot 中原生集成了 <a target="_blank" rel="noopener" href="https://site.mockito.org/">Mockito</a>，可以非常方便我们对 Java 代码做单元测试。</p>
+                                <h3 id="toc-heading-8"><a href="#新建-BlogService-类" class="headerlink" title="新建 BlogService 类" target="_blank"></a>新建 BlogService 类</h3><div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Blog</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>repository<span class="token punctuation">.</span></span><span class="token class-name">BlogRepository</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Optional</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Resource</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogService.
+ *
+ * @author blinkfox on 2019-03-01.
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlogService</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogRepository</span> blogRepository<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 查询所有 Spring 相关的博客信息.
+     *
+     * @return 博客信息
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> <span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"进入了获取 Spring 相关博客的 Service 方法."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> blogRepository<span class="token punctuation">.</span><span class="token function">querySpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 根据博客ID来修改该博客的名称.
+     *
+     * @param id 博客ID
+     * @param title 博客标题
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token class-name">String</span> id<span class="token punctuation">,</span> <span class="token class-name">String</span> title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> blogOptional <span class="token operator">=</span> blogRepository<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>blogOptional<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"需要修改名称的博客不存在，id为【{}】请检查！"</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        blogRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>blogOptional<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <h3 id="toc-heading-9"><a href="#BlogService-的单元测试" class="headerlink" title="BlogService 的单元测试" target="_blank"></a>BlogService 的单元测试</h3><p>通过 <code>BlogService</code> 可以生成和书写出其对应的单元测试类和测试方法，代码如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Blog</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>repository<span class="token punctuation">.</span></span><span class="token class-name">BlogRepository</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Optional</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Assert</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>runner<span class="token punctuation">.</span></span><span class="token class-name">RunWith</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span></span><span class="token class-name">InjectMocks</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span></span><span class="token class-name">Mock</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span></span><span class="token class-name">Mockito</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">MockitoJUnitRunner</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogServiceTest.
+ *
+ * @author blinkfox on 2019-03-01.
+ */</span>
+<span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">MockitoJUnitRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlogServiceTest</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Mock</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogRepository</span> blogRepository<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@InjectMocks</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogService</span> blogService<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 测试service层中获取Spring相关博客的方法.
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 构造需要返回的博客信息集合数据.</span>
+        <span class="token class-name">Blog</span> blog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">"Spring Action"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> blogList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        blogList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>blog<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">.</span><span class="token function">querySpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">thenReturn</span><span class="token punctuation">(</span>blogList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span></span> blogs <span class="token operator">=</span> blogService<span class="token punctuation">.</span><span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 断言验证查询到的数据.</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> blogs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"Spring Action"</span><span class="token punctuation">,</span> blog<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 测试根据博客ID来修改该博客的名称成功时的情况.
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Mock 相关数据和类方法的行为.</span>
+        <span class="token class-name">String</span> id <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">thenReturn</span><span class="token punctuation">(</span><span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Blog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">thenReturn</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Blog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        blogService<span class="token punctuation">.</span><span class="token function">modifyTitileById</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> <span class="token string">"算法导论"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 验证 blogRepository.save(s) 方法被调用过一次.</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">verify</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 测试根据博客ID来修改该博客的名称失败时的情况.
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modifyTitileByIdWithFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Mock 未根据 ID 找到对应的博客信息的情况.</span>
+        <span class="token class-name">String</span> id <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">thenReturn</span><span class="token punctuation">(</span><span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        blogService<span class="token punctuation">.</span><span class="token function">modifyTitileById</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> <span class="token string">"算法导论"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 验证 blogRepository.save(s) 方法并没有被调用过.</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">verify</span><span class="token punctuation">(</span>blogRepository<span class="token punctuation">,</span> <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">never</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <blockquote>
+                                    <p><strong>注意</strong>：这里的 <code>@RunWith</code> 采用的是 Mocktio 提供的 <code>MockitoJUnitRunner</code>。</p>
+                                </blockquote>
+                                <p>这样就完成了 Service 层的单元测试，也是我们业务开发中需要重点关注和测试业务逻辑的一层。</p>
+                                <h2 id="toc-heading-10"><a href="#Controller-层的单元测试" class="headerlink" title="Controller 层的单元测试" target="_blank"></a>Controller 层的单元测试</h2><p>Controller 层测试的重点是测试接口是否能正常工作。可以用到 Spring Boot 中提供的 <code>@WebMvcTest</code> 注解来模拟 Web 层的单元测试。当然，也需要通过 Mock 的方式类隔离对 Service 层各个类的依赖影响。</p>
+                                <h3 id="toc-heading-11"><a href="#新建-BlogController-类" class="headerlink" title="新建 BlogController 类" target="_blank"></a>新建 BlogController 类</h3><div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Blog</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">BlogService</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Resource</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">HttpStatus</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">ResponseEntity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PatchMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestParam</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogController.
+ *
+ * @author blinkfox on 2019-02-28.
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/blogs"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlogController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogService</span> blogService<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 获取所有 Spring 相关的博客信息.
+     *
+     * @return Spring相关的博客信息
+     */</span>
+    <span class="token annotation punctuation">@GetMapping</span>
+    <span class="token keyword">public</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Blog</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">ResponseEntity</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span>blogService<span class="token punctuation">.</span><span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 根据博客ID修改博客名称.
+     *
+     * @param id 博客ID
+     * @param title 博客标题
+     * @return 空
+     */</span>
+    <span class="token annotation punctuation">@PatchMapping</span><span class="token punctuation">(</span><span class="token string">"/{id}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Void</span><span class="token punctuation">&gt;</span></span> <span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> id<span class="token punctuation">,</span>
+            <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            blogService<span class="token punctuation">.</span><span class="token function">modifyTitileById</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"修改博客名称成功."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>OK<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"修改博客名称出错，id为【{}】."</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>INTERNAL_SERVER_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <h3 id="toc-heading-12"><a href="#BlogController-的单元测试" class="headerlink" title="BlogController 的单元测试" target="_blank"></a>BlogController 的单元测试</h3><p>通过 <code>BlogController</code> 可以生成和书写出其对应的单元测试类和测试方法，代码如下：</p>
+                                <div class="code-area" style="position: relative"><i class="fas fa-angle-up code-expand" aria-hidden="true"></i><div class="codecopy_notice"></div><i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i><div class="code_lang" title="代码语言">java</div><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>request<span class="token punctuation">.</span></span><span class="token class-name">MockMvcRequestBuilders</span><span class="token punctuation">.</span>get<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>request<span class="token punctuation">.</span></span><span class="token class-name">MockMvcRequestBuilders</span><span class="token punctuation">.</span>patch<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">MockMvcResultMatchers</span><span class="token punctuation">.</span>status<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>springbootsample<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">BlogService</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Resource</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>runner<span class="token punctuation">.</span></span><span class="token class-name">RunWith</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span></span><span class="token class-name">Mockito</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>test<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">WebMvcTest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>test<span class="token punctuation">.</span>mock<span class="token punctuation">.</span>mockito<span class="token punctuation">.</span></span><span class="token class-name">MockBean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>context<span class="token punctuation">.</span>junit4<span class="token punctuation">.</span></span><span class="token class-name">SpringRunner</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">MockMvc</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * BlogControllerTest.
+ *
+ * @author blinkfox on 2019-03-02.
+ */</span>
+<span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">SpringRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@WebMvcTest</span><span class="token punctuation">(</span><span class="token class-name">BlogController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlogControllerTest</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">MockMvc</span> mockMvc<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@MockBean</span>
+    <span class="token keyword">private</span> <span class="token class-name">BlogService</span> blogService<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 测试获取所有 Spring 相关的博客信息.
+     *
+     * @throws Exception 异常
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogService<span class="token punctuation">.</span><span class="token function">getSpringBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">thenReturn</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mockMvc<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/blogs"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 测试修改博客标题成功时的情况.
+     *
+     * @throws Exception 异常
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">doNothing</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogService<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">anyString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">anyString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mockMvc<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token function">patch</span><span class="token punctuation">(</span><span class="token string">"/blogs/1?title=Spring实战"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 测试修改博客标题失败时的情况.
+     *
+     * @throws Exception 异常
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modifyTitileByIdWithException</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">doThrow</span><span class="token punctuation">(</span><span class="token class-name">RuntimeException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>blogService<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modifyTitileById</span><span class="token punctuation">(</span><span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">anyString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Mockito</span><span class="token punctuation">.</span><span class="token function">anyString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mockMvc<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token function">patch</span><span class="token punctuation">(</span><span class="token string">"/blogs/1?title=Spring实战"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is5xxServerError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+                                <p>以上就完成了对 Controller 层的单元测试。</p>
+                                <h2 id="toc-heading-13"><a href="#总结" class="headerlink" title="总结" target="_blank"></a>总结</h2><p>在 Spring Boot 中做单元测试的将会非常容易。上面只是 Spring Boot 中提供的部分方式，<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-testing">Spring Boot 文档</a> 中还有其他更多的测试场景和测试方法供你去参考和使用。</p>
+
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card-content" id="commentsId">
+                            <div class="row">
+                                <span class="rep-bold"><i class="fas fa-user"></i> 文章作者：</span> <span class="href-b">zouxiaolong</span>
+                            </div>
+                            <div class="row">
+                                <span class="rep-bold"><i class="fas fa-user"></i> 文章链接：</span> <span  class="href-b">https://blinkfox.github.io/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/</span>
+                            </div>
+                            <div class="row">
+                                <span class="rep-bold"><i class="fas fa-user"></i> 转载声明：</span>本博客所有文章除特別声明外，均采用 CC BY 4.0 许可协议。转载请注明来源 blinkfox !
+                            </div>
+                            <div class="row">
+                                <div style="width: 100%;text-align: center">
+                                    <div class="shang" id="shang" data-position="top" >
+                                        赏
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!--评论-->
+                    <div   data-aos="fade-up">
+                        <div class="card" >
+                            <div class="card-content">
+
+                                <article class="post white-box reveal shadow" id="comments" data-sr-id="15" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                                    <p ct=""><i class="fas fa-comments"></i> 评论</p>
+
+                                    <div id="valine_container" class="valine_thread v" data-class="v">
+                                        <div class="vpanel" data-self-id="-1">
+                                            <input name="headShot" id="blog_headShot" hidden>
+                                            <input name="blogId" id="blog_blogId" value="-1" hidden>
+                                            <div class="vwrap">
+                                                <p class="cancel-reply text-right" style="display: none;" title="取消回复">
+                                                    <svg class="vicon cancel-reply-btn" viewBox="0 0 1024 1024" version="1.1"
+                                                         xmlns="http://www.w3.org/2000/svg" p-id="4220" width="22" height="22">
+                                                        <path d="M796.454 985H227.545c-50.183 0-97.481-19.662-133.183-55.363-35.7-35.701-55.362-83-55.362-133.183V227.545c0-50.183 19.662-97.481 55.363-133.183 35.701-35.7 83-55.362 133.182-55.362h568.909c50.183 0 97.481 19.662 133.183 55.363 35.701 35.702 55.363 83 55.363 133.183v568.909c0 50.183-19.662 97.481-55.363 133.183S846.637 985 796.454 985zM227.545 91C152.254 91 91 152.254 91 227.545v568.909C91 871.746 152.254 933 227.545 933h568.909C871.746 933 933 871.746 933 796.454V227.545C933 152.254 871.746 91 796.454 91H227.545z"
+                                                              p-id="4221"></path>
+                                                        <path d="M568.569 512l170.267-170.267c15.556-15.556 15.556-41.012 0-56.569s-41.012-15.556-56.569 0L512 455.431 341.733 285.165c-15.556-15.556-41.012-15.556-56.569 0s-15.556 41.012 0 56.569L455.431 512 285.165 682.267c-15.556 15.556-15.556 41.012 0 56.569 15.556 15.556 41.012 15.556 56.569 0L512 568.569l170.267 170.267c15.556 15.556 41.012 15.556 56.569 0 15.556-15.556 15.556-41.012 0-56.569L568.569 512z"
+                                                              p-id="4222"></path>
+                                                    </svg>
+                                                </p>
+                                                <div class="vheader item3">
+                                                    <input name="nickname" id="blog_nickname" placeholder="昵称(输入QQ号可自动拉取头像)" class="vnick vinput" type="text"><input name="email" id="blog_email" placeholder="邮箱(留下邮箱方便收到回复别人提醒)" class="vmail vinput" type="email"><input name="link" id="blog_link" placeholder="网址(你的网址)" class="vlink vinput" type="text">
+                                                </div>
+                                                <div class="vedit">
+                                                    <textarea id="veditor" name="content"   class="veditor vinput" placeholder="嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~"></textarea>
+                                                    <div class="vrow">
+                                                        <div id="blog_warning" class="vcol vcol-60 status-bar"></div>
+                                                        <div class="vcol vcol-40 vctrl text-right">
+                                                <span title="表情"  class="vicon vemoji-btn">
+                                                  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                       p-id="16172" width="22" height="22"><path
+                                                          d="M512 1024a512 512 0 1 1 512-512 512 512 0 0 1-512 512zM512 56.888889a455.111111 455.111111 0 1 0 455.111111 455.111111 455.111111 455.111111 0 0 0-455.111111-455.111111zM312.888889 512A85.333333 85.333333 0 1 1 398.222222 426.666667 85.333333 85.333333 0 0 1 312.888889 512z"
+                                                          p-id="16173"></path><path
+                                                          d="M512 768A142.222222 142.222222 0 0 1 369.777778 625.777778a28.444444 28.444444 0 0 1 56.888889 0 85.333333 85.333333 0 0 0 170.666666 0 28.444444 28.444444 0 0 1 56.888889 0A142.222222 142.222222 0 0 1 512 768z"
+                                                          p-id="16174"></path><path
+                                                          d="M782.222222 391.964444l-113.777778 59.733334a29.013333 29.013333 0 0 1-38.684444-10.808889 28.444444 28.444444 0 0 1 10.24-38.684445l113.777778-56.888888a28.444444 28.444444 0 0 1 38.684444 10.24 28.444444 28.444444 0 0 1-10.24 36.408888z"
+                                                          p-id="16175"></path><path
+                                                          d="M640.568889 451.697778l113.777778 56.888889a27.875556 27.875556 0 0 0 38.684444-10.24 27.875556 27.875556 0 0 0-10.24-38.684445l-113.777778-56.888889a28.444444 28.444444 0 0 0-38.684444 10.808889 28.444444 28.444444 0 0 0 10.24 38.115556z"
+                                                          p-id="16176"></path></svg>
+                                                </span>
+                                                            <span title="预览" class="vicon vpreview-btn">
+                                                    <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17688" width="22" height="22">
+                                                    <path
+                                                            d="M502.390154 935.384615a29.538462 29.538462 0 1 1 0 59.076923H141.430154C79.911385 994.461538 29.538462 946.254769 29.538462 886.153846V137.846154C29.538462 77.745231 79.950769 29.538462 141.390769 29.538462h741.218462c61.44 0 111.852308 48.206769 111.852307 108.307692v300.268308a29.538462 29.538462 0 1 1-59.076923 0V137.846154c0-26.899692-23.355077-49.230769-52.775384-49.230769H141.390769c-29.420308 0-52.775385 22.331077-52.775384 49.230769v748.307692c0 26.899692 23.355077 49.230769 52.775384 49.230769h360.999385z"
+                                                            p-id="17689"></path><path
+                                                            d="M196.923077 216.615385m29.538461 0l374.153847 0q29.538462 0 29.538461 29.538461l0 0q0 29.538462-29.538461 29.538462l-374.153847 0q-29.538462 0-29.538461-29.538462l0 0q0-29.538462 29.538461-29.538461Z"
+                                                            p-id="17690"></path><path
+                                                            d="M649.846154 846.769231a216.615385 216.615385 0 1 0 0-433.230769 216.615385 216.615385 0 0 0 0 433.230769z m0 59.076923a275.692308 275.692308 0 1 1 0-551.384616 275.692308 275.692308 0 0 1 0 551.384616z"
+                                                            p-id="17691"></path><path
+                                                            d="M807.398383 829.479768m20.886847-20.886846l0 0q20.886846-20.886846 41.773692 0l125.321079 125.321079q20.886846 20.886846 0 41.773693l0 0q-20.886846 20.886846-41.773693 0l-125.321078-125.321079q-20.886846-20.886846 0-41.773693Z"
+                                                            p-id="17692"></path></svg>
+                                                 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="vrow">
+                                                    <div class="vcol vcol-30" id="blog_guest_comments">
+                                                        <a alt="Markdown is supported"  href="https://guides.github.com/features/mastering-markdown/"  class="vicon" target="_blank">
+                                                            支持Markdown语法
+                                                        </a>
+                                                    </div>
+                                                    <div class="vcol vcol-70 text-right">
+                                                        <button type="button" title="Cmd|Ctrl+Enter" id="blog_guest_commit" class="vsubmit vbtn">提交</button>
+                                                    </div>
+                                                </div>
+                                                <div class="vemojis" style="display: none;">
+                                                    <i title="tieba-7"><img alt="tieba-7" referrerpolicy="no-referrer" class="vemoji" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-7.png"></i>
+                                                </div>
+                                                <div class="vinput vpreview" style="display:none;"></div>
+                                                <div style="display:none;" class="vmark"></div>
+                                            </div>
+                                        </div>
+                                        <div class="vcount" style="display: block;">
+                                            <span class="vnum" id="blog_guestbook_total">16</span> 评论</div>
+                                        <div class="vload-top text-center" style="display:none;">
+                                            <i class="vspinner"  style="width:30px;height:30px;"></i>
+                                        </div>
+                                        <div class="vcards">
+
+
+                                            <div class="vcard" id="607967bac1d46f1cc83a0cb8">
+                                                <img class="vimg" src="https://gravatar.loli.net/avatar/38daa5aa4896f818b95f5d0c69b5b7da?d=robohash&amp;v=1.4.14">
+                                                <div class="vh">
+                                                    <div class="vhead">
+                                                        <a class="vnick" rel="nofollow" href="http://spacexcode.com" target="_blank">timfan</a>
+                                                        <span class="vtag vvisitor">访客</span>
+                                                        <span class="vsys"><i class="fab fa-chrome"></i>Chrome 70.0.3538.110</span>
+                                                        <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
+                                                    </div>
+                                                    <div class="vmeta"><span class="vtime">2021-04-16</span><span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967bac1d46f1cc83a0cb8">回复</span></div>
+                                                    <div class="vcontent" data-expand="查看更多..."><p>博主您好，可以交换友链吗</p></div>
+                                                    <div class="vreply-wrapper" data-self-id="607967bac1d46f1cc83a0cb8"></div>
+                                                    <div class="vquote" data-self-id="607967bac1d46f1cc83a0cb8">
+                                                        <div class="vcard" id="607967dbc1d46f1cc83a0cf7">
+                                                            <img class="vimg" src="https://gravatar.loli.net/avatar/38daa5aa4896f818b95f5d0c69b5b7da?d=robohash&amp;v=1.4.14">
+                                                            <div class="vh">
+                                                                <div class="vhead">
+                                                                    <a class="vnick" rel="nofollow" href="http://spacexcode.com" target="_blank">timfan</a>
+                                                                    <span class="vtag vvisitor">访客</span>
+                                                                    <span class="vsys"><i class="fab fa-chrome"></i>Chrome 70.0.3538.110</span>
+                                                                    <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
+                                                                </div>
+                                                                <div class="vmeta">
+                                                                    <span class="vtime">2021-04-16</span>
+                                                                    <span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967dbc1d46f1cc83a0cf7">回复</span>
+                                                                </div>
+                                                                <div class="vcontent" data-expand="查看更多...">
+                                                                    <p>
+                                                                        <a href="#607967bac1d46f1cc83a0cb8" target="_blank" rel="nofollow">@timfan </a>
+                                                                        <a href="http://spacexcode.com" target="_blank" rel="nofollow">http://spacexcode.com</a>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="vreply-wrapper" data-self-id="607967dbc1d46f1cc83a0cf7"></div>
+                                                                <div class="vquote" data-self-id="607967dbc1d46f1cc83a0cf7"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vcard" id="607ff326f5766f41e9c218d1"><img class="vimg" src="https://gravatar.loli.net/avatar/36a5ab8cf3db90b0b7c513f13f1afdd6?d=robohash&amp;v=1.4.14">
+                                                            <div class="vh">
+                                                                <div class="vhead"><span class="vnick">DataScience</span><span class="vtag vvisitor">访客</span> <span class="vsys"><i
+                                                                        class="fab fa-safari"></i>Safari 14.0.3</span> <span class="vsys"><i class="fab fa-macos"></i>macOS 10.15.6</span>
+                                                                </div>
+                                                                <div class="vmeta"><span class="vtime">2021-04-21</span><span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607ff326f5766f41e9c218d1">回复</span></div>
+                                                                <div class="vcontent" data-expand="查看更多...">
+                                                                    <p><a href="#607967bac1d46f1cc83a0cb8" target="_blank" rel="nofollow">@timfan </a>  , 自己添加即可</p>
+                                                                </div>
+                                                                <div class="vreply-wrapper" data-self-id="607ff326f5766f41e9c218d1"></div>
+                                                                <div class="vquote" data-self-id="607ff326f5766f41e9c218d1"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="vload-bottom text-center" style="display: none;"><i class="vspinner" style="width:30px;height:30px;"></i></div>
+                                        <div class="vempty" style="display:none;"></div>
+                                        <div class="vpage txt-center" >
+                                            <button type="button" class="vmore vbtn">加载更多...</button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--目录-->
+                <div  class="expanded col l3 hide-on-med-and-down">
+                    <div class="toc-widget card" style="background-color: white;">
+                        <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+                        <div id="tocbotId">
+
+                        </div>
+                        <div class="toc-comments" onclick="headertop_down('#commentsId')">
+                                <i class="fas fa-comments"></i>&nbsp;&nbsp;评论
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </main>
+        <!--页脚-->
+        <footer class="page-footer">
+
+            <!-- 回到顶部按钮 start -->
+            <div id="backTop" class="top-scroll">
+                <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+
+            <!--弧度-->
+            <div class="blog-bending-body ">
+                <div class="blog-bending">
+                </div>
+            </div>
+            <div class="blog-background-color">
+                <div class="container  center-align " >
+                    <!-- 访客地图 -->
+                    <div class="col s12 m3 l3 social-link" >
+
+                    </div>
+                    <!-- 版权信息 -->
+                    <div class="col s12 m6 l6 copy-right">
+                        <div class="footer_row">
+                            <span>Copyright&nbsp;© <span id="year">2022</span> zouxiaolong</span> &nbsp;
+                            <span><a href="https://beian.miit.gov.cn" style="color:rgb(0 0 0 / 42%);" target="_blank">蜀ICP备2022000013号-1</a></span>
+                        </div>
+                        <div class="footer_row">
+                            <span>Hello ~ 来自江苏如东的朋友</span>
+                            <!--获取IP和city-->
+                            <script src="http://pv.sohu.com/cityjson?ie=utf-8" async="async"></script>
+                        </div>
+                        <div class="footer_row">
+                            <span  style="display: inline;"><i class="far"></i>总访问量&nbsp;<span class="white-color">30082</span></span>
+                            |
+                            <span  style="display: inline;"><i class="fas"></i>访客人数:&nbsp;<span  class="white-color">7136</span></span>
+                            |
+                            <span  style="display: inline;"><i class="fas"></i>字数统计:&nbsp;<span  class="white-color">7136</span></span>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <script src="/blogs/libs/aos/aos.js"></script><!--动画滚动库-->
+
+        <script type="text/javascript"  src="/blogs/libs/background/ribbon-refresh.min.js" async="async"></script>
+
+        <script>
+
+            $(document).ready(function(){
+
+                tocbot.init({ //目录
+                    // Where to render the table of contents.
+                    tocSelector: '#tocbotId',
+                    // Where to grab the headings to build the table of contents.
+                    contentSelector: '#articleContent',
+                    // Which headings to grab inside of the contentSelector element.
+                    headingSelector: 'h1, h2, h3,h4,h5',
+                    // For headings inside relative or absolute positioned containers within content.
+                    hasInnerContainers: true,
+                });
+                M.Tooltip.init(document.getElementById("shang"), {
+                    html:'<img src="/blogs/medias/zhifu.jpg" style="width: 14rem">',
+
+                });
+            });
+        </script>
+        <script>
+
+            $(function () {
+                let pageData;
+                let versionToJson,browserVersion,osVersion,address,ip,blogId;
+
+                versionToJson = getVersionToJson();
+                browserVersion =versionToJson.browser+' '+versionToJson.version;
+                osVersion =versionToJson.os+' '+versionToJson.osVersion;
+                // address = returnCitySN.cname;
+                // ip = returnCitySN.cip;
+                blogId = '-1';
+
+                document.getElementById('blog_guest_commit').onclick = commitComments;
+
+                document.querySelector('.cancel-reply.text-right').onclick  =  function(){
+                    vEditorReset();
+                };
+                let vEmojis = document.querySelector('.vemojis');
+                document.querySelector('.vicon.vemoji-btn').onclick = function(){
+                    if (vEmojis.style.display === 'none'){
+                        vEmojis.style.display = 'block';
+                    }else {
+                        vEmojis.style.display = 'none';
+                    }
+                };
+
+                commentList(1,10,{blogId:-1},true);
+
+
+
+//获取留言列表
+                function commentList(currentPage,pageSize,queryPerm,async) {
+                    if (currentPage === undefined || currentPage <=0 ){
+                        currentPage =1;
+                    }
+                    if(pageSize === undefined || pageSize <=0){
+                        pageSize =10;
+                    }
+                    pageData ={currentPage:currentPage,pageSize:pageSize,p:queryPerm};
+                    let spanTotal = document.querySelector('#blog_guestbook_total');
+                    $.ajax({
+                        async:!async,
+                        url:'/blogs/GuestBookController/list',
+                        type:'post',
+                        dataType: "json",
+                        contentType: "application/json;charset=utf-8",
+                        data:JSON.stringify(pageData),
+                        beforeSend:function(xhr){
+                            loading();
+                            let detail  =  JSON.parse(localStorage.getItem('detail'));
+                            if (detail) {
+                                document.getElementById('blog_nickname').value = detail.nickname;
+                                document.getElementById('blog_email').value = detail.email;
+                                document.getElementById('blog_link').value = detail.link;
+                            }
+                        },
+                        success:function (res) {
+                            //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
+                            loaded();
+                            if (res.success && res.data.list.length >0){
+                                let resData = res.data.list;
+                                spanTotal.innerText = res.data.total;
+                                let list ='';
+                                for (let i = 0; i < resData.length; i++) {
+                                    resData[i].vmId = resData[i].id;
+                                    list += createDIV(resData[i]);
+                                }
+                                document.querySelector('.vcards').innerHTML = list ;
+                                pageData.pageTotal = res.msg;
+                            }else {
+                                spanTotal.innerText = '0';
+                                document.querySelector('.vcards').innerHTML = '<span style="display: inline-block;width: 100%;text-align:center;color: rgba(85,85,85,0.37)">来当第一个坐沙发的人吧~</span>'
+                                //   欢迎留下第一条评论
+                            }
+                        }
+                    });
+
+                }
+
+//提交评论
+                function commitComments(){
+                    let blogVerify = blog_verify();
+                    if (blogVerify){
+                        timeoutAlter(blogVerify);
+                        return;
+                    }
+                    let textarea = document.getElementById('veditor');
+                    let nickname = document.getElementById('blog_nickname').value;
+                    let email =  document.getElementById('blog_email').value;
+                    let link = document.getElementById('blog_link').value;
+                    let headShot = document.getElementById('blog_headShot').value;
+
+                    let blogId = document.getElementById('blog_blogId').value;
+                    let parentElement = document.querySelector('.vwrap').parentElement;
+                    let parentId =parentElement.getAttribute('data-self-id');
+
+
+                    // let a = textarea.placeholder.indexOf('回复 ');
+                    let content ='';
+                    if (parentId!='-1'){
+                        let b = textarea.placeholder.indexOf('：');
+                        content ='回复 '+'<a href="#'+parentId+'">'+textarea.placeholder.substring(3,b)+'</a>：'+ textarea.value;
+                    }else {
+                        content = textarea.value;
+                    }
+
+                    let dataBody = {
+                        nickname:nickname===undefined || nickname ===null || nickname ===''? 'Anonymous' :nickname,
+                        email:email,
+                        link:link,
+                        headShot:headShot,
+                        blogId:blogId,
+                        parentId: parentId,
+                        browserVersion:browserVersion,
+                        osVersion:osVersion,
+                        address:address,
+                        ip:ip,
+                        content:content,
+                        idCard:'访客'
+                    };
+                    $.ajax({
+                        url:'/blogs/GuestBookController/save',
+                        type:'post',
+                        data:dataBody,
+                        beforeSend:function (xhr){
+                            loading();
+                            localStorage.setItem('detail','{"nickname":"'+nickname+'","email":"'+email+'","link":"'+link+'"}');  //发送请求时，存储用户信息
+                        },
+                        success:function (res) {
+                            //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
+                            if (res.success){
+                                loaded();
+
+                                if (parentId != '-1'){
+                                    vEditorReset(); //重置输入框
+                                    let parentIds = res.data.parentIds;
+                                    let lastIndex = parentIds.indexOf(',',4);
+                                    let s = parentIds.substring(4,lastIndex===-1?parentIds.length:lastIndex);
+                                    res.data.vmId =s;
+                                    let vDiv =  document.querySelector('div[data-self-id="'+s+'"].vquote');
+                                    vDiv.appendChild(strToEle(createDIV(res.data)));
+
+                                }else {
+                                    //  document.querySelector('div[data-self-id="'+parentId+'"]');
+                                    res.data.vmId = res.data.id;
+                                    let ele =  strToEle(createDIV(res.data));
+                                    document.querySelector('.vcards').insertBefore(ele,document.querySelector('.vcards').firstElementChild);
+                                    vEditorReset();
+                                }
+                            }else {
+                                timeoutAlter('评论失败，稍后再试...')
+                            }
+
+
+                        },
+                        error:function (data) {
+                            console.log(data)
+                        }
+                    })
+                }
+
+
+
+//重置评论框
+                function vEditorReset() {
+                    document.querySelector('.vpanel').appendChild(document.querySelector('.vwrap'));
+                    let textarea = document.getElementById('veditor');
+                    let close = document.querySelector('.cancel-reply.text-right');
+                    close.style.display  = 'none';
+                    textarea.placeholder = '嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~';
+                    textarea.value = '';
+                }
+
+//提交form表单检验
+                function blog_verify() {
+                    let email =  document.getElementById('blog_email').value;
+                    let link = document.getElementById('blog_link').value;
+                    let textarea = document.getElementById('veditor').value;
+
+                    let reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;  //邮箱正则
+
+
+                    //网址正则
+                    let strRegex = "^((https|http|ftp|rtsp|mms)?://)"
+                        + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@
+                        + "(([0-9]{1,3}\.){3}[0-9]{1,3}" // IP形式的URL- 199.194.52.184
+                        + "|" // 允许IP和DOMAIN（域名）
+                        + "([0-9a-z_!~*'()-]+\.)*" // 域名- www.
+                        + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\." // 二级域名
+                        + "[a-z]{2,6})" // first level domain- .com or .museum
+                        + "(:[0-9]{1,4})?" // 端口- :80
+                        + "((/?)|" // a slash isn't required if there is no file name
+                        + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";
+
+                    //不为空时才校验
+                    if(email && !reg.test(email)){
+                        return '邮箱格式不正确哦~';
+                    }
+                    if( link && !new RegExp(strRegex).test(link)){
+                        return '链接地址不正确哦~';
+                    }
+
+
+
+                    if (!textarea){
+                        return '内容不能留空哦~';
+                    }
+
+                    return false;
+                }
+
+                let w = function(e, t) {
+                    if (document.selection) {
+                        e.focus();
+                        document.selection.createRange().text = t,
+                            e.focus()
+                    } else if (e.selectionStart || "0" == e.selectionStart) {
+                        var n = e.selectionStart
+                            , r = e.selectionEnd
+                            , o = e.scrollTop;
+                        e.value = e.value.substring(0, n) + t + e.value.substring(r, e.value.length),
+                            e.focus(),
+                            e.selectionStart = n + t.length,
+                            e.selectionEnd = n + t.length,
+                            e.scrollTop = o
+                    } else
+                        e.focus(),
+                            e.value += t;
+                    setTimeout(function(t) {
+                        f((0,
+                            S.default)(e))
+                    }, 100)
+                }
+
+//创建留言树
+                function createDIV(data) {
+                    let link = data.link ? '<a class="vnick" rel="nofollow" href="'+data.link+'" target="_blank">'+data.nickname+'</a>':'<span class="vnick">'+data.nickname+'</span>';
+                    let divA = '<div class="vcard" id="'+data.id+'">\n' +
+                        '    <img class="vimg" src="'+(data.headShot ===undefined || data.headShot ==null ? data.headShot : "/blogs/medias/Anonymous.jpg")+'">\n' +
+                        '    <div class="vh">\n' +
+                        '        <div class="vhead">\n' + link +
+                        '            <span class="vtag vvisitor">'+data.idCard+'</span>\n' +
+                        '            <span class="vsys"><i class="fab fa-chrome"></i>'+data.browserVersion+'</span>\n' +
+                        '            <span class="vsys"><i class="fab fa-windows"></i>'+data.osVersion+'</span>\n' +
+                        '        </div>\n' +
+                        '        <div class="vmeta"><span class="vtime">'+data.createDate+'</span><span class="vat" data-vm-id="'+(data.vmId ?data.vmId:data.id)+'" onclick="getCommentsDiv(this)" data-self-id="'+data.id+'">回复</span>\n' +
+                        '        </div>\n' +
+                        '        <div class="vcontent" data-expand="查看更多...">\n' + data.content +
+                        '        </div>\n' +
+                        '        <div class="vreply-wrapper"  data-vm-id="'+(data.vmId ?data.vmId:data.id)+'"  data-self-id="'+data.id+'"></div>\n' +
+                        '        <div class="vquote" data-self-id="'+data.id+'">';
+
+                    let divB ='</div></div></div>';
+                    let gBChildren =data.gBChildren;
+                    let divList='';
+                    if (gBChildren !== undefined && gBChildren !== null && gBChildren.length > 0){
+                        for (let j =0 ; j < gBChildren.length; j++){
+                            gBChildren[j].vmId = data.vmId; //顶层留言
+                            divList +=  createDIV(gBChildren[j]);
+                        }
+                    }
+                    return divA +divList+ divB;
+                }
+
+//将字符串转化为dom元素
+                function strToEle(str) {
+                    const template =`<div>${str}</div>`;
+                    let tempEle = document.createElement('div');
+                    tempEle.innerHTML = template;
+                    return tempEle.firstElementChild;
+                }
+
+//正在加载
+                function loading() {
+                    document.querySelector('.vload-top.text-center').style.display='block';
+                }
+
+//加载完毕
+                function loaded() {
+                    document.querySelector('.vload-top.text-center').style.display='none';
+                }
+
+//获取系统版本，和浏览器版本
+                function getVersionToJson(e) {
+                    e = e || navigator.userAgent;
+                    let t = {}
+                        , n = {
+                        Trident: e.indexOf("Trident") > -1 || e.indexOf("NET CLR") > -1,
+                        Presto: e.indexOf("Presto") > -1,
+                        WebKit: e.indexOf("AppleWebKit") > -1,
+                        Gecko: e.indexOf("Gecko/") > -1,
+                        Safari: e.indexOf("Safari") > -1,
+                        Edge: e.indexOf("Edge") > -1 || e.indexOf("Edg") > -1,
+                        Chrome: e.indexOf("Chrome") > -1 || e.indexOf("CriOS") > -1,
+                        IE: e.indexOf("MSIE") > -1 || e.indexOf("Trident") > -1,
+                        Firefox: e.indexOf("Firefox") > -1 || e.indexOf("FxiOS") > -1,
+                        "Firefox Focus": e.indexOf("Focus") > -1,
+                        Chromium: e.indexOf("Chromium") > -1,
+                        Opera: e.indexOf("Opera") > -1 || e.indexOf("OPR") > -1,
+                        Vivaldi: e.indexOf("Vivaldi") > -1,
+                        Yandex: e.indexOf("YaBrowser") > -1,
+                        Kindle: e.indexOf("Kindle") > -1 || e.indexOf("Silk/") > -1,
+                        360: e.indexOf("360EE") > -1 || e.indexOf("360SE") > -1,
+                        UC: e.indexOf("UC") > -1 || e.indexOf(" UBrowser") > -1,
+                        QQBrowser: e.indexOf("QQBrowser") > -1,
+                        QQ: e.indexOf("QQ/") > -1,
+                        Baidu: e.indexOf("Baidu") > -1 || e.indexOf("BIDUBrowser") > -1,
+                        Maxthon: e.indexOf("Maxthon") > -1,
+                        Sogou: e.indexOf("MetaSr") > -1 || e.indexOf("Sogou") > -1,
+                        LBBROWSER: e.indexOf("LBBROWSER") > -1,
+                        "2345Explorer": e.indexOf("2345Explorer") > -1,
+                        TheWorld: e.indexOf("TheWorld") > -1,
+                        XiaoMi: e.indexOf("MiuiBrowser") > -1,
+                        Quark: e.indexOf("Quark") > -1,
+                        Qiyu: e.indexOf("Qiyu") > -1,
+                        Wechat: e.indexOf("MicroMessenger") > -1,
+                        Taobao: e.indexOf("AliApp(TB") > -1,
+                        Alipay: e.indexOf("AliApp(AP") > -1,
+                        Weibo: e.indexOf("Weibo") > -1,
+                        Douban: e.indexOf("com.douban.frodo") > -1,
+                        Suning: e.indexOf("SNEBUY-APP") > -1,
+                        iQiYi: e.indexOf("IqiyiApp") > -1,
+                        Windows: e.indexOf("Windows") > -1,
+                        Linux: e.indexOf("Linux") > -1 || e.indexOf("X11") > -1,
+                        macOS: e.indexOf("Macintosh") > -1,
+                        Android: e.indexOf("Android") > -1 || e.indexOf("Adr") > -1,
+                        // 'Ubuntu': e.indexOf("Ubuntu") > -1,
+                        FreeBSD: e.indexOf("FreeBSD") > -1,
+                        Debian: e.indexOf("Debian") > -1,
+                        "Windows Phone": e.indexOf("IEMobile") > -1 || e.indexOf("Windows Phone") > -1,
+                        BlackBerry: e.indexOf("BlackBerry") > -1 || e.indexOf("RIM") > -1 || e.indexOf("BB10") > -1,
+                        MeeGo: e.indexOf("MeeGo") > -1,
+                        Symbian: e.indexOf("Symbian") > -1,
+                        iOS: e.indexOf("like Mac OS X") > -1,
+                        "Chrome OS": e.indexOf("CrOS") > -1,
+                        WebOS: e.indexOf("hpwOS") > -1,
+                        Mobile: e.indexOf("Mobi") > -1 || e.indexOf("iPh") > -1 || e.indexOf("480") > -1,
+                        Tablet: e.indexOf("Tablet") > -1 || e.indexOf("Pad") > -1 || e.indexOf("Nexus 7") > -1
+                    };
+                    n.Mobile && (n.Mobile = !(e.indexOf("iPad") > -1));
+                    let r = {
+                        browser: ["Safari", "Chrome", "Edge", "IE", "Firefox", "Firefox Focus", "Chromium", "Opera", "Vivaldi", "Yandex", "Kindle", "360", "UC", "QQBrowser", "QQ", "Baidu", "Maxthon", "Sogou", "LBBROWSER", "2345Explorer", "TheWorld", "XiaoMi", "Quark", "Qiyu", "Wechat", "Taobao", "Alipay", "Weibo", "Douban", "Suning", "iQiYi"],
+                        os: ["Windows", "Linux", "Mac OS", "macOS", "Android", "Ubuntu", "FreeBSD", "Debian", "iOS", "Windows Phone", "BlackBerry", "MeeGo", "Symbian", "Chrome OS", "WebOS"]
+                    };
+                    for (let o in r)
+                        if (r.hasOwnProperty(o))
+                            for (let i = 0, a = r[o].length; i < a; i++) {
+                                let s = r[o][i];
+                                n[s] && (t[o] = s)
+                            }
+                    let l = {
+                        Windows: function() {
+                            let t = e.replace(/^.*Windows NT ([\d.]+).*$/, "$1");
+                            return {
+                                6.4: "10",
+                                6.3: "8.1",
+                                6.2: "8",
+                                6.1: "7",
+                                "6.0": "Vista",
+                                5.2: "XP",
+                                5.1: "XP",
+                                "5.0": "2000"
+                            }[t] || t
+                        },
+                        Android: e.replace(/^.*Android ([\d.]+);.*$/, "$1"),
+                        iOS: e.replace(/^.*OS ([\d_]+) like.*$/, "$1").replace(/_/g, "."),
+                        Debian: e.replace(/^.*Debian\/([\d.]+).*$/, "$1"),
+                        "Windows Phone": e.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, "$2"),
+                        macOS: e.replace(/^.*Mac OS X ([\d_]+).*$/, "$1").replace(/_/g, "."),
+                        WebOS: e.replace(/^.*hpwOS\/([\d.]+);.*$/, "$1"),
+                        BlackBerry: e.replace(/^.*BB([\d.]+);*$/, "$1")
+                    };
+                    t.osVersion = "";
+                    let c = l[t.os];
+                    c && (t.osVersion = "function" == typeof c ? c() : c == e ? "" : c);
+                    let u = {
+                        Safari: e.replace(/^.*Version\/([\d.]+).*$/, "$1"),
+                        Chrome: e.replace(/^.*Chrome\/([\d.]+).*$/, "$1").replace(/^.*CriOS\/([\d.]+).*$/, "$1"),
+                        IE: e.replace(/^.*MSIE ([\d.]+).*$/, "$1").replace(/^.*rv:([\d.]+).*$/, "$1"),
+                        Edge: e.replace(/^.*Edge?\/([\d.]+).*$/, "$1"),
+                        Firefox: e.replace(/^.*Firefox\/([\d.]+).*$/, "$1").replace(/^.*FxiOS\/([\d.]+).*$/, "$1"),
+                        "Firefox Focus": e.replace(/^.*Focus\/([\d.]+).*$/, "$1"),
+                        Chromium: e.replace(/^.*Chromium\/([\d.]+).*$/, "$1"),
+                        Opera: e.replace(/^.*Opera\/([\d.]+).*$/, "$1").replace(/^.*OPR\/([\d.]+).*$/, "$1"),
+                        Vivaldi: e.replace(/^.*Vivaldi\/([\d.]+).*$/, "$1"),
+                        Yandex: e.replace(/^.*YaBrowser\/([\d.]+).*$/, "$1"),
+                        Kindle: e.replace(/^.*Version\/([\d.]+).*$/, "$1"),
+                        Maxthon: e.replace(/^.*Maxthon\/([\d.]+).*$/, "$1"),
+                        QQBrowser: e.replace(/^.*QQBrowser\/([\d.]+).*$/, "$1"),
+                        QQ: e.replace(/^.*QQ\/([\d.]+).*$/, "$1"),
+                        Baidu: e.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, "$1"),
+                        UC: e.replace(/^.*UC?Browser\/([\d.]+).*$/, "$1"),
+                        Sogou: e.replace(/^.*SE ([\d.X]+).*$/, "$1").replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, "$1"),
+                        "2345Explorer": e.replace(/^.*2345Explorer\/([\d.]+).*$/, "$1"),
+                        TheWorld: e.replace(/^.*TheWorld ([\d.]+).*$/, "$1"),
+                        XiaoMi: e.replace(/^.*MiuiBrowser\/([\d.]+).*$/, "$1"),
+                        Quark: e.replace(/^.*Quark\/([\d.]+).*$/, "$1"),
+                        Qiyu: e.replace(/^.*Qiyu\/([\d.]+).*$/, "$1"),
+                        Wechat: e.replace(/^.*MicroMessenger\/([\d.]+).*$/, "$1"),
+                        Taobao: e.replace(/^.*AliApp\(TB\/([\d.]+).*$/, "$1"),
+                        Alipay: e.replace(/^.*AliApp\(AP\/([\d.]+).*$/, "$1"),
+                        Weibo: e.replace(/^.*weibo__([\d.]+).*$/, "$1"),
+                        Douban: e.replace(/^.*com.douban.frodo\/([\d.]+).*$/, "$1"),
+                        Suning: e.replace(/^.*SNEBUY-APP([\d.]+).*$/, "$1"),
+                        iQiYi: e.replace(/^.*IqiyiVersion\/([\d.]+).*$/, "$1")
+                    };
+                    t.version = "";
+                    let f = u[t.browser];
+                    return f && (t.version = "function" == typeof f ? f() : f == e ? "" : f),
+                    void 0 == t.browser && (t.browser = "Unknow App"),
+                        t
+                };
+
+//两秒自动关闭的提示框
+                function timeoutAlter(msg){
+                    let timeoutAlterTem; //临时变量，防止短时间内重复调用
+
+                    let textNode = document.createTextNode(msg);
+                    let showNode = document.getElementById('blog_warning');
+                    showNode.appendChild(textNode);
+                    timeoutAlterTem=timeoutAlter;
+                    timeoutAlter=null;
+                    window.setTimeout(function(){
+                        showNode.removeChild(textNode);
+                        timeoutAlter=timeoutAlterTem;
+                    },2000);
+                }
+
+
+            });
+
+            //点击回复 获取评论组件
+            function getCommentsDiv(ele) {
+                document.getElementById('veditor').placeholder = '回复 '+ele.parentElement.previousElementSibling.querySelector('.vnick').innerText+"：";
+                ele.parentElement.parentElement.querySelector('.vreply-wrapper').appendChild(document.querySelector('.vwrap'));
+                document.querySelector('.cancel-reply.text-right').style.display = 'block'
+            }
+            //分页控件
+            function blog_guest_page(currentPage) {
+                let pageSize = 10;
+                if (currentPage === undefined || currentPage <=0 ){
+                    currentPage =1;
+                }
+                let a   =  Math.ceil(pageData.pageTotal / pageSize);
+                let right = document.getElementById('pageRight');
+                let left = document.getElementById('pageLeft');
+
+                if (currentPage == 1 || a ==1 ){
+                    left.classList.remove('waves-effect','waves-light','bg-color');
+                    left.classList.add('disabled');
+                }else {
+                    left.classList.add('waves-effect','waves-light','bg-color');
+                    left.classList.remove('disabled');
+                }
+
+                if (currentPage>= a){
+                    right.classList.remove('waves-effect','waves-light','bg-color');
+                    right.classList.add('disabled');
+                }else {
+                    right.classList.add('waves-effect','waves-light','bg-color');
+                    right.classList.remove('disabled');
+                }
+                pageContent(currentPage,a);
+                commentList(currentPage,10,{blogId:-1});
+            }
+
+        </script>
+
+    </body>
+</html>

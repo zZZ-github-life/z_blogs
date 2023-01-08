@@ -23,25 +23,44 @@
         <result column="content_md" jdbcType="VARCHAR" property="contentMd" />
         <result column="content_html" jdbcType="VARCHAR" property="contentHtml" />
         <result column="href" jdbcType="VARCHAR" property="href" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="href" />
     </resultMap>
 
 
     <sql id="Base_Column_List">
-  id, is_original, title, classify_id, tags_ids, gallery_id, publish_date, is_praise, 
-  is_up, is_review, is_declare, is_public, is_draft, words, duration, hits, content, 
-  content_md, content_html, href
-</sql>
+      id, is_original, title, classify_id, tags_ids, gallery_id, publish_date, is_praise,
+      is_up, is_review, is_declare, is_public, is_draft, words, duration, hits, content,
+      content_md, content_html, href,update_time
+    </sql>
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-  delete from blog_blogs
-  where id = #{id,jdbcType=INTEGER}
-</delete>
+      delete from blog_blogs
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
 
+    <select id="findList" parameterType="map" resultMap="BaseResultMap">
+        select    b.id,  b.title as title,left(max(b.content),350) about,b.publish_date as publishDate ,
+        b.is_original as isOriginal,
+        b.href,bg.path as path   from blog_blogs b left join blog_gallery  bg on b.gallery_id =bg.id
+        <include refid="findPageWithWhere" />
 
+        <if test="order !=null">
+            order by ${order}
+        </if>
+        <if test=" start != null || start != '' ">
+            limit #{start},#{pageSize}
+        </if>
+
+    </select>
 
 
     <insert id="insert" parameterType="online.zouxiaolong.mvc.blogs.dao.entity.BlogBlogs">
+
+        <selectKey keyProperty="id" order="AFTER" resultType="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
         insert into blog_blogs
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -104,6 +123,9 @@
             <if test="href != null">
                 href,
             </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -165,6 +187,9 @@
             </if>
             <if test="href != null">
                 #{href,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
@@ -230,6 +255,9 @@
             <if test="href != null">
                 href = #{href,jdbcType=VARCHAR},
             </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -255,7 +283,8 @@
     content = #{content,jdbcType=VARCHAR},
     content_md = #{contentMd,jdbcType=VARCHAR},
     content_html = #{contentHtml,jdbcType=VARCHAR},
-    href = #{href,jdbcType=VARCHAR}
+    href = #{href,jdbcType=VARCHAR},
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
   where id = #{id,jdbcType=INTEGER}
 </update>
 
@@ -329,6 +358,9 @@
             </if>
             <if test="href != null and href != ''" >
                 and href = #{href,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null" >
+                and update_time = #{updateTime,jdbcType=VARCHAR}
             </if>
         </where>
     </sql>

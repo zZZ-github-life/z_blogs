@@ -24,7 +24,7 @@ public class GuestBookService extends BaseService<GuestBookMapper, BlogGuestBook
     
     public Page<BlogGuestBook>  list(Page<BlogGuestBook> page) {
     
-        Integer count = mapper.findPageWithCount(page);
+        Integer count = mapper.findPageTopCount(page);
         List<BlogGuestBook> topList = mapper.findPageTop(page); //集合过大时会严重 影响 下面循环执行效率，待优化
         for (BlogGuestBook blogGuestBook : topList) {
             blogGuestBook.setgBChildren(mapper.findChildrenByTop("%,"+blogGuestBook.getId()+"%"));

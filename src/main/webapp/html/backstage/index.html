@@ -39,19 +39,13 @@
             box-shadow: 0 3px 5px rgba(0, 0, 0,  0.12);
             border-radius: 11px;
             background-color: rgba(250 251 252 / 58%);
-            border: 0px;
-
+            border: 0;
         }
         .index_write_blog:hover{
             color: #fff;
             background: linear-gradient(to right, rgba(52, 65, 255, 0.32) 0%, rgba(11, 17, 145, 0.45) 100%) !important;
-            border: 0px;
+            border: 0;
         }
-
-        .blog-display{
-            display: none;
-        }
-
 
     </style>
 
@@ -66,7 +60,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                <a href="/blogs/html/front/home.html" target="_blank">
+                <a href="/blogs/html/front/index.html" target="_blank">
                     <img src="/blogs/img/login/img/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
@@ -80,7 +74,6 @@
                     </a>
                     <div class="nav-item dropdown d-none d-md-flex me-3">
                         <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
-
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
                             <span class="badge bg-red"></span>
                         </a>
@@ -163,7 +156,7 @@
                     </div>
                 </div>
                 <div class="nav-item ">
-                    <a href="/blogs/html/backstage/publish.html" data-pjax class="btn" target="_blank" rel="noreferrer">
+                    <a href="/blogs/html/backstage/writeBlog.html" class="btn" target="_blank" rel="noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -191,9 +184,6 @@
                                 </span>
                             </a>
                         </li>
-
-
-
 
                         <li class="nav-item">
                             <a class="nav-link" data-pjax href="/blogs/html/backstage/classify/list.html" >
@@ -250,18 +240,6 @@
                             </a>
                         </li>
 
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-pjax href="/blogs/tabler/docs/index.html" >
-                                <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><line x1="9" y1="9" x2="10" y2="9" /><line x1="9" y1="13" x2="15" y2="13" /><line x1="9" y1="17" x2="15" y2="17" /></svg>
-                                </span>
-                                <span class="nav-link-title">
-                                  Documentation
-                                </span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -287,7 +265,6 @@
                         <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
                         <li class="list-inline-item">
                             <a href="https://github.com/sponsors/codecalm" target="_blank" class="link-secondary" rel="noopener">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
                                 Sponsor
                             </a>

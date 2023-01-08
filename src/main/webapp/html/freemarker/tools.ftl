@@ -1,0 +1,187 @@
+<!--
+    @author:  zZZ....
+    @description: 工具导航
+    @date: 2022/12/1
+-->
+<style>
+    .bottom-main{
+        padding-bottom: 1.6rem;
+        overflow: revert;
+    }
+</style>
+<!--banner-->
+<div class="height-475px" style="margin-top: -75px;overflow-x: clip" >
+    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible" >
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                    <div class="brand">
+                        <h1 class="blog-text-center blog-title">标题</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--主体内容-->
+<main class="blog-main bottom-main">
+    <!--弧度-->
+    <div class="blog-bending-body top ">
+        <div class="blog-bending">
+        </div>
+    </div>
+
+
+    <div class="container article-a" >
+        <div class="card">
+            <div class="card-content">
+                <div class="blog-tools-title center-align">
+                    <i class="fas fa-tags"></i>
+                    网站导航
+                </div>
+                <div class="container row">
+
+                    <div class="col s12 m6  l4 animated-div " data-aos="zoom-in-up">
+                        <a href="http://mvn.coderead.cn/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">maven搜索</span>
+                                    <p>最快捷的Maven搜索
+                                        不依赖于国外网络，每周自动去Maven仓库同步索引到国内。
+                                        自研搜索算法，无论单词多长，输入你记得的前几个字母即可。
+                                        热度排序，使用的人数越多，结果越智能。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://www.similarsites.com/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">similarsites</span>
+                                    <p>Similarsites是一个可以“找同类网站”的神器，正如字面意思一样，通过一个花瓣，可以发现千千万万个“花瓣”，以此类推，可以挖掘出更多黑科技网站，其原理相当于淘宝的查看相似宝贝。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://www.linuxcool.com/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">Linux命令大全(手册)</span>
+                                    <p>准确，丰富，稳定，在技术之路上为您护航！</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://www.jq22.com/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">Jquery插件库</span>
+                                    <p>Look For Less，Do More</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="http://www.materializecss.cn/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">materializecss</span>
+                                    <p>以Google为基础的Materialize CSS融合了JavaScript、CSS和HTML等各种组件。它不但具有一定的响应能力，而且存在较少的浏览器兼容性问题。如果您希望构建一个优雅的UI，那么Materialize就可以通过大量的自定义CSS，以及多种配色方案，来帮助您完成独特的网站设计</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://fontawesome.com.cn/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">Font Awesome中文网</span>
+                                    <p>Font Awesome 字体为您提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://fontawesome.com.cn/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">AOS</span>
+                                    <p>Animate On Scroll Library</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://fontawesome.com.cn/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">amcharts</span>
+                                    <p>免费的SVG地图</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://animate.style/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">Animate.css</span>
+                                    <p>Animate.css是一款简单高效的css库，里面封装了若干种简单的常见动画，适合快速使用，同时也方便进行按需修改。
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://wallhaven.cc/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">wallhaven</span>
+                                    <p>wallhaven是一个非常不错的壁纸分享平台，你可以在这里找到许多不同风格的壁纸，也可以在这里进行分享。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://ip.sb/api/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">IP地址查询</span>
+                                    <p>This service offers a REST API allowing to get a visitor IP address and to query location information from any IP address. It outputs JSON-encoded IP geolocation data, and supports both Cross-origin resource sharing (CORS) and JSONP.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
+                        <a href="https://undraw.co/" target="_blank">
+                            <div class="card">
+                                <div class="card-content card-da">
+                                    <span class="card-title">矢量插图</span>
+                                    <p>
+                                        unDraw 是没有版权限制的插图网站，是由美国设计师 Katerina Limpitsouni亲自创作的扁平风格图标库。用户进入网站主页后会看到各种各样的插图。如果首页推荐的插图作品没有合适的，可以直接搜索。其素材适用于海报制作，也适用于PPT模板等。总之在很多场合中应用起来毫无违和感。网站现支持PNG和SVG两种格式下载。
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

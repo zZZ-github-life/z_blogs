@@ -5,7 +5,9 @@
 * 
 * */
 !function(e, t) {
-    "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define("APlayer", [], t) : "object" == typeof exports ? exports.APlayer = t() : e.APlayer = t()
+    "object" == typeof exports && "object" == typeof module ?
+        module.exports = t() :
+        "function" == typeof define && define.amd ? define("APlayer", [], t) : "object" == typeof exports ? exports.APlayer = t() : e.APlayer = t()
 }(window, function() {
     return function(e) {
         var t = {};

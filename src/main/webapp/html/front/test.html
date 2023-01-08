@@ -1,85 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/swiper/swiper-bundle.css"><!--轮播图-->
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/swp/style.css">
-
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/materialize/css/materialize.css"><!--Materialize-UI-->
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/all.css"><!--字体图标库-->
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/fontawesome-animation.min.css">
-        <link rel="stylesheet" type="text/css" href="/blogs/libs/nprogress/nprogress.css"><!--进度条-->
-        <link rel="stylesheet" type="text/css" href="/blogs/css/main-front.css"><!--个人css-->
-
-
+<head>
+    <title></title>
+    <style type="text/css">
+        .test{
+            width:200px;
+            height:30px;
+            border:1px solid grey;
+        }
+        .test:empty::before{
+            color:lightgrey;
+            content:attr(placeholder);
+            padding-left: 6px;
+            font-size: 12px;
+        }
+    </style>
 
 
-        <script type="text/javascript" src="/blogs/libs/jquery/jquery.min.js"></script><!--jq-->
-        <script type="text/javascript" src="/blogs/libs/materialize/js/materialize.js"></script> <!--Materialize-UI-->
-        <script type="text/javascript" src="/blogs/libs/dplayer/1.26.0/DPlayer.js"></script> <!--视频播放器DPlayer-->
-        <script src="/blogs/libs/swiper/swiper-bundle.js"></script><!--轮播图-->
-        <script src="/blogs/libs/nprogress/nprogress.js"></script><!--进度条-->
-        <script src="/blogs/js/main-front.js"></script><!--轮播图-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
-        <title>Blog顶置卡片设计</title>
-    </head>
-    <body>
-        <!-- 卡片设计 -->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</head>
+<body>
+    <button onclick="abc()">按钮</button>
+    <div class="test" contenteditable placeholder="请输入文字"></div>
 
-        <div id="div" class="blog-slider-body" style="">
-            <div class="blog-slider">
-                <div class="blog-slider_wrp swiper-wrapper">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
 
-                    <div class="blog-slider_item swiper-slide">
-                        <div class="blog-slider_img">
-                            <img src="/blogs/medias/photo-1613483187636-c2024013d54a.jpeg" alt="">
-                        </div>
-                        <div class="blog-slider_content">
-                            <span class="blog-slider_code">21 February 2021</span>
-                            <div class="blog-slider_title">Paperiza</div>
-                            <div class="blog-slider_text">A beautiful and minimal wallpaper app! Change your desktop wallpaper automatically with beautiful images from Unsplash, Pixabay and Pexels.</div>
-                            <a href="#" class="blog-slider_button">READ ME</a>
-                        </div>
-                    </div>
+    <script>
+        function abc(a,b) {
 
-                    <!-- 相同的格式，复制了两次，修改自己需要的内容 -->
-                    <div class="blog-slider_item swiper-slide">
-                        <div class="blog-slider_img">
-                            <img src="/blogs/medias/photo-1485827404703-89b55fcc595e.jpeg" alt="">
-                        </div>
-                        <div class="blog-slider_content">
-                            <span class="blog-slider_code">21 February 2021</span>
-                            <div class="blog-slider_title">Welcome to AMD</div>
-                            <div class="blog-slider_text">High frame rates mean high win rates on a laptop powered by the world’s best mobile processor for gamers.</div>
-                            <a href="#" class="blog-slider_button">READ MORE</a>
-                        </div>
-                    </div>
+            console.log(abc.caller);
 
-                    <div class="blog-slider_item swiper-slide">
-                        <div class="blog-slider_img">
-                            <img src="/blogs/medias/photo-1534972195531-d756b9bfa9f2.jpeg" alt="">
-                        </div>
-                        <div class="blog-slider_content">
-                            <span class="blog-slider_code">21 February 2021</span>
-                            <div class="blog-slider_title">Artificial Intelligence</div>
-                            <div class="blog-slider_text">AI will change the way we do business and, ultimately, change our lives. It offers your organisation personalization, prediction and security as never before.</div>
-                            <a href="#" class="blog-slider_button">READ MORE</a>
-                        </div>
-                    </div>
+        }
+        function on() {
+            abc(function () {
+                console.log(this)
+            })
 
-                </div>
-                <div class="blog-slider_pagination"></div>
-            </div>
-        </div>
-
-
-
-        <!-- partial -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.15/swiper-bundle.min.js'></script>
-        <script src="/blogs/libs/swp/script.js"></script>
-    </body>
+        }
+    </script>
+</body>
 </html>

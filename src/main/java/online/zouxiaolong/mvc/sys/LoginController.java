@@ -30,8 +30,6 @@ public class LoginController {
             token.setRememberMe(true);
             currentSub.login(token);
             
-            
-            
         }else {
             return "index_1";
         }

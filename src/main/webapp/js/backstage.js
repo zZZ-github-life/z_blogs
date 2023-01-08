@@ -155,10 +155,8 @@ let options = {
                 fontSize: '15px',
                 fontFamily: 'Helvetica, Arial, sans-serif',
                 fontWeight: 600,
-
             }
         },
-
     },
     fill: {
         colors:["#0079FB"],
@@ -228,8 +226,6 @@ function getList(currentPage,pageSize,queryPerm){
             }
         }
     });
-
-
 }
 
 
@@ -762,26 +758,19 @@ function sfm(len) {
     }
 
 }
-function publish(boo) {
-
-    let arry = [];
-    $('input[name="tagsIds"]:checked').each(function(index, element) {
-        arry.push($(this).val());
-    });
-
-
+function publish(boo,el) {
     let data ={
         isOriginal: $('#isOriginal').val() === '1'?true:false,
         title:$('#title').val(),
         classifyId:$("input[name='classifyId']:checked").val(),
-        tagsIds:arry.join(","),
+        tagsIds:"",
         galleryId:$('#galleryId').val(),
         publishDate:$('#publishDate').val(),
         isPraise:false,
         isUp:false,
         isReview:false,
         isDeclare:false,
-        isPublic:false,
+        isPublic:$('#blogListIsPublic')[0].checked,
         isDraft:boo,
         words:'0',
         duration:'0',
@@ -789,43 +778,62 @@ function publish(boo) {
         contentMd:'0',
         contentHtml:'0',
     };
-    $('input[name="blogChecks"]:checked').each(function(index, element) {
-        data[$(this).val()] =true;
+
+    let arry = [];
+    $('input[name="tagsIds"]:checked').each(function(index, element) {
+        arry.push($(this).val());
+    });
+    data.tagsIds=arry.join(",");
+
+    $('span[data-blog-selected="1"]').each(function(index, element) {
+        data[$(this).attr('data-blog-tagname')] =true;
 
     });
+    $('#blogListIsPublic')
     let contentMd = editor_s.getMarkdown();
     let contentHtml = editor_s.getHTML();
     data.contentMd =contentMd;
     data.contentHtml =contentHtml;
-
     data.words =document.getElementById('form-label').value.length;
 
     let len =  data.words  / 4;
     data.duration =  sfm(len); //计算阅读时长  分钟
 
-
-
+    if (!data.content.trim() || !data.tagsIds || !data.classifyId || !data.galleryId ){
+        blogAlter('≡(▔﹏▔)≡~','好像有东西没有填~','warning');
+        return
+    }
     $.ajax({
         url:'/blogs/blogBlogs/save',
         type:'post',
         data:JSON.stringify(data),
         dataType: "json",
         contentType: "application/json;charset=utf-8",
+        beforeSend:function(xhr){
+            el.classList.add("disabled");
+        },
         success:function (result) {
             if (result.success){
-                blogAlter('文章已发布','快去主页看看吧~','success')
+                blogAlter('文章已发布','快去主页看看吧~','success');
+              //  reset_b();
             }else {
                 blogAlter('≡(▔﹏▔)≡~','咋回事，发布失败噢~','warning')
             }
-
+        },
+        error:function (e) {
+            blogAlter('≡(▔﹏▔)≡~','咋回事，好像断网了~','warning')
+        },
+        complete:function (result) {
+            el.classList.remove("disabled");
         }
     })
-
 }
 
-
-
-
+function reset_b() {
+    setTimeout(function () {
+        location.reload();
+    },4000)
+}
 
 function blog_publish_zhezhao() {
     document.getElementById('modal-1').classList.remove('blogs-hide');

@@ -1,0 +1,607 @@
+<!-- 
+    @author:  zZZ....
+    @description: 写博客页面
+    @date: 2022/12/5
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>随便写点什么吧~</title>
+        <link href="/blogs/tabler/dist/css/tabler.css" rel="stylesheet"/>
+        <link href="/blogs/css/main.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/blogs/libs/EditorMD/css/editormd.css" />
+
+        <script src="/blogs/libs/jquery/jquery.min.js" ></script> <!--jq-->
+        <script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
+        <script src="/blogs/tabler/dist/js/tabler.min.js"></script>
+        <script src="/blogs/libs/EditorMD/editormd.js"></script>
+        <script src="/blogs/js/backstage.js"></script>
+        <style>
+            /*  博客编辑区 滚动文字*/
+            /*预览按钮*/
+            a.fa.fa-eye.but2{
+                color: #fff;
+                padding: 4px 6px;
+                font-size: 18px;
+                border-radius: 500px;
+                background-color: #ccc;
+                position: absolute;
+                bottom: 25px;
+                right: 35px;
+                z-index: 19;
+                transition: background-color 300ms ease-out;
+            }
+
+            #blogs_eye{
+                color: #ccc;
+                font-size: 27px;
+                position: absolute;
+                bottom: 25px;
+                right: 35px;
+                z-index: 19;
+                transition: background-color 300ms ease-out;
+            }
+
+            #blogs_eye:hover{
+                color: #999;
+                font-size: 30px;
+            }
+
+            /*  分类  */
+            .tags-font{
+                font-size: 20px;
+                text-shadow: 2px 2px 2px #00000038;
+            }
+
+            .dropdown-menu ,.dropdown-item{
+                min-width: 4.5rem;
+            }
+            .form-selectgroup-label{
+                color: #fff;
+                background: rgb(98 105 118 / 16%);
+                border: 0;
+            }
+            .form-selectgroup-label:hover{
+                color: #fff;
+                background: linear-gradient(to right, #999 0%, rgb(32 107 196 / 25%) 100%) !important;
+            }
+            .form-selectgroup-input:checked + .form-selectgroup-label{
+                border-color: transparent;
+                color: #fff;
+                background: linear-gradient(to right, #999 0%, rgb(32 107 196 / 25%) 100%) !important;
+            }
+
+            .chip:focus {
+                outline: none;
+                background-color: #26a69a;
+                color: #fff;
+            }
+
+
+            /*    悬浮效果*/
+            .font-shadow{
+
+                text-shadow: 5px 2px 6px #000;
+            }
+
+            /*圆角*/
+            .yuanjiao{
+                border-radius: 23px;
+            }
+
+            hr{
+                margin-top: 11px;
+                margin-bottom: 18px;
+            }
+
+
+            .blogs-hide{
+                display: none;
+            }
+            .editormd-preview-theme-dark{
+                background-color: #F5F5F5;
+            }
+            .editormd-preview-theme-dark .editormd-preview-container{
+                background-color: #F5F5F5;
+            }
+
+
+            .blog-gallery-1 {
+                display: inline-block;
+                border-radius: 5px;
+                margin-top: 5px;
+            }
+
+            .all {
+
+                width: 70%;
+                height: 80%;
+                overflow: auto;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                position: relative;
+                top: 10%;
+                left: 15%;
+                opacity: 0.8;
+                background-color: #fafbfc;
+                border-radius: 8px;
+                padding-top: 20px;
+
+            }
+
+            .smallimg {
+                position: absolute;/*子元素开启相对定位*/
+                width: 200px;/*子元素的宽固定为200*/
+            }
+
+            .column {
+                width: 300px;
+
+            }
+
+            .col-child {
+                width: 100%;
+                border-radius: 5px;
+                background-color: blue;
+                display: block;
+            }
+
+
+            .modal-1 {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1055;
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                outline: 0;
+
+                background-color: rgb(0 0 0 / 10%);
+                transition: opacity .15s linear;
+                backdrop-filter: blur(4px);
+            }
+
+            .close-a{
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 10;
+                font-size: 20px;
+                background-color: #eee;
+                border-radius: 126px;
+                color: #6a737d;
+            }
+            .confirm-a{
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 10;
+                font-size: 20px;
+                background-color: #eee;
+                border-radius: 126px;
+                color: #6a737d;
+            }
+            .img-border{
+                border: 3px solid #0876f0f5;
+            }
+            .ti{
+                font-family: tabler-icons!important;
+                speak: none;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .ti-circle-check:before {
+                content: "\ea67";
+            }
+            .ti-circle-x:before {
+                content: "\ea6a";
+            }
+
+            .blog-list-a{
+                background-color: #62697629;
+                color: #9b9c9d;
+            }
+            .blog-list-selected{
+                background-color: #3b74b9;
+                color: #fafbfc;
+            }
+            .dropdown-menu-card{
+                width: 22rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="navbar bg0-color sticky-top">
+            <div class="page-title blog-wirte-title" id="blogs_title">
+                <div class="input-group">
+                    <button type="button" class="btn dropdown-toggle blog-wirte-title" style="border-right: 1px dashed"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        原创
+                    </button>
+                    <div class="dropdown-menu" id="oriSel" style="color: #4e81c1">
+                        <a class="dropdown-item" data-blog-isOriginal="1" style="border-bottom: 1px dashed #4e81c1" href="JavaScript:void(0)">
+                            原创
+                        </a>
+                        <a class="dropdown-item" data-blog-isOriginal="0" href="JavaScript:void(0)">
+                            转载
+                        </a>
+                    </div>
+                    <input type="hidden" name="isOriginal" id="isOriginal" value="1">
+                    <input type="text" id="title" name="title" class="form-control blog-wirte-title"  placeholder="在这输入博客标题呀~" aria-label="Text input with dropdown button">
+                </div>
+            </div>
+            <div class="navbar-nav flex-row order-md-last">
+                <div class=" d-md-flex">
+                    <div class="nav-item dropdown d-md-flex me-3" >
+                        <a href="#" class="" id="fl" data-bs-toggle="dropdown"  data-bs-trigger="focus" tabindex="-1" aria-label="Show notifications" aria-expanded="true">
+                            <span class="badge bg-gray">分类</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-card" >
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">选择分类</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3" style="overflow: hidden">
+                                        <div class="form-selectgroup" id="blogListCF" style="height: 133px;overflow-x:hidden;overflow-y: auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class="" id="bq" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications" aria-expanded="false">
+                            <span class="badge bg-gray">标签</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow  dropdown-menu-card">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">修改标签</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3" style="overflow: hidden">
+                                        <div class="form-selectgroup" id="blogListTags" style="height: 133px;overflow-x:hidden;overflow-y: auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class=" "  data-bs-toggle="tooltip" data-bs-placement="bottom"  title="开启赞赏">
+                            <span class="badge blog-list-a " data-blog-tagname="isPraise" style="font-size: 14.5px">赏</span>
+                        </a>
+                    </div>
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class=""  data-bs-toggle="tooltip" data-bs-placement="bottom" title="推荐">
+                          <span class="badge blog-list-a"  data-blog-tagname="isUp" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-thumb-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"></path>
+                            </svg>
+                          </span>
+                        </a>
+                    </div>
+                    <div class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="开启评论">
+                          <span class="badge blog-list-a"  data-blog-tagname="isReview" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"></path>
+                                <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"></path>
+                            </svg>
+                          </span>
+                        </a>
+                    </div>
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class="" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="转载声明">
+                          <span class="badge blog-list-a" data-blog-tagname="isDeclare">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
+                          </span>
+                        </a>
+                    </div>
+
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <input id="galleryId" type="hidden" name="galleryId" >
+                        <div style="border: 2px dashed;margin-right: 5px;margin-left: 2px;background-size:cover;opacity:0.5" id="imgHover">
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg"  onclick="blog_publish_zhezhao()" style="width: 2rem;height: 2rem;cursor: pointer"  class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                    </svg>
+                        </div>
+                    </div>
+
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class="" >
+                            <label class="form-check form-check-single form-switch">
+                                <input class="form-check-input" type="checkbox" checked="" id="blogListIsPublic" name="isPublic">
+                            </label>
+                        </a>
+                    </div>
+                    <div  class="nav-item dropdown d-md-flex me-3">
+                        <a href="#" class="btn btn-light btn-pill w-100"  onclick="publish(false,this)" style="border: 0">
+                            发布
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <main>
+            <div id="editorId" style="z-index: 1000 !important; border-radius: 5px">
+                <input class="form-control " type="hidden"  name="publishDate" placeholder="Select a date" id="publishDate"/>
+                <textarea id="form-label"></textarea>
+            </div>
+        </main>
+
+
+
+        <!--画廊模态框-->
+        <div class="modal-1 modal-blur  blogs-hide" id="modal-1" >
+
+            <svg id="confirm-a"  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check  confirm-a" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 12l5 5l10 -10"></path>
+            </svg>
+            <svg  id="closeId" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x close-a" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+
+
+            <div class="all" role="document" id="all" >
+
+
+            </div>
+
+        </div>
+
+        <!--弹出提示-->
+        <div id="blog_alter" class="alert  blog-alter " role="alert">
+            <h4 class="alert-title">操作完成！</h4>   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <div class="text-muted">Your account has been saved!</div>
+        </div>
+
+
+        <!-- editor.md 插件依赖 start-->
+
+        <script>
+
+
+
+
+            $(function () {
+                getImg();
+
+                document.getElementById('all').addEventListener('scroll',function (e) {
+                    // 变量 scrollHeight 是滚动条的总高度
+                    let scrollHeight = this.scrollHeight || this.scrollHeight;
+
+                    // 变量 windowHeight 是可视区的高度
+                    let windowHeight = this.clientHeight || this.clientHeight;
+
+                    // 变量scrollTop为当前页面的滚动条纵坐标位置
+                    let scrollTop = this.scrollTop || this.scrollTop;
+
+                    // 滚动条到底部得距离 = 滚动条的总高度 - 可视区的高度 - 当前页面的滚动条纵坐标位置
+                    let scrollBottom = scrollHeight - windowHeight - scrollTop;
+
+
+                    if (Math.floor(Math.abs(scrollBottom)) === 0 && send){
+                        getImg();
+                    }
+                });
+                // window 的 onload 及 onresize 事件
+                window.onresize = debounce(init);
+            });
+
+
+        </script>
+
+
+        <!--表单相关操作-->
+        <script>
+            //分类
+            $(function () {
+                //原创
+                $('#oriSel a.dropdown-item').click(function () {
+                    this.parentElement.previousElementSibling.innerText = this.innerText;
+                    let isOriginal = document.getElementById('isOriginal');
+                    isOriginal.value = this.getAttribute('data-blog-isOriginal');
+                });
+
+                //u获取分类标签列表
+                let pageData ={currentPage:'1',pageSize:'500'};
+                $.ajax({
+                    url:'/blogs/classifyController/list',
+                    type:'post',
+                    data:pageData,
+                    success:function (data) {
+                        if (data.success && data.data.list.length !== 0){
+                            blog_publish_classify('blogListCF',data.data.list,{eleName:'classifyId',value:'id',name:'classifyName'},'radio');
+                        }
+                    }
+                });
+                $.ajax({
+                    url:'/blogs/tagsController/list',
+                    type:'post',
+                    data:pageData,
+                    success:function (data) {
+                        if (data.success && data.data.list.length !== 0){
+                            blog_publish_classify('blogListTags',data.data.list,{eleName:'tagsIds',value:'id',name:'tagsName'},'checkbox');
+                        }
+                    }
+                });
+
+
+                let closeId = document.getElementById('closeId');
+                closeId.onclick=function () {
+                    let element = document.querySelector('div[data-img=img]');
+                    if (element){
+                        element.removeAttribute('data-img');
+                        element.classList.remove('img-border');
+                    }
+                    document.getElementById('modal-1').classList.add('blogs-hide');
+                };
+
+                let confirm = document.getElementById('confirm-a');
+                confirm.onclick=function () {
+                    let element = document.querySelector('div[data-img=img]');
+                    if (element){
+                        element.removeAttribute('data-img');
+                        element.classList.remove('img-border');
+                    }else {
+                        return
+                    }
+                    document.getElementById('imgHover').style.backgroundImage ="url('"+element.firstElementChild.src+"')";
+                    document.getElementById('modal-1').classList.add('blogs-hide');
+                    document.getElementById('galleryId').value =  element.getAttribute('data-galleryid');
+                };
+                document.getElementById('publishDate').value= new Date().toLocaleDateString();
+            });
+
+
+        </script>
+
+
+        <script type="text/javascript">
+
+            $(function() {
+
+                let options = {
+                    width  : "100%",
+                    height : "91.5vh",
+                    path   : "/blogs/libs/EditorMD/lib/",
+                    placeholder:"",
+                    autoFocus:true, //是否自动获取焦点
+                    editorTheme:"base16-light",  //编辑窗口主题
+                    previewTheme:"dark",  //编辑窗口主题
+                    syncScrolling : "single",  //滚动条
+                    lineNumbers:false, //关闭行号
+                    saveHTMLToTextarea:true,
+                    htmlDecode : "style,script,iframe|on*",
+                    emoji : true,
+                    toolbarIcons: function() {
+                        // 给工具栏full模式添加一个自定义方法
+                        return editormd.toolbarModes.full.concat(["customIcon"]);
+                    },
+                    // 自定义方法的图标 指定一个FontAawsome的图标类
+                    toolbarIconsClass: {
+                        customIcon: "fa-paste"
+                    },
+                    // 没有图标可以插入内容，字符串或HTML标签
+                    toolbarIconTexts: {
+                        customIcon: "从草稿箱加载"
+                    },
+                    // 图标的title
+                    lang: {
+                        toolbar: {
+                            customIcon: "从草稿箱加载"
+                        }
+                    },
+                    // 自定义工具栏按钮的事件处理
+                    toolbarHandlers: {
+                        customIcon: function(){
+                            // 读取缓存内容
+                            this.CodeAutoSaveGetCache();
+                        }
+                    },
+                    onload:function () {  // 加载editor时触发的函数
+                        //  this.previewing(); //预览
+                        //  this.previewed();  //取消预览效果
+                        this.watch();
+                        $('.CodeMirror-code').children().eq(0).remove();
+
+                        // 引入插件 执行监听方法
+                        editormd.loadPlugin("/blogs/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
+                            // 初始化插件 实现监听
+                            editor_s.CodeAutoSave();
+                        });
+                    },
+                    onpreviewed:function () {
+                        //  this.unwatch();  //只显示编辑部分
+                        // this.cm.setValue("");
+                    }
+                };
+                editor_s = editormd("editorId", options);
+
+
+                $('#blogs_eye').click(function () {
+                    if (editor_s.state.preview){
+                        editor_s.previewed()
+                    }else {
+                        editor_s.previewing(); //预览
+
+                    }
+                });
+
+                $('input[id=blogs_file]').change(function() {
+                    let aEle = this.nextElementSibling;
+                    let svgEle = aEle.firstElementChild;
+                    svgEle.setAttribute('style','');
+                    svgEle.nextElementSibling.setAttribute('style','display:none');
+                    $('#blogs_font_img').text('图片已添加')
+                });
+
+
+
+                //文章详情页 按钮选中切换
+                $('[data-bs-toggle="tooltip"]>span').click(function (e) {
+                    let attribute = this.getAttribute('data-blog-selected');
+                    if (attribute && attribute ==='1'){
+                        this.classList.remove('blog-list-selected');
+                        this.setAttribute('data-blog-selected','0');
+                    }else {
+                        this.setAttribute('data-blog-selected','1');
+                        this.classList.add('blog-list-selected');
+                    }
+                });
+                $('#fl').on('hide.bs.dropdown', function (e) {
+                    let fl = document.getElementById('blogListCF').querySelector("input[name='classifyId']:checked");
+                    if (fl){
+                        this.firstElementChild.classList.add('blog-list-selected');
+                    }else {
+                        this.firstElementChild.classList.remove('blog-list-selected');
+
+                    }
+                    return !findParent(this.nextElementSibling,e.clickEvent.target,0);
+                });
+                $('#bq').on('hide.bs.dropdown', function (e) {
+                    let inputs = document.getElementById('blogListTags').querySelector("input[name='tagsIds']:checked");
+                    if (inputs){
+                        this.firstElementChild.classList.add('blog-list-selected');
+                    }else {
+                        this.firstElementChild.classList.remove('blog-list-selected');
+
+                    }
+                    return !findParent(this.nextElementSibling,e.clickEvent.target,0);
+                })
+            });
+            function findParent(parent,child,i) {
+                if (i>6 || !child.parentElement){
+                    return false;
+                }
+                if (child == parent){
+                    return true
+                }
+              return   findParent(parent,child.parentElement,++i)
+            }
+        </script>
+    </body>
+</html>

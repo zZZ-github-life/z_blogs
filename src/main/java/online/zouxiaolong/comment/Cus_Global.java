@@ -55,8 +55,6 @@ public class Cus_Global {
         }catch (Exception e){
             throw new MsgException("blog.properties load failed...");
         }
-        
-    
     }
     
     

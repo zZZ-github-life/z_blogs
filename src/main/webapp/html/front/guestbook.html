@@ -32,7 +32,6 @@
     <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook_style.css">
     <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook.css">
 
-    <script src="https://zz.bdstatic.com/linksubmit/push.js"></script>
     <script src="/blogs/libs/jquery/jquery.min.js"></script>
 
 
@@ -83,23 +82,8 @@
 
     <link rel="prefetch">
 </head>
-
-
 <body data-aos-easing="ease-in-out-sine" data-aos-duration="700" data-aos-delay="100">
 
-<!--引入html头部 生产模式-->
-<!--<script type="text/javascript" src="../js/1_header.js"></script>-->
-<script>
-    //开发模式下用此种方式加载 外部html，略微降低性能
-    let blogs_xhr_1 = new XMLHttpRequest();
-    blogs_xhr_1.open('get', 'http://localhost:8853/blogs/html/front/1_header.html', false);
-    blogs_xhr_1.onreadystatechange = function () {
-        if (blogs_xhr_1.readyState === 4) {
-            document.write(blogs_xhr_1.responseText)
-        }
-    };
-    blogs_xhr_1.send(null);
-</script>
 
 <div class="bg-cover pd-header about-cover" style="background-image: url(&quot;/blogs/medias/banner/4.jpg&quot;);">
     <div class="container">
@@ -269,71 +253,7 @@
                                     </div>
                                 </div>
                                 <div class="vemojis" style="display: none;">
-                                    <i title="tieba-1">
-                                    <img alt="tieba-1"
-                                                                                                    referrerpolicy="no-referrer"
-                                                                                                    class="vemoji"
-                                                                                                    src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-1.png"></i><i
-                                        title="tieba-2"><img alt="tieba-2" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-2.png"></i><i
-                                        title="tieba-3"><img alt="tieba-3" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-3.png"></i><i
-                                        title="tieba-4"><img alt="tieba-4" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-4.png"></i><i
-                                        title="tieba-5"><img alt="tieba-5" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-5.png"></i><i
-                                        title="tieba-6"><img alt="tieba-6" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-6.png"></i><i
-                                        title="tieba-7"><img alt="tieba-7" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-7.png"></i><i
-                                        title="tieba-8"><img alt="tieba-8" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-8.png"></i><i
-                                        title="tieba-9"><img alt="tieba-9" referrerpolicy="no-referrer" class="vemoji"
-                                                             src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-9.png"></i><i
-                                        title="tieba-10"><img alt="tieba-10" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-10.png"></i><i
-                                        title="tieba-11"><img alt="tieba-11" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-11.png"></i><i
-                                        title="tieba-12"><img alt="tieba-12" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-12.png"></i><i
-                                        title="tieba-13"><img alt="tieba-13" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-13.png"></i><i
-                                        title="tieba-14"><img alt="tieba-14" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-14.png"></i><i
-                                        title="tieba-15"><img alt="tieba-15" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-15.png"></i><i
-                                        title="tieba-16"><img alt="tieba-16" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-16.png"></i><i
-                                        title="tieba-17"><img alt="tieba-17" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-17.png"></i><i
-                                        title="tieba-18"><img alt="tieba-18" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-18.png"></i><i
-                                        title="tieba-19"><img alt="tieba-19" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-19.png"></i><i
-                                        title="tieba-20"><img alt="tieba-20" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-20.png"></i><i
-                                        title="tieba-21"><img alt="tieba-21" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-21.png"></i><i
-                                        title="tieba-22"><img alt="tieba-22" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-22.png"></i><i
-                                        title="tieba-23"><img alt="tieba-23" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-23.png"></i><i
-                                        title="tieba-24"><img alt="tieba-24" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-24.png"></i><i
-                                        title="tieba-25"><img alt="tieba-25" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-25.png"></i><i
-                                        title="tieba-26"><img alt="tieba-26" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-26.png"></i><i
-                                        title="tieba-27"><img alt="tieba-27" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-27.png"></i><i
-                                        title="tieba-28"><img alt="tieba-28" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-28.png"></i><i
-                                        title="tieba-29"><img alt="tieba-29" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-29.png"></i><i
-                                        title="tieba-30"><img alt="tieba-30" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-30.png"></i><i
-                                        title="tieba-31"><img alt="tieba-31" referrerpolicy="no-referrer" class="vemoji"
-                                                              src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-31.png"></i><i
+                                <i
                                         title="tieba-32"><img alt="tieba-32" referrerpolicy="no-referrer" class="vemoji"
                                                               src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-32.png"></i><i
                                         title="tieba-33"><img alt="tieba-33" referrerpolicy="no-referrer" class="vemoji"
@@ -1209,144 +1129,6 @@
                         </div>
                         <div class="vcards">
 
-                            <div class="vcard" id="607967bac1d46f1cc83a0cb8">
-                                <img class="vimg" src="https://gravatar.loli.net/avatar/38daa5aa4896f818b95f5d0c69b5b7da?d=robohash&amp;v=1.4.14">
-                                <div class="vh">
-                                    <div class="vhead">
-                                        <a class="vnick" rel="nofollow" href="http://spacexcode.com" target="_blank">timfan</a>
-                                        <span class="vtag vvisitor">访客</span>
-                                        <span class="vsys"><i class="fab fa-chrome"></i>Chrome 70.0.3538.110</span>
-                                        <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                    </div>
-                                    <div class="vmeta"><span class="vtime">2021-04-16</span><span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967bac1d46f1cc83a0cb8">回复</span></div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>博主您好，可以交换友链吗</p></div>
-                                    <div class="vreply-wrapper" data-self-id="607967bac1d46f1cc83a0cb8"></div>
-                                    <div class="vquote" data-self-id="607967bac1d46f1cc83a0cb8">
-                                        <div class="vcard" id="607967dbc1d46f1cc83a0cf7">
-                                            <img class="vimg" src="https://gravatar.loli.net/avatar/38daa5aa4896f818b95f5d0c69b5b7da?d=robohash&amp;v=1.4.14">
-                                            <div class="vh">
-                                                <div class="vhead">
-                                                    <a class="vnick" rel="nofollow" href="http://spacexcode.com" target="_blank">timfan</a>
-                                                    <span class="vtag vvisitor">访客</span>
-                                                    <span class="vsys"><i class="fab fa-chrome"></i>Chrome 70.0.3538.110</span>
-                                                    <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                                </div>
-                                                <div class="vmeta">
-                                                    <span class="vtime">2021-04-16</span>
-                                                    <span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967dbc1d46f1cc83a0cf7">回复</span>
-                                                </div>
-                                                <div class="vcontent" data-expand="查看更多...">
-                                                    <p>
-                                                        <a href="#607967bac1d46f1cc83a0cb8" target="_blank" rel="nofollow">@timfan </a>
-                                                        <a href="http://spacexcode.com" target="_blank" rel="nofollow">http://spacexcode.com</a>
-                                                    </p>
-                                                </div>
-                                                <div class="vreply-wrapper" data-self-id="607967dbc1d46f1cc83a0cf7"></div>
-                                                <div class="vquote" data-self-id="607967dbc1d46f1cc83a0cf7"></div>
-                                            </div>
-                                        </div>
-                                        <div class="vcard" id="607ff326f5766f41e9c218d1"><img class="vimg" src="https://gravatar.loli.net/avatar/36a5ab8cf3db90b0b7c513f13f1afdd6?d=robohash&amp;v=1.4.14">
-                                            <div class="vh">
-                                                <div class="vhead"><span class="vnick">DataScience</span><span class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                                        class="fab fa-safari"></i>Safari 14.0.3</span> <span class="vsys"><i class="fab fa-macos"></i>macOS 10.15.6</span>
-                                                </div>
-                                                <div class="vmeta"><span class="vtime">2021-04-21</span><span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607ff326f5766f41e9c218d1">回复</span></div>
-                                                <div class="vcontent" data-expand="查看更多...">
-                                                    <p><a href="#607967bac1d46f1cc83a0cb8" target="_blank" rel="nofollow">@timfan </a>  , 自己添加即可</p>
-                                                </div>
-                                                <div class="vreply-wrapper" data-self-id="607ff326f5766f41e9c218d1"></div>
-                                                <div class="vquote" data-self-id="607ff326f5766f41e9c218d1"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="vcard" id="6062debe0b38016dff6e7949">
-                                <img class="vimg"
-                                                                                  src="https://gravatar.loli.net/avatar/fa0f39403a7c7b35442d1082eb759c6c?d=robohash&amp;v=1.4.14">
-                                <div class="vh">
-                                    <div class="vhead"><a class="vnick" rel="nofollow" href="https://cnsre.cn" target="_blank">CNSRE运维博客</a>
-                                        <span class="vtag vvisitor">访客</span>
-                                        <span class="vsys"><i class="fab fa-chrome"></i>Chrome 89.0.4389.90</span>
-                                        <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                    </div>
-                                    <div class="vmeta"><span class="vtime">2021-03-30</span>
-                                        <span class="vat" data-vm-id="6062debe0b38016dff6e7949" data-self-id="6062debe0b38016dff6e7949">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>还在摸索怎么邮箱提醒 <img alt="aru-22"
-                                                                                                   class="vemoji"
-                                                                                                   referrerpolicy="no-referrer"
-                                                                                                   src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-22.gif"><br><a
-                                            href="https://cnsre.cn" target="_blank" rel="nofollow"></a></p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="6062debe0b38016dff6e7949"></div>
-                                    <div class="vquote" data-self-id="6062debe0b38016dff6e7949">
-                                        <div class="vcard" id="6065c792ef9b462612018988"><img class="vimg"
-                                                                                              src="https://gravatar.loli.net/avatar/6aa23a32294198ccc13d9d76ba26b191?d=robohash&amp;v=1.4.14">
-                                            <div class="vh">
-                                                <div class="vhead"><span class="vnick">JackFeng</span><span
-                                                        class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                                        class="fab fa-chrome"></i>Chrome 89.0.4389.90</span> <span
-                                                        class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                                </div>
-                                                <div class="vmeta"><span class="vtime">2021-04-01</span><span
-                                                        class="vat" data-vm-id="6062debe0b38016dff6e7949"
-                                                        data-self-id="6065c792ef9b462612018988">回复</span></div>
-                                                <div class="vcontent" data-expand="查看更多..."><p><a
-                                                        href="#6062debe0b38016dff6e7949" target="_blank" rel="nofollow">@CNSRE运维博客 </a>
-                                                    , 哈哈哈 没搞啊</p>
-                                                </div>
-                                                <div class="vreply-wrapper"
-                                                     data-self-id="6065c792ef9b462612018988"></div>
-                                                <div class="vquote" data-self-id="6065c792ef9b462612018988"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="vcard" id="5feb1fcb5fabea2f76f20770">
-                                <img class="vimg"
-                                                                                  src="https://gravatar.loli.net/avatar/41d702fdfeee7a46f9b9dbef119b6940?d=robohash&amp;v=1.4.14">
-                                <div class="vh">
-                                    <div class="vhead"><span class="vnick">benjamin</span><span
-                                            class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                            class="fab fa-chrome"></i>Chrome 87.0.4280.88</span> <span class="vsys"><i
-                                            class="fab fa-macos"></i>macOS 10.14.6</span></div>
-                                    <div class="vmeta"><span class="vtime">2020-12-29</span><span class="vat"
-                                                                                                  data-vm-id="5feb1fcb5fabea2f76f20770"
-                                                                                                  data-self-id="5feb1fcb5fabea2f76f20770">回复</span>
-                                    </div>
-                                    <div class="vcontent" data-expand="查看更多..."><p>页面刷新，右上角的播放器提示弹窗是怎么实现的呢？</p>
-                                    </div>
-                                    <div class="vreply-wrapper" data-self-id="5feb1fcb5fabea2f76f20770"></div>
-                                    <div class="vquote" data-self-id="5feb1fcb5fabea2f76f20770">
-                                        <div class="vcard" id="5febf1065fabea2f76f2a79b"><img class="vimg"
-                                                                                              src="https://gravatar.loli.net/avatar/6aa23a32294198ccc13d9d76ba26b191?d=robohash&amp;v=1.4.14">
-                                            <div class="vh">
-                                                <div class="vhead"><span class="vnick">A2Data</span><span
-                                                        class="vtag vvisitor">访客</span> <span class="vsys"><i
-                                                        class="fab fa-chrome"></i>Chrome 87.0.4280.88</span> <span
-                                                        class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
-                                                </div>
-                                                <div class="vmeta"><span class="vtime">2020-12-30</span><span
-                                                        class="vat" data-vm-id="5feb1fcb5fabea2f76f20770"
-                                                        data-self-id="5febf1065fabea2f76f2a79b">回复</span></div>
-                                                <div class="vcontent" data-expand="查看更多..."><p><a
-                                                        href="#5feb1fcb5fabea2f76f20770" target="_blank" rel="nofollow">@benjamin </a>
-                                                    , 通过js啊 弹窗 <img alt="tieba-2" class="vemoji"
-                                                                    referrerpolicy="no-referrer"
-                                                                    src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/tieba/tieba-2.png">
-                                                </p>
-                                                </div>
-                                                <div class="vreply-wrapper"
-                                                     data-self-id="5febf1065fabea2f76f2a79b"></div>
-                                                <div class="vquote" data-self-id="5febf1065fabea2f76f2a79b"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="vload-bottom text-center" style="display: none;"><i class="vspinner" style="width:30px;height:30px;"></i></div>
                         <div class="vempty" style="display:none;"></div>
@@ -1361,203 +1143,7 @@
     </div>
 </main>
 
-<!--翻页组件-->
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            <a href="#veditor" id="pageLeft" class="left btn-floating btn-large    disabled" onclick="blog_guest_page(--pageData.currentPage)">
-                <i class="fas fa-angle-left"></i>
-            </a>
-        </div>
 
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray" id="pageDiv">1 / 5</div>
-        </div>
-
-        <div class="col s6 m4 l4">
-            <a href="#veditor" id="pageRight"  class="right btn-floating btn-large  waves-effect waves-light bg-color" onclick="blog_guest_page(++pageData.currentPage)" >
-                <i class="fas fa-angle-right"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
-<script>
-
-</script>
-
-
-<!--引入html页尾-->
-<!--<script type="text/javascript" src="../js/2_footer.js"></script>-->
-<script>
-    //开发模式下用此种方式加载 外部html，略微降低性能
-    let blogs_xhr_2 = new XMLHttpRequest();
-    blogs_xhr_2.open('get', 'http://localhost:8853/blogs/html/front/2_footer.html', false);
-    blogs_xhr_2.onreadystatechange = function () {
-        if (blogs_xhr_2.readyState === 4) {
-            document.write(blogs_xhr_2.responseText)
-        }
-    };
-    blogs_xhr_2.send(null);
-</script>
-
-
-
-<!--进度条-->
-<div class="progress-bar" style="width: 0%;"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal" tabindex="0">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    $(function () {
-        var searchFunc = function (path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function (xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function () {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function () {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function (data) {
-                            var isMatch = true;
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title !== '' && data_content !== '') {
-                                keywords.forEach(function (keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i === 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start === 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substr(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function (keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                    });
-
-                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
-        };
-
-        searchFunc('/search.xml', 'searchInput', 'searchResult');
-    });
-</script>
-
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll" style="display: none;">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-<script src="/blogs/libs/materialize/materialize.min.js"></script>
-<script src="/blogs/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/blogs/libs/aos/aos.js"></script>
-<script src="/blogs/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/blogs/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/blogs/js/matery.js"></script>
-
-<!--获取IP和city-->
-<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-
-<!-- Baidu Analytics -->
-
-<!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-
-<script src="/blogs/libs/others/clicklove.js" async="async"></script>
-
-<!--统计网址访问次数 已经失效-->
-<!--<script async="" src="/blogs/libs/others/busuanzi.pure.mini.js"></script>-->
-
-
-<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="/blogs/libs/background/ribbon-refresh.min.js"
-        async="async"></script>
-
-
-<script src="/blogs/libs/instantpage/instantpage.js" type="module"></script>
 
 <!--留言板-->
 <script>
@@ -1671,7 +1257,7 @@
                       list += createDIV(resData[i]);
                     }
                     vcards.innerHTML = list ;
-                    pageData.pageTotal = res.msg;
+                    pageData.pageTotal =  res.data.total;
                 }else {
                     spanTotal.innerText = '0';
                     vcards.innerHTML = '<span style="display: inline-block;width: 100%;text-align:center;color: rgba(85,85,85,0.37)">来当第一个坐沙发的人吧~</span>'
@@ -2041,10 +1627,5 @@
         },2000);
     }
 </script>
-
-
-
-
-
 </body>
 </html>

@@ -598,6 +598,7 @@
 
         let confirm = document.getElementById('confirm-a');
         confirm.onclick=function () {
+            debugger
             let element = document.querySelector('div[data-img=img]');
             if (element){
                 element.removeAttribute('data-img');
@@ -605,9 +606,8 @@
             }else {
                 return
             }
-
-            document.getElementById('modal-1').classList.add('blogs-hide');
             document.getElementById('imgHover').src = element.firstElementChild.src;
+            document.getElementById('modal-1').classList.add('blogs-hide');
             document.getElementById('galleryId').value =  element.getAttribute('data-galleryid');
         }
 

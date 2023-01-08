@@ -1,19 +1,14 @@
 package online.zouxiaolong.mvc.guestbook.control;
 
-import com.alibaba.fastjson.JSONObject;
 import online.zouxiaolong.basics.entity.Page;
 import online.zouxiaolong.basics.entity.RepJson;
 import online.zouxiaolong.mvc.guestbook.dao.entity.BlogGuestBook;
 import online.zouxiaolong.mvc.guestbook.service.GuestBookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -39,18 +34,14 @@ public class GuestBookController {
     @ResponseBody
     @RequestMapping(value = "/list")
     public RepJson list(@RequestBody Page<BlogGuestBook> pageData) {
-        
         RepJson repJson = new RepJson();
         try {
             Page<BlogGuestBook> list = guestBookService.list(pageData);
-            int pageTopCount = guestBookService.findPageTopCount(pageData);
             repJson.setData(list);
-            repJson.setMsg(pageTopCount+"");
+          
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            
-            
         }
         return repJson;
     }
@@ -59,7 +50,6 @@ public class GuestBookController {
     @ResponseBody
     @RequestMapping("/save")
     public RepJson save(BlogGuestBook blogGuestBook) {
-        
         RepJson repJson = new RepJson();
         try {
             if ("-1".equals(blogGuestBook.getParentId()+"")){
@@ -74,7 +64,6 @@ public class GuestBookController {
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            
         }
         return repJson;
     }
@@ -139,11 +128,9 @@ public class GuestBookController {
                 map.put("child",child);
                 repJson.setData(map);
             }
-            
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            
         }
         return repJson;
     }

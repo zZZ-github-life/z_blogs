@@ -21,3 +21,24 @@
 .blog-prompt{
     right: 33px;
 }
+.bg0-color{
+    background-color: rgb(32 107 196 / 25%);
+    height: 7.5vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.blog-wirte-title{
+    border: 0;
+    background-color: transparent!important;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+.form-switch {
+    padding-left:0;
+}
+

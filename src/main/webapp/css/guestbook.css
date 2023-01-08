@@ -221,7 +221,7 @@
 }
 
 .v[data-class=v] .vwrap .vheader .vinput {
-    width: 33.33%;
+    width: 32.9%;
     border-bottom: 1px dashed #dedede
 }
 
@@ -539,18 +539,6 @@
     to {
         -webkit-transform: rotate(1turn);
         transform: rotate(1turn)
-    }
-}
-
-@-webkit-keyframes pulse {
-    50% {
-        background: #dcdcdc
-    }
-}
-
-@keyframes pulse {
-    50% {
-        background: #dcdcdc
     }
 }
 
