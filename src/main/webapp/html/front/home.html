@@ -19,25 +19,25 @@
 
 
     <title>zZZ.... blogs</title>
-<!--    <link rel="icon" type="image/svg" href="/blogs/img/favicon.svg">-->
-    <link rel="icon" type="text/xml" href="http://localhost:8853/blogs/img/login/img/logo.svg">
+<!--    <link rel="icon" type="image/svg" href="/img/favicon.svg">-->
+    <link rel="icon" type="text/xml" href="http://localhost:8853/img/login/img/logo.svg">
 
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/v4-shims.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/v4-shims.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
 <!--    <link rel="stylesheet" href="../libs/dplayer/DPlayer.min.css">-->
 
-    <script src="/blogs/libs/linksubmit/push.js"></script>
-    <script src="/blogs/libs/jquery/jquery.min.js" ></script>
+    <script src="/libs/linksubmit/push.js"></script>
+    <script src="/libs/jquery/jquery.min.js" ></script>
 
     <meta name="generator" content="Hexo 5.2.0">
-    <link rel="alternate" href="/blogs/xml/atom.xml" title="zZZ...." type="application/atom+xml">
+    <link rel="alternate" href="/xml/atom.xml" title="zZZ...." type="application/atom+xml">
     <link rel="prefetch">
     <style type="text/css">
         .heart {
@@ -83,7 +83,7 @@
 <script >
         //开发模式下用此种方式加载 头部，略微降低性能
         let blogs_xhr_1 = new XMLHttpRequest();
-        blogs_xhr_1.open('get','http://localhost:8853/blogs/html/front/1_header.html',false);
+        blogs_xhr_1.open('get','http://localhost:8853/html/front/1_header.html',false);
         blogs_xhr_1.onreadystatechange = function () {
         if(blogs_xhr_1.readyState === 4 ){
             document.write(blogs_xhr_1.responseText)
@@ -143,7 +143,7 @@
     </div>
 
 
-    <div class="carousel-item red white-text bg-cover about-cover"  style="background-image: url(&quot;/blogs/medias/banner/4.jpg&quot;); z-index: -1; opacity: 1; visibility: visible; transform: translateX(0px) translateX(-1170px) translateZ(0px);">
+    <div class="carousel-item red white-text bg-cover about-cover"  style="background-image: url(&quot;/medias/banner/4.jpg&quot;); z-index: -1; opacity: 1; visibility: visible; transform: translateX(0px) translateX(-1170px) translateZ(0px);">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -177,7 +177,7 @@
 
             <script>
                 // 每天切换 banner 图.  Switch banner image every day.
-                var bannerUrl = "/blogs/medias/banner/" + new Date().getDay() + '.jpg';
+                var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
                 $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
             </script>
 
@@ -359,8 +359,8 @@
                         </div>
                     </div>
 
-                    <link rel="stylesheet" href="/blogs/libs/dplayer/DPlayer.min.css">
-                    <script src="/blogs/libs/dplayer/1.26.0/DPlayer.min.js"></script>
+                    <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+                    <script src="/libs/dplayer/1.26.0/DPlayer.min.js"></script>
                     <script>
                         const dp = new DPlayer({
                             container: document.getElementById('dplayer'),
@@ -375,8 +375,8 @@
                             volume: 0.7,
                             mutex: true,
                             video: {
-                                 url: '/blogs/medias/videos/day01_01_Java语言发展史.avi',
-                                 pic: '/blogs/medias/videos/demo-pic.png',
+                                 url: '/medias/videos/day01_01_Java语言发展史.avi',
+                                 pic: '/medias/videos/demo-pic.png',
                                 thumbnails: 'thumbnails.jpg',
                                 type: 'auto',
                             },
@@ -1289,7 +1289,7 @@
 <script  >
     //开发模式下用此种方式加载 外部html，略微降低性能
     let blogs_xhr_2 = new XMLHttpRequest();
-    blogs_xhr_2.open('get','http://localhost:8853/blogs/html/front/2_footer.html',false);
+    blogs_xhr_2.open('get','http://localhost:8853/html/front/2_footer.html',false);
     blogs_xhr_2.onreadystatechange = function () {
         if(blogs_xhr_2.readyState === 4 ){
             document.write(blogs_xhr_2.responseText)
@@ -1415,12 +1415,12 @@
 </div>
 <!-- 回到顶部按钮 end -->
 
-<script src="/blogs/libs/materialize/materialize.min.js"></script>
-<script src="/blogs/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/blogs/libs/aos/aos.js"></script>
-<script src="/blogs/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/blogs/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/blogs/js/matery.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
 
 <!-- Baidu Analytics -->
 
@@ -1441,16 +1441,16 @@
 </script>
 
 <!--点击火花-->
-<script src="/blogs/libs/others/clicklove.js" async="async"></script>
+<script src="/libs/others/clicklove.js" async="async"></script>
 
 <!--统计网站访问次数-->
-<script async="" src="/blogs/libs/others/busuanzi.pure.mini.js"></script>
+<script async="" src="/libs/others/busuanzi.pure.mini.js"></script>
 
 <!--浏览动态背景-->
-<script type="text/javascript"  src="/blogs/libs/background/ribbon-refresh.min.js" async="async"></script>
+<script type="text/javascript"  src="/libs/background/ribbon-refresh.min.js" async="async"></script>
 
 <!--让页面预加载，提高响应速度-->
-<script src="/blogs/libs/instantpage/instantpage.js" type="module"></script>
+<script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
 </body>

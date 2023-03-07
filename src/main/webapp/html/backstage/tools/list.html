@@ -1,0 +1,221 @@
+<!-- 
+    @author:  zZZ....
+    @description: 网站导航后台
+    @date: 2023/2/1
+-->
+<title>zZZ.... | 正在查看网站导航列表</title>
+
+<style>
+    .blog-color {
+        display: block;
+        width: 2rem;
+        height: 1.5rem;
+        color: #ffffff;
+        border: 1px solid rgba(98, 105, 118, 0.16);
+        border-radius: 3px;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+    }
+</style>
+
+<div class="container-xl" >
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    网站导航
+                </font></font>
+                </h2>
+                <hr style="margin: 0"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-lg-7 col-md-12">
+                <div class="card" style="height: 35.1rem">
+                    <div class="card-body">
+                        <div id="blog_tools_id_chart" style="color: #9e9e9efa;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="card" style="height: 35.1rem">
+                    <div class="card-header">
+                        <h3 id="blog_tools_edit" class="card-title">添加网站导航</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="blog_tools_form">
+                            <input type="text" style="display: none" name="id" id="toolsDataId">
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">网站名称</label>
+                                <div class="col">
+                                    <input type="text" name="title" class="form-control" aria-describedby="emailHelp" placeholder="网站名称">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">网站链接</label>
+                                <div class="col">
+                                    <input type="text" name="href" class="form-control" placeholder="网站链接">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">网站图标</label>
+                                <div class="col">
+                                    <input type="text"  name="img" class="form-control" placeholder="网站的ioc图标"  >
+
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">背景色</label>
+                                <div class="col">
+                                    <input type="color" name="color" class="form-control form-control-color"   placeholder="博客页卡片的背景色"  value="#85C1E6" title="Choose your  color">
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">网站类型</label>
+                                <div class="col">
+                                    <input type="text" name="type" class="form-control" placeholder=" 收藏站点的分类"  >
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">使用率</label>
+                                <div class="col">
+                                    <input type="text" name="heap" class="form-control" placeholder=" 这个站点博主的使用率~" readonly >
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 row">
+                                <label class="form-label col-3 col-form-label">网站描述</label>
+                                <div class="col">
+                                    <textarea name="des" rows="3" maxlength="200" class="form-control" placeholder=" 关于这个站点的简介，描述。20字左右"  ></textarea>
+                                </div>
+                            </div>
+                            <div class="form-footer">
+
+                                <button type="button" onclick="blog_tools_reset('blog_tools_edit','修改站点信息')" class="btn btn-blue">重置</button>
+                                <button type="button" onclick="blog_tools_submit()" class="btn btn-primary">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12  col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">网站导航数据</h3>
+                    </div>
+                    <div class="card-body border-bottom py-3">
+                        <div class="d-flex">
+                            <div class="text-muted">
+                                Show
+                                <div class="mx-2 d-inline-block">
+                                    <input type="text" id="blog_tools_show_pageSize" class="form-control form-control-sm" value="10" size="3" aria-label="Invoices count">
+                                </div>
+                                entries
+                            </div>
+                            <div class="ms-auto text-muted">
+                                Search:
+                                <div class="ms-2 d-inline-block">
+                                    <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table card-table table-vcenter text-nowrap datatable">
+                            <thead>
+                            <tr>
+                                <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                                <th>标题</th>
+                                <th>网站链接</th>
+                                <th>图片</th>
+                                <th>卡片背景色</th>
+                                <th>网站类型</th>
+                                <th>点击率</th>
+                                <th>描述</th>
+
+                                <th></th>
+                            </tr>
+
+                            </thead>
+                            <tbody id="blogs_tbody">
+
+                            <tr><td colspan="6" style="text-align: center;color: rgba(155,156,157,0.59)">暂无数据！</td></tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div id="blog_tools_data_footer" class="card-footer d-flex align-items-center">
+                        <p class="m-0 text-muted">A Total  of <span></span> entries</p>
+                        <ul class="pagination m-0 ms-auto" >
+                            <li class="page-item disabled" onclick="blog_tools_page(--pageDataTools.currentPage)" >
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="15 6 9 12 15 18"></polyline></svg>
+                                    prev
+                                </a>
+                            </li>
+                            <li class="page-item" onclick=blog_tools_page(i)><a class="page-link" href="#">1</a></li>
+
+                            <li class="page-item"  onclick="blog_tools_page(++pageDataTools.currentPage)" >
+                                <a class="page-link" href="#">
+                                    next
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 删除模态框 -->
+<div class="modal  fade" id="modal-danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-status bg-danger"></div>
+            <div class="modal-body text-center py-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 9v2m0 4v.01"></path><path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"></path></svg>
+                <h3>Are you sure?</h3>
+                <!--                <div class="text-muted">Do you really want to remove 84 files? What you've done cannot be undone.</div>-->
+            </div>
+            <div class="modal-footer">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col" id="blog_tools_del"><a href="#"  class="btn btn-danger w-100" data-bs-dismiss="modal">
+                            Delete
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        getToolsList(1,10);  //加载数据
+        blog_tools_loadCharts();//加载图表
+        //取消模态框 点击空白处时关闭
+        $('#modal-danger').modal({
+            backdrop:'static',
+        });
+
+    });
+
+
+</script>

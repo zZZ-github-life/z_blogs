@@ -4096,7 +4096,6 @@
             var i, a = n(74), o = (i = a) && i.__esModule ? i : {
                 default: i
             };
-            console.log("\n %c DPlayer v1.25.0 fdcf45b %c http://dplayer.js.org \n\n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;"),
                 t.default = o.default
         }
     ]).default

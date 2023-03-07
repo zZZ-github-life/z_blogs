@@ -8,10 +8,47 @@
         padding-bottom: 1.6rem;
         overflow: revert;
     }
+    .frind-ship {
+        padding: 10px 20px;
+    }
+    .frind-ship .title {
+        display: flex;
+        align-items: center;
+    }
+
+    .frind-ship .title img {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+    }
+    .frind-ship .title div {
+        color: #fff;
+        padding-left: 10px;
+    }
+    .frind-ship img {
+        border-radius: 50%;
+    }
+    .frind-ship .title h2 {
+        padding-bottom: 5px;
+        border-bottom: 2px solid #fff;
+        position: relative;
+        top: -15px;
+        left: 3px;
+    }
+
+    .frind-card1 {
+        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    }
+    h2 {
+        margin: 48px 0 22px -5px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        line-height: 2.0rem;
+    }
 </style>
 <!--banner-->
 <div class="height-475px" style="margin-top: -75px;overflow-x: clip" >
-    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible" >
+    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/medias/banner/1.jpg);visibility: visible" >
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -41,20 +78,24 @@
                     网站导航
                 </div>
                 <div class="container row">
-
                     <div class="col s12 m6  l4 animated-div " data-aos="zoom-in-up">
-                        <a href="http://mvn.coderead.cn/" target="_blank">
-                            <div class="card">
-                                <div class="card-content card-da">
-                                    <span class="card-title">maven搜索</span>
-                                    <p>最快捷的Maven搜索
-                                        不依赖于国外网络，每周自动去Maven仓库同步索引到国内。
-                                        自研搜索算法，无论单词多长，输入你记得的前几个字母即可。
-                                        热度排序，使用的人数越多，结果越智能。</p>
+
+                            <div class="card frind-card1">
+                                <div class="frind-ship">
+                                    <div class="title">
+                                        <a href="tools.html">
+                                         <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
+                                        </a>
+                                        <div>
+                                            <h2 class="blog-tools-div-name"  >码酱</h2>
+                                            <p  class="blog-tools-div-p" title="我不是大佬，只是在追寻大佬的脚步d佬的脚步佬的脚步佬的脚步佬的脚步" >我不是大佬，只是在追寻大佬的脚步d佬的脚步佬的脚步佬的脚步佬的脚步</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </a>
                     </div>
+
+
 
                     <div class="col s12 m6  l4 animated-div cursor-a" data-aos="zoom-in-up">
                         <a href="https://www.similarsites.com/" target="_blank">
@@ -95,7 +136,8 @@
                             <div class="card">
                                 <div class="card-content card-da">
                                     <span class="card-title">materializecss</span>
-                                    <p>以Google为基础的Materialize CSS融合了JavaScript、CSS和HTML等各种组件。它不但具有一定的响应能力，而且存在较少的浏览器兼容性问题。如果您希望构建一个优雅的UI，那么Materialize就可以通过大量的自定义CSS，以及多种配色方案，来帮助您完成独特的网站设计</p>
+                                    <p>以Google为基础的Materialize CSS融合了JavaScript、CSS和HTML等各种组件。它不但具有一定的响应能力，
+                                        而且存在较少的浏览器兼容性问题。如果您希望构建一个优雅的UI，那么Materialize就可以通过大量的自定义CSS，以及多种配色方案，来帮助您完成独特的网站设计</p>
                                 </div>
                             </div>
                         </a>

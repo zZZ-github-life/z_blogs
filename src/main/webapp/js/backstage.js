@@ -5,12 +5,31 @@
 */
 
 /*===================================================================common  start=============================================================*/
+
 //增加替换所有方法
 String.prototype.replaceAll  = function(s1,s2){
     return this.replace(new RegExp(s1,"g"),s2);
 };
-
-
+//自定义  解析form表单数据为json
+jQuery.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    jQuery.each(a, function() {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [ o[this.name] ];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+}
+//回到顶部
+function toTop() {
+    $('body,html').animate({scrollTop: 0}, 0);
+}
 /**
  * 警告框
  * @param lev 提醒等级 success, info ,warning ,danger
@@ -19,6 +38,9 @@ String.prototype.replaceAll  = function(s1,s2){
  */
 function blogAlter(title,content,lev) {
     let elementById = document.getElementById('blog_alter');
+    elementById.className='';
+    elementById.classList.add('alert');
+    elementById.classList.add('blog-alter');
     elementById.classList.add('alert-success');
     if (lev){
         elementById.classList.add('alert-'+lev);
@@ -77,6 +99,40 @@ function strToEleByObj(str,obj){
 }
 
 
+//滚动加载图片
+function zScroll(e) {
+    // 变量 scrollHeight 是滚动条的总高度
+    let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+
+    // 变量 windowHeight 是可视区的高度
+    let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+    // 变量scrollTop为当前页面的滚动条纵坐标位置
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+    // 滚动条到底部得距离 = 滚动条的总高度 - 可视区的高度 - 当前页面的滚动条纵坐标位置
+    let scrollBottom = scrollHeight - windowHeight - scrollTop;
+
+
+    if (Math.floor(Math.abs(scrollBottom)) === 0){
+        if (  window.zScrollObj.gallery){
+            imgList(++pageDataGallery.currentPage,6);
+        }
+        if (  window.zScrollObj.guestBook ){
+            guestDateList(++pageDataGuestBook.currentPage,6);
+        }
+        if (  window.zScrollObj.blogList){
+            blogGetList(++pageDataBlogs.start,6);
+        }
+    }
+    
+
+
+
+
+}
+
+
 /*===================================================================common  start=============================================================*/
 
 
@@ -101,9 +157,11 @@ let dataY =[],dataX=[];
 let chart;
 //图表
 let options = {
+    colors:['#FFFFFF'],
     series: [{
         name: '文章数量',
         data: dataY
+
     }],
     chart: {
         height: 320,
@@ -129,7 +187,8 @@ let options = {
         }
     },
     dataLabels: {
-        enabled: false  //是否在柱状图上展示数据
+        enabled: false,  //是否在柱状图上展示数据
+
     },
     stroke: {
         width: 0 //柱状图边框
@@ -142,16 +201,18 @@ let options = {
     },
     xaxis: {
         labels: {
-            rotate: -45
+            rotate: -45,
+            color:'#FFF'
         },
         categories: dataX,
-        tickPlacement: 'on' //功能菜单
+        tickPlacement: 'on' ,//功能菜单
+
     },
     yaxis: {
         title: {
             text: '分类统计',
             style: {
-                color: '#9b9c9d',
+                color: 'white',
                 fontSize: '15px',
                 fontFamily: 'Helvetica, Arial, sans-serif',
                 fontWeight: 600,
@@ -159,7 +220,7 @@ let options = {
         },
     },
     fill: {
-        colors:["#0079FB"],
+        colors:["#fff"],
         type: 'gradient', // 梯度
         gradient: {
             type: 'horizontal', // 水平方向的梯度
@@ -168,13 +229,23 @@ let options = {
             opacityTo: 1,
             stops:[0,120]
         }
+    },
+    labels:{
+        style:{
+            color:'#FFF'
+        }
+    },
+    group:{
+        style:{
+            color:'#FFF'
+        }
     }
 };
 
 //加载图表
 function blog_fn_loadCharts() {
     $.get({
-        url:'/blogs/classifyController/getNumAndName',
+        url:'/classifyController/getNumAndName',
         success:function (res) {
             if (res.success){
                 dataY.length =0 ;dataX.length =0;
@@ -216,7 +287,7 @@ function getList(currentPage,pageSize,queryPerm){
     //查询分类数据
     jQuery.ajax({
         type:'post',
-        url:'/blogs/classifyController/list',
+        url:'/classifyController/list',
         data:pageDataClassify,
         success:function (data) {
             if (data.success && data.data.list.length != 0){
@@ -281,7 +352,7 @@ function f(data) {
 function blog_classify_submit() {
     jQuery.ajax({
         type:'post',
-        url:'/blogs/classifyController/save',
+        url:'/classifyController/save',
         data:$('#blog_classify_form').serializeObject(),
         success:function (data) {
 
@@ -322,7 +393,7 @@ function blog_classify_edit(ele){
 function blog_classify_del(id){
     document.getElementById('blog_classify_del').addEventListener('click',function () {
         $.get({
-            url:'/blogs/classifyController/delete?id='+id,
+            url:'/classifyController/delete?id='+id,
             success:function () {
                 getList(1,10);
                 blog_fn_loadCharts();
@@ -331,22 +402,7 @@ function blog_classify_del(id){
     })
 }
 
-//自定义  解析form表单数据为json
-jQuery.fn.serializeObject = function() {
-    var o = {};
-    var a = this.serializeArray();
-    jQuery.each(a, function() {
-        if (o[this.name]) {
-            if (!o[this.name].push) {
-                o[this.name] = [ o[this.name] ];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-}
+
 /*===========================================================================================classify  end===============================================================*/
 
 
@@ -361,7 +417,7 @@ words.push({text:'',weight:0,link:'',html:''});
 //更新标签云
 function blog_fn_loadJCloud() {
     $.get({
-        url:'/blogs/tagsController/getNumAndName',
+        url:'/tagsController/getNumAndName',
         success:function (res) {
             if (res.success){
                 let dataR = res.data;
@@ -406,7 +462,7 @@ function getList1(currentPage,pageSize,queryPerm){
     //查询标签数据
     jQuery.ajax({
         type:'post',
-        url:'/blogs/tagsController/list',
+        url:'/tagsController/list',
         data:pageDataTags,
         success:function (data) {
             if (data.success && data.data.list.length != 0){
@@ -473,7 +529,7 @@ function f1(data) {
 function blog_tags_submit() {
     jQuery.ajax({
         type:'post',
-        url:'/blogs/tagsController/save',
+        url:'/tagsController/save',
         data:$('#blog_tags_form').serializeObject(),
         success:function (data) {
 
@@ -514,7 +570,7 @@ function blog_tags_edit(ele){
 function blog_tags_del(id){
     document.getElementById('blog_tags_del').addEventListener('click',function () {
         $.get({
-            url:'/blogs/tagsController/delete?id='+id,
+            url:'/tagsController/delete?id='+id,
             success:function () {
                 getList1(1,10);
                 blog_fn_loadJCloud();
@@ -533,66 +589,46 @@ function strToEle(str) {
     return tempEle.firstElementChild;
 }
 
-
-
-
-
-//滚动加载图片
-function galleryScroll(e) {
-    // 变量 scrollHeight 是滚动条的总高度
-    let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-
-    // 变量 windowHeight 是可视区的高度
-    let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-    // 变量scrollTop为当前页面的滚动条纵坐标位置
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-    // 滚动条到底部得距离 = 滚动条的总高度 - 可视区的高度 - 当前页面的滚动条纵坐标位置
-    let scrollBottom = scrollHeight - windowHeight - scrollTop;
-
-
-    if (Math.floor(Math.abs(scrollBottom)) === 0 && flag){
-        imgList(++pageDataGallery.currentPage,6);
-    }
-
-
-}
-
-
 let gFiles;
 let arr;
-let flag = true ;
-
 
 //图片列表
-let pageDataGallery ; //记录分页值
+let pageDataGallery={currentPage:0,pageSize:12,p:null} ; //记录分页值
 function imgList(currentPage,pageSize,queryPerm){
     if (currentPage === undefined || currentPage <=0 ){
         currentPage =1;
     }
     if(pageSize === undefined || pageSize <=0){
-        pageSize =10;
+        pageSize =12;
     }
     pageDataGallery ={currentPage:currentPage,pageSize:pageSize,p:queryPerm};
-    //查询分类数据
+
     jQuery.ajax({
         type:'post',
-        url:'/blogs/galleryController/list',
+        url:'/galleryController/list',
         data:pageDataGallery,
         beforeSend:function(){
+            $('#blog_gallery_cards').append($('div[data-z-placeholder="1"]'));
+            $('div[data-z-placeholder="1"]').show();
             document.getElementById('blogLoad').classList.remove('blog-display')
         },
         success:function (data) {
-            if (data.success && data.data.list.length != 0){
+            if (data.success ){
                 imgF(data.data);
                 document.getElementById('blogLoad').classList.add('blog-display')
+                if (data.data.list &&  data.data.list.length<pageDataGallery.pageSize){
+                    window.zScrollObj.gallery=false;
+                    document.getElementById('blogLoad').classList.add('blog-display');
+                    document.getElementById('blogBottom').classList.remove('blog-display');
+                }
+
             }else {
-                document.getElementById('blogLoad').classList.add('blog-display');
-                document.getElementById('blogBottom').classList.remove('blog-display');
-                flag =false;
+
                 //  $('#blogs_tbody').html('<tr><td colspan="6" style="text-align: center;color: rgba(155,156,157,0.59)">暂无数据！</td></tr>');
             }
+        },
+        complete :function (e) {
+            $('div[data-z-placeholder="1"]').hide();
         }
     });
 }
@@ -600,11 +636,12 @@ function imgList(currentPage,pageSize,queryPerm){
 function imgF(data){
     let tableData = data.list;
     //填充表格数据
+    let divs = '';
     for ( let i = 0; i < tableData.length; i++) {//循环json对象
         let row = tableData[i];
         let div =
-            '                <div class="card card-sm"> ' +
-            '                  <a href="JavaScript:void(0)" class="d-block"><img style="object-fit:cover;max-height: 275px;max-width: 412px" onerror="imgDefault(this)" src="/blogs'+row.path+'" class="card-img-top"></a> ' +
+            '<div class="col-sm-6 col-lg-4">                <div class="card card-sm"> ' +
+            '                  <a href="JavaScript:void(0)" class="d-block"><img style="object-fit:cover;height: 275px;" onerror="imgDefault(this)" src="'+row.path+'" class="card-img-top"></a> ' +
             '                  <div class="card-body"> ' +
             '                    <div class="d-flex align-items-center"> ' +
             '                      <div onblur="blog_gallery_save(this)" data-gallery-save-id="'+row.id+'"  class="text-muted blog-gallery" style="max-width: 116px;max-height:20px;">'+row.imgName+'</div> ' +
@@ -616,7 +653,6 @@ function imgF(data){
             '                            <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path> ' +
             '                            <line x1="16" y1="5" x2="19" y2="8"></line> ' +
             '                          </svg></a> ' +
-            ' ' +
             '                        <a href="javascript:void(0);"    data-bs-toggle="modal"  data-bs-target="#modal-danger"  title="delete" onclick="blog_gallery_delete(this)" class="ms-3 text-muted"> ' +
             '                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> ' +
             '                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> ' +
@@ -630,19 +666,23 @@ function imgF(data){
             '                      </div> ' +
             '                    </div> ' +
             '                  </div> ' +
-            '              </div>';
-        document.getElementById('blog_gallery_cards').appendChild(strToEle(div));
+            '              </div></div>';
+        divs+=div;
     }
+    window.requestAnimationFrame(function (e) {
+        $('#blog_gallery_cards').append(divs);
+
+    })
 }
 
 
 
 //图片加载不到时默认图片代替
 function imgDefault(ele) {
-    ele.src = '/blogs/img/4041.jpeg';
+    ele.src = '/img/4041.jpeg';
 }
 function imgHeardDefault(ele) {
-    ele.src = '/blogs/medias/Anonymous.jpg';
+    ele.src = '/medias/Anonymous.jpg';
 }
 
 
@@ -651,7 +691,7 @@ function blog_gallery_save(ele) {
     let data = { id:ele.getAttribute('data-gallery-save-id'),imgName:ele.innerText.trim()};
     $.ajax({
         type:'post',
-        url:'/blogs/galleryController/save',
+        url:'/galleryController/save',
         data:data,
         success:function (res) {
             if (res.success){
@@ -682,7 +722,7 @@ function blog_gallery_delete(ele){
     let id = ele.parentElement.previousElementSibling.getAttribute('data-gallery-save-id');
     document.getElementById('blog_gallery_del').addEventListener('click',function () {
         $.get({
-            url:'/blogs/galleryController/delete?id='+id,
+            url:'/galleryController/delete?id='+id,
             success:function () {
                 getList(1,10);
                 blog_fn_loadCharts();
@@ -710,7 +750,7 @@ function fileUpload() {
 
     formData.append('fileNames',dis);
     formData.append('fileMD5s',arr);
-    xhr.open('post','/blogs/galleryController/fileUpload');
+    xhr.open('post','/galleryController/fileUpload');
     xhr.send(formData);
     xhr.onreadystatechange = function () {
         if(xhr.readyState === 4 && xhr.status === 200 ){
@@ -804,7 +844,7 @@ function publish(boo,el) {
         return
     }
     $.ajax({
-        url:'/blogs/blogBlogs/save',
+        url:'/blogBlogs/save',
         type:'post',
         data:JSON.stringify(data),
         dataType: "json",
@@ -879,11 +919,11 @@ function getMinIndex(arr) {
 // 生成列
 function generateColumn() {
     // 获取瀑布流容器及宽度
-    let container = document.getElementById('all')
+    let container = document.getElementById('all');
 
-    let containerWidth = getElStyle(container, 'width')
+    let containerWidth = getElStyle(container, 'width');
     // 窗口大小变化时清空瀑布流 DOM 下的所有子节点
-    container.innerHTML = ''
+    container.innerHTML = '';
     //console.log('瀑布流容器宽度', containerWidth)
     // 计算列数
     let column = Math.floor(parseInt(containerWidth) / 305);
@@ -907,10 +947,10 @@ function getImg() {
         return
     }
     let pageData = {currentPage: ++currentPage, pageSize: 30};
-    //查询分类数据
+    //查询图片列表
     jQuery.ajax({
         type: 'post',
-        url: '/blogs/galleryController/list',
+        url: '/galleryController/list',
         data: pageData,
         success: function (data) {
 
@@ -952,7 +992,7 @@ function insertDom(){
         let imgEle = document.createElement('img');
         div.appendChild(imgEle);
         imgEle.className = 'col-child';
-        imgEle.src ='/blogs/'+imgArr[i].path;
+        imgEle.src =imgArr[i].path;
 
         // 获取所有列的 DOM （伪数组）
         let allColumn = document.querySelectorAll('.column');
@@ -1002,10 +1042,10 @@ function blog_publish_classify(id,list,param,type) {
 /*=======================================================publish  end ================================================================================*/
 
 /*=======================================================guest  start ================================================================================*/
-let pageDataGuestBook;
+let pageDataGuestBook={currentPage:0,pageSize:10,p:null};
 function guestIsRead(id) {
     $.get({
-        url:'/blogs/GuestBookController/isRead?id='+id,
+        url:'/GuestBookController/isRead?id='+id,
         success:function (data) {
             if (data.success){
                 let element = document.querySelector('span[data-guest-read="'+id+'"]');
@@ -1017,10 +1057,218 @@ function guestIsRead(id) {
     })
 
 }
+function delete_b(e){
+    $.get({
+        url:'/GuestBookController/recycle?id='+e.getAttribute('data-guest-id'),
+        success:function (res) {
+            if (res.success){
+                guestDateList();
+                blogAlter('完成了','该条评论已经放入回收站哦~');
+            }else {
+                blogAlter('┗|｀O′|┛ 嗷~~','可能发生了一点小故障~')
+            }
 
-/*=======================================================guest  end ================================================================================*/
+        }
+    });
+}
+
 
 /*=======================================================blogBlogs  start ================================================================================*/
-let pageDataBlogs;
-/*=======================================================blogBlogs  end ================================================================================*/
+let pageDataBlogs={start:0,pageSize:6,p:null};
 
+/*=======================================================tools  start ================================================================================*/
+
+//图表
+
+
+//加载图表
+function blog_tools_loadCharts() {
+    $.get({
+        url:'/toolsController/getNumAndName',
+        success:function (res) {
+            if (res.success){
+                let  toolsDate=[];
+                let optionsTools = {
+                    chart: {
+                        type: "treemap",
+                    },
+                    series: [
+                        {
+                            data: res.data
+                        },
+                    ],
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ["#2b5886"],
+                    title: {
+                        text: "导航使用热力图",
+                        style: {color:'#FFF'}
+                    }
+                };
+                chart = new ApexCharts(document.querySelector("#blog_tools_id_chart"), optionsTools);
+                chart.render();
+            }
+        }
+    });
+
+}
+
+//分页控件
+function blog_tools_page(currentPage) {
+    let pageSize = document.getElementById('blog_tools_show_pageSize').value;
+    getToolsList(currentPage,pageSize);
+
+}
+
+let pageDataTools ; //记录分页值
+/**
+ *  分页获取数据
+ * @param currentPage 当前页
+ * @param pageSize 每页大小
+ * @param queryPerm 查询参数，对象类型
+ */
+function getToolsList(currentPage,pageSize,queryPerm){
+    if (currentPage === undefined || currentPage <=0 ){
+        currentPage =1;
+    }
+    if(pageSize === undefined || pageSize <=0){
+        pageSize =10;
+    }
+    pageDataTools ={currentPage:currentPage,pageSize:pageSize,p:queryPerm};
+    //查询分类数据
+    jQuery.ajax({
+        type:'post',
+        url:'/toolsController/list',
+        data:pageDataTools,
+        success:function (data) {
+            if (data.success && data.data.list.length != 0){
+                toolsF(data.data);
+            }else {
+                $('#blogs_tbody').html('<tr><td colspan="6" style="text-align: center;color: rgba(155,156,157,0.59)">暂无数据！</td></tr>');
+            }
+        }
+    });
+}
+
+
+
+//封装table
+function toolsF(data) {
+    let tableData = data.list;
+    //填充表格数据
+    let tbody ='';
+    for ( let i = 0; i < tableData.length; i++) {//循环json对象，拼接tr,td的html
+        tbody = tbody + '<tr>';
+        tbody = tbody + '<td  data-blog-id = '+tableData[i].id+' ><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+        tbody = tbody + '<td>' + tableData[i].title + '</td>';
+        tbody = tbody + '<td>' + tableData[i].href + '</td>';
+        tbody = tbody + '<td><img  data-blog-img='+tableData[i].img+' style="max-width: 32px;object-fit: cover" src=" ' + tableData[i].img + '"</td>';
+        tbody = tbody + '<td><span class="blog-color" data-blog-color = '+tableData[i].color+' style="background-color: '+tableData[i].color+'"></span></td>';
+        tbody = tbody + '<td>' + tableData[i].type + '</td>';
+        tbody = tbody + '<td>' + tableData[i].heap + '</td>';
+        tbody = tbody + '<td ><div style="max-width:20rem;overflow:hidden" title="' + tableData[i].des + '">' + tableData[i].des + '</div></td>';
+        tbody = tbody + '<td><div class="btn-list flex-nowrap"><a  onclick="blog_tools_edit(this)"  class="btn btn-light btn-pill ">Edit</a><a  data-bs-toggle="modal" data-bs-target="#modal-danger" onclick="blog_tools_del('+tableData[i].id+')" class="btn btn-light  btn-pill">del</a></div> </td>';
+        tbody = tbody + '</tr>';
+    }
+    $('#blogs_tbody').html(tbody);
+
+    //分页栏
+    let dataFooter = $('#blog_tools_data_footer');
+    dataFooter.html('');
+    dataFooter.append('<p class="m-0 text-muted">A Total  of <span>'+data.total+'</span> entries</p>');
+    let footer ='<ul class="pagination m-0 ms-auto" >\n' +
+        '                                    <li class="page-item '+(data.firstPage?'disabled':'')+'" '+(data.firstPage?'':'onclick="blog_tools_page(--pageDataTools.currentPage)"')+'  >\n' +
+        '                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">\n' +
+        '                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="15 6 9 12 15 18"></polyline></svg>\n' +
+        '                                            prev' +
+        '                                        </a>' +
+        '                                    </li>';
+    for (let j =1; j <= data.totalPage;j++){
+        footer+=' <li class="page-item '+(data.currentPage == j ? 'active' : '')+' " onclick=blog_tools_page('+j+')><a class="page-link" href="#">'+j+'</a></li>';
+    }
+    footer+= '' +
+        '                                    <li class="page-item '+(data.lastPage ?'disabled':'')+'" '+(data.lastPage?'':'onclick="blog_tools_page(++pageDataTools.currentPage)"')+'  >\n' +
+        '                                        <a class="page-link" href="#">\n' +
+        '                                            next\n' +
+        '                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="9 6 15 12 9 18"></polyline></svg>\n' +
+        '                                        </a>\n' +
+        '                                    </li>\n' +
+        '                                </ul>';
+
+    dataFooter.append(footer);
+}
+
+
+
+
+//修改或者添加分类数据
+function blog_tools_submit() {
+    jQuery.ajax({
+        type:'post',
+        url:'/toolsController/save',
+        data:$('#blog_tools_form').serializeObject(),
+        success:function (data) {
+
+            $('#blog_tools_form')[0].reset();
+            getToolsList(1,10);
+            blog_tools_loadCharts();
+            document.getElementById('blog_tools_edit').innerHTML = '<span>添加分类</span>';
+            document.getElementById('toolsDataId').value =null;
+        },
+        error:function (data) {
+            blogAlter('保存失败了','报错拉，赶紧看看吧~','error')
+        }
+    });
+}
+
+function blog_tools_reset(el,title) {
+    let elementById = document.getElementById(el);
+    elementById.classList.remove('pulse');
+    elementById.classList.remove('animated');
+    $('form')[0].reset();
+    document.getElementById(el).innerText=title;
+}
+
+//edit 按钮
+function blog_tools_edit(ele){
+    let elementById = document.getElementById('blog_tools_edit');
+    elementById.classList.remove('pulse');
+    elementById.classList.remove('animated');
+    let children = ele.parentNode.parentNode.parentNode.children;
+    let elements = document.getElementById('blog_tools_form').elements;
+    for (let i = 0; i < children.length; i++) {
+
+        if (elements[i].name === 'color'){
+            elements[i].value = children[i].firstElementChild.getAttribute('data-blog-color');
+            continue;
+        }
+        if (elements[i].name === 'id'){
+            elements[i].value= children[i].getAttribute('data-blog-id');
+            continue;
+        }
+        if (elements[i].name === 'img'){
+            elements[i].value= children[i].firstElementChild.getAttribute('data-blog-img');
+            continue;
+        }
+        elements[i].value  =  children[i].innerText;
+    }
+
+    elementById.innerHTML = '修改站点信息';
+    elementById.classList.add('pulse');
+    elementById.classList.add('animated');
+    toTop();
+}
+
+//delete
+function blog_tools_del(id){
+    document.getElementById('blog_tools_del').addEventListener('click',function () {
+        $.get({
+            url:'/toolsController/delete?id='+id,
+            success:function () {
+                getToolsList(1,10);
+                blog_tools_loadCharts();
+            }
+        })
+    })
+}

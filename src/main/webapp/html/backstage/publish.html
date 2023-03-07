@@ -312,7 +312,7 @@
                             <div class="subheader mb-2 aaa" style="border-shadow: 5px 2px 6px #000;"   >
 
                                 <div class="blogs-hide" style="position: relative;" >
-                                    <img id="imgHover" style="max-height:150px;width: 294px ;object-fit:cover;bottom: 14px;position: absolute;z-index: 2" src="http://localhost:8853/blogs/downLoadFile/cefc6d8e86f0817c9a87a80d706cf077.jpg">
+                                    <img id="imgHover" style="max-height:150px;width: 294px ;object-fit:cover;bottom: 14px;position: absolute;z-index: 2" src="http://localhost:8853/downLoadFile/cefc6d8e86f0817c9a87a80d706cf077.jpg">
                                 </div>
 
                              <input id="galleryId" type="hidden" name="galleryId" >
@@ -488,9 +488,9 @@
 
 
 
-<script src="/blogs/libs/jquery/jquery.min.js"></script> <!--jq-->
+<script src="/libs/jquery/jquery.min.js"></script> <!--jq-->
 
-<script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
+<script src="/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
 
 
 
@@ -562,7 +562,7 @@
 
        let pageData ={currentPage:'1',pageSize:'500'};
         $.ajax({
-            url:'/blogs/classifyController/list',
+            url:'/classifyController/list',
             type:'post',
             data:pageData,
             success:function (data) {
@@ -574,7 +574,7 @@
             }
         });
         $.ajax({
-            url:'/blogs/tagsController/list',
+            url:'/tagsController/list',
             type:'post',
             data:pageData,
             success:function (data) {
@@ -598,7 +598,7 @@
 
         let confirm = document.getElementById('confirm-a');
         confirm.onclick=function () {
-            debugger
+
             let element = document.querySelector('div[data-img=img]');
             if (element){
                 element.removeAttribute('data-img');
@@ -635,7 +635,7 @@
             let options = {
                 width  : "100%",
                 height : ediHei,
-                path   : "/blogs/libs/EditorMD/lib/",
+                path   : "/libs/EditorMD/lib/",
                 placeholder:"",
                 autoFocus:false, //是否自动获取焦点
                 editorTheme:"base16-light",  //编辑窗口主题
@@ -680,7 +680,7 @@
                     $('.CodeMirror-code').children().eq(0).remove();
 
                     // 引入插件 执行监听方法
-                    editormd.loadPlugin("/blogs/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
+                    editormd.loadPlugin("/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
                         // 初始化插件 实现监听
                         editor_s.CodeAutoSave();
                     });

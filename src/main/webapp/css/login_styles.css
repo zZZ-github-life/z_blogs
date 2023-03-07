@@ -1,3 +1,52 @@
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('/Admin/Login/fonts/icomoon.eot?rretjt');
+  src:url('/Admin/Login/fonts/icomoon.eot?#iefixrretjt') format('embedded-opentype'),
+  url('/Admin/Login/fonts/icomoon.woff?rretjt') format('woff'),
+  url('/Admin/Login/fonts/icomoon.ttf?rretjt') format('truetype'),
+  url('/Admin/Login/fonts/icomoon.svg?rretjt#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {padding: 0; margin: 0;}
+
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.dis-none{
+  display: none;
+}
+.clearfix:after {
+  clear: both;
+}
+
+body{
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+a{color: #2fa0ec;text-decoration: none;outline: none;}
+a:hover,a:focus{color:#74777b;}
+
 body {
   -webkit-perspective: 800px;
           perspective: 800px;
@@ -57,9 +106,10 @@ body .success p {
   font-size: 14px;
 }
 body p {
-  color: #D3D7F7;
+  color: #efc6c6;
   font-size: 10px;
   text-align: left;
+
 }
 body .testtwo {
   left: -320px !important;
@@ -251,4 +301,110 @@ body .login_fields__submit input:hover {
 }
 .brand img {
   width: 30px;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #CECFD2; opacity:1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #CECFD2;opacity:1;
+}
+
+input:-ms-input-placeholder{
+  color: #CECFD2;opacity:1;
+}
+
+input::-webkit-input-placeholder{
+  color: #CECFD2;opacity:1;
+}
+html, body { padding: 0; margin: 0; height: 100%; font-size: 16px; background-repeat: no-repeat; background-position: left top; /*background-color: #214d7c;*/ color: #fff; font-family: 'Source Sans Pro';
+  /*background-size: 100%; background-image: url(../img/Starry.jpg);*/ }
+
+h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0.6rem 0;
+}
+h1 > span {font-weight: 300; }
+h2 {
+  font-size: 1.15em;
+  font-weight: 300;
+  margin: 0.3rem 0;
+}
+main {
+  width: 95%;
+  max-width: 1000px;
+  margin: 4em auto;
+  opacity: 0;
+}
+main.loaded {transition: opacity .25s linear;opacity: 1; }
+main header {width: 100%; }
+main header > div {width: 50%; }
+main header > .left, main header > .right {height: 100%; }
+main .loaders {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+main .loaders .loader {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 25%;
+  max-width: 25%;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+}
+.J_codeimg {
+  width: 85px;
+  height: 36px;
+  padding: 3px;
+  z-index: 0;
+  color:#FFF;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 999999s;
+  -webkit-transition: color 999999s ease-out, background-color 999999s ease-out;
+}
+
+@keyframes fontRL {
+  0%   {left:0;}
+  25%  {left:2rem;}
+  75%  {left:-2rem;}
+  100% {left:0;}
+}
+@-moz-keyframes fontRL /* Firefox */
+{
+  0%   {left:0;}
+  25%  {left:2rem;}
+  75%  {left:-2rem;}
+  100% {left:0;}
+}
+
+@-webkit-keyframes fontRL /* Safari and Chrome */
+{
+  0%   {left:0;}
+  25%  {left:0.5rem;}
+  75%  {left:-0.5rem;}
+  100% {left:0;}
+}
+.error{
+  position: relative;
+  animation:fontRL .2s;
+  -moz-animation:fontRL .2s; /* Firefox */
+  -webkit-animation:fontRL .2s; /* Safari and Chrome */
+  -o-animation:fontRL .2s; /* Opera */
 }

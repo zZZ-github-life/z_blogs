@@ -4,7 +4,7 @@
     @date: 2022/8/4
 -->
 
-<link rel="stylesheet" type="text/css" href="/blogs/libs/jqcloud/jqcloud.css">
+<link rel="stylesheet" type="text/css" href="${basePath}/libs/jqcloud/jqcloud.css">
 <style>
     div.jqcloud span:hover { color: #ff397e; font-weight: bolder ;}
     #tagsCloud {
@@ -23,12 +23,15 @@
 
 <!--banner-->
 <div class="height-475px" style="margin-top: -75px">
-    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(${basePath}/medias/banner/1.jpg);visibility: visible">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                     <div class="brand">
-                        <h1 class="blog-text-center blog-title">标题</h1>
+                        <h1 class="blog-text-center blog-title">标签|分类</h1>
+                        <div class="description center-align">
+                            <span class="z-blog-poetry" data-aos="zoom-in"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,11 +54,11 @@
                 <div class="blog-tags-title center-align">
                     <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
                 </div>
-                <div  class="blog-tags-body">
+                <div  class="blog-classify-body">
 
                     <#if classifyList??  && (classifyList?size > 0)  >
                     <#list classifyList as classify >
-                             <span  title="${classify.classifyName}: ${classify.classifyNum}" data-blog-name="${tag.classifyName}" >
+                             <span  title="${classify.classifyName}: ${classify.classifyNum}" data-blog-name="${classify.classifyName}" >
                                     <span class="waves-effect blog-chip" data-tagname="${classify.classifyName}" style="background-color: ${classify.color};">
                                         ${classify.classifyName}
                                         <span class="blog-tags-num">
@@ -124,7 +127,7 @@
     </div>
 
 
-    <article id="articles" class="container articles blog-display" style="position: relative;">
+    <article id="articles" class="container articles blog-display" style="position: relative;min-height: 100px">
         <div class="row tags-posts">
 
         </div>
@@ -132,8 +135,8 @@
 
 </main>
 
-<script type="text/javascript" src="/blogs/libs/jqcloud/jqcloud.js"></script>
-<script type="text/javascript" src="/blogs/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="${basePath}/libs/jqcloud/jqcloud.js"></script>
+<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>
 <script type="text/javascript">
 
     //pjax页面的js需写在 load函数中
@@ -143,7 +146,7 @@
 
             <#if tags?? && (tags?size > 0) >
                 <#list tags as tag>
-                    {"text":"${tag.tagsName}","weight":${tag.tagsNum},"link":"/tags/${tag.tagsName}/","html":{"data-aos":"zoom-in"}},
+                    {"text":"${tag.tagsName}","weight":${tag.tagsNum},"link":"#","html":{"data-aos":"zoom-in",onclick:'pjax("/blogBlogs/tagsBt?type=tags&key=${tag.tagsName}",5)'}},
                 </#list>
             </#if>
         ];
@@ -207,19 +210,41 @@
 
         $('.blog-tags-body>span').on('click',function () {
             let name = $(this).attr('data-blog-name');
-            let span =$(this);
-            $.get('/blogs/blogBlogs/tagsList?name='+name,function(data){
+            let span =this;
+            $.get('${basePath}/blogBlogs/tagsList?name='+name+'&type=tags',function(data){
                 if (data.success){
                     $('#articles>div').html(data.data);
                     $('div[data-blog-dis=1]').each(function () {
-                        if (!$(this).find(span)){
+                        if ($(this).find(span).length<=0){
                             this.classList.add("blog-display");
+                            $(".chip-active").removeClass("chip-active");
+                            $(span).children('span').addClass("chip-active")
                         }
                     });
                     $('#articles')[0].classList.remove("blog-display");
                 }
             })
-        })
+        });
+
+
+        $('.blog-classify-body>span').on('click',function () {
+            let name = $(this).attr('data-blog-name');
+            let span =this;
+            $.get('${basePath}/blogBlogs/tagsList?name='+name+'&type=classify',function(data){
+                if (data.success){
+                    $('#articles>div').html(data.data);
+                    $('div[data-blog-dis=1]').each(function () {
+                        if ($(this).find(span).length<=0){
+                            this.classList.add("blog-display");
+                            $(".chip-active").removeClass("chip-active");
+                            $(span).children('span').addClass("chip-active")
+                        }
+                    });
+                    $('#articles')[0].classList.remove("blog-display");
+                }
+            })
+        });
+
     });
 
 

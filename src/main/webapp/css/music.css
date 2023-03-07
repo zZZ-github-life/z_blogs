@@ -276,7 +276,7 @@
 .letterfx-fly-top-before{top:-20em}
 .letterfx-fly-top-after{top:0}
 .letterfx-fly-bottom-before{bottom:-20em}
-.letterfx-fly-bottom-after{bottom:0}@font-face{font-family:myhkfont;src:url('/blogs/webfonts/myhkfont.woff2') format('woff2'),url('/blogs/player/icon/myhkfont.woff') format('woff'),url('/blogs/player/icon/myhkfont.ttf') format('truetype')}
+.letterfx-fly-bottom-after{bottom:0}@font-face{font-family:myhkfont;src:url('/webfonts/myhkfont.woff2') format('woff2'),url('/player/icon/myhkfont.woff') format('woff'),url('/player/icon/myhkfont.ttf') format('truetype')}
 .myhkfont{font-family:myhkfont!important;display:inline-block;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .myhkicon-music:before{content:"\e6e5"}
 .myhkicon-anniu_kaiqi:before{content:"\e659"}

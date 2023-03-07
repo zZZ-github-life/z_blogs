@@ -18,7 +18,7 @@
     <bean id="cacheManager"  class="org.apache.shiro.cache.ehcache.EhCacheManager"></bean>
 
     <!--自定义登陆实现逻辑-->
-    <bean id="authRealm" class="online.zouxiaolong.basics.shiro.AuthRealm">
+    <bean id="authRealm" class="online.zzzzzzz.basics.shiro.AuthRealm">
 
     </bean>
 
@@ -38,29 +38,38 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
-        <property name="successUrl" value="/index"/>   <!--登陆成功地址：登陆成功后自动跳转此url-->
+        <property name="successUrl" value="/home"/>   <!--登陆成功地址：登陆成功后自动跳转此url-->
         <property name="unauthorizedUrl" value="/unauthorized"/>    <!--此地址可以不用授权-->
 
         <!--shiro的拦截权限配置，访问优先级从上到下-->
         <property name="filterChainDefinitions">
             <value>
 
-                # everything else requires authentication:
-<!--                /** = authc-->
-                /** = anon
+                # 无需认证:
+                /login = anon
+                /SSO = anon
+                /html/article/** =anon
+                /css/** =anon
+                /img/** =anon
+                /js/** =anon
+                /libs/** =anon
+                /medias/** =anon
+                /xml/** =anon
+                /webfonts/** =anon
+                /GuestBookController/listPage = anon
+                /GuestBookController/save = anon
+                /blogBlogs/frontList = anon
+                /blogBlogs/getCityAndIP = anon
+                /blogBlogs/getIp = anon
+                /blogBlogs/tagsList = anon
+                /blogBlogs/archiveList = anon
+                /blogBlogs/ptu = anon
+                /blogBlogs/poetry = anon
+                /blogBlogs/tagsBt/** = anon
+                /vCode = anon
+                # 需要认证
+                /** = authc
 
-<!--             #static resources ：-->
-<!--                /login = anon-->
-<!--                /html/front/** =anon-->
-<!--                /blogs/html/front/** =anon-->
-<!--                /css/** =anon-->
-<!--                /img/** =anon-->
-<!--                /js/** =anon-->
-<!--                /libs/** =anon-->
-<!--                /medias/** =anon-->
-<!--                /tabler/** =anon-->
-<!--                /webfonts/** =anon-->
-<!--                /xml/** =anon-->
 
 
             </value>

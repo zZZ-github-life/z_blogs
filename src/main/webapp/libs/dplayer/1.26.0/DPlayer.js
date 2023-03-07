@@ -4374,7 +4374,6 @@
                     o && Ae(t, o),
                         e
                 }();
-                console.log("\n".concat(" %c DPlayer v", "1.26.0", " ").concat("63275c8", " %c http://dplayer.js.org ", "\n", "\n"), "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
                 t.default = je
             }
         ]).default

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><!--手机端窗口大小-->
-        <meta name="keywords" content="标签,COFEBABE">
+        <meta name="keywords" content="7z,COFEBABE">
         <meta name="description" content="我们常常在现实与理想之间两难">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="icon" type="image/png" href="${basePath}/img/favicon.png">
 
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/swiper/swiper-bundle.css"><!--轮播图-->
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/swp/style.css">
@@ -51,7 +51,6 @@
                 object-fit: cover;
                 min-height: 800px;
             }
-
         </style>
 
 
@@ -62,7 +61,7 @@
         <script src="${basePath}/libs/nprogress/nprogress.js"></script><!--进度条-->
         <script src="${basePath}/js/main-front.js"></script><!--个人js-->
 
-        <title>cafebabe</title>
+        <title>Needle | welcome to Needle</title>
 
     </head>
     <body>
@@ -71,50 +70,45 @@
             <nav class="nav-header">
                 <!--菜单-->
                 <div class="nav-wrapper container">
-                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="/" class="brand-logo"><img style="width: 148px;vertical-align: middle;padding-bottom: 14px;" src="/img/logo.png" alt=""></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
-                            <a onclick="pjax('index1.html')" class="waves-effect faa-parent  animated-hover">
+                            <a onclick="pjax('/html/article/primary/index1.html')" class="waves-effect faa-parent  animated-hover">
                                 <i class="fas fa-home faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>首页</span>
                             </a>
                         </li>
                         <li>
-                            <a  onclick="pjax('tags.html')" class="waves-effect faa-parent animated-hover">
+                            <a  onclick="pjax('/html/article/primary/tags.html',0)" class="waves-effect faa-parent animated-hover">
                                 <i class="fas fa-tags faa-horizontal faa-slow " style="zoom: 0.7;"></i>
                                 <span>标签|分类</span>
                             </a>
                         </li>
                         <li>
-                            <a   onclick="pjax('classification.html')" class="waves-effect faa-parent animated-hover">
-                                <i class="fas fa-graduation-cap  faa-slow" style="zoom: 0.7;"></i>
+                            <a   onclick="pjax('/html/article/primary/404.html',1)" class="waves-effect faa-parent animated-hover">
+                                <i class="fas fa-graduation-cap  faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>随性</span>
                             </a>
                         </li>
                         <li>
-                            <a   onclick="pjax('archive1.html')" class="waves-effect ">
-                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                            <a   onclick="pjax('/html/article/primary/archive.html',2)" class="waves-effect  faa-parent  animated-hover ">
+                                <i class="fas  fa-hourglass-half faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>时光轴</span>
                             </a>
                         </li>
                         <li>
-                            <a   onclick="pjax('tools.html')" class="waves-effect ">
-                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                            <a   onclick="pjax('/html/article/primary/tools.html',3)" class="waves-effect  faa-parent  animated-hover ">
+                                <i class="fas fa-map faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>导航</span>
                             </a>
                         </li>
                         <li>
-                            <a   onclick="pjax('guestbook1.html')" class="waves-effect ">
-                                <i class="fas fa-home" style="zoom: 0.7;"></i>
+                            <a   onclick="pjax('/html/article/primary/guestbook.html',4)" class="waves-effect  faa-parent  animated-hover ">
+                                <i class="fas  fa-comments faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>留言板</span>
                             </a>
                         </li>
-                        <li>
-                            <a   onclick="pjax('tags.html')" class="waves-effect faa-parent animated-hover">
-                                <i class="fas fa-home faa-horizontal " style="zoom: 0.7;"></i>
-                                <span>友情链接</span>
-                            </a>
-                        </li>
+
                         <li>
                             &nbsp;
                             &nbsp;
@@ -126,8 +120,60 @@
                             </a>
                         </li>
                     </ul>
+
+
+                    <!--移动端 侧面导航-->
+                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                    <ul id="slide-out" class="sidenav sidenav-width" style="background-color: oldlace">
+                        <li><div class="user-view">
+                                <div class="background">
+                                    <img src="/medias/banner/1.jpg">
+                                </div>
+                                <a href="javaScript:void(0)"><img style="width: 167px" src="/img/logo.png"></a>
+                                <a href="javaScript:void(0)"><span class="phone-qm">当下即是未来</span></a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a   onclick="pjax('/html/article/primary/index1.html',0)" class="waves-effect  faa-parent  animated-hover sidenav-close">
+                                <i class="fas  fa-home faa-horizontal faa-slow" ></i>
+                                <span>首页</span>
+                                <i class="fa fa-angle-right" style="float: right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('/html/article/primary/tags.html',1)" class="waves-effect  faa-parent  animated-hover sidenav-close">
+                                <i class="fas  fa-tags faa-horizontal faa-slow" ></i>
+                                <span>标签 | 分类</span>
+                                <i class="fa fa-angle-right" style="float: right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('/html/article/primary/404.html',2)" class="waves-effect  faa-parent  animated-hover sidenav-close">
+                                <i class="fas   fa-graduation-cap  faa-horizontal faa-slow" ></i>
+                                <span>随性</span>
+                                <i class="fa fa-angle-right" style="float: right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a   onclick="pjax('/html/article/primary/archive.html',3)" class="waves-effect  faa-parent  animated-hover sidenav-close">
+                                <i class="fas  fa-hourglass-half faa-horizontal faa-slow" ></i>
+                                <span>时光轴</span>
+                                <i class="fa fa-angle-right" style="float: right"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a   onclick="pjax('/html/article/primary/guestbook.html',4)" class="waves-effect  faa-parent  animated-hover sidenav-close">
+                                <i class="fas  fa-comments faa-horizontal faa-slow" ></i>
+                                <span>留言板</span>
+                                <i class="fa fa-angle-right" style="float: right"></i>
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
-                <a href="${basePath}/login" class="github-corner hide-on-med-and-down" target="_blank"  >
+                <a href="${basePath}/home" class="github-corner hide-on-med-and-down" target="_blank"  >
                     <svg viewBox="0 0 250 250" aria-hidden="true">
                         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
                         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
@@ -152,7 +198,7 @@
                                     <div class="blog-header-info">
                                         <p>我们常常在理想与现实之间两难</p>
                                         <div class="cover-social-link">
-                                            <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" >
+                                            <a href="https://github.com/zZZ-github-life" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" >
                                                 <i class="fab fa-github"></i>
                                             </a>
                                             <a href="mailto:976804246@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" >
@@ -161,7 +207,7 @@
                                             <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=976804246" class="tooltipped" target="_blank" data-tooltip="QQ联系我" data-position="top" >
                                                 <i class="fab fa-qq"></i>
                                             </a>
-                                            <a href="/xml/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" >
+                                            <a href="/xml/RESS.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" >
                                                 <i class="fas fa-rss"></i>
                                             </a>
                                         </div>
@@ -203,12 +249,12 @@
 
                                 <div class=" blog-index-title center-align">
                                     <i class="far fa-lightbulb" aria-hidden="true"></i>
-                                    我的梦想
+                                    前言
                                 </div>
 
                                 <div class="row">
                                     <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-                                        不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+                                        本站用于记录工作与学习之中的一些问题和心得。初衷是做一个在线记录文本，因为会有太多忘掉的技术栈。最开始在网上看了一些别人的博客站点，慢慢的想法越来越多，于是动手搭建了此站点。从搭建框架、搭建云服务、购买域名、开发功能，部署上线，断断续续花了差不多一年时间。在后面，会持续优化、开发一些新的功能。<p><span style="font-family: fantasy">Needle</span>：取自权游里二丫手中的短剑</p>
                                     </div>
                                 </div>
                             </div>
@@ -236,27 +282,23 @@
                             <div class="blog-slider-body" >
                                 <div class="blog-slider">
                                     <div class="blog-slider_wrp swiper-wrapper">
-
                                         <#if upList??  && (upList?size > 0)  >
                                         <#list upList as up >
                                         <div class="blog-slider_item swiper-slide">
                                             <div class="blog-slider_img">
-                                                <img src="${up.path}" alt="">
+                                                <img src="${up.path}" alt="" onerror="noFind(this,'/img/404-4l2eq2.jpg')">
                                             </div>
                                             <div class="blog-slider_content">
                                                 <span class="blog-slider_code">${up.publishDate}</span>
                                                 <div class="blog-slider_title">${up.title}</div>
-                                                <div class="blog-slider_text">
+                                                <div class="blog-slider_text blog-text">
                                                     ${up.about}
                                                 </div>
-                                                <a href="${up.href}" class="blog-slider_button">READ ME</a>
+                                                <a href="${up.href}" class="blog-slider_button"  target="_blank">READ ME</a>
                                             </div>
                                         </div>
                                         </#list>
                                         </#if>
-
-
-
                                     </div>
                                     <div class="blog-slider_pagination"></div>
                                 </div>
@@ -267,81 +309,40 @@
                 <!--文章卡片-->
                 <div class="container">
                     <div class="row blog-border-radius-all">
-                        <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
-                            <div class="card">
-                                <div class="card-image">
-                                    <a href="#">
-                                        <img src="http://localhost:8853${basePath}/medias/photo-1613483187636-c2024013d54a.jpeg" class="blog-article-img"  alt="">
-                                        <span class="card-title">Card Title</span>
-                                    </a>
-                                </div>
-                                <div class="card-content article-card">
-                                    <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使</p>
-                                    <div>
-                                    <span class="publish-date">
-                                        <i class="far fa-clock fa-fw icon-date"></i>2019-02-14</span>
-                                        <span class="publish-classify">
-                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                        <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                            后端
-                                        </a>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="card-action cat-action-tags">
-                                    <a href="/tags/深度学习/" target="_blank">
-                                        <span class="tags-m bg-color">深度学习</span>
-                                    </a>
-                                    <a href="/tags/深度学习/" target="_blank">
-                                        <span class="tags-m bg-color">深度学习</span>
-                                    </a>
-                                    <a href="/tags/深度学习/" target="_blank">
-                                        <span class="tags-m bg-color">深度学习</span>
-                                    </a>
-                                    <a href="/tags/深度学习/" target="_blank">
-                                        <span class="tags-m bg-color">深度学习</span>
-                                    </a>
-                                    <a href="/tags/深度学习/" target="_blank">
-                                        <span class="tags-m bg-color">深度学习</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
                         <#if blogList??  && (blogList?size > 0)  >
-                        <#list blogList as blog >
-                        <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
-                            <div class="card">
-                                <div class="card-image">
-                                    <a href="${blog.href}">
-                                        <img src="${blog.path}" class="blog-article-img"  alt="">
-                                        <span class="card-title">${blog.title}</span>
-                                    </a>
-                                </div>
-                                <div class="card-content article-card">
-                                    <p>${blog.about}</p>
-                                    <div>
-                                    <span class="publish-date">
-                                        <i class="far fa-clock fa-fw icon-date"></i>${blog.publishDate}</span>
-                                        <span class="publish-classify">
-                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                        <a href="/categories/${blog.className}/" class="post-category">
-                                          ${blog.className}
+                            <#list blogList as blog >
+                                <div class="col s12 m6 l4 animated-div"  data-aos="zoom-in-up">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <a href="${blog.href}" target="_blank">
+                                            <img src="${blog.path}" class="blog-article-img"  alt="" onerror="noFind(this,'/img/404-4l2eq2.jpg')">
+                                            <span class="card-title">${blog.title}</span>
                                         </a>
-                                    </span>
+                                    </div>
+                                    <div class="card-content article-card">
+                                        <p class="blog-p-text">${blog.about}</p>
+                                        <div>
+                                        <span class="publish-date">
+                                            <i class="far fa-clock fa-fw icon-date"></i>${blog.publishDate}</span>
+                                            <span class="publish-classify">
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            <a href="#" class="post-category"  onclick="pjax('/blogBlogs/tagsBt?type=classify&key=${blog.className}',5)">
+                                              ${blog.className}
+                                            </a>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-action cat-action-tags">
+                                        <#list blog.tagsName?split(",") as tagName>
+                                            <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
+                                                <span class="tags-m bg-color">${tagName}</span>
+                                            </a>
+                                        </#list>
+
                                     </div>
                                 </div>
-                                <div class="card-action cat-action-tags">
-                                    <#list blog.tagsName?split(",") as tagName>
-                                        <a href="/tags/${tagName}/" target="_blank">
-                                            <span class="tags-m bg-color">${tagName}</span>
-                                        </a>
-                                    </#list>
-
-                                </div>
                             </div>
-                        </div>
-                        </#list>
+                            </#list>
                         </#if>
 
                     </div>
@@ -349,14 +350,15 @@
             </main>
 
             <!--下一页-->
-            <div class="container paging">
-                <div class="row">
-                    <div class="loading-m loading-hover progress">
-                        <div class=""></div>
-                        <span>加载更多</span>
+                <div class="container paging">
+                    <div class="row">
+                        <div class="loading-m loading-hover progress">
+                            <div class=""></div>
+                            <span>加载更多</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+
         </div>
 
         <!--页脚-->
@@ -379,7 +381,6 @@
                 <div class="search-contain" id="searchResult">
 
                 </div>
-
             </div>
 
             <!--弧度-->
@@ -398,7 +399,7 @@
                     <div class="col s12 m6 l6 copy-right">
                         <div class="footer_row">
                             <span>Copyright&nbsp;© 2022   ZouXiaoLong</span> &nbsp;
-                            <span><a href="https://beian.miit.gov.cn" style="color:rgb(255 255 255 / 70%)" target="_blank">蜀ICP备2022000013号-1</a></span>
+                            <span><a href="https://beian.miit.gov.cn" style="color:rgb(255 255 255 / 70%)" target="_blank">苏ICP备2023002046号</a></span>
                         </div>
                         <div class="footer_row">
                             <span style="color: white;font-style: italic;">Hello ~  来自<span id="city">远方</span>的朋友</span>
@@ -410,7 +411,7 @@
                             |
                             <span  style="display: inline;"><i class="fas fa-users"></i> 访客人数：<span  class="white-color" id="UV">${UV}</span></span>
                             |
-                            <span  style="display: inline;"><i class="fas fa-chart-area"></i> 字数统计：<span  class="white-color" id="WC">${WV}</span></span>
+                            <span  style="display: inline;"><i class="fas fa-chart-area"></i> 字数统计：<span  class="white-color" id="WC">${WC}</span></span>
 
                         </div>
                     </div>
@@ -438,7 +439,7 @@
                     ],
                     defaultQuality: 0,
                     pic: '${basePath}/medias/videos/demo-pic.png',
-                    thumbnails: 'thumbnails.jpg',
+                    thumbnails: '${basePath}/medias/videos/demo-pic.png',
                 },
             });
 
@@ -468,6 +469,7 @@
         <script>
 
             $(document).ready(function(){
+
                 let pageData={currentLines:${currentLines},pageSize:10};
 
                 $('.tooltipped').tooltip(); //开启小提示
@@ -497,53 +499,48 @@
 
                         },
                         success:function (res) {
-
                             //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
                             if (res.success){
                                 let strHtml = res.data.data;
-                                if ( res.data.code===0){
-                                    loaded_rem();
-                                }
 
                                 document.querySelector('.row.blog-border-radius-all').insertAdjacentHTML("beforeend",strHtml);
                                 pageData.pageTotal =  res.data.count;
-
-
                                 if (successCallback){
                                     successCallback()
                                 }
                                 //设置加载按钮
-                                if (strHtml.size<pageSize){
+                                if (res.data.size<pageSize || !strHtml ){
                                     loaded_rem();
+                                }else {
+                                    loaded_m();
                                 }
                                 pageData.currentLines+=pageSize;
-
                             }else {
                                 M.toast({
                                     htmlTitle: '出了点问题~',
                                     htmlBody: '<(＿　＿)> 联系博主看看吧...',
                                 });
                             }
-
                         },
                         complete:function () {
-
-                        } ,
+                        },
                         error:function (data) {
                             M.toast({
                                 htmlTitle: '出了点问题~',
                                 htmlBody: '好像断开连接了，是不是断网了...',
                             });
                         }
-
                     });
                 }
+
+                <#if loading >
+                    loaded_rem();
+                </#if>
 
 
                 //TODO 获取浏览量，人数，字数
 
                 //获取当前人的ip 城市
-
             });
         </script>
 

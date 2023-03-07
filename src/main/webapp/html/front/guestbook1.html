@@ -6,8 +6,8 @@
 
         <title>留言板 | zZZ....</title>
 
-        <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook_style.css">
-        <link rel="stylesheet" type="text/css" href="/blogs/css/guestbook.css">
+        <link rel="stylesheet" type="text/css" href="/css/guestbook_style.css">
+        <link rel="stylesheet" type="text/css" href="/css/guestbook.css">
 
         <style type="text/css">
             .heart {
@@ -43,7 +43,7 @@
             /*留言板 背景图*/
             #valine_container textarea {
                 box-sizing: border-box;
-                background: url(/blogs/medias/comment_bg.png) 100% 100% no-repeat;
+                background: url(/medias/comment_bg.png) 100% 100% no-repeat;
             }
             .bottom-main{
                 padding-bottom: 1.6rem;
@@ -86,7 +86,7 @@
 
         <!--banner-->
         <div class="height-475px" style="margin-top: -75px">
-            <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+            <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/medias/banner/1.jpg);visibility: visible">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -535,6 +535,7 @@
                                                 <span class="vtag vvisitor">访客</span>
                                                 <span class="vsys"><i class="fab fa-chrome"></i>Chrome 70.0.3538.110</span>
                                                 <span class="vsys"><i class="fab fa-windows"></i>Windows 10.0</span>
+                                                <span class="vsys"><i class="fab fa-windows"></i>IP属地：江苏</span>
                                             </div>
                                             <div class="vmeta"><span class="vtime">2021-04-16</span>
                                                 <span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967bac1d46f1cc83a0cb8">回复</span></div>
@@ -672,7 +673,6 @@
                                 <div class="vpage txt-center" onclick="loading(this)">
                                     <button type="button" class="vmore vbtn">加载更多...</button>
                                 </div>
-
                             </div>
                         </article>
                     </div>
@@ -733,7 +733,7 @@
                     let spanTotal = document.querySelector('#blog_guestbook_total');
                     $.ajax({
                         async:!async,
-                        url:'/blogs/GuestBookController/list',
+                        url:'/GuestBookController/list',
                         type:'post',
                         dataType: "json",
                         contentType: "application/json;charset=utf-8",
@@ -813,7 +813,7 @@
                         idCard:'访客'
                     };
                     $.ajax({
-                        url:'/blogs/GuestBookController/save',
+                        url:'/GuestBookController/save',
                         type:'post',
                         data:dataBody,
                         beforeSend:function (xhr){
@@ -931,7 +931,7 @@
                 function createDIV(data) {
                     let link = data.link ? '<a class="vnick" rel="nofollow" href="'+data.link+'" target="_blank">'+data.nickname+'</a>':'<span class="vnick">'+data.nickname+'</span>';
                     let divA = '<div class="vcard" id="'+data.id+'">\n' +
-                        '    <img class="vimg" src="'+(data.headShot ===undefined || data.headShot ==null ? data.headShot : "/blogs/medias/Anonymous.jpg")+'">\n' +
+                        '    <img class="vimg" src="'+(data.headShot ===undefined || data.headShot ==null ? data.headShot : "/medias/Anonymous.jpg")+'">\n' +
                         '    <div class="vh">\n' +
                         '        <div class="vhead">\n' + link +
                         '            <span class="vtag vvisitor">'+data.idCard+'</span>\n' +

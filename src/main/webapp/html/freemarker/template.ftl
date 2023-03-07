@@ -44,7 +44,7 @@
         <script  >
             //开发模式下用此种方式加载 外部html，略微降低性能
             let blogs_xhr_1 = new XMLHttpRequest();
-            blogs_xhr_1.open('get','http://localhost:8853/blogs/html/front/1_header.html',false);
+            blogs_xhr_1.open('get','http://localhost:8853${basePath}/html/front/1_header.html',false);
             blogs_xhr_1.onreadystatechange = function () {
                 if(blogs_xhr_1.readyState === 4 ){
                     document.write(blogs_xhr_1.responseText)
@@ -502,22 +502,6 @@
 
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <article id="prenext-posts" class="prev-next articles" style="width: 888.438px;">
                             <div class="row article-row">

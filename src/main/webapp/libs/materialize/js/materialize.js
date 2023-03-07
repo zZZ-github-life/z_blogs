@@ -3191,9 +3191,9 @@ $jscomp.polyfill = function (e, r, p, m) {
           this.options.onOpenStart.call(this, this.el, this._openingTrigger);
         }
 
-        if (this.options.preventScrolling) {
-          document.body.style.overflow = 'hidden';
-        }
+        // if (this.options.preventScrolling) {
+        //   document.body.style.overflow = 'hidden';
+        // }
 
         this.el.classList.add('open');
         this.el.insertAdjacentElement('afterend', this.$overlay[0]);

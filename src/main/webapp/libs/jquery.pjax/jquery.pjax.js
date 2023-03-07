@@ -213,17 +213,17 @@
             xhr.setRequestHeader('X-PJAX-Container', options.container)
 
             if (!fire('pjax:beforeSend', [xhr, settings]))
-                return false
+                return false;
 
-            if (settings.timeout > 0) {
-                timeoutTimer = setTimeout(function() {
-                    if (fire('pjax:timeout', [xhr, options]))
-                        xhr.abort('timeout')
-                }, settings.timeout)
-
-                // Clear timeout setting so jquerys internal timeout isn't invoked
-                settings.timeout = 0
-            }
+            // if (settings.timeout > 0) {
+            //     timeoutTimer = setTimeout(function() {
+            //         if (fire('pjax:timeout', [xhr, options]))
+            //             xhr.abort('timeout')
+            //     }, settings.timeout)
+            //
+            //     // Clear timeout setting so jquerys internal timeout isn't invoked
+            //     settings.timeout = 0
+            // }
 
             var url = parseURL(settings.url)
             if (hash) url.hash = hash
@@ -844,7 +844,6 @@
         $.pjax.submit = handleSubmit
         $.pjax.reload = pjaxReload
         $.pjax.defaults = {
-            timeout: 650,
             push: true,
             replace: false,
             type: 'GET',

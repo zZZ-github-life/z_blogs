@@ -8,16 +8,16 @@
     a.list-group-item:hover{
         font-weight: 600;
         color: inherit;
-        background: rgba(32, 107, 196, 0.06);
+        background: rgb(32 107 196 / 44%);
     }
     a.list-group-item:focus{
         font-weight: 600;
         color: inherit;
-        background: rgba(32, 107, 196, 0.2);
+        background: rgb(32 107 196 / 44%);
     }
     .blog-list-font{
         font-size: 10px;
-        color: rgb(98 105 118 / 53%);
+        color: rgb(255 255 255 / 61%);
     }
     .blog-list-cursor{
         cursor:pointer;
@@ -53,7 +53,7 @@
                         <h2 class="page-title">
                             搜索结果
                         </h2>
-                        <div class="text-muted mt-1">共 2,410 条 (0.19 秒)</div>
+                        <div class="text-muted mt-1">共 <font id="blogListTotalId">2,410</font>条 (<font id="blogListTimeId">0.19</font> 毫秒)</div>
                     </div>
                     <div class="col-auto ms-auto d-print-none">
                         <div class="d-flex">
@@ -75,7 +75,7 @@
         <div class="page-body">
             <div class="container-xl">
                 <div class="row g-4">
-                    <div class="col-3">
+                    <div class="col-lg-3   col-md-3 col-sm-12">
                         <form action="" method="get">
 
                             <div class="list-group list-group-transparent mb-3">
@@ -136,23 +136,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-9">
+                    <div class="col-lg-9  col-md-9 col-sm-12">
                         <div class="row row-cards" id="blogListBody" style="text-align: center">
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="card  ">
-                                    <div class="card-img-top img-responsive img-responsive-16x9" onerror="imgDefault(this)" style="background-image: url('http://localhost:63342/blogs/src/main/webapp/tabler/static/photos/9f36332564ca271d.jpg'),url('/blogs/img/4041.jpeg')"></div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">Card with title and image</h3>
-                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            orem ipsum dolor sit amet, consectetur adipisicing elit
-                                            orem ipsum dolor sit amet, consectetur adipisicing elit
-                                            orem ipsum dolor sit amet
-
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
 
                                 <div class="col-sm-6 col-lg-4" data-z-bloglist-hidden="0" >
                                     <div class="card  ">
@@ -478,7 +463,7 @@
             contentHtml:contentHtml.innerHTML,
         };
         $.ajax({
-            url:'/blogs/blogBlogs/save',
+            url:'/blogBlogs/save',
             type:'post',
             dataType: "json",
             contentType: "application/json;charset=utf-8",
@@ -501,82 +486,102 @@
      * @param queryPerm
      * @param isPaging
      */
-    function blogGetList(currentPage,pageSize,queryPerm,isPaging){
+    function blogGetList(currentPage,pageSize,queryPerm){
         if (currentPage === undefined || currentPage <=0 ){
             currentPage =1;
         }
         if(pageSize === undefined || pageSize <=0){
             pageSize =6;
         }
-        pageDataBlogs ={startPage:currentPage,pageSize:pageSize,p:queryPerm};
-        let body = document.getElementById('blogListBody');
-        let blogListHidden = document.querySelector('div[data-z-bloglist-hidden="0"]');
-        let divs = document.querySelectorAll('div[data-z-bloglist-hidden]');
+
+        pageDataBlogs.start = currentPage;
+        pageDataBlogs.pageSize = pageSize;
+        pageDataBlogs.p = queryPerm;
+        let startTime =new Date().getTime();
+
+        if (pageDataBlogs.start<=1){
+            $('#blogListBody').html('');
+        }
+
         $.ajax({
-            url:'/blogs/blogBlogs/adminList',
+            url:'/blogBlogs/adminList',
             type:'post',
             dataType: "json",
             contentType: "application/json;charset=utf-8",
             data:JSON.stringify(pageDataBlogs),
+
+            beforeSend:function(req){
+
+                $('div[data-z-bloglist-hidden]').show();
+                $('#blogListBody').append($('div[data-z-bloglist-hidden]'));
+
+            },
             success:function (res) {
-                if (res.success && res.data.list.length > 0){
+                if (res.success){
+
+                    document.getElementById("blogListTotalId").innerText=res.data.count;
                     let list = res.data.list;
 
-                    let row ='<div class="col-sm-6 col-lg-4">\n' +
-                        '                                <div class="card blog-list-cursor" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" data-blog-id="@id@"">\n' +
-                        '                                    <div class="card-img-top img-responsive img-responsive-16x9" style="background-image: url(@path@),url(/blogs/img/4041.jpeg)"></div>\n' +
-                        '\n' +
-                        '                                    <div class="card-body">\n' +
-                        '\n' +
-                        '                                        <h3 class="card-title" style="max-height: 24px;overflow: hidden">@title@  </h3>\n' +
-                        '\n' +
-                        '                                        <p class="text-muted" style="max-height: 100px;overflow: hidden;margin-bottom: 0">@about@  </p>\n' +
-                        '                                        <em style="font-weight: 500">@className@</em>\n' +
-                        '\n' +
-                        '                                    </div>\n' +
-                        '                                    <div class="card-footer" style="padding: 0.25rem 1.25rem;background-color: transparent;max-height: 30px;overflow: hidden;white-space: nowrap;">\n' +
-                        '                                        <em class="blog-list-font">@publishDate@</em>\n' +
-                        '                                        <span style="padding-left: 10px;">\n' +
-                        '                                           @tags@' +
-                        '                                        </span>\n' +
-                        '\n' +
-                        '                                    </div>\n' +
-                        '                                </div>\n' +
-                        '                            </div>';
+                    let rows = '';
                     for (let i = 0; i < list.length; i++) {
                         let listElement = list[i];
+
                         if (listElement.tagsName){
 
                             let split = listElement.tagsName.split(",");
                             let tags = '';
                             for (let j = 0; j < split.length; j++) {
-                                tags+='<a class="btn btn-light  btn-pill" style="padding: 0 12px;border: 0 ;font:10px italic;color: rgb(0 0 0 / 20%);background-color: #e6e7e9">'+ split[j]+'</a> ';
+                                tags+='<font class="" style="padding: 0 12px; border: 1px solid;font: 10px italic; color:#ffffffab; border-radius: 14px;">'+ split[j]+'</font> ';
                             }
                             listElement.tags =tags;
+
                         }
-                        let toEleByObj = strToEleByObj(row,listElement);
-                        if (toEleByObj){
-                            body.insertBefore(toEleByObj,blogListHidden);
-                        }
+                        let row ='<div class="col-sm-6 col-lg-4">\n' +
+                            '                                <div class="card blog-list-cursor" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" data-blog-id=" '+listElement.id+' "">\n' +
+                            '                                    <div class="card-img-top img-responsive img-responsive-16x9" style="background-image: url( '+listElement.path+' ),url(/img/4041.jpeg)"></div>\n' +
+                            '\n' +
+                            '                                    <div class="card-body">\n' +
+                            '\n' +
+                            '                                        <h3 class="card-title" style="max-height: 24px;overflow: hidden"> '+listElement.title+'   </h3>\n' +
+                            '\n' +
+                            '                                        <p class="text-muted" style="max-height: 90px;min-height: 90px;overflow: hidden;margin-bottom: 0"> '+listElement.about+'   </p>\n' +
+                            '                                        <em style="font-weight: 500"> '+listElement.className+' </em>\n' +
+                            '\n' +
+                            '                                    </div>\n' +
+                            '                                    <div class="card-footer" style="padding: 0.25rem 1.25rem;background-color: transparent;max-height: 30px;overflow: hidden;white-space: nowrap;">\n' +
+                            '                                        <em class="blog-list-font"> '+listElement.publishDate+' </em>\n' +
+                            '                                        <span style="padding-left: 10px;">\n' +
+                            '                                            '+listElement.tags+' ' +
+                            '                                        </span>\n' +
+                            '\n' +
+                            '                                    </div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>';
+                        rows+=row;
+
                     }
-                    blogListPreHidden(divs);
+
+                    window.requestAnimationFrame(function (e) {
+                        $('#blogListBody').append(rows);
+                    });
+
+                    if (  list.length<pageDataBlogs.pageSize){
+                        window.zScrollObj.blogList=false;
+                    }
+
+
                 }else {
-                    blogListPreHidden(divs);
-                    body.innerHTML ='<h1>没有数据哦~</h1>';
+
                 }
             },
-            beforeSend:function(req){
-                blogListPreBlock(divs);
-                if (!isPaging){
-                    body.innerHTML = '';
-                    for (let i = 0; i < divs.length; i++) {
-                        body.append(divs[i]);
-                    }
-                }
-            },
+
             error:function () {
-                blogListPreHidden(divs);
-                body.innerHTML ='<h1>出了点问题哦~</h1>';
+                $('#blogListBody').html('<h1>一篇文章也没有，去写博客吧~</h1>');
+            },
+            complete:function (e) {
+                $('div[data-z-bloglist-hidden]').hide();
+                pageDataBlogs.p =null;
+               document.getElementById('blogListTimeId').innerText=new Date().getTime() - startTime;
             }
         })
     }
@@ -604,7 +609,7 @@
             blogListIsDeclare.setAttribute('data-blog-selected','0');
             blogListIsDeclare.classList.remove('blog-list-selected');
             $.ajax({
-                url:'/blogs/blogBlogs/get?id='+e.relatedTarget.getAttribute('data-blog-id'),
+                url:'/blogBlogs/get?id='+e.relatedTarget.getAttribute('data-blog-id'),
                 type:'get',
                 success:function (res) {
                     if (res.success){
@@ -644,7 +649,7 @@
             });
             let pageData ={currentPage:'1',pageSize:'500'};
             $.ajax({
-                url:'/blogs/classifyController/list',
+                url:'/classifyController/list',
                 type:'post',
                 data:pageData,
                 success:function (data) {
@@ -654,7 +659,7 @@
                 }
             });
             $.ajax({
-                url:'/blogs/tagsController/list',
+                url:'/tagsController/list',
                 type:'post',
                 data:pageData,
                 success:function (data) {
@@ -667,8 +672,19 @@
 
         //搜索框回车事件绑定
         $('#blogListSearch').bind('keyup', function(event) {
-            if (event.keyCode === "13") {
-                blogGetList(-1,-1,{'like':this.value})
+            if (event.keyCode === 13) {
+
+                let obj ={};
+                let publishDate =  document.getElementById('publishDate').value;
+
+               if (publishDate){
+                   obj.publishDate = publishDate.trim();
+               }
+               if (this.value){
+                   obj.like = this.value.trim();
+               }
+
+                blogGetList(-1,-1,obj)
             }
         });
 

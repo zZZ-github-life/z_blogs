@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.zzzzzzz.mvc.blogs.dao.BlogBlogsMapper">
+
+    <resultMap id="BaseResultMap" type="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="is_original" jdbcType="BIT" property="isOriginal" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="classify_id" jdbcType="INTEGER" property="classifyId" />
+        <result column="tags_ids" jdbcType="VARCHAR" property="tagsIds" />
+        <result column="gallery_id" jdbcType="INTEGER" property="galleryId" />
+        <result column="publish_date" jdbcType="TIMESTAMP" property="publishDate" />
+        <result column="is_praise" jdbcType="BIT" property="isPraise" />
+        <result column="is_up" jdbcType="BIT" property="isUp" />
+        <result column="is_review" jdbcType="BIT" property="isReview" />
+        <result column="is_declare" jdbcType="BIT" property="isDeclare" />
+        <result column="is_public" jdbcType="BIT" property="isPublic" />
+        <result column="is_draft" jdbcType="BIT" property="isDraft" />
+        <result column="words" jdbcType="INTEGER" property="words" />
+        <result column="duration" jdbcType="VARCHAR" property="duration" />
+        <result column="hits" jdbcType="INTEGER" property="hits" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="content_md" jdbcType="VARCHAR" property="contentMd" />
+        <result column="content_html" jdbcType="VARCHAR" property="contentHtml" />
+        <result column="href" jdbcType="VARCHAR" property="href" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="href" />
+        <result column="about" jdbcType="VARCHAR" property="about" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+      id, is_original, title, classify_id, tags_ids, gallery_id, publish_date, is_praise,
+      is_up, is_review, is_declare, is_public, is_draft, words, duration, hits,  href,update_time,about,content_html
+    </sql>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+      delete from blog_blogs
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="findList" parameterType="map" resultType="map">
+        select  b.id,  b.title as title,b.about,b.publish_date as publishDate ,
+        b.is_original as isOriginal,
+        b.href href,bg.path as path   from blog_blogs b left join blog_gallery  bg on b.gallery_id =bg.id
+        <include refid="findPageWithWhere" />
+
+        <if test="order !=null">
+            order by ${order}
+        </if>
+        <if test=" start != null and start != '' ">
+            limit #{start},#{pageSize}
+        </if>
+
+    </select>
+
+
+    <insert id="insert" parameterType="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs">
+
+        <selectKey keyProperty="id" order="AFTER" resultType="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        insert into blog_blogs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="isOriginal != null">
+                is_original,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="classifyId != null">
+                classify_id,
+            </if>
+            <if test="tagsIds != null">
+                tags_ids,
+            </if>
+            <if test="galleryId != null">
+                gallery_id,
+            </if>
+            <if test="publishDate != null">
+                publish_date,
+            </if>
+            <if test="isPraise != null">
+                is_praise,
+            </if>
+            <if test="isUp != null">
+                is_up,
+            </if>
+            <if test="isReview != null">
+                is_review,
+            </if>
+            <if test="isDeclare != null">
+                is_declare,
+            </if>
+            <if test="isPublic != null">
+                is_public,
+            </if>
+            <if test="isDraft != null">
+                is_draft,
+            </if>
+            <if test="words != null">
+                words,
+            </if>
+            <if test="duration != null">
+                duration,
+            </if>
+            <if test="hits != null">
+                hits,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="contentMd != null">
+                content_md,
+            </if>
+            <if test="contentHtml != null">
+                content_html,
+            </if>
+            <if test="href != null">
+                href,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="about != null">
+                about,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="isOriginal != null">
+                #{isOriginal,jdbcType=BIT},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="classifyId != null">
+                #{classifyId,jdbcType=INTEGER},
+            </if>
+            <if test="tagsIds != null">
+                #{tagsIds,jdbcType=VARCHAR},
+            </if>
+            <if test="galleryId != null">
+                #{galleryId,jdbcType=INTEGER},
+            </if>
+            <if test="publishDate != null">
+                #{publishDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isPraise != null">
+                #{isPraise,jdbcType=BIT},
+            </if>
+            <if test="isUp != null">
+                #{isUp,jdbcType=BIT},
+            </if>
+            <if test="isReview != null">
+                #{isReview,jdbcType=BIT},
+            </if>
+            <if test="isDeclare != null">
+                #{isDeclare,jdbcType=BIT},
+            </if>
+            <if test="isPublic != null">
+                #{isPublic,jdbcType=BIT},
+            </if>
+            <if test="isDraft != null">
+                #{isDraft,jdbcType=BIT},
+            </if>
+            <if test="words != null">
+                #{words,jdbcType=INTEGER},
+            </if>
+            <if test="duration != null">
+                #{duration,jdbcType=VARCHAR},
+            </if>
+            <if test="hits != null">
+                #{hits,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="contentMd != null">
+                #{contentMd,jdbcType=VARCHAR},
+            </if>
+            <if test="contentHtml != null">
+                #{contentHtml,jdbcType=VARCHAR},
+            </if>
+            <if test="href != null">
+                #{href,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="about != null">
+               #{about,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="update" parameterType="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs">
+        update blog_blogs
+        <set>
+            <if test="isOriginal != null">
+                is_original = #{isOriginal,jdbcType=BIT},
+            </if>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="classifyId != null">
+                classify_id = #{classifyId,jdbcType=INTEGER},
+            </if>
+            <if test="tagsIds != null">
+                tags_ids = #{tagsIds,jdbcType=VARCHAR},
+            </if>
+            <if test="galleryId != null">
+                gallery_id = #{galleryId,jdbcType=INTEGER},
+            </if>
+            <if test="publishDate != null">
+                publish_date = #{publishDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isPraise != null">
+                is_praise = #{isPraise,jdbcType=BIT},
+            </if>
+            <if test="isUp != null">
+                is_up = #{isUp,jdbcType=BIT},
+            </if>
+            <if test="isReview != null">
+                is_review = #{isReview,jdbcType=BIT},
+            </if>
+            <if test="isDeclare != null">
+                is_declare = #{isDeclare,jdbcType=BIT},
+            </if>
+            <if test="isPublic != null">
+                is_public = #{isPublic,jdbcType=BIT},
+            </if>
+            <if test="isDraft != null">
+                is_draft = #{isDraft,jdbcType=BIT},
+            </if>
+            <if test="words != null">
+                words = #{words,jdbcType=INTEGER},
+            </if>
+            <if test="duration != null">
+                duration = #{duration,jdbcType=VARCHAR},
+            </if>
+            <if test="hits != null">
+                hits = #{hits,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="contentMd != null">
+                content_md = #{contentMd,jdbcType=VARCHAR},
+            </if>
+            <if test="contentHtml != null">
+                content_html = #{contentHtml,jdbcType=VARCHAR},
+            </if>
+            <if test="href != null">
+                href = #{href,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="about != null">
+                about = #{about,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+    <update id="updateByPrimaryKey" parameterType="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs">
+  update blog_blogs
+  set is_original = #{isOriginal,jdbcType=BIT},
+    title = #{title,jdbcType=VARCHAR},
+    classify_id = #{classifyId,jdbcType=INTEGER},
+    tags_ids = #{tagsIds,jdbcType=VARCHAR},
+    gallery_id = #{galleryId,jdbcType=INTEGER},
+    publish_date = #{publishDate,jdbcType=TIMESTAMP},
+    is_praise = #{isPraise,jdbcType=BIT},
+    is_up = #{isUp,jdbcType=BIT},
+    is_review = #{isReview,jdbcType=BIT},
+    is_declare = #{isDeclare,jdbcType=BIT},
+    is_public = #{isPublic,jdbcType=BIT},
+    is_draft = #{isDraft,jdbcType=BIT},
+    words = #{words,jdbcType=INTEGER},
+    duration = #{duration,jdbcType=VARCHAR},
+    hits = #{hits,jdbcType=INTEGER},
+    content = #{content,jdbcType=VARCHAR},
+    content_md = #{contentMd,jdbcType=VARCHAR},
+    content_html = #{contentHtml,jdbcType=VARCHAR},
+    href = #{href,jdbcType=VARCHAR},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    about = #{about,jdbcType=VARCHAR}
+  where id = #{id,jdbcType=INTEGER}
+</update>
+
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from  blog_blogs
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <sql id="findPageWithWhere">
+        <where> 1=1
+            <if test="id != null" >
+                and id = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="isOriginal != null" >
+                and is_original = #{isOriginal,jdbcType=BIT}
+            </if>
+            <if test="title != null and title != ''" >
+                and title = #{title,jdbcType=VARCHAR}
+            </if>
+            <if test="classifyId != null" >
+                and classify_id = #{classifyId,jdbcType=INTEGER}
+            </if>
+            <if test="tagsIds != null and tagsIds != ''" >
+                and tags_ids = #{tagsIds,jdbcType=VARCHAR}
+            </if>
+            <if test="galleryId != null" >
+                and gallery_id = #{galleryId,jdbcType=INTEGER}
+            </if>
+            <if test="publishDate != null" >
+                and publish_date = #{publishDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="isPraise != null" >
+                and is_praise = #{isPraise,jdbcType=BIT}
+            </if>
+            <if test="isUp != null" >
+                and is_up = #{isUp,jdbcType=BIT}
+            </if>
+            <if test="isReview != null" >
+                and is_review = #{isReview,jdbcType=BIT}
+            </if>
+            <if test="isDeclare != null" >
+                and is_declare = #{isDeclare,jdbcType=BIT}
+            </if>
+            <if test="isPublic != null" >
+                and is_public = #{isPublic,jdbcType=BIT}
+            </if>
+            <if test="isDraft != null" >
+                and is_draft = #{isDraft,jdbcType=BIT}
+            </if>
+            <if test="words != null" >
+                and words = #{words,jdbcType=INTEGER}
+            </if>
+            <if test="duration != null and duration != ''" >
+                and duration = #{duration,jdbcType=VARCHAR}
+            </if>
+            <if test="hits != null" >
+                and hits = #{hits,jdbcType=INTEGER}
+            </if>
+            <if test="content != null and content != ''" >
+                and content = #{content,jdbcType=VARCHAR}
+            </if>
+            <if test="contentMd != null and contentMd != ''" >
+                and content_md = #{contentMd,jdbcType=VARCHAR}
+            </if>
+            <if test="contentHtml != null and contentHtml != ''" >
+                and content_html = #{contentHtml,jdbcType=VARCHAR}
+            </if>
+            <if test="href != null and href != ''" >
+                and href = #{href,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null" >
+                and update_time = #{updateTime,jdbcType=VARCHAR}
+            </if>
+            <if test="about != null" >
+                and about = #{about,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+
+
+    <sql id="pageFindPageWithWhere">
+        <where> 1=1
+            <if test="p.id != null" >
+                and id = #{p.id,jdbcType=INTEGER}
+            </if>
+            <if test="p.isOriginal != null" >
+                and is_original = #{p.isOriginal,jdbcType=BIT}
+            </if>
+            <if test="p.title != null and p.title != ''" >
+                and title = #{p.title,jdbcType=VARCHAR}
+            </if>
+            <if test="p.classifyId != null" >
+                and classify_id = #{p.classifyId,jdbcType=INTEGER}
+            </if>
+            <if test="p.tagsIds != null and p.tagsIds != ''" >
+                and tags_ids = #{p.tagsIds,jdbcType=VARCHAR}
+            </if>
+            <if test="p.galleryId != null" >
+                and gallery_id = #{p.galleryId,jdbcType=INTEGER}
+            </if>
+            <if test="p.publishDate != null" >
+                and publish_date = #{p.publishDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="p.isPraise != null" >
+                and is_praise = #{p.isPraise,jdbcType=BIT}
+            </if>
+            <if test="p.isUp != null" >
+                and is_up = #{p.isUp,jdbcType=BIT}
+            </if>
+            <if test="p.isReview != null" >
+                and is_review = #{p.isReview,jdbcType=BIT}
+            </if>
+            <if test="p.isDeclare != null" >
+                and is_declare = #{p.isDeclare,jdbcType=BIT}
+            </if>
+            <if test="p.isPublic != null" >
+                and is_public = #{p.isPublic,jdbcType=BIT}
+            </if>
+            <if test="p.isDraft != null" >
+                and is_draft = #{p.isDraft,jdbcType=BIT}
+            </if>
+            <if test="p.words != null" >
+                and words = #{p.words,jdbcType=INTEGER}
+            </if>
+            <if test="p.duration != null and p.duration != ''" >
+                and duration = #{p.duration,jdbcType=VARCHAR}
+            </if>
+            <if test="p.hits != null" >
+                and hits = #{p.hits,jdbcType=INTEGER}
+            </if>
+            <if test="p.content != null and p.content != ''" >
+                and content = #{p.content,jdbcType=VARCHAR}
+            </if>
+            <if test="p.contentMd != null and p.contentMd != ''" >
+                and content_md = #{p.contentMd,jdbcType=VARCHAR}
+            </if>
+            <if test="p.contentHtml != null and p.contentHtml != ''" >
+                and content_html = #{p.contentHtml,jdbcType=VARCHAR}
+            </if>
+            <if test="p.href != null and p.href != ''" >
+                and href = #{p.href,jdbcType=VARCHAR}
+            </if>
+            <if test="p.updateTime != null" >
+                and update_time = #{p.updateTime,jdbcType=VARCHAR}
+            </if>
+            <if test="p.about != null" >
+                and about = #{p.about,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+
+
+    <select id="findPageWithResult" parameterType="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from  blog_blogs
+        <include refid="pageFindPageWithWhere" />
+        limit #{start},#{pageSize}
+    </select>
+
+
+    <select id="findPageWithCount" parameterType="online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs" resultType="Integer">
+        select count(1)
+        from blog_blogs
+        <include refid="pageFindPageWithWhere" />
+    </select>
+
+
+    <select id="getListByParam" resultType="map" parameterType="map">
+        select
+            x.id id,max(x.about) about ,max(x.path) path,
+            max(x.tagsIds) tagsIds,
+            max(x.className) className,
+            Date_format(max(x.publishDate),'%Y/%m/%d') publishDate,
+            max(x.title) title,
+            max(x.publishDate) publishDate,
+            href,
+            group_concat(y.tags_name) as tagsName
+        from (
+                select
+                     b.id,  b.title,b.content,b.publish_date as publishDate ,
+                     b.is_original as isOriginal,b.is_up as isUp, b.href href,b.about about,
+                     a.path,c.classify_name as className ,b.tags_ids as tagsIds
+                from blog_blogs b
+                left join blog_gallery a on b.gallery_id =a.id left join blog_classify c on b.classify_id = c.id
+                <where>
+                    1=1
+                    <if test="p!= null">
+                        <if test=" p.like != null and p.like != '' ">
+                            and
+                            b.title like concat('%',#{p.like},'%')
+                            or
+                            b.content like concat('%',#{p.like},'%')
+                        </if>
+
+
+                        <if test="p.isOriginal !=null">
+                            and  b.is_original =#{p.isOriginal}
+                        </if>
+                        <if test="p.isUp !=null">
+                            and  b.is_up =#{p.isUp}
+                        </if>
+                        <if test="p.isDraft !=null">
+                            and  b.is_draft =#{p.isDraft}
+                        </if>
+
+                        <if test="p.publishDate !=null and p.publishDate != '' ">
+                            and  b.publish_date like concat('%',#{p.publishDate},'%')
+                        </if>
+
+                    </if>
+
+
+                    <if test="isOriginal !=null">
+                        and  b.is_original =#{isOriginal}
+                    </if>
+                    <if test="isUp !=null">
+                        and  b.is_up =#{isUp}
+                    </if>
+                    <if test="isDraft !=null">
+                        and  b.is_draft =#{isDraft}
+                    </if>
+                </where>
+        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by publishDate desc
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="getListForRESSAndSearch" resultType="map" parameterType="map">
+        select
+        x.id id,max(x.about) about ,
+        max(x.tagsIds) tagsIds,
+        max(x.className) className,
+        Date_format(max(x.publishDate),'%Y/%m/%d') publishDate,
+        max(x.title) title,
+        max(x.publishDate) publishDate,
+        max(x.contentHtml) contentHtml,
+        href,
+        group_concat(y.tags_name) as tagsName
+        from (
+        select
+        b.id,  b.title,b.content,b.publish_date as publishDate ,
+        b.is_original as isOriginal,b.is_up as isUp, b.href href,b.about,c.classify_name as className ,b.tags_ids as tagsIds ,b.content_html contentHtml
+        from blog_blogs b
+        left join blog_classify c on b.classify_id = c.id
+        <where>
+            1=1
+            <if test="like != null and like != '' ">
+                and
+                b.title like concat('%',#{like},'%')
+                or
+                b.content like content('%',#{like},'%')
+            </if>
+            <if test="isOriginal !=null">
+                and  b.is_original =#{isOriginal}
+            </if>
+            <if test="isUp !=null">
+                and  b.is_up =#{isUp}
+            </if>
+            <if test="isDraft !=null">
+                and  b.is_draft =#{isDraft}
+            </if>
+        </where>
+        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by publishDate desc
+        limit #{start},#{pageSize}
+    </select>
+
+
+    <select id="getCountByParam" parameterType="map" resultType="Integer">
+        select
+            count(1)
+        from blog_blogs b
+
+        <where>
+            1=1
+            <if test="like != null and like != '' ">
+            and
+                b.title like concat('%',#{like},'%')
+                or
+                b.content like concat('%',#{like},'%')
+            </if>
+            <if test="isOriginal !=null">
+                and  b.is_original =#{isOriginal}
+            </if>
+            <if test="isUp !=null">
+                and  b.is_up =#{isUp}
+            </if>
+            <if test="isDraft !=null">
+                and  b.is_draft =#{isDraft}
+            </if>
+        </where>
+    </select>
+
+    <select id="get" resultType="map">
+        select title , content_html as contentHtml  from   blog_blogs where id  = #{id}
+    </select>
+
+
+
+
+
+    <select id="findListRESSAndSearch" parameterType="map" resultType="map">
+        select  b.id,  b.title as title,b.about,b.publish_date as publishDate ,b.content_html contentHtml
+        b.is_original as isOriginal,
+        b.href href,bg.path as path   from blog_blogs b left join blog_gallery  bg on b.gallery_id =bg.id
+        <include refid="findPageWithWhere" />
+
+        <if test="order !=null">
+            order by ${order}
+        </if>
+        <if test=" start != null and start != '' ">
+            limit #{start},#{pageSize}
+        </if>
+
+    </select>
+
+</mapper>

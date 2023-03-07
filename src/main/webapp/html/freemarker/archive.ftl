@@ -22,12 +22,15 @@
 
 <!--banner-->
 <div class="height-475px" style="margin-top: -75px">
-    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(${basePath}/medias/banner/1.jpg);visibility: visible">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                     <div class="brand">
                         <h1 class="blog-text-center blog-title">时光轴</h1>
+                        <div class="description center-align">
+                            <span class="z-blog-poetry" data-aos="zoom-in"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,9 @@
                             <div class="article col s12 m6">
                                 <div class="card horizontal">
                                     <div class="card-image">
-                                        <img  src="${blog.path}" alt="${blog.title}">
+                                        <a href="${blog.href}" target="_blank">
+                                            <img  src="${blog.path}" alt="${blog.title}">
+                                        </a>
                                     </div>
                                     <div class="card-stacked">
                                         <div class="card-content ">
@@ -86,7 +91,7 @@
                                         <div class="card-action">
 
                                             <#list blog.tagsName?split(",") as tagName>
-                                                <a href="/tags/${tagName}/" target="_blank">
+                                                <a href="#" target="_blank"  onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                     <span class="tags-m bg-color">${tagName}</span>
                                                 </a>
                                             </#list>
@@ -110,7 +115,9 @@
                                 <div class="article col s12 m6">
                                     <div class="card horizontal">
                                         <div class="card-image">
-                                            <img  src="${blog.path}" alt="${blog.title}">
+                                            <a href="${blog.href}" target="_blank">
+                                                <img  src="${blog.path}" alt="${blog.title}">
+                                            </a>
                                         </div>
                                         <div class="card-stacked">
                                             <div class="card-content">
@@ -118,7 +125,7 @@
                                             </div>
                                             <div class="card-action">
                                                 <#list blog.tagsName?split(",") as tagName>
-                                                    <a href="/tags/${tagName}/" target="_blank">
+                                                    <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                         <span class="tags-m bg-color">${tagName}</span>
                                                     </a>
                                                 </#list>
@@ -140,7 +147,9 @@
                                 <div class="article col s12 m6">
                                     <div class="card horizontal">
                                         <div class="card-image">
-                                            <img  src="${blog.path}" alt="${blog.title}">
+                                            <a href="${blog.href}" target="_blank">
+                                                <img  src="${blog.path}" alt="${blog.title}">
+                                            </a>
                                         </div>
                                         <div class="card-stacked">
                                             <div class="card-content">
@@ -148,7 +157,7 @@
                                             </div>
                                             <div class="card-action">
                                                 <#list blog.tagsName?split(",") as tagName>
-                                                    <a href="/tags/${tagName}/" target="_blank">
+                                                    <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                         <span class="tags-m bg-color">${tagName}</span>
                                                     </a>
                                                 </#list>
@@ -170,7 +179,7 @@
 </main>
 
 <!--下一页-->
-<#if (total > currentLines) >
+
     <div class="container paging">
     <div class="row">
         <div class="loading-m loading-hover progress">
@@ -179,16 +188,17 @@
         </div>
     </div>
 </div>
-</#if>
 
 
 
-<script type="text/javascript" src="/blogs/libs/echarts/echarts.min.js"></script>
+
+<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>
 <script type="text/javascript">
     $(function (e) {
         let pageData={currentLines:${currentLines},pageSize:10};
         let myChart = echarts.init(document.getElementById('post-calendar'));
         let option = {
+
             title: {
                 top: 0,
                 text: '时光轴',
@@ -225,7 +235,7 @@
             },
             calendar: [{
                 left: 'right',
-                range: ["2021-11-30", "2023-11-30"],
+                range: ["2023-01-01", "2023-12-31"],
                 cellSize: [13, 13],
                 splitLine: {
                     show: false
@@ -267,82 +277,90 @@
                 coordinateSystem: 'calendar',
                 calendarIndex: 0,
                 data: [
+                    ["2023-01-01",0]
                     <#if heatmap??  && (heatmap?size > 0)  >
                     <#list heatmap as heat >
-                    ["${heat.date}", ${heat.num}],
+                   , ["${heat.date}", ${heat.num}]
                     </#list>
                     </#if>
-
-
                 ]
             }]
+
         };
         myChart.setOption(option);
 
+
+
+        if (pageData.currentLines <20){
+            commentList(pageData.currentLines,10,pageData,false,loading_m,loaded_m());
+        }
+
         document.querySelector(".loading-m").addEventListener('click',function (e) {
-            pageData.pageSize=12;
+            pageData.pageSize=10;
             commentList( pageData.currentLines, pageData.pageSize,pageData,false,loading_m,loaded_m);
 
+        });
 
-            function commentList(currentLines,pageSize,queryPerm,async,beforeCallback,successCallback) {
-                $.ajax({
-                    async:!async,
-                    url:'${basePath}/blogBlogs/archiveList',
-                    type:'post',
-                    dataType: "json",
-                    contentType: "application/json;charset=utf-8",
-                    data:JSON.stringify({currentLines:currentLines,pageSize:pageSize,p:queryPerm.p}),
-                    beforeSend:function(xhr){
-                        if (beforeCallback){
-                            beforeCallback()
+        function commentList(currentLines,pageSize,queryPerm,async,beforeCallback,successCallback) {
+            $.ajax({
+                async:!async,
+                url:'${basePath}/blogBlogs/archiveList',
+                type:'post',
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                data:JSON.stringify({currentLines:currentLines,pageSize:pageSize,p:queryPerm.p}),
+                beforeSend:function(xhr){
+                    if (beforeCallback){
+                        beforeCallback()
+                    }
+
+                },
+                success:function (res) {
+
+                    //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
+                    if (res.success){
+                        let strHtml = res.data.data;
+
+                        document.querySelector('#cd-timeline').insertAdjacentHTML("beforeend",strHtml);
+                        pageData.pageTotal =  res.data.count;
+
+                        if (successCallback){
+                            successCallback()
                         }
-
-                    },
-                    success:function (res) {
-
-                        //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
-                        if (res.success){
-                            let strHtml = res.data.data;
-                            if ( res.data.code===0){
-                                loaded_rem();
-                            }
-
-                            document.querySelector('#cd-timeline').insertAdjacentHTML("beforeend",strHtml);
-                            pageData.pageTotal =  res.data.count;
-
-
-                            if (successCallback){
-                                successCallback()
-                            }
-                            //设置加载按钮
-                            if (res.data.size<pageSize){
-                                loaded_rem();
-                            }
-                            pageData.currentLines+=pageSize;
-
+                        //设置加载按钮
+                        if (res.data.size<pageSize || !strHtml ){
+                            loaded_rem();
                         }else {
-                            M.toast({
-                                htmlTitle: '出了点问题~',
-                                htmlBody: '<(＿　＿)> 联系博主看看吧...',
-                            });
+                            loaded_m();
                         }
+                        pageData.currentLines+=pageSize;
 
-                    },
-                    complete:function () {
-
-                    } ,
-                    error:function (data) {
+                    }else {
                         M.toast({
                             htmlTitle: '出了点问题~',
-                            htmlBody: '好像断开连接了，是不是断网了...',
+                            htmlBody: '<(＿　＿)> 联系博主看看吧...',
                         });
                     }
 
-                });
-            }
+                },
+                complete:function () {
+
+                } ,
+                error:function (data) {
+                    M.toast({
+                        htmlTitle: '出了点问题~',
+                        htmlBody: '好像断开连接了，是不是断网了...',
+                    });
+                }
+
+            });
+        }
 
 
 
-        });
+        <#if loading >
+             loaded_rem();
+        </#if>
+
     })
 </script>

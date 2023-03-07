@@ -1,46 +1,37 @@
-<head>
-    <title></title>
-    <style type="text/css">
-        .test{
-            width:200px;
-            height:30px;
-            border:1px solid grey;
-        }
-        .test:empty::before{
-            color:lightgrey;
-            content:attr(placeholder);
-            padding-left: 6px;
-            font-size: 12px;
-        }
-    </style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQCloud Example</title>
+        <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+        <script type="text/javascript" src="/libs/jquery/jquery.min.js"></script><!--jq-->
+        <script type="text/javascript" src="/libs/jqcloud/jqcloud.js"></script>
+        <script type="text/javascript">
+            /*!
+             * Create an array of word objects, each representing a word in the cloud
+             */
+            var word_array = [
+                {text: "Lorem", weight: 15},
+                {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
+                {text: "Dolor", weight: 6, link: "#", html: {title: "I can haz any html attribute",onclick:'pjax("/ddd/dd",0)'}},
+                {text: "Sit", weight: 7},
+                {text: "Amet", weight: 5}
+                // ...as many words as you want
+            ];
 
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-</head>
-<body>
-    <button onclick="abc()">按钮</button>
-    <div class="test" contenteditable placeholder="请输入文字"></div>
-
-    <div class="progress">
-        <div class="indeterminate"></div>
-    </div>
-
+            $(function() {
+                // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+                $("#example").jQCloud(word_array);
+            });
+        </script>
+    </head>
+    <body>
+        <!-- You should explicitly specify the dimensions of the container element -->
+        <div id="example" style="width: 550px; height: 350px;"></div>
+    </body>
     <script>
-        function abc(a,b) {
-
-            console.log(abc.caller);
-
-        }
-        function on() {
-            abc(function () {
-                console.log(this)
-            })
+        function pjax(a,b) {
+            console.log(a,b)
 
         }
     </script>
-</body>
 </html>

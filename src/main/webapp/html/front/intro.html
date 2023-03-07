@@ -22,16 +22,16 @@
     <title>关于 | 闪烁之狐</title>
     <link rel="icon" type="image/png" href="../favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/blogs/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="https://zz.bdstatic.com/linksubmit/push.js"></script>
-    <script src="/blogs/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
     <meta name="generator" content="Hexo 5.2.0">
     <link rel="alternate" href="/atom.xml" title="闪烁之狐" type="application/atom+xml">
@@ -73,7 +73,7 @@
 <script  >
     //开发模式下用此种方式加载 外部html，略微降低性能
     let blogs_xhr_1 = new XMLHttpRequest();
-    blogs_xhr_1.open('get','http://localhost:8853/blogs/html/front/1_header.html',false);
+    blogs_xhr_1.open('get','http://localhost:8853/html/front/1_header.html',false);
     blogs_xhr_1.onreadystatechange = function () {
         if(blogs_xhr_1.readyState === 4 ){
             document.write(blogs_xhr_1.responseText)
@@ -89,7 +89,7 @@
     }
 </style>
 
-<div class="bg-cover pd-header about-cover" style="background-image: url(&quot;/blogs/medias/banner/1.jpg&quot;);">
+<div class="bg-cover pd-header about-cover" style="background-image: url(&quot;/medias/banner/1.jpg&quot;);">
     <div class="container">
         <div class="row">
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -124,7 +124,7 @@
 
         <script>
             // 每天切换 banner 图.  Switch banner image every day.
-            var bannerUrl = "/blogs/medias/banner/" + new Date().getDay() + '.jpg';
+            var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
             $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
         </script>
 
@@ -191,7 +191,7 @@
                     <div class="col s12 m12 l4">
                         <div class="profile center-align">
                             <div class="avatar">
-                                <img src="/blogs/medias/avatar.jpg" alt="blinkfox" class="circle responsive-img avatar-img">
+                                <img src="/medias/avatar.jpg" alt="blinkfox" class="circle responsive-img avatar-img">
                             </div>
                             <div class="author">
                                 <div class="post-statis hide-on-large-only aos-init aos-animate"
@@ -338,7 +338,7 @@
                     </div>
                 </div>
 
-                <script type="text/javascript" src="/blogs/libs/echarts/echarts.min.js"></script>
+                <script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
                 <script>
                     let postsChart = echarts.init(document.getElementById('posts-chart'));
                     let categoriesChart = echarts.init(document.getElementById('categories-chart'));
@@ -857,7 +857,7 @@
 
 <footer class="page-footer bg-color">
 
-    <link rel="stylesheet" href="/blogs/libs/aplayer/APlayer.min.css">
+    <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
     <style>
         .aplayer .aplayer-lrc p {
 
@@ -893,7 +893,7 @@
         </div>
     </div>
 
-    <script src="/blogs/libs/aplayer/APlayer.min.js"></script>
+    <script src="/libs/aplayer/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
 
@@ -1114,12 +1114,12 @@
 </div>
 
 
-<script src="/blogs/libs/materialize/materialize.min.js"></script>
-<script src="/blogs/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/blogs/libs/aos/aos.js"></script>
-<script src="/blogs/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/blogs/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/blogs/js/matery.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
 
 <!-- Baidu Analytics -->
 
@@ -1140,17 +1140,17 @@
 </script>
 
 
-<script src="/blogs/libs/others/clicklove.js" async="async"></script>
+<script src="/libs/others/clicklove.js" async="async"></script>
 
 
-<script async="" src="/blogs/libs/others/busuanzi.pure.mini.js"></script>
+<script async="" src="/libs/others/busuanzi.pure.mini.js"></script>
 
 
-<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="/blogs/libs/background/ribbon-refresh.min.js"
+<script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="/libs/background/ribbon-refresh.min.js"
         async="async"></script>
 
 
-<script src="/blogs/libs/instantpage/instantpage.js" type="module"></script>
+<script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
 <canvas width="1920" height="945"

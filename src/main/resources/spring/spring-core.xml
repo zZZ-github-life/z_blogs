@@ -3,15 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="
 
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+">
 
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
 
-    <context:component-scan base-package="online.zouxiaolong.mvc.*.dao,online.zouxiaolong.mvc.*.service">
+    <context:component-scan base-package="online.zzzzzzz.mvc.*.dao,online.zzzzzzz.mvc.*.service">
         <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
     </context:component-scan><!--多个包用逗号分隔-->
 
@@ -26,13 +29,13 @@
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:/mybatis/mybatis-core.xml"/>
-        <property name="mapperLocations" value="classpath*:/online/zouxiaolong/mvc/**/dao/xml/*.xml"/>
+        <property name="mapperLocations" value="classpath*:/online/zzzzzzz/mvc/**/dao/xml/*.xml"/>
     </bean>
 
     <!--根据dao接口，生成对应的代理实现类，不然service层无法通过接口的方式注入依赖-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
-        <property name="basePackage" value="online.zouxiaolong.mvc.**.dao"/>
+        <property name="basePackage" value="online.zzzzzzz.mvc.**.dao"/>
     </bean>
 
     <!--事务管理器-->
@@ -58,15 +61,31 @@
             </list>
         </property>
 
+      
         <property name="defaultEncoding" value="utf-8" />
 
+        <!--freemarker 全局变量设置-->
         <property name="freemarkerVariables">
             <map>
                 <entry key="basePath" value="${base.path}" />
             </map>
         </property>
+
+        <!--全局空值处理-->
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="classic_compatible">true</prop>
+            </props>
+        </property>
     </bean>
 
-    <bean class="online.zouxiaolong.basics.listener.InitResource"  destroy-method="PreDestroy"/>
+    <!--开启注解模式 定时任务 （也可配置xml模式）-->
+    <task:annotation-driven/>
+
+    <!--加载资源-->
+    <bean class="online.zzzzzzz.basics.listener.InitResource" destroy-method="PreDestroy"/>
+
+    <!--定时任务-->
+    <bean class="online.zzzzzzz.mvc.sys.Task"/>
 
 </beans>

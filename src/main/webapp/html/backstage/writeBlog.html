@@ -8,15 +8,15 @@
     <head>
         <meta charset="UTF-8">
         <title>随便写点什么吧~</title>
-        <link href="/blogs/tabler/dist/css/tabler.css" rel="stylesheet"/>
-        <link href="/blogs/css/main.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="/blogs/libs/EditorMD/css/editormd.css" />
+        <link href="/tabler/dist/css/tabler.css" rel="stylesheet"/>
+        <link href="/css/main.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/libs/EditorMD/css/editormd.css" />
 
-        <script src="/blogs/libs/jquery/jquery.min.js" ></script> <!--jq-->
-        <script src="/blogs/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
-        <script src="/blogs/tabler/dist/js/tabler.min.js"></script>
-        <script src="/blogs/libs/EditorMD/editormd.js"></script>
-        <script src="/blogs/js/backstage.js"></script>
+        <script src="/libs/jquery/jquery.min.js" ></script> <!--jq-->
+        <script src="/tabler/dist/libs/litepicker/dist/litepicker.js"></script>
+        <script src="/tabler/dist/js/tabler.min.js"></script>
+        <script src="/libs/EditorMD/editormd.js"></script>
+        <script src="/js/backstage.js"></script>
         <style>
             /*  博客编辑区 滚动文字*/
             /*预览按钮*/
@@ -144,7 +144,7 @@
             .col-child {
                 width: 100%;
                 border-radius: 5px;
-                background-color: blue;
+                background-color: #cbd5e1;
                 display: block;
             }
 
@@ -429,7 +429,7 @@
                 //u获取分类标签列表
                 let pageData ={currentPage:'1',pageSize:'500'};
                 $.ajax({
-                    url:'/blogs/classifyController/list',
+                    url:'/classifyController/list',
                     type:'post',
                     data:pageData,
                     success:function (data) {
@@ -439,7 +439,7 @@
                     }
                 });
                 $.ajax({
-                    url:'/blogs/tagsController/list',
+                    url:'/tagsController/list',
                     type:'post',
                     data:pageData,
                     success:function (data) {
@@ -487,7 +487,7 @@
                 let options = {
                     width  : "100%",
                     height : "91.5vh",
-                    path   : "/blogs/libs/EditorMD/lib/",
+                    path   : "/libs/EditorMD/lib/",
                     placeholder:"",
                     autoFocus:true, //是否自动获取焦点
                     editorTheme:"base16-light",  //编辑窗口主题
@@ -529,7 +529,7 @@
                         $('.CodeMirror-code').children().eq(0).remove();
 
                         // 引入插件 执行监听方法
-                        editormd.loadPlugin("/blogs/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
+                        editormd.loadPlugin("/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
                             // 初始化插件 实现监听
                             editor_s.CodeAutoSave();
                         });

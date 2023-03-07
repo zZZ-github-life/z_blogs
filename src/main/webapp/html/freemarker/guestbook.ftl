@@ -6,8 +6,8 @@
 
 <title>留言板 | zZZ....</title>
 
-<link rel="stylesheet" type="text/css" href="/blogs/css/guestbook_style.css">
-<link rel="stylesheet" type="text/css" href="/blogs/css/guestbook.css">
+<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook_style.css">
+<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.css">
 
 <style type="text/css">
     .heart {
@@ -43,7 +43,7 @@
     /*留言板 背景图*/
     #valine_container textarea {
         box-sizing: border-box;
-        background: url(/blogs/medias/comment_bg.png) 100% 100% no-repeat;
+        background: url(${basePath}/medias/comment_bg.png) 100% 100% no-repeat;
     }
     .bottom-main{
         padding-bottom: 1.6rem;
@@ -86,12 +86,15 @@
 
 <!--banner-->
 <div class="height-475px" style="margin-top: -75px">
-    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(/blogs/medias/banner/1.jpg);visibility: visible">
+    <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image: url(${basePath}/medias/banner/1.jpg);visibility: visible">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                     <div class="brand">
-                        <h1 class="blog-text-center blog-title">标题</h1>
+                        <h1 class="blog-text-center blog-title">留言板</h1>
+                        <div class="description center-align">
+                            <span class="z-blog-poetry" data-aos="zoom-in"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,10 +116,10 @@
             <div class="card-content">
                 <div data-aos="fade-in"  >
                     <div class="tag-title left-align">
-                        <i class="fas fa-tags"></i>&nbsp;&nbsp;留言板
+                        <i class="fas fa-tags"></i>&nbsp;&nbsp;既然来了，就留下足迹吧～
                     </div>
                     <hr/>
-                    <p>既然来了，就留下足迹吧～</p>
+                    <p >今天天气晴朗，</p>
                 </div>
             </div>
         </div>
@@ -131,8 +134,8 @@
 
                     <div id="valine_container" class="valine_thread v" data-class="v">
                         <div class="vpanel" data-self-id="-1">
-                            <input name="headShot" id="blog_headShot" hidden>
-                            <input name="blogId" id="blog_blogId" value="-1" hidden>
+                            <input name="headShot" id="blog_headShot" hidden/>
+                            <input name="blogId" id="blog_blogId" value="-1" hidden/>
                             <div class="vwrap">
                                 <p class="cancel-reply text-right" style="display: none;" title="取消回复">
                                     <svg class="vicon cancel-reply-btn" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4220" width="22" height="22">
@@ -141,7 +144,9 @@
                                     </svg>
                                 </p>
                                 <div class="vheader item3">
-                                    <input name="nickname" id="blog_nickname" placeholder="昵称(输入QQ号可自动拉取头像)" class="vnick vinput" type="text"><input name="email" id="blog_email" placeholder="邮箱(留下邮箱方便收到回复别人提醒)" class="vmail vinput" type="email"><input name="link" id="blog_link" placeholder="网址(你的网址)" class="vlink vinput" type="text">
+                                    <input name="nickname" id="blog_nickname" placeholder="昵称(输入QQ号可自动拉取头像)" class="vnick vinput" type="text">
+                                    <input name="email" id="blog_email" placeholder="邮箱(留下邮箱方便收到回复别人提醒)" class="vmail vinput" type="email">
+                                    <input name="link" id="blog_link" placeholder="网址(你的网址)" class="vlink vinput" type="text">
                                 </div>
                                 <div class="vedit">
                                     <textarea id="veditor" name="content"   class="veditor vinput" placeholder="嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~"></textarea>
@@ -168,8 +173,8 @@
                                     </div>
                                 </div>
                                 <div class="vemojis" style="display: none;">
-                                    <i title="qq-98"><img alt="qq-98" referrerpolicy="no-referrer" class="vemoji" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/qq/qq-98.gif"></i>
-                                    <i title="qq-99"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/qq/qq-99.gif"></i>
+                                    <i title="tieba-1"><img alt="qq-98" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-1.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-1.png"></i>
 
                                 </div>
                                 <div class="vinput vpreview" style="display:none;"></div>
@@ -177,19 +182,65 @@
                             </div>
                         </div>
                         <div class="vcount" style="display: block;">
-                            <span class="vnum" id="blog_guestbook_total">16</span> 留言</div>
+                            <span class="vnum" id="blog_guestbook_total">${total}</span> 留言</div>
                         <div class="vload-top text-center" style="display:none;">
                             <i class="vspinner"  style="width:30px;height:30px;"></i>
                         </div>
                         <div class="vcards">
+                            <#--留言板-->
+                            <#if guestBookList?? && ( guestBookList?size > 0)>
+                                <#list guestBookList as blogGuestBook>
+                                    <div class="vcard" id="${blogGuestBook.id}">
+                                        <img class="vimg" src="${blogGuestBook.headShot}">
+                                        <div class="vh">
+                                            <div class="vhead">
+                                                <a class="vnick" rel="nofollow" href="${blogGuestBook.link}" target="_blank">${blogGuestBook.nickname}</a>
+                                                <span class="vtag vvisitor">${blogGuestBook.idCard}</span>
+                                                <span class="vsys"><i class="fab fa-chrome"></i>${blogGuestBook.browserVersion}</span>
+                                                <span class="vsys"><i class="fab fa-windows"></i>${blogGuestBook.osVersion}</span>
+                                            </div>
+                                            <div class="vmeta"><span class="vtime">${blogGuestBook.createDate}</span><span class="vat" data-vm-id="607967bac1d46f1cc83a0cb8" data-self-id="607967bac1d46f1cc83a0cb8">回复</span></div>
+                                            <div class="vcontent" data-expand="查看更多...">
+                                                ${blogGuestBook.content}
+                                            </div>
+                                            <div class="vreply-wrapper" data-self-id="${blogGuestBook.id}"></div>
+                                            <div class="vquote" data-self-id="607967bac1d46f1cc83a0cb8">
+                                                <#if gBChildren??  && (gBChildren?size > 0) >
+                                                    <#list gBChildren as chilren >
+                                                        <div class="vcard" id="${chilren.id}" data-aos="fade-up">
+                                                            <img class="vimg" src="${chilren.headShot}">
+                                                            <div class="vh">
+                                                                <div class="vhead">
+                                                                    <a class="vnick" rel="nofollow" href="${chilren.link}" target="_blank">${chilren.nickname}</a>
+                                                                    <span class="vtag vvisitor">${chilren.idCard}</span>
+                                                                    <span class="vsys"><i class="fab fa-chrome"></i>${chilren.browserVersion}</span>
+                                                                    <span class="vsys"><i class="fab fa-windows"></i>${chilren.osVersion}</span>
+                                                                </div>
+                                                                <div class="vmeta">
+                                                                    <span class="vtime">${chilren.createDate}</span>
+                                                                    <span class="vat" data-vm-id="${blogGuestBook.id}" data-self-id="${chilren.id}">回复</span>
+                                                                </div>
+                                                                <div class="vcontent" data-expand="查看更多...">
+                                                                    ${chilren.content}
+                                                                </div>
+                                                                <div class="vreply-wrapper" data-self-id="${chilren.id}"></div>
+                                                                <div class="vquote" data-self-id="${chilren.id}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </#list>
 
+                                                </#if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </#list>
+                            </#if>
                         </div>
                         <div class="vload-bottom text-center" style="display: none;"><i class="vspinner" style="width:30px;height:30px;"></i></div>
                         <div class="vempty" style="display:none;"></div>
-                        <div class="vpage txt-center" onclick="loading(this)">
+                        <div class="vpage txt-center" id="blogsLoading" style="display: ${loading}">
                             <button type="button" class="vmore vbtn">加载更多...</button>
                         </div>
-
                     </div>
                 </article>
             </div>
@@ -197,31 +248,16 @@
     </div>
 </main>
 
-<!--下一页-->
-<div class="container paging">
-    <div class="row">
-        <div class="loading-m">
-            加载更多
-        </div>
-    </div>
-</div>
 
 <!--留言板-->
 <script>
 
     $(function () {
-        let pageData;
-        let versionToJson,browserVersion,osVersion,address,ip,blogId;
+        let pageData={currentLines:${currentLines},pageSize:10,p:{blogId:'-1'}};
+        let versionToJson,browserVersion,osVersion,address,ip;
 
-        versionToJson = getVersionToJson();
-        browserVersion =versionToJson.browser+' '+versionToJson.version;
-        osVersion =versionToJson.os+' '+versionToJson.osVersion;
-        // address = returnCitySN.cname;
-        // ip = returnCitySN.cip;
-        blogId = '-1';
 
         document.getElementById('blog_guest_commit').onclick = commitComments;
-
         document.querySelector('.cancel-reply.text-right').onclick  =  function(){
             vEditorReset();
         };
@@ -234,65 +270,89 @@
             }
         };
 
-        commentList(1,10,{blogId:-1},true);
+        if (pageData.currentLines ===0){
+            commentList(pageData.currentLines,2,pageData,false);
+        }
+
+        let detail  =  JSON.parse(localStorage.getItem('detail'));
+        if (detail) {
+            document.getElementById('blog_nickname').value = detail.nickname;
+            document.getElementById('blog_email').value = detail.email;
+            document.getElementById('blog_link').value = detail.link;
+        }
 
 
+        document.getElementById('blogsLoading').onclick= function() {
+            pageData.pageSize=10;
+            commentList( pageData.currentLines, pageData.pageSize,pageData,false,function () {
+                document.getElementById('blogsLoading').style.display='none';
+                document.querySelector('.vload-bottom.text-center').style.display='block';
+            },function () {
+                document.querySelector('.vload-bottom.text-center').style.display='none';
+            })
+        };
 
 //获取留言列表
-        function commentList(currentPage,pageSize,queryPerm,async) {
-            if (currentPage === undefined || currentPage <=0 ){
-                currentPage =1;
-            }
-            if(pageSize === undefined || pageSize <=0){
-                pageSize =10;
-            }
-            pageData ={currentPage:currentPage,pageSize:pageSize,p:queryPerm};
+        //获取留言列表
+        function commentList(currentLines,pageSize,queryPerm,async,beforeCallback,successCallback) {
+
             let spanTotal = document.querySelector('#blog_guestbook_total');
             $.ajax({
                 async:!async,
-                url:'/blogs/GuestBookController/list',
+                url:'${basePath}/GuestBookController/listPage',
                 type:'post',
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
-                data:JSON.stringify(pageData),
+                data:JSON.stringify({currentLines:currentLines,pageSize:pageSize,p:queryPerm.p}),
                 beforeSend:function(xhr){
-                    loading();
-                    let detail  =  JSON.parse(localStorage.getItem('detail'));
-                    if (detail) {
-
-                        document.getElementById('blog_nickname').value = detail.nickname;
-                        document.getElementById('blog_email').value = detail.email;
-                        document.getElementById('blog_link').value = detail.link;
+                    if (beforeCallback){
+                        beforeCallback()
                     }
                 },
                 success:function (res) {
+                    if (successCallback){
+                        successCallback()
+                    }
                     //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
-                    loaded();
-                    if (res.success && res.data.list.length >0){
+                    if (res.success){
                         let resData = res.data.list;
                         spanTotal.innerText = res.data.total;
-                        let list ='';
-                        for (let i = 0; i < resData.length; i++) {
-                            resData[i].vmId = resData[i].id;
-                            list += createDIV(resData[i]);
+                        if ( res.data.total===0){
+                            document.querySelector('.vcards').innerHTML = '<span id="firstSpan" style="display: inline-block;width: 100%;text-align:center;color: rgba(85,85,85,0.37)">来当第一个坐沙发的人吧~</span>'
+                            //   欢迎留下第一条评论
                         }
-                        document.querySelector('.vcards').innerHTML = list ;
-                        pageData.pageTotal = res.msg;
+
+                        window.requestAnimationFrame(function (e) {
+                            document.querySelector('.vcards').insertAdjacentHTML("beforeend",resData);
+                        });
+
+                        pageData.pageTotal =  res.data.total;
+
+                        //设置加载按钮
+                        if ( res.data.size<pageSize){
+                            document.getElementById('blogsLoading').style.display='none';
+                        }else {
+                            document.getElementById('blogsLoading').style.display='block';
+                        }
+                        pageData.currentLines+=pageSize;
                     }else {
-                        spanTotal.innerText = '0';
-                        document.querySelector('.vcards').innerHTML = '<span style="display: inline-block;width: 100%;text-align:center;color: rgba(85,85,85,0.37)">来当第一个坐沙发的人吧~</span>'
-                        //   欢迎留下第一条评论
+                        M.toast({
+                            htmlTitle: '出了点问题~',
+                            htmlBody: '<(＿　＿)> 稍后再试...',
+                        });
                     }
                 }
             });
-
         }
 
 //提交评论
         function commitComments(){
             let blogVerify = blog_verify();
             if (blogVerify){
-                timeoutAlter(blogVerify);
+                M.toast({
+                    htmlTitle: '啊(⊙o⊙)？',
+                    htmlBody: blogVerify,
+                });
                 return;
             }
             let textarea = document.getElementById('veditor');
@@ -305,10 +365,9 @@
             let parentElement = document.querySelector('.vwrap').parentElement;
             let parentId =parentElement.getAttribute('data-self-id');
 
-
             // let a = textarea.placeholder.indexOf('回复 ');
             let content ='';
-            if (parentId!='-1'){
+            if (parentId!=='-1'){
                 let b = textarea.placeholder.indexOf('：');
                 content ='回复 '+'<a href="#'+parentId+'">'+textarea.placeholder.substring(3,b)+'</a>：'+ textarea.value;
             }else {
@@ -316,7 +375,7 @@
             }
 
             let dataBody = {
-                nickname:nickname===undefined || nickname ===null || nickname ===''? 'Anonymous' :nickname,
+                nickname:nickname ? 'Anonymous' :nickname,
                 email:email,
                 link:link,
                 headShot:headShot,
@@ -327,10 +386,12 @@
                 address:address,
                 ip:ip,
                 content:content,
-                idCard:'访客'
-            };
+                idCard:'访客',
+                city:localStorage.getItem(localIP)
+
+        };
             $.ajax({
-                url:'/blogs/GuestBookController/save',
+                url:'${basePath}/GuestBookController/save',
                 type:'post',
                 data:dataBody,
                 beforeSend:function (xhr){
@@ -340,38 +401,55 @@
                 success:function (res) {
                     //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
                     if (res.success){
-                        loaded();
-
-                        if (parentId != '-1'){
+                        if (parentId != '-1'){  //直接留言，否则回复留言
                             vEditorReset(); //重置输入框
                             let parentIds = res.data.parentIds;
                             let lastIndex = parentIds.indexOf(',',4);
                             let s = parentIds.substring(4,lastIndex===-1?parentIds.length:lastIndex);
                             res.data.vmId =s;
                             let vDiv =  document.querySelector('div[data-self-id="'+s+'"].vquote');
-                            vDiv.appendChild(strToEle(createDIV(res.data)));
-
+                            window.requestAnimationFrame(function (e) {
+                                $(vDiv).append(createDIV(res.data));
+                            });
+                           // vDiv.insertAdjacentHTML("beforeend",createDIV(res.data));
                         }else {
                             //  document.querySelector('div[data-self-id="'+parentId+'"]');
                             res.data.vmId = res.data.id;
-                            let ele =  strToEle(createDIV(res.data));
-                            document.querySelector('.vcards').insertBefore(ele,document.querySelector('.vcards').firstElementChild);
-                            vEditorReset();
+                           // let ele =  strToEle(createDIV(res.data));
+                           // document.querySelector('.vcards').insertBefore(ele,document.querySelector('.vcards').firstElementChild);
+                            window.requestAnimationFrame(function (e) {
+                                $('.vcards').prepend(createDIV(res.data));
+                                vEditorReset();
+                            });
+
+                           // document.querySelector('.vcards').insertAdjacentHTML("afterbegin",createDIV(res.data));
+
                         }
+                        let firstSpan= document.getElementById('firstSpan');
+                        let totalGus= document.getElementById('blog_guestbook_total');
+                        if (firstSpan){
+                            document.getElementById('firstSpan').remove();
+                        }
+                        totalGus.innerText=(parseInt(totalGus.innerText.trim())+1);
                     }else {
-                        timeoutAlter('评论失败，稍后再试...')
+                        /*通知提示*/
+                        M.toast({
+                            htmlTitle: '这是一个艺术长廊',
+                            htmlBody: '评论失败，稍后再试...',
+                        });
                     }
-
-
+                },
+                complete:function(){
+                    loaded();
                 },
                 error:function (data) {
-                    console.log(data)
-
+                    M.toast({
+                        htmlTitle: '这是一个艺术长廊',
+                        htmlBody: '评论失败，稍后再试...',
+                    });
                 }
             })
-        }
-
-
+        };
 
 //重置评论框
         function vEditorReset() {
@@ -444,16 +522,17 @@
             }, 100)
         }
 
-//创建留言树
+//提交时，创建留言树
         function createDIV(data) {
             let link = data.link ? '<a class="vnick" rel="nofollow" href="'+data.link+'" target="_blank">'+data.nickname+'</a>':'<span class="vnick">'+data.nickname+'</span>';
-            let divA = '<div class="vcard" id="'+data.id+'">\n' +
-                '    <img class="vimg" src="'+(data.headShot ===undefined || data.headShot ==null ? data.headShot : "/blogs/medias/Anonymous.jpg")+'">\n' +
+            let divA = '<div data-aos="fade-up" class="vcard" id="'+data.id+'">\n' +
+                '    <img class="vimg" src="'+(data.headShot ===undefined || data.headShot ==null ? data.headShot : "${basePath}/medias/Anonymous.jpg")+'">\n' +
                 '    <div class="vh">\n' +
                 '        <div class="vhead">\n' + link +
                 '            <span class="vtag vvisitor">'+data.idCard+'</span>\n' +
-                '            <span class="vsys"><i class="fab fa-chrome"></i>'+data.browserVersion+'</span>\n' +
-                '            <span class="vsys"><i class="fab fa-windows"></i>'+data.osVersion+'</span>\n' +
+                '            <span class="vsys"><i class="fab fa-chrome"></i> '+data.browserVersion+'</span>\n' +
+                '            <span class="vsys"><i class="fab fa-windows"></i> '+data.osVersion+'</span>\n' +
+                '            <span class="vsys"><i class="fa fa-map-marker"></i> '+data.city+'</span>\n' +
                 '        </div>\n' +
                 '        <div class="vmeta"><span class="vtime">'+data.createDate+'</span><span class="vat" data-vm-id="'+(data.vmId ?data.vmId:data.id)+'" onclick="getCommentsDiv(this)" data-self-id="'+data.id+'">回复</span>\n' +
                 '        </div>\n' +
@@ -474,13 +553,6 @@
             return divA +divList+ divB;
         }
 
-//将字符串转化为dom元素
-        function strToEle(str) {
-            const template =`<div>${str}</div>`;
-            let tempEle = document.createElement('div');
-            tempEle.innerHTML = template;
-            return tempEle.firstElementChild;
-        }
 
 //正在加载
         function loading() {
@@ -491,153 +563,9 @@
         function loaded() {
             document.querySelector('.vload-top.text-center').style.display='none';
         }
-
-//获取系统版本，和浏览器版本
-        function getVersionToJson(e) {
-            e = e || navigator.userAgent;
-            let t = {}
-                , n = {
-                Trident: e.indexOf("Trident") > -1 || e.indexOf("NET CLR") > -1,
-                Presto: e.indexOf("Presto") > -1,
-                WebKit: e.indexOf("AppleWebKit") > -1,
-                Gecko: e.indexOf("Gecko/") > -1,
-                Safari: e.indexOf("Safari") > -1,
-                Edge: e.indexOf("Edge") > -1 || e.indexOf("Edg") > -1,
-                Chrome: e.indexOf("Chrome") > -1 || e.indexOf("CriOS") > -1,
-                IE: e.indexOf("MSIE") > -1 || e.indexOf("Trident") > -1,
-                Firefox: e.indexOf("Firefox") > -1 || e.indexOf("FxiOS") > -1,
-                "Firefox Focus": e.indexOf("Focus") > -1,
-                Chromium: e.indexOf("Chromium") > -1,
-                Opera: e.indexOf("Opera") > -1 || e.indexOf("OPR") > -1,
-                Vivaldi: e.indexOf("Vivaldi") > -1,
-                Yandex: e.indexOf("YaBrowser") > -1,
-                Kindle: e.indexOf("Kindle") > -1 || e.indexOf("Silk/") > -1,
-                360: e.indexOf("360EE") > -1 || e.indexOf("360SE") > -1,
-                UC: e.indexOf("UC") > -1 || e.indexOf(" UBrowser") > -1,
-                QQBrowser: e.indexOf("QQBrowser") > -1,
-                QQ: e.indexOf("QQ/") > -1,
-                Baidu: e.indexOf("Baidu") > -1 || e.indexOf("BIDUBrowser") > -1,
-                Maxthon: e.indexOf("Maxthon") > -1,
-                Sogou: e.indexOf("MetaSr") > -1 || e.indexOf("Sogou") > -1,
-                LBBROWSER: e.indexOf("LBBROWSER") > -1,
-                "2345Explorer": e.indexOf("2345Explorer") > -1,
-                TheWorld: e.indexOf("TheWorld") > -1,
-                XiaoMi: e.indexOf("MiuiBrowser") > -1,
-                Quark: e.indexOf("Quark") > -1,
-                Qiyu: e.indexOf("Qiyu") > -1,
-                Wechat: e.indexOf("MicroMessenger") > -1,
-                Taobao: e.indexOf("AliApp(TB") > -1,
-                Alipay: e.indexOf("AliApp(AP") > -1,
-                Weibo: e.indexOf("Weibo") > -1,
-                Douban: e.indexOf("com.douban.frodo") > -1,
-                Suning: e.indexOf("SNEBUY-APP") > -1,
-                iQiYi: e.indexOf("IqiyiApp") > -1,
-                Windows: e.indexOf("Windows") > -1,
-                Linux: e.indexOf("Linux") > -1 || e.indexOf("X11") > -1,
-                macOS: e.indexOf("Macintosh") > -1,
-                Android: e.indexOf("Android") > -1 || e.indexOf("Adr") > -1,
-                // 'Ubuntu': e.indexOf("Ubuntu") > -1,
-                FreeBSD: e.indexOf("FreeBSD") > -1,
-                Debian: e.indexOf("Debian") > -1,
-                "Windows Phone": e.indexOf("IEMobile") > -1 || e.indexOf("Windows Phone") > -1,
-                BlackBerry: e.indexOf("BlackBerry") > -1 || e.indexOf("RIM") > -1 || e.indexOf("BB10") > -1,
-                MeeGo: e.indexOf("MeeGo") > -1,
-                Symbian: e.indexOf("Symbian") > -1,
-                iOS: e.indexOf("like Mac OS X") > -1,
-                "Chrome OS": e.indexOf("CrOS") > -1,
-                WebOS: e.indexOf("hpwOS") > -1,
-                Mobile: e.indexOf("Mobi") > -1 || e.indexOf("iPh") > -1 || e.indexOf("480") > -1,
-                Tablet: e.indexOf("Tablet") > -1 || e.indexOf("Pad") > -1 || e.indexOf("Nexus 7") > -1
-            };
-            n.Mobile && (n.Mobile = !(e.indexOf("iPad") > -1));
-            let r = {
-                browser: ["Safari", "Chrome", "Edge", "IE", "Firefox", "Firefox Focus", "Chromium", "Opera", "Vivaldi", "Yandex", "Kindle", "360", "UC", "QQBrowser", "QQ", "Baidu", "Maxthon", "Sogou", "LBBROWSER", "2345Explorer", "TheWorld", "XiaoMi", "Quark", "Qiyu", "Wechat", "Taobao", "Alipay", "Weibo", "Douban", "Suning", "iQiYi"],
-                os: ["Windows", "Linux", "Mac OS", "macOS", "Android", "Ubuntu", "FreeBSD", "Debian", "iOS", "Windows Phone", "BlackBerry", "MeeGo", "Symbian", "Chrome OS", "WebOS"]
-            };
-            for (let o in r)
-                if (r.hasOwnProperty(o))
-                    for (let i = 0, a = r[o].length; i < a; i++) {
-                        let s = r[o][i];
-                        n[s] && (t[o] = s)
-                    }
-            let l = {
-                Windows: function() {
-                    let t = e.replace(/^.*Windows NT ([\d.]+).*$/, "$1");
-                    return {
-                        6.4: "10",
-                        6.3: "8.1",
-                        6.2: "8",
-                        6.1: "7",
-                        "6.0": "Vista",
-                        5.2: "XP",
-                        5.1: "XP",
-                        "5.0": "2000"
-                    }[t] || t
-                },
-                Android: e.replace(/^.*Android ([\d.]+);.*$/, "$1"),
-                iOS: e.replace(/^.*OS ([\d_]+) like.*$/, "$1").replace(/_/g, "."),
-                Debian: e.replace(/^.*Debian\/([\d.]+).*$/, "$1"),
-                "Windows Phone": e.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, "$2"),
-                macOS: e.replace(/^.*Mac OS X ([\d_]+).*$/, "$1").replace(/_/g, "."),
-                WebOS: e.replace(/^.*hpwOS\/([\d.]+);.*$/, "$1"),
-                BlackBerry: e.replace(/^.*BB([\d.]+);*$/, "$1")
-            };
-            t.osVersion = "";
-            let c = l[t.os];
-            c && (t.osVersion = "function" == typeof c ? c() : c == e ? "" : c);
-            let u = {
-                Safari: e.replace(/^.*Version\/([\d.]+).*$/, "$1"),
-                Chrome: e.replace(/^.*Chrome\/([\d.]+).*$/, "$1").replace(/^.*CriOS\/([\d.]+).*$/, "$1"),
-                IE: e.replace(/^.*MSIE ([\d.]+).*$/, "$1").replace(/^.*rv:([\d.]+).*$/, "$1"),
-                Edge: e.replace(/^.*Edge?\/([\d.]+).*$/, "$1"),
-                Firefox: e.replace(/^.*Firefox\/([\d.]+).*$/, "$1").replace(/^.*FxiOS\/([\d.]+).*$/, "$1"),
-                "Firefox Focus": e.replace(/^.*Focus\/([\d.]+).*$/, "$1"),
-                Chromium: e.replace(/^.*Chromium\/([\d.]+).*$/, "$1"),
-                Opera: e.replace(/^.*Opera\/([\d.]+).*$/, "$1").replace(/^.*OPR\/([\d.]+).*$/, "$1"),
-                Vivaldi: e.replace(/^.*Vivaldi\/([\d.]+).*$/, "$1"),
-                Yandex: e.replace(/^.*YaBrowser\/([\d.]+).*$/, "$1"),
-                Kindle: e.replace(/^.*Version\/([\d.]+).*$/, "$1"),
-                Maxthon: e.replace(/^.*Maxthon\/([\d.]+).*$/, "$1"),
-                QQBrowser: e.replace(/^.*QQBrowser\/([\d.]+).*$/, "$1"),
-                QQ: e.replace(/^.*QQ\/([\d.]+).*$/, "$1"),
-                Baidu: e.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, "$1"),
-                UC: e.replace(/^.*UC?Browser\/([\d.]+).*$/, "$1"),
-                Sogou: e.replace(/^.*SE ([\d.X]+).*$/, "$1").replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, "$1"),
-                "2345Explorer": e.replace(/^.*2345Explorer\/([\d.]+).*$/, "$1"),
-                TheWorld: e.replace(/^.*TheWorld ([\d.]+).*$/, "$1"),
-                XiaoMi: e.replace(/^.*MiuiBrowser\/([\d.]+).*$/, "$1"),
-                Quark: e.replace(/^.*Quark\/([\d.]+).*$/, "$1"),
-                Qiyu: e.replace(/^.*Qiyu\/([\d.]+).*$/, "$1"),
-                Wechat: e.replace(/^.*MicroMessenger\/([\d.]+).*$/, "$1"),
-                Taobao: e.replace(/^.*AliApp\(TB\/([\d.]+).*$/, "$1"),
-                Alipay: e.replace(/^.*AliApp\(AP\/([\d.]+).*$/, "$1"),
-                Weibo: e.replace(/^.*weibo__([\d.]+).*$/, "$1"),
-                Douban: e.replace(/^.*com.douban.frodo\/([\d.]+).*$/, "$1"),
-                Suning: e.replace(/^.*SNEBUY-APP([\d.]+).*$/, "$1"),
-                iQiYi: e.replace(/^.*IqiyiVersion\/([\d.]+).*$/, "$1")
-            };
-            t.version = "";
-            let f = u[t.browser];
-            return f && (t.version = "function" == typeof f ? f() : f == e ? "" : f),
-            void 0 == t.browser && (t.browser = "Unknow App"),
-                t
-        };
-
-//两秒自动关闭的提示框
-        function timeoutAlter(msg){
-            let timeoutAlterTem; //临时变量，防止短时间内重复调用
-
-            let textNode = document.createTextNode(msg);
-            let showNode = document.getElementById('blog_warning');
-            showNode.appendChild(textNode);
-            timeoutAlterTem=timeoutAlter;
-            timeoutAlter=null;
-            window.setTimeout(function(){
-                showNode.removeChild(textNode);
-                timeoutAlter=timeoutAlterTem;
-            },2000);
-        }
-
+        versionToJson = getVersionToJson();
+        browserVersion =versionToJson.browser+' '+versionToJson.version;
+        osVersion =versionToJson.os+' '+versionToJson.osVersion;
 
     });
 

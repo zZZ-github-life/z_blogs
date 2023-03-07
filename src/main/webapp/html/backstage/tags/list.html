@@ -52,11 +52,11 @@
                             </div>
                             <div class="card-body">
                                 <form id="blog_tags_form">
-                                    <input type="hidden" name="id" id="tagsId" >
+                                    <input type="text" style="display: none" name="id" id="tagsId" >
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">标签名称</label>
                                         <div class="col">
-                                            <input type="text" name="tagsName" class="form-control" aria-describedby="emailHelp" placeholder="页面上所展示的标签名称">
+                                            <input type="text" name="tagsName" class="form-control"  placeholder="页面上所展示的标签名称">
 
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">标签颜色</label>
                                         <div class="col">
-                                            <input type="color" name="color" class="form-control form-control-color" value="#206bc4" title="Choose your  color">
+                                            <input type="color" name="color" class="form-control form-control-color" value="#85C1E6" title="Choose your  color">
                                         </div>
                                     </div>
 
@@ -89,13 +89,14 @@
                                         </div>
                                     </div>
                                     <div class="form-footer">
+                                        <button type="button" onclick="blog_tools_reset('blog_tags_edit','修改标签')" class="btn btn-blue">重置</button>
                                         <button type="button" onclick="blog_tags_submit()" class="btn btn-primary">提交</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-7">
+                    <div class="col-12 col-md-7">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">标签数据</h3>
@@ -186,9 +187,7 @@
             <div class="modal-footer">
                 <div class="w-100">
                     <div class="row">
-                        <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">
-                            Cancel
-                        </a></div>
+
                         <div class="col" id="blog_tags_del"><a href="#"  class="btn btn-danger w-100" data-bs-dismiss="modal">
                             Delete
                         </a></div>

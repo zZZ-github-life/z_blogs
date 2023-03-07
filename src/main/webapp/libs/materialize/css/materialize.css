@@ -4273,8 +4273,8 @@ nav {
   color: #fff;
   background-color: #ee6e73;
   width: 100%;
-  height: 56px;
-  line-height: 56px;
+  height: 68px;
+  line-height: 75px;
 }
 
 nav.nav-extended {
@@ -7738,7 +7738,7 @@ input[type=range]::-ms-thumb {
   opacity: 0;
   height: 120vh;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 997;
+  z-index: 995;
   display: none;
 }
 

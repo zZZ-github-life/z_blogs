@@ -1567,11 +1567,11 @@ if ("undefined" === typeof jQuery)
 (function($) {
         var _0xef73 = ["m", "attr", "#myhk", "undefined", "skin", "", "&skin=", "lr", "&lr=", "op", "au", "sg", "myhk_player_load", "getItem", "myhk_player_feed", "true", "getTime", "userAgent", "test", "//myhkw", "indexOf", "href", "location", "hide", "#myhkplayer", "\u97f3\u4e50\u64ad\u653e\u5668\u5df2\u7981\u6b62\u5728\u79fb\u52a8\u7aef\u52a0\u8f7d\uff01", "\u97f3\u4e50\u64ad\u653e\u5668\u5df2\u5728\u5176\u4ed6\u9875\u9762\u52a0\u8f7d\uff01", "myhkw.cn", "player/js/player.js", "replace", "src", "https://myhkw.cn/", "key", "\x0A %c \u672c\u7ad9\u81ea\u8c6a\u7684\u91c7\u7528\u97f3\u4e50\u64ad\u653e\u5668V.20221020 - ", "\uff0c\u63a7\u5236\u9762\u677f\uff1a %c https://myhkw.cn\x0A", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "log", "myhkw.com", "pirated-website", "\x0A %c \u672c\u7ad9\u5351\u9119\u7684\u76d7\u7248\u97f3\u4e50\u64ad\u653e\u5668\uff0c\u6b63\u7248\u5730\u5740\uff1ahttps://myhkw.cn\x0A", "color: #ffff00; background: #030307; padding:5px 0;", "setItem", "<link id=\"myhkcss\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"", "api/playercss?id=", "\">", "append", "head", "<div id=\"myhkplayer\" style=\"display:none\">\x0A", "    <div class=\"myhkplayer\">\x0A", "        <div class=\"myhkblur-img\">\x0A", "            <img src=\"", "static/images/default.jpg\" class=\"myhkblur\" style=\"top: 0px; display: inline;\">\x0A", "        </div>\x0A", "        <div class=\"myhkinfo\">\x0A", "            <div class=\"songstyle\"><i class=\"myhkfont myhkicon-music\"></i> <div class=\"myhkname\"><span class=\"myhksong\"></span></div></div>\x0A", "            <div class=\"timestyle\"><i class=\"myhkfont myhkicon-clockCircle\"></i> <span class=\"myhktime\">00:00 / 00:00</span></div>\x0A", "            <div class=\"artiststyle\"><i class=\"myhkfont myhkicon-user\"></i> <span class=\"myhkartist\"></span><span class=\"myhkmoshi\"><i\x0A", "                    class=\"myhkfont myhkicon-suijibofang\"></i> \u968f\u673a\u64ad\u653e</span></div>\x0A", "            <div class=\"artiststyle\"><i class=\"myhkfont myhkicon-musicAlbum\"></i>\x0A", "                <span class=\"myhkalbum\"></span>\x0A", "                <span class=\"myhkgeci\"><span class=\"geci\"></span></span>\x0A", "            </div>\x0A", "        <div class=\"myhkcontrol\">\x0A", "            <i class=\"myhkaprev myhkfont myhkicon-first\"></i>\x0A", "            <i class=\"myhkprev myhkfont myhkicon-backward\"></i>\x0A", "            <div class=\"myhkstatus\">\x0A", "                <b>\x0A", "                    <i class=\"myhkplay myhkfont myhkicon-playCircle\"></i>\x0A", "                    <i class=\"myhkpause myhkfont myhkicon-pauseCircle\"></i>\x0A", "                </b>\x0A", "                <div id=\"pdyf1\" class=\"myhknote\">\x0A", "                    <i class=\"myhkfont myhkicon-music\" aria-hidden=\"true\"></i>\x0A", "                </div>\x0A", "                <div id=\"pdyf2\" class=\"myhknote\">\x0A", "                <div id=\"pdyf3\" class=\"myhknote\">\x0A", "            <i class=\"myhknext myhkfont myhkicon-forward\"></i>\x0A", "            <i class=\"myhkanext myhkfont myhkicon-last\"></i>\x0A", "\x09\x09<div class=\"musicbottom\">\x0A", "\x09\x09\x09<div class=\"volumecontrol\">\x0A", "\x09\x09        <div class=\"volume myhkfont myhkicon-volumeMiddle\"></div>\x0A", "\x09\x09        \x09<div class=\"volumeprogress\">\x0A", "\x09\x09                    <div class=\"progressbg\">\x0A", "\x09\x09                        <div class=\"progressbg1\" style=\"height: 19px;\"></div>\x0A", "\x09\x09                        <div class=\"ts\" style=\"top: 81px;\"></div>\x0A", "\x09\x09                    </div>\x0A", "\x09\x09                </div>\x0A", "\x09\x09        </div>\x0A", "\x09\x09        <div class=\"playprogress\">\x0A", "\x09\x09            <div class=\"progressbg\">\x0A", "\x09\x09                <div class=\"progressbg1\"></div>\x0A", "\x09\x09                <div class=\"progressbg2\"></div>\x0A", "\x09\x09                <div class=\"ts\"></div>\x0A", "\x09\x09            </div>\x0A", "            <div class=\"switch-playlist\">\x0A", "                <i class=\"myhkfont myhkicon-list\"></i>\x0A", "            <div class=\"qhms\">\x0A", "                <i class=\"myhkfont myhkicon-suijibofang\"></i>\x0A", "            <div class=\"switch-ksclrc\">\x0A", "                <i class=\"myhkfont myhkicon-anniu_kaiqi\"></i>\x0A", "        <div class=\"myhkcover\"></div>\x0A", "    </div>\x0A", "    <div class=\"myhkplaylist\">\x0A", "        <div class=\"myhkplaylist-bd\">\x0A", "            <div class=\"album-list\">\x0A", "                <div class=\"musicheader\">请欣赏音乐吧~</div>\x0A", "                <div class=\"myhklist\"></div>\x0A", "            <div class=\"song-list\">\x0A", "                <div class=\"musicheader\"><i class=\"myhkfont myhkicon-arrow-right-bold\"></i><span></span></div>\x0A", "                <div class=\"myhklist\">\x0A", "                    <ul></ul>\x0A", "    <div class=\"switch-player\">\x0A", "        <i class=\"myhkfont myhkicon-arrow-right-bold\"></i>\x0A", "</div>\x0A", "<div id=\"myhkTips\"></div>\x0A", "<div id=\"myhkKsc\"></div>\x0A", "<div id=\"myhkLrc\"></div>", "body", "#myhkTips", "#myhkLrc", "#myhkKsc", ".switch-player", ".myhksong", ".myhkcover", ".myhktime", ".song-list .myhklist", ".album-list", ".myhkplayer .myhkartist", ".myhkplayer .myhkalbum", ".myhkplayer .myhkmoshi", ".myhkplayer .myhkgeci .geci", ".myhkplayer .switch-ksclrc", "48939749", "\u5f00\u542f", "myhknow", "0,0,0", "255,255,255", "myhk_player_lrc", "null", "myhk_player_ksc", "myhk_player_time", "myhk_player_times", "myhk_player_album", "myhk_player_song", "myhk_player_songid", "currentTime", " / ", "duration", "text", "<a style=\"color:#f00\">\u521d\u59cb\u5316\u6b4c\u5355</a>", "html", "<a style=\"color:#f00\"></a>", "<a style=\"color:#f00\">\u97f3\u4e50\u64ad\u653e\u5668</a>", "<i class=\"myhkfont myhkicon-mapMarker\"></i> \u6b22\u8fce\u5149\u4e34", "playing", "addClass", "play", "lrc", "myhkshow", "show", "ksc", "showPlayer", "removeClass", "\u8fde\u7eed\u64ad\u653e\u5931\u8d25\u8d85\u8fc73\u6b21\uff01\u5df2\u505c\u6b62\u64ad\u653e\uff01", "songNames", " - \u8d44\u6e90\u83b7\u53d6\u5931\u8d25\uff01\u5c1d\u8bd5\u83b7\u53d6\u4e0b\u4e00\u9996...", "\u64ad\u653e\u5931\u8d25 ", " \u6b21\uff01", "coverplay", "myhk_player", "no", "next", "paused", "load", "\u7f13\u51b2\u4e2d...", "volume", "myhkicon-volumeLow myhkicon-volumeMiddle myhkicon-volumeHigh", "myhkicon-volumeCross", ".myhkplayer .musicbottom .volume", "myhkicon-volumeLow myhkicon-volumeCross myhkicon-volumeHigh", "myhkicon-volumeMiddle", "myhkicon-volumeLow myhkicon-volumeCross myhkicon-volumeMiddle", "myhkicon-volumeHigh", "myhkicon-volumeHigh myhkicon-volumeCross myhkicon-volumeMiddle", "myhkicon-volumeLow", "myhk_player_qq", "myhk_player_version", "songTypes", "songIds", "wy", "\u7f51\u6613\u97f3\u4e50", "kg", "\u9177\u72d7\u97f3\u4e50", "qq", "QQ\u97f3\u4e50", "mg", "\u54aa\u5495\u97f3\u4e50", "kw", "\u9177\u6211\u97f3\u4e50", "qi", "\u5343\u5343\u97f3\u4e50", "local", "\u81ea\u5b9a\u4e49\u97f3\u4e50", "getInfos", "length", "random", "showSongList", "buffered", "start", "end", "%", "css", ".playprogress .progressbg .progressbg2", "left", "toFixed", ".playprogress .progressbg .ts", "width", ".playprogress .progressbg .progressbg1", "0", "00:00 / 00:00", "addEventListener", "pause", "ended", "nexts", "volumechange", "error", "seeking", "timeupdate", "toggleClass", "click", "parent", ".artist", "find", "siblings", "\u6682\u505c\u64ad\u653e > ", "eq", "li", "\u6682\u505c\u64ad\u653e - ", "myhk_player_auto", ".myhkpause", "\u5f53\u524d\u64ad\u653e > ", "yes", ".myhkplay", "prev", ".myhkprev", ".myhknext", "aprev", ".myhkaprev", "anext", ".myhkanext", "\u4e13\u8f91\u5faa\u73af", "<i class = \"random myhkfont myhkicon-shunxubofang\"></i>", "<i class=\"myhkfont myhkicon-shunxubofang\"></i> \u4e13\u8f91\u5faa\u73af", "\u968f\u673a\u64ad\u653e", "<i class = \"random myhkfont myhkicon-suijibofang\"></i>", "<i class=\"myhkfont myhkicon-suijibofang\"></i> \u968f\u673a\u64ad\u653e", "\u5355\u66f2\u5faa\u73af", "<i class = \"random myhkfont myhkicon-danquxunhuan\"></i>", "<i class=\"myhkfont myhkicon-danquxunhuan\"></i> \u5355\u66f2\u5faa\u73af", ".qhms", ".myhkloop", "random_play", ".myhkrandom", "\u987a\u5e8f\u64ad\u653e", "<i class=\"myhkfont myhkicon-shunxubofang\"></i> \u987a\u5e8f\u64ad\u653e", "false", ".volumeprogress .progressbg .ts", ".volumeprogress .progressbg", "top", "84px", "height", ".volumeprogress .progressbg .progressbg1", "myhk_player_volume", "\u97f3\u91cf\uff1a", ".playprogress .progressbg", "pageX", "offset", "showAlbumList", "#myhkplayer .myhkplayer", "#myhkplayer .myhkplaylist", ".myhkplayer .musicbottom .playprogress", ".myhkplayer .musicbottom .volumecontrol", ".myhkplayer", ".myhkplayer .myhkblur", ".myhkplayer .myhkcover img", "rgba(255,255,255,.7)", ".myhkplayer .musicbottom", "rgba(255,255,255,.8)", ".switch-playlist", "mCustomScrollbar", ".song-list .musicheader,.song-list .myhkicon-arrow-right-bold", "hidePlayer", "hasClass", "<i class=\"myhkfont myhkicon-mapMarker\"></i> \u6b4c\u8bcd\u5b9a\u4f4d", "<i class=\"myhkfont myhkicon-successCircle\"></i> \u6b4c\u8bcd\u5f00\u542f", "\u5f00\u542f\u6b4c\u8bcd\u663e\u793a", "<i class=\"myhkfont myhkicon-anniu_kaiqi\"></i>", "<i class=\"myhkfont myhkicon-errorCircle\"></i> \u6b4c\u8bcd\u5173\u95ed", "\u6b4c\u8bcd\u663e\u793a\u5df2\u5173\u95ed", "\u5173\u95ed", "<i class=\"myhkfont myhkicon-anniu_guanbi\"></i>", ".switch-ksclrc", "playList", ".musicheader", "cssText", "display:block !important;", "<a style=\"display: unset!important\" href=\"https://myhkw.cn\" title=\"\u70b9\u51fb\u514d\u8d39\u7533\u8bf7\u97f3\u4e50\u64ad\u653e\u5668\" target=\"_blank\" style=\"color:#FFF\">\u672c\u7ad9\u97f3\u4e50\u64ad\u653e\u5668\u7531 MYHKW.CN \u514d\u8d39\u63d0\u4f9b</a>", "<li><span class=\"index\">", "</span><span class=\"artist\"></span>", " - ", "artistNames", "</li>", "<li><i class=\"myhkfont myhkicon-arrow-right-bold\"></i><span class=\"index\">", "</span><span class=\"artist\"></span>\u300a", "songSheetName", "\u300b - ", "author", "<ul>", "</ul>", ".myhklist", "\u6b63\u5728\u64ad\u653e - ", "#", "index", "song", "creat", "rgb(", ")", ".myhkplaylist .myhklist li", "getSongId", "getalbumId", "parseInt", "(", ".song-list .musicheader span", "ul", "data-album", "update", "scrollTo", "position", "li.myhknow", "<i class=\"myhkfont myhkicon-successCircle\"></i> \u6b4c\u8bcd", "<i class=\"myhkfont myhkicon-errorCircle\"></i> \u6b4c\u8bcd", "karaoke", "format", "<i class=\"myhkfont myhkicon-errorCircle\"></i> \u6682\u65e0\u6b4c\u8bcd", "[00", "&ksc=", "songId", "api/lyric?song=", "&type=", "&id=", "&sign=", "sign", "&play=", ".", "GET", "jsonp", "jsoncallback", "type", "txt", "ajax", "match", "\x0A", "split", "<li class=\"myhkLrc0\"></li>", "round", "string", "push", "sort", "<li class=\"myhkLrc", " ", " myhknow\">", " \">", "shift", ".myhkLrc", "class", "myhkLrc", "<span>", "</span>", "style", "removeAttr", "color:rgba(", ")!important", "smear", "rewind", "letterfx", "reset", "ticker", "data", "wave", "150ms", "each", "scrollTop", "b", ",", "\u7537\uff1a", "\u5973\uff1a", "g", "\u5408\uff1a", "t", "\uff0c", "<span class=\"blank\"><em dir=\"", "\"></em></span>", "<span><em dir=\"", "</em></span>", "<div id=\"myhkKsc", "\" class=\"myhkKsc", " line line", "\"><div class=\"bg\">", "</div><div class=\"lighter\">", "</div></div>", ".myhkKsc", "color", "rgba(", "line1", ".line1", ".line2", "showLetters", "line2", ".lighter span", "em", "dir", "100%", "animate", "myhk_player_list", "myhkw.cn/admin/#/", "api/playlist?id=", "&version=", "removeItem", "\u65b0\u6b4c\u5355\uff1a", "KB \u7f13\u5b58\u6210\u529f\uff01", "KB \u5df2\u8d85\u51fa\u6d4f\u89c8\u5668\u6700\u5927\u9650\u5236\uff01", "\u64ad\u653e\u5668\uff1a\u6210\u529f\u7f13\u5b58\u6700\u65b0\u6b4c\u5355\uff01", "\u64ad\u653e\u5668\uff1a\u65b0\u6b4c\u5355\u6570\u636e\u83b7\u53d6\u5931\u8d25\uff01", "\u64ad\u653e\u5668\uff1a\u6b4c\u5355\u7f13\u5b58\u8bfb\u53d6\u6210\u529f\uff01", "\u6b4c\u5355\uff1a", "\u539f\u6b4c\u5355\u6570\u636e\u83b7\u53d6\u5931\u8d25!", "beforeunload", "display", "contents", "\u97f3\u4e50\u64ad\u653e\u5668\u5df2\u7981\u6b62\u975e\u4e2d\u56fdIP\u52a0\u8f7d\uff01", "none", "\u64ad\u653e\u5668\uff1a\u754c\u9762\u6570\u636e\u52a0\u8f7d\u6210\u529f\uff01", "<a style=\"display: unset!important;float: right\" href=\"https://myhkw.cn\" title=\"\u70b9\u51fb\u514d\u8d39\u7533\u8bf7\u97f3\u4e50\u64ad\u653e\u5668\" target=\"_blank\"><i class=\"myhkfont myhkicon-share\"></i> \u514d\u8d39\u7533\u8bf7</a>", ".myhkgeci", ".artiststyle", "display:unset !important;", "\u514d\u8d39\u7248\u64ad\u653e\u5668\u88ab\u7be1\u6539\uff0c\u5df2\u81ea\u52a8\u91cd\u8f7d\uff01", "a", "<a style=\"display: unset!important\" href=\"", "ad/", "adurl", "\" title=\"", "adtitle", "\" style=\"color:rgb(", ")\" target=\"_blank\"><i class=\"myhkfont myhkicon-megaphone\"></i> ", "</a>", "<a style=\"display: unset!important;float: right;color:rgb(", ")\" href=\"", "\" target=\"_blank\"><i class=\"myhkfont myhkicon-share\"></i> ", "adname", "100", "1", "0.", "0.5", ".myhkstatus .myhknote", "px", "\u64ad\u653e\u5668\uff1a\u4f18\u5148\u64ad\u653e\u4e13\u8f91\u5927\u4e8e\u603b\u6570\uff08", "\uff09\uff01", "\u64ad\u653e\u5668\uff1a\u64ad\u653e\u6570\u636e\u52a0\u8f7d\u6210\u529f\uff01", "\uff09\uff0c\u672a\u6307\u5b9a\u4f18\u5148\u64ad\u653e\u6b4c\u66f2\uff01", "\u64ad\u653e\u5668\uff1a\u5df2\u6307\u5b9a\u4f18\u5148\u64ad\u653e\u4e13\u8f91\uff08", "\uff09\uff0c\u5df2\u6307\u5b9a\u4f18\u5148\u64ad\u653e\u6b4c\u66f2\uff08", "album", "...", "charCodeAt", "charAt", "locations", "api/url?song=", "albumNames", "api/pic?song=", "&pic=", "albumCovers", "changing", "onload", "api/color", "script", "onerror", "https://q1.qlogo.cn/g?b=qq&nk=", "&s=140", " - \u4e13\u8f91\u56fe\u7247\u83b7\u53d6\u5931\u8d25\uff01", ".myhkblur", "document", "\u6b4c\u8bcd\u81ea\u52a8\u9690\u85cf", "scroll", "WeixinJSBridgeReady", "touchstart", "removeEventListener", "\u6d4f\u89c8\u5668\u9650\u5236\u97f3\u9891\u81ea\u52a8\u64ad\u653e\uff0c\u9700\u8981\u70b9\u51fb\u64ad\u653e\uff01", "catch", "\u5f00\u59cb\u4ece", "\u64ad\u653e\uff1a", "-", " \u65f6\u957f\uff1a", "floor", ":", "slice", "then", "\u5f53\u524d\u64ad\u653e&nbsp;>&nbsp;", ".myhklist ul", "[data-album=", "]", ",.8)", ",.3)", ",.6)", ".myhkinfo,.myhkcontrol,.myhkstatus .myhknote,.myhkgeci a,.myhkplaylist .myhklist li,.musicheader a,.myhkplaylist,.musicheader", "border", "4px rgb(", ") solid", ".myhkplayer .myhkcover", "background-image", "linear-gradient(90deg, rgb(", ") 50%, transparent 50%, transparent), linear-gradient(90deg, rgb(", ") 50%, rgb(", ".myhkplayer .myhkcontrol .myhkstatus", ",.5)", ".myhkplayer .myhkcontrol .myhkstatus b", "r", "Notification", "mozNotification", "webkitNotification", "permission", "granted", "close", "onclick", "onshow", "onclose", "requestPermission", "00:", "00:00", "00", "substring", "lettering", "done", "cycleCount", "cycleCurrent", "original", "letters", "span", "letterCount", "letterCurrent", "chars", "aria-label", "charsCount", "data-orig", "substr", "getChar", "prototype", "loop", "#000", "opacity", "0.4", "color:rgb(", "keyCode", "keydown", "ready", "event", "target", "srcElement", "myhkplayer", "getElementById", "contains", "songSheetList", "includes", "defaultAlbum", "<span class=\"geci\"><i class=\"myhkfont myhkicon-mapMarker\"></i> \u6b22\u8fce\u5149\u4e34</span>", "#myhkplayer .myhkgeci", "#myhkplayer .myhkplayer .myhkgeci .geci", "myhkcss", "\u64ad\u653e\u5668\uff1a\u6210\u529f\u52a0\u8f7d\u65b0\u6b4c\u5355\uff01", ".myhkplayer .musicbottom .switch-ksclrc", "\u64ad\u653e\u5668\uff1a\u6b4c\u5355\u6570\u636e\u5f02\u5e38!", "\u64ad\u653e\u5668\uff1a\u6b4c\u5355\u6570\u636e\u83b7\u53d6\u5931\u8d25!"];
 
-        // for (let i = 0; i < _0xef73.length; i++) {
-        //     if (_0xef73[i] == "myhk_player_list"){
-        //         console.log(i)
-        //     }
-        // }
+        for (let i = 0; i < _0xef73.length; i++) {
+            if (_0xef73[i] == "myhk_player_auto"){
+                console.log(i)
+            }
+        }
 
         var mobile = $(_0xef73[2])[_0xef73[1]](_0xef73[0]);
         if (typeof mobile === _0xef73[3]) {
@@ -1619,7 +1619,7 @@ if ("undefined" === typeof jQuery)
         } else {
             if (myhkload && window[_0xef73[22]][_0xef73[21]][_0xef73[20]](_0xef73[19]) < 0) {
                 $(_0xef73[24])[_0xef73[23]]();
-                throw new Error('音乐播放器已在其他页面加载');
+               // throw new Error('音乐播放器已在其他页面加载');
             } else {
                 var songSheetList;
                 var webURL ='https://myhkw.cn/';
@@ -1731,7 +1731,7 @@ if ("undefined" === typeof jQuery)
                             errCount++;
                             errjc = false;
                             myhkTips[_0xef73[159]](songSheetList[albumId][_0xef73[164]][songId] + _0xef73[165]);
-                            console[_0xef73[37]](_0xef73[166] + errCount + _0xef73[167]);
+
                             setTimeout(function() {
                                 $cover[_0xef73[162]](_0xef73[168]);
                                 localStorage[_0xef73[42]](_0xef73[169], _0xef73[170]);
@@ -2210,6 +2210,7 @@ if ("undefined" === typeof jQuery)
                             $songFrom3[_0xef73[150]](_0xef73[297])
                         }
                         ;myhkTips[_0xef73[159]](_0xef73[298]);
+                        console.log(this)
                         songFrom33 = _0xef73[299];
                         $songFrom4[_0xef73[150]](_0xef73[300])
                     }
@@ -2676,13 +2677,11 @@ if ("undefined" === typeof jQuery)
                                         }
                                         ;if (typeof songSheetList === _0xef73[3]) {
                                             eval(a);
-                                            console[_0xef73[37]](_0xef73[431])
                                         }
                                         ;playercss = setInterval(myhkcss, 100)
                                     },
                                     error: function(a, b, c) {
                                         eval(myhkplayerlist);
-                                        console[_0xef73[37]](_0xef73[432]);
                                         playercss = setInterval(myhkcss, 100)
                                     }
                                 })
@@ -2694,7 +2693,6 @@ if ("undefined" === typeof jQuery)
                         },
                         error: function(a, b, c) {
                             eval(myhkplayerlist);
-                            console[_0xef73[37]](_0xef73[433]);
                             playercss = setInterval(myhkcss, 100)
                         }
                     })
@@ -2708,13 +2706,11 @@ if ("undefined" === typeof jQuery)
                                 a+=",playerName='"+s+"',siteName="+"'"+s+"'";
                                 localStorage[_0xef73[427]](_0xef73[423]);
                                 localStorage[_0xef73[42]](_0xef73[423], a);
-                                console[_0xef73[37]](_0xef73[434] + parseInt(a[_0xef73[204]] / 1024) + _0xef73[429])
                             } catch (e) {
                                 console[_0xef73[37]](_0xef73[434] + parseInt(a[_0xef73[204]] / 1024) + _0xef73[430])
                             }
                             ;if (typeof songSheetList === _0xef73[3]) {
                                 eval(a);
-                                console[_0xef73[37]](_0xef73[431])
                             }
                             ;playercss = setInterval(myhkcss, 100)
                         },
@@ -2751,7 +2747,6 @@ if ("undefined" === typeof jQuery)
                     $(_0xef73[443], $player)[_0xef73[211]](_0xef73[304], _0xef73[445]);
                     $(_0xef73[303], $player)[_0xef73[211]](_0xef73[304], _0xef73[305]);
                     $(_0xef73[444], $player)[_0xef73[211]](_0xef73[304], _0xef73[305]);
-                    console[_0xef73[37]](_0xef73[446])
                 }
                 ;clearInterval(myhkadTime);
                 function myhkad() {
@@ -2764,7 +2759,6 @@ if ("undefined" === typeof jQuery)
                         $(_0xef73[443], $player)[_0xef73[211]](_0xef73[304], _0xef73[445]);
                         $(_0xef73[303], $player)[_0xef73[211]](_0xef73[304], _0xef73[305]);
                         $(_0xef73[444], $player)[_0xef73[211]](_0xef73[304], _0xef73[305]);
-                        console[_0xef73[37]](_0xef73[446])
                     }
                 }
                 myhkadTime = setInterval(myhkad, 10000)
@@ -2825,7 +2819,6 @@ if ("undefined" === typeof jQuery)
                 albumIds = playingalbumId ? playingalbumId : defaultAlbum - 1;
                 if (albumIds > albumTotals) {
                     albumId = 0;
-                    console[_0xef73[37]](_0xef73[466] + albumTotals + _0xef73[467])
                 } else {
                     albumId = playingalbumId ? playingalbumId - 1 : defaultAlbum - 1;
                     if (albumId < 0) {
@@ -2839,20 +2832,16 @@ if ("undefined" === typeof jQuery)
                     if (myhkalbum > albumTotals) {
                         albumId = 0;
                         myhkMedia[_0xef73[203]](0, 0);
-                        console[_0xef73[37]](_0xef73[466] + albumTotals + _0xef73[469])
                     } else {
                         playingalbumId = myhkalbum;
                         albumId = myhkalbum;
                         myhkMedia[_0xef73[203]](0, myhkalbum - 1);
-                        console[_0xef73[37]](_0xef73[470] + myhkalbum + _0xef73[469])
                     }
                 } else {
                     if (myhkalbum > albumTotals) {
-                        console[_0xef73[37]](_0xef73[466] + albumTotals + _0xef73[471] + myhksong + _0xef73[467]);
                         albumId = 0;
                         myhkMedia[_0xef73[203]](myhksong - 1, 0)
                     } else {
-                        console[_0xef73[37]](_0xef73[470] + myhkalbum + _0xef73[471] + myhksong + _0xef73[467]);
                         playingalbumId = myhkalbum;
                         playingsongId = myhksong;
                         albumId = myhkalbum;
@@ -3008,7 +2997,7 @@ if ("undefined" === typeof jQuery)
                 $(_0xef73[217], $player)[_0xef73[211]](_0xef73[216], 100 * (myhkplaytime / myhkplaying)[_0xef73[214]](2) + _0xef73[210]);
                 $(_0xef73[124], $player)[_0xef73[148]](formatSecond(myhkplaytime) + _0xef73[146] + formatSecond(myhkplaying))
             }
-            ;$(window)[_0xef73[493]](function() {
+        /*    $(window)[_0xef73[493]](function() {
                 var a = $(this)[_0xef73[391]]();
                 var b = $(window[_0xef73[491]])[_0xef73[270]]();
                 var c = $(this)[_0xef73[270]]();
@@ -3033,8 +3022,10 @@ if ("undefined" === typeof jQuery)
                     }
                 }
             })
+            */
         }
         function startPlay() {
+            console.log(this);
             document[_0xef73[220]](_0xef73[494], function() {
                 var a = function() {
                     audio[_0xef73[156]]();
