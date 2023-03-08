@@ -5,7 +5,19 @@
 */
 
 /*===================================================================common  start=============================================================*/
+$.ajaxSetup({
 
+    complete: function(jqXHR, textStatus){
+
+        switch (jqXHR.status){
+
+            case(302):
+                window.location.reload();
+                break;
+        }
+
+    }
+});
 //增加替换所有方法
 String.prototype.replaceAll  = function(s1,s2){
     return this.replace(new RegExp(s1,"g"),s2);

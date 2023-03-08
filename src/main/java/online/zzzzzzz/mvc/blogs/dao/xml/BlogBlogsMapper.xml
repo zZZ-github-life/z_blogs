@@ -474,6 +474,7 @@
             x.id id,max(x.about) about ,max(x.path) path,
             max(x.tagsIds) tagsIds,
             max(x.className) className,
+            max(x.publishDate) dateDesc,
             Date_format(max(x.publishDate),'%Y/%m/%d') publishDate,
             max(x.title) title,
             max(x.publishDate) publishDate,
@@ -524,7 +525,7 @@
                         and  b.is_draft =#{isDraft}
                     </if>
                 </where>
-        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by publishDate desc
+        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by dateDesc desc
         limit #{start},#{pageSize}
     </select>
 
@@ -534,6 +535,7 @@
         x.id id,max(x.about) about ,
         max(x.tagsIds) tagsIds,
         max(x.className) className,
+        max(x.publishDate) dateDesc,
         Date_format(max(x.publishDate),'%Y/%m/%d') publishDate,
         max(x.title) title,
         max(x.publishDate) publishDate,
@@ -564,7 +566,7 @@
                 and  b.is_draft =#{isDraft}
             </if>
         </where>
-        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by publishDate desc
+        ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by dateDesc desc
         limit #{start},#{pageSize}
     </select>
 

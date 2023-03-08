@@ -50,6 +50,9 @@ $(function () {
     }
 
     setPTU();
+
+
+
     console.clear();  // 清空
     console.log("\n %c needle %c  但凡好剑都有自己的名号。珊莎有她的缝衣针，现在我也有了自己的“缝衣针” \n", "font-weight:900;color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 });
@@ -113,6 +116,8 @@ function pjax(url,index){
     });
     setPTU();
 }
+
+
 /*开始阅读*/
 function headertop_down(selector) {
     var coverOffset = $(selector).offset().top;

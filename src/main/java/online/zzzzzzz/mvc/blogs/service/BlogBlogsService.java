@@ -116,20 +116,6 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
                 classifyMapper.updateSQL("update blog_tags set tags_num=tags_num+1 where id = "+tagId);
             }
             generateFtl(blogBlogs);
-            Global.singleThreadExecutor.execute(() -> {
-                try {
-                    generateIndex();
-                    generateClassify();
-                    generateArchive();
-                    generateRESSAndSearch();
-                    SysMapper sysMapper = (SysMapper) ContextLoaderListener.getCurrentWebApplicationContext().getBean("sysMapper");
-                    Integer wc = sysMapper.getWC();
-                    InitResource.WC =new AtomicLong(wc);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            });
-         
         }catch (Exception e){
             deleteBlog(blogBlogs);//回滚删除生成的文件
             e.printStackTrace();
@@ -223,7 +209,7 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
             String realPath = InitResource.servletContext.getRealPath(Constant.PRIMARY_PATH);
             File file = new File(realPath + "index" + Constant.HTML_SUFFIX);
             File file1 = new File(realPath + "index1" + Constant.HTML_SUFFIX);
-            outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+            outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file,false), StandardCharsets.UTF_8);
             template.process(var, outputStreamWriter);
             outputStreamWriter1 = new OutputStreamWriter(new FileOutputStream(file1), StandardCharsets.UTF_8);
             template1.process(var,outputStreamWriter1);

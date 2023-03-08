@@ -6,6 +6,7 @@ import online.zzzzzzz.basics.controller.BaseController;
 import online.zzzzzzz.basics.entity.RepJson;
 import online.zzzzzzz.basics.listener.InitResource;
 import online.zzzzzzz.comment.Constant;
+import online.zzzzzzz.comment.Global;
 import online.zzzzzzz.comment.IPUtils;
 import online.zzzzzzz.comment.OSUtil;
 import online.zzzzzzz.mvc.blogs.dao.BlogBlogsMapper;
@@ -14,12 +15,14 @@ import online.zzzzzzz.mvc.blogs.service.BlogBlogsService;
 import online.zzzzzzz.mvc.classify.dao.ClassifyMapper;
 import online.zzzzzzz.mvc.classify.dao.entity.BlogClassify;
 import online.zzzzzzz.mvc.guestbook.dao.GuestBookMapper;
+import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import online.zzzzzzz.mvc.tags.dao.BlogTagsMapper;
 import online.zzzzzzz.mvc.tags.dao.entity.BlogTags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +32,7 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author zZZ....
@@ -246,6 +250,20 @@ public class BlogBlogsController extends BaseController {
         RepJson repJson = new RepJson();
         try {
             blogBlogsService.generateArticle(blogBlogs);
+            
+            Global.singleThreadExecutor.execute(() -> { //等待事务提交，开启线程更新页面
+                try {
+                    blogBlogsService.generateIndex();
+                    blogBlogsService.generateClassify();
+                    blogBlogsService.generateArchive();
+                    blogBlogsService.generateRESSAndSearch();
+                    SysMapper sysMapper = (SysMapper)  Global.getBean("sysMapper");
+                    Integer wc = sysMapper.getWC();
+                    InitResource.WC =new AtomicLong(wc);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
