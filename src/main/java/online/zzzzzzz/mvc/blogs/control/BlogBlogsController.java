@@ -176,7 +176,7 @@ public class BlogBlogsController extends BaseController {
                 for (String tag : split) {
                     tags.append(Constant.tag1).append(tag).append(Constant.tag2).append(tag).append(Constant.tag3);
                 }
-                boolean b =Integer.parseInt((String) map.get("currentLines")) %2 ==0;
+                boolean b =(Integer) map.get("currentLines") %2 ==0;
                 sb.append(Constant.archiveCard1).append(b?"fade-right":"fade-left")
                         .append(Constant.archiveCard2).append(publishDate)
                         .append(Constant.archiveCard3).append(b?"fade-left":"fade-right")

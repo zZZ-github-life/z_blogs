@@ -529,6 +529,7 @@
     </select>
 
     <select id="getListForRESSAndSearch" resultType="map" parameterType="map">
+        SET SESSION sort_buffer_size = 1024 * 1024;
         select
         x.id id,max(x.about) about ,
         max(x.tagsIds) tagsIds,

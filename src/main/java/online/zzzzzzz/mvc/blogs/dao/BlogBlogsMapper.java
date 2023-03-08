@@ -1,11 +1,9 @@
 package online.zzzzzzz.mvc.blogs.dao;
 
+import online.zzzzzzz.basics.listener.InitResource;
 import online.zzzzzzz.basics.mapper.Mapper;
 import online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -57,4 +55,6 @@ public interface BlogBlogsMapper extends Mapper<BlogBlogs> {
     @Select("select * from pageview  where type = 'map' order by num desc  limit 10")
     List<Map<String, Object>> pvMap(String map);
     
+    @Update("update blog_blogs set hits= ifnull(hits,0)+1 where id= ( select id from  (select id from blog_blogs where href = #{href}) tem) ")
+    Integer articleHits(String href);
 }

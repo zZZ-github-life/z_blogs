@@ -3,7 +3,9 @@ package online.zzzzzzz.comment;
 
 
 import online.zzzzzzz.basics.exception.MsgException;
+import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -28,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Global {
     
     /**
-     * 维护一个线程池 处理任务队列
+     * 维护一个线程池 处理任务队列。任务需要自行处理异常
      */
     public static ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
     
@@ -58,7 +60,7 @@ public class Global {
             cusProperties = new Properties();
             cusProperties.load(new InputStreamReader(Objects.requireNonNull(Global.class.getClassLoader().getResourceAsStream("/properties/blog.properties")), StandardCharsets.UTF_8));
             fileDrive= cusProperties.getProperty("file.drive","D:\\");
-            filePath= cusProperties.getProperty("file.path","blogFile");
+            filePath= cusProperties.getProperty("file.path","data"+File.separator+"blogFile");
             absPath = cusProperties.getProperty("file.absPath","blogFile");
             atomicInteger = new AtomicInteger(Integer.parseInt(cusProperties.getProperty("article.num","0")));
         }catch (Exception e){
@@ -227,6 +229,14 @@ public class Global {
         }
     }
     
+    /**
+     * 获取运行时 spring的bean
+     * @param beanName bean的名称
+     * @return 获取到的bean
+     */
+    public static Object getBean(String beanName){
+       return Objects.requireNonNull(ContextLoaderListener.getCurrentWebApplicationContext()).getBean(beanName);
+    }
     
     
 }

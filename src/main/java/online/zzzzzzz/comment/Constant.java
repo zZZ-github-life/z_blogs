@@ -26,9 +26,9 @@ public interface Constant {
     
     
     
-    public static final String card1="<div class=\"col s12 m6 l4 animated-div\"  data-aos=\"zoom-in-up\">\n <div class=\"card\">\n <div class=\"card-image\">\n <a href=\"" ;
+    public static final String card1="<div class=\"col s12 m6 l4 animated-div\"  data-aos=\"zoom-in-up\">\n <div class=\"card\">\n <div class=\"card-image\">\n <a target=\"_blank\" href=\"" ;
     public static final String card2="\">\n  <img onerror=\"noFind(this,'/img/404-4l2eq2.jpg')\"  src=\"";
-    public static final String card3="class=\"blog-article-img\"  alt=\"\">\n  <span class=\"card-title\">";
+    public static final String card3="\"  class=\"blog-article-img\"  alt=\"\">\n  <span class=\"card-title\">";
     public static final String card4="</span>\n</a>\n </div>\n <div class=\"card-content article-card\">\n<p class=\"blog-p-text\">";
     public static final String card5="</p>\n <div>\n <span class=\"publish-date\">\n <i class=\"far fa-clock fa-fw icon-date\"></i>";
     public static final String card6="</span>\n <span class=\"publish-classify\">\n <i class=\"fas fa-bookmark fa-fw icon-category\"></i>\n <a href=\"#\" class=\"post-category\" onclick=\"pjax('/blogBlogs/tagsBt?type=classify&key=" ;

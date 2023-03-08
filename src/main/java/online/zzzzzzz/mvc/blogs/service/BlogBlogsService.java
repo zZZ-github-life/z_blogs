@@ -18,6 +18,7 @@ import online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery;
 import online.zzzzzzz.mvc.guestbook.dao.GuestBookMapper;
 import online.zzzzzzz.mvc.guestbook.dao.entity.BlogGuestBook;
 import online.zzzzzzz.mvc.guestbook.service.GuestBookService;
+import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import online.zzzzzzz.mvc.tags.dao.BlogTagsMapper;
 import online.zzzzzzz.mvc.tags.dao.entity.BlogTags;
 import online.zzzzzzz.mvc.tools.dao.ToolsMapper;
@@ -28,12 +29,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author zZZ....
@@ -113,6 +116,20 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
                 classifyMapper.updateSQL("update blog_tags set tags_num=tags_num+1 where id = "+tagId);
             }
             generateFtl(blogBlogs);
+            Global.singleThreadExecutor.execute(() -> {
+                try {
+                    generateIndex();
+                    generateClassify();
+                    generateArchive();
+                    generateRESSAndSearch();
+                    SysMapper sysMapper = (SysMapper) ContextLoaderListener.getCurrentWebApplicationContext().getBean("sysMapper");
+                    Integer wc = sysMapper.getWC();
+                    InitResource.WC =new AtomicLong(wc);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            });
+         
         }catch (Exception e){
             deleteBlog(blogBlogs);//回滚删除生成的文件
             e.printStackTrace();

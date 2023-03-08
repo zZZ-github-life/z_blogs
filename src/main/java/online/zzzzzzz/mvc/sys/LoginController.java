@@ -64,10 +64,15 @@ public class LoginController {
                 currentSub.login(token);  //认证失败则抛出异常
     
                 Global.singleThreadExecutor.execute(() -> {
-                    Cookie cookie = Tools.getCookie(request, Constant.CAPTCHA);
-                    if (cookie!=null){
-                        codes.remove(cookie.getValue());
+                    try {
+                        Cookie cookie = Tools.getCookie(request, Constant.CAPTCHA);
+                        if (cookie!=null){
+                            codes.remove(cookie.getValue());
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
                     }
+                
                 });
             }
             

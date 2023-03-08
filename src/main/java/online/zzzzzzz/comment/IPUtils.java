@@ -55,7 +55,7 @@ public class IPUtils {
                 }
             }
             
-            return ip;
+            return ip==null?UNKNOWN:ip;
         } catch (Exception e) {
             return UNKNOWN;
         }

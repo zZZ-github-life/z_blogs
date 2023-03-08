@@ -18,7 +18,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="icon" type="image/png" href="${basePath}/img/favicon.png">
 
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/typoCss/typo.css">
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库-->
