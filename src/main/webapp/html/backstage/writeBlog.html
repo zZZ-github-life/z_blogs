@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>随便写点什么吧~</title>
+        <title>正在写博客...</title>
         <link href="/tabler/dist/css/tabler.css" rel="stylesheet"/>
         <link href="/css/main.css" rel="stylesheet"/>
         <link rel="stylesheet" href="/libs/EditorMD/css/editormd.css" />
@@ -283,12 +283,12 @@
                     </div>
                     <div  class="nav-item dropdown d-md-flex me-3">
                         <a href="#" class=" "  data-bs-toggle="tooltip" data-bs-placement="bottom"  title="开启赞赏">
-                            <span class="badge blog-list-a " data-blog-tagname="isPraise" style="font-size: 14.5px">赏</span>
+                            <span class="badge blog-list-a " data-blog-tagname="isPraise" id="blogListIsPraise" style="font-size: 14.5px">赏</span>
                         </a>
                     </div>
                     <div  class="nav-item dropdown d-md-flex me-3">
                         <a href="#" class=""  data-bs-toggle="tooltip" data-bs-placement="bottom" title="推荐">
-                          <span class="badge blog-list-a"  data-blog-tagname="isUp" >
+                          <span class="badge blog-list-a"  data-blog-tagname="isUp" id="blogListIsUp" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-thumb-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"></path>
@@ -298,7 +298,7 @@
                     </div>
                     <div class="nav-item dropdown d-md-flex me-3">
                         <a href="#" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="开启评论">
-                          <span class="badge blog-list-a"  data-blog-tagname="isReview" >
+                          <span class="badge blog-list-a"  data-blog-tagname="isReview" id="blogListIsReview">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -310,14 +310,15 @@
                     </div>
                     <div  class="nav-item dropdown d-md-flex me-3">
                         <a href="#" class="" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="转载声明">
-                          <span class="badge blog-list-a" data-blog-tagname="isDeclare">
+                          <span class="badge blog-list-a" data-blog-tagname="isDeclare" id="blogListIsDeclare">
                               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
                           </span>
                         </a>
                     </div>
-
+                    <input class="form-control " type="hidden"  name="publishDate" id="publishDate"/>
                     <div  class="nav-item dropdown d-md-flex me-3">
                         <input id="galleryId" type="hidden" name="galleryId" >
+                        <input id="blogHref" type="hidden" name="blogHref" >
                         <div style="border: 2px dashed;margin-right: 5px;margin-left: 2px;background-size:cover;opacity:0.5" id="imgHover">
 
                                                     <svg xmlns="http://www.w3.org/2000/svg"  onclick="blog_publish_zhezhao()" style="width: 2rem;height: 2rem;cursor: pointer"  class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -335,6 +336,7 @@
                             </label>
                         </a>
                     </div>
+
                     <div  class="nav-item dropdown d-md-flex me-3">
                         <a href="#" class="btn btn-light btn-pill w-100"  onclick="publish(false,this)" style="border: 0">
                             发布
@@ -343,10 +345,11 @@
                 </div>
 
             </div>
+            <input type="hidden" id="blogListArticleId" name="id">
         </header>
         <main>
             <div id="editorId" style="z-index: 1000 !important; border-radius: 5px">
-                <input class="form-control " type="hidden"  name="publishDate" placeholder="Select a date" id="publishDate"/>
+
                 <textarea id="form-label"></textarea>
             </div>
         </main>
@@ -390,7 +393,6 @@
 
             $(function () {
                 getImg();
-
                 document.getElementById('all').addEventListener('scroll',function (e) {
                     // 变量 scrollHeight 是滚动条的总高度
                     let scrollHeight = this.scrollHeight || this.scrollHeight;
@@ -475,7 +477,7 @@
                     document.getElementById('modal-1').classList.add('blogs-hide');
                     document.getElementById('galleryId').value =  element.getAttribute('data-galleryid');
                 };
-                document.getElementById('publishDate').value= new Date().toLocaleDateString();
+
             });
 
 
@@ -485,6 +487,8 @@
         <script type="text/javascript">
 
             $(function() {
+
+                let id=getUrlParam("id"); //是否为编辑还是新增
 
                 let options = {
                     width  : "100%",
@@ -499,6 +503,9 @@
                     saveHTMLToTextarea:true,
                     htmlDecode : "style,script,iframe|on*",
                     emoji : true,
+                    imageUpload    : true,
+                    imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    imageUploadURL : "/galleryController/fileUpload",
                     toolbarIcons: function() {
                         // 给工具栏full模式添加一个自定义方法
                         return editormd.toolbarModes.full.concat(["customIcon"]);
@@ -530,11 +537,52 @@
                         this.watch();
                         $('.CodeMirror-code').children().eq(0).remove();
 
-                        // 引入插件 执行监听方法
-                        editormd.loadPlugin("/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
-                            // 初始化插件 实现监听
-                            editor_s.CodeAutoSave();
-                        });
+                        if (!id){ //编辑文章时，取消自动保存
+                            // 引入插件 执行监听方法
+                            editormd.loadPlugin("/libs/EditorMD/plugins/code-auto-save/code-auto-save", function () {
+                                // 初始化插件 实现监听
+                                editor_s.CodeAutoSave();
+                            });
+                        }else {
+                                $.ajax({
+                                    url:'/blogBlogs/get?id='+id,
+                                    type:'get',
+                                    success:function (res) {
+                                        if (res.success){
+                                            let data = res.data;
+                                            editor_s.insertValue(data.contentMd);
+                                            document.getElementById('title').value = data.title;
+
+                                            document.getElementById('blogListArticleId').value= id;
+                                            if (data.isPraise){
+                                                let blogListIsPraise =document.getElementById('blogListIsPraise');
+                                                blogListIsPraise.setAttribute('data-blog-selected','1');
+                                                blogListIsPraise.classList.add('blog-list-selected');
+                                            }
+                                            if (data.isUp){
+                                                let blogListIsUp =document.getElementById('blogListIsUp');
+                                                blogListIsUp.setAttribute('data-blog-selected','1');
+                                                blogListIsUp.classList.add('blog-list-selected');
+                                            }
+                                            if (data.isReview){
+                                                let blogListIsReview =document.getElementById('blogListIsReview');
+                                                blogListIsReview.setAttribute('data-blog-selected','1');
+                                                blogListIsReview.classList.add('blog-list-selected');
+                                            }
+                                            if (data.isDeclare){
+                                                let blogListIsDeclare =document.getElementById('blogListIsDeclare');
+                                                blogListIsDeclare.setAttribute('data-blog-selected','1');
+                                                blogListIsDeclare.classList.add('blog-list-selected');
+                                            }
+                                            document.getElementById('galleryId').value =  data.galleryId;
+                                            document.getElementById('blogHref').value =  data.href;
+                                            document.getElementById('publishDate').value= data.publishDate;
+                                        }
+                                    }
+                                });
+
+                        }
+
                     },
                     onpreviewed:function () {
                         //  this.unwatch();  //只显示编辑部分
@@ -543,13 +591,11 @@
                 };
                 editor_s = editormd("editorId", options);
 
-
                 $('#blogs_eye').click(function () {
                     if (editor_s.state.preview){
                         editor_s.previewed()
                     }else {
                         editor_s.previewing(); //预览
-
                     }
                 });
 
@@ -560,8 +606,6 @@
                     svgEle.nextElementSibling.setAttribute('style','display:none');
                     $('#blogs_font_img').text('图片已添加')
                 });
-
-
 
                 //文章详情页 按钮选中切换
                 $('[data-bs-toggle="tooltip"]>span').click(function (e) {
@@ -594,6 +638,11 @@
                     }
                     return !findParent(this.nextElementSibling,e.clickEvent.target,0);
                 })
+
+
+
+
+
             });
             function findParent(parent,child,i) {
                 if (i>6 || !child.parentElement){
@@ -604,6 +653,40 @@
                 }
               return   findParent(parent,child.parentElement,++i)
             }
+
+            //自动粘贴图片到浏览器；
+
+                let pas = document.querySelector("body");
+
+                //定义body标签绑定的粘贴事件处理函数
+                let fun=function(e){
+                    //获取clipboardData对象
+                    let data=e.clipboardData||window.clipboardData;
+                    //获取图片内容
+                    let item =data.items[0];
+                    //判断是不是图片，最好通过文件类型判断
+
+                    if (item && item.kind === 'file' && item.type.match(/^image\//i) ){ //是否为图片
+                        let fd  =new FormData();
+                        fd.append("file",item.getAsFile());
+                        $.ajax({
+                            type:'post',
+                            url:'/galleryController/parseFile',
+                            data: fd,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            async:false,
+                            success:function (res) {
+                                if (res.success){
+                                    editor_s.insertValue("![]("+res.data+")");
+                                }
+                            }
+                        })
+                    }
+                };
+            pas.removeEventListener('paste',fun);
+            pas.addEventListener('paste',fun);
         </script>
     </body>
 </html>

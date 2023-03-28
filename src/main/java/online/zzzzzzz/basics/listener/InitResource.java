@@ -2,6 +2,7 @@ package online.zzzzzzz.basics.listener;
 
 import online.zzzzzzz.comment.Global;
 import online.zzzzzzz.mvc.blogs.service.BlogBlogsService;
+import online.zzzzzzz.mvc.sys.Task;
 import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -53,14 +54,7 @@ public class InitResource   {
         WC=new AtomicLong(wc!=null?wc:0);
     
         long start = System.currentTimeMillis();
-        blogBlogsService.generateIndex();
-        blogBlogsService.generateClassify();
-        blogBlogsService.generateArchive();
-        blogBlogsService.generateNavigation();
-        blogBlogsService.generateGuestBook();
-        blogBlogsService.generateArticles();
-        blogBlogsService.generate404();
-        blogBlogsService.generateRESSAndSearch();
+        blogBlogsService.initHtml();
         long end = System.currentTimeMillis();
         System.out.println("生成博客站点页面耗时："+(end-start));
     
@@ -69,6 +63,7 @@ public class InitResource   {
 
     public void PreDestroy(){
         try {
+            
             sysMapper.insertOrUpdate("PV",PV.toString());
             sysMapper.insertOrUpdate("TV",TV.toString());
             sysMapper.insertOrUpdate("UV",UV.toString());

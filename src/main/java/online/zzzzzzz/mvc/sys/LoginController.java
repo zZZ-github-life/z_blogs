@@ -62,7 +62,7 @@ public class LoginController {
                 UsernamePasswordToken token = new UsernamePasswordToken(loginName, password);
                 token.setRememberMe(true);
                 currentSub.login(token);  //认证失败则抛出异常
-    
+                currentSub.getSession().setTimeout(1000*60*60*4);  //登录过期时长4h
                 Global.singleThreadExecutor.execute(() -> {
                     try {
                         Cookie cookie = Tools.getCookie(request, Constant.CAPTCHA);
@@ -101,6 +101,10 @@ public class LoginController {
      */
     @RequestMapping("home")
     public String home() {
+        Subject subject = SecurityUtils.getSubject();
+        if (subject==null || !subject.isAuthenticated()){
+            return "login";
+        }
         return "index";
     }
     

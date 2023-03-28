@@ -18239,7 +18239,7 @@ Chart sparkline
 
 .offcanvas-header {
   border-bottom: 1px solid rgba(98, 105, 118, 0.16);
-  background: linear-gradient(to right, #206bc4de, #1f5a9fbf);
+  background: linear-gradient(to right, var(--tblr-gray-100), var(--tblr-gray-600));
   background-attachment: fixed;
 }
 

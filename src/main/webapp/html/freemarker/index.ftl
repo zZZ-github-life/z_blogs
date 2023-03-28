@@ -15,8 +15,8 @@
 
         <link rel="icon" type="image/png" href="${basePath}/img/favicon.png">
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swiper/swiper-bundle.css"><!--轮播图-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swp/style.css">
+        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swiper/swiper-bundle.min.css"><!--轮播图-->
+        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swp/style.min.css">
 
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库-->
         <link rel="stylesheet" type="text/css" href="${basePath}/libs/materialize/css/materialize.css"><!--Materialize-UI-->
@@ -73,7 +73,8 @@
                     <a href="/" class="brand-logo"><img style="width: 148px;vertical-align: middle;padding-bottom: 14px;" src="/img/logo.png" alt=""></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
-                            <a onclick="pjax('/html/article/primary/index1.html')" class="waves-effect faa-parent  animated-hover">
+                  <#--     <a onclick="pjax('/html/article/primary/index1.html')" class="waves-effect faa-parent  animated-hover">-->
+                            <a href="/" class="waves-effect faa-parent  animated-hover">
                                 <i class="fas fa-home faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>首页</span>
                             </a>
@@ -254,7 +255,7 @@
 
                                 <div class="row">
                                     <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-                                        本站用于记录工作与学习之中的一些问题和心得。初衷是做一个在线记录文本，因为会有太多忘掉的技术栈。最开始在网上看了一些别人的博客站点，慢慢的想法越来越多，于是动手搭建了此站点。从搭建框架、搭建云服务、购买域名、开发功能，部署上线，断断续续花了差不多一年时间。在后面，会持续优化、开发一些新的功能。<p><span style="font-family: fantasy">Needle</span>：取自权游里二丫手中的短剑</p>
+                                        本站用于记录工作与学习之中的一些问题和心得。初衷是做一个在线记录文本，因为会有太多忘掉的技术栈。最开始在网上看了一些别人的博客站点，慢慢的想法越来越多，于是动手搭建了此站点。从搭建框架、搭建云服务、购买域名、开发功能、部署上线断断续续花了差不多一年时间。在后面，会持续优化、开发一些新的功能。<p><span style="font-family: fantasy">Needle</span>：取自权游里二丫手中的短剑</p>
                                     </div>
                                 </div>
                             </div>

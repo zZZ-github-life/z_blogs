@@ -42,6 +42,7 @@ public class Task {
     private SysMapper sysMapper;
     
     /**
+     * 每隔5秒执行一次
      * 收发邮件，订阅，退订 邮件
      */
     @Scheduled(cron = "*/5 * * * * ?")
@@ -98,18 +99,13 @@ public class Task {
         sysMapper.insertOrUpdate("UV", InitResource.UV.toString());
         sysMapper.insertOrUpdate("WC", InitResource.WC.toString());
     
-        blogBlogsService.generateIndex();
-        blogBlogsService.generateClassify();
-        blogBlogsService.generateArchive();
-        blogBlogsService.generateNavigation();
-        blogBlogsService.generateGuestBook();
-        blogBlogsService.generateArticles();
-        blogBlogsService.generate404();
-        blogBlogsService.generateRESSAndSearch();
-        
+        blogBlogsService.initHtml();
+    
         System.gc();
         
     }
+    
+    
     private void readEmail(Message message,String temPath,String subject) throws MessagingException, IOException, TemplateException, GeneralSecurityException {
     
         InternetAddress internetAddress = (InternetAddress)message.getFrom()[0];

@@ -6,8 +6,8 @@
 
 <title>留言板 | zZZ....</title>
 
-<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook_style.css">
-<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.css">
+<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.min.css">
+
 
 <style type="text/css">
     .heart {

@@ -56,21 +56,21 @@
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">标签名称</label>
                                         <div class="col">
-                                            <input type="text" name="tagsName" class="form-control"  placeholder="页面上所展示的标签名称">
+                                            <input type="text" name="tagsName"  autocomplete="off"  class="form-control"  placeholder="页面上所展示的标签名称">
 
                                         </div>
                                     </div>
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">标签key</label>
                                         <div class="col">
-                                            <input type="text" name="tagsKey" class="form-control" placeholder=" 关联文章的key，需要唯一">
+                                            <input type="text" name="tagsKey" class="form-control"  autocomplete="off"  placeholder=" 关联文章的key，需要唯一">
 
                                         </div>
                                     </div>
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">博客数量</label>
                                         <div class="col">
-                                            <input type="text"  name="tagsNum" class="form-control" placeholder="还没有关联博文哦~"  readonly>
+                                            <input type="text"  name="tagsNum"  class="form-control" placeholder="还没有关联博文哦~"  readonly>
 
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                     <div class="form-group mb-3 row">
                                         <label class="form-label col-3 col-form-label">排序</label>
                                         <div class="col">
-                                            <input type="text" name="sort" class="form-control" placeholder=" 根据输入的数值进行标签倒排"  >
+                                            <input type="text" name="sort" class="form-control" placeholder=" 根据输入的数值进行标签倒排"  value="1" autocomplete="off"  >
                                         </div>
                                     </div>
                                     <div class="form-footer">
@@ -106,14 +106,14 @@
                                     <div class="text-muted">
                                         Show
                                         <div class="mx-2 d-inline-block">
-                                            <input type="text" id="blog_tags_show_pageSize" class="form-control form-control-sm" value="10" size="3" aria-label="Invoices count">
+                                            <input type="text" id="blog_tags_show_pageSize" class="form-control form-control-sm" value="10" size="3" aria-label="Invoices count"  autocomplete="off" >
                                         </div>
                                         entries
                                     </div>
                                     <div class="ms-auto text-muted">
                                         Search:
                                         <div class="ms-2 d-inline-block">
-                                            <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                                            <input type="text" class="form-control form-control-sm" aria-label="Search invoice"  autocomplete="off" >
                                         </div>
                                     </div>
                                 </div>

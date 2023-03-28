@@ -57,4 +57,7 @@ public interface BlogBlogsMapper extends Mapper<BlogBlogs> {
     
     @Update("update blog_blogs set hits= ifnull(hits,0)+1 where id= ( select id from  (select id from blog_blogs where href = #{href}) tem) ")
     Integer articleHits(String href);
+    
+    //更标签和分类的数量关联
+    void updateClassifyAndTagsOfNum();
 }

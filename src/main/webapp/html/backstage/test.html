@@ -1,59 +1,51 @@
-<meta charset="utf-8"/>
-<link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<style>
-    .swiper {
-        width: 600px;
-        height: 300px;
-    }
-</style>
 <body>
-    <!-- Slider main container -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
 
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+    <div class="CodeMirror-sizer" contenteditable="true">
 
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
     </div>
-
 </body>
+
+<script src="../..//libs/jquery/jquery.min.js" ></script> <!--jq-->
+
 <script>
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'vertical',
-        loop: true,
 
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    let pas = document.querySelector("div.CodeMirror-sizer");
 
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
-    });
+    //定义body标签绑定的粘贴事件处理函数
+    let fun=function(e){
+        //获取clipboardData对象
+        let data=e.clipboardData||window.clipboardData;
+        //获取图片内容
+        let  blob=data.items[0].getAsFile();
+        //判断是不是图片，最好通过文件类型判断
+        let isImg=(blob&&1)||-1;
+        let reader=new FileReader();
+        if(isImg>=0){
+            //将文件读取为 DataURL
+            reader.readAsDataURL(blob);
+        }
+        //文件读取完成时触发
+        reader.onload=function(event){
+            //获取base64流
+            let base64_str=event.target.result;
+            //div中的img标签src属性赋值，可以直接展示图片
+            $("#jietuImg").attr("src",base64_str);
+
+            let fd  =new FormData();
+            fd.append("file",blob);
+            $.ajax({
+                type:'post',
+                url:'http://localhost:63342/blogs/src/main/webapp/html/backstage/test.html?_ijt=9eth014f6esko0cnh26fkfrqcu',
+                data:fd,
+                success:function (res) {
+                    console.log(res)
+                }
+            })
+        }
+    }
+
+
+    pas.removeEventListener('paste',fun);
+  pas.addEventListener('paste',fun);
 </script>

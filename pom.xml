@@ -24,7 +24,7 @@
   <packaging>war</packaging>
 
   <name>blogs</name>
-  <groupId>zzzzzzz.online</groupId>
+  <groupId>online.zzzzzzz.zBlogs</groupId>
   <artifactId>blogs</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -310,6 +310,7 @@
 
 
   <build>
+    <!--更改打包名-->
     <finalName>ROOT</finalName>
 
     <plugins>
@@ -328,6 +329,34 @@
           <contextPath>/</contextPath>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <!-- 直接访问 Tomcat 服务器的 manager -->
+          <url>http://zzzzzzz.online/manager/text</url>
+          <server>tomcat9</server>
+          <username>zblogs</username>
+          <password>12ki3@r#e!GT</password>
+          <update>true</update>
+          <!--访问的项目名，表示无需项目名。列如：/app-->
+          <path>/</path>
+        </configuration>
+      </plugin>
+
     </plugins>
 
     <!-- 扫描mybatis的mapper.xml文件。 -->
@@ -352,9 +381,6 @@
     </resources>
 
 
+
   </build>
-
-
-
-
 </project>

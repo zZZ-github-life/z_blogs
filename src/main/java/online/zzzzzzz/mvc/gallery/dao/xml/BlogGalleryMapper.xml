@@ -11,11 +11,12 @@
         <result column="path" jdbcType="VARCHAR" property="path" />
         <result column="md5" jdbcType="VARCHAR" property="md5" />
         <result column="sort" jdbcType="INTEGER" property="sort" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
     </resultMap>
 
 
     <sql id="Base_Column_List">
-  id, img_name, size, upload_time, content_type, path, md5, sort
+  id, img_name, size, upload_time, content_type, path, md5, sort,type
 </sql>
 
 
@@ -28,20 +29,20 @@
     <insert id="insert" parameterType="online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery">
       insert into blog_gallery (id, img_name, size,
         upload_time, content_type, path,
-        md5, sort)
+        md5, sort,type)
       values (#{id,jdbcType=INTEGER}, #{imgName,jdbcType=VARCHAR}, #{size,jdbcType=BIGINT},
         #{uploadTime,jdbcType=DATE}, #{contentType,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},
-        #{md5,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER})
+        #{md5,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER},#{type})
 
     </insert>
 
     <insert id="insertDuplicateKey" parameterType="online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery">
         insert into blog_gallery (id, img_name, size,
         upload_time, content_type, path,
-        md5, sort)
+        md5, sort,type)
         values (#{id,jdbcType=INTEGER}, #{imgName,jdbcType=VARCHAR}, #{size,jdbcType=BIGINT},
         #{uploadTime,jdbcType=DATE}, #{contentType,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},
-        #{md5,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER})
+        #{md5,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER},#{type,jdbcType=VARCHAR})
 
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
@@ -62,6 +63,9 @@
             </if>
             <if test="sort != null">
                 sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                sort = #{type,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -93,6 +97,9 @@
             <if test="sort != null">
                 sort,
             </if>
+            <if test="type != null">
+                type,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -118,6 +125,9 @@
             </if>
             <if test="sort != null">
                 #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -146,6 +156,9 @@
             </if>
             <if test="sort != null">
                 sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
@@ -189,6 +202,9 @@
             <if test="sort != null" >
                 and sort = #{sort,jdbcType=INTEGER}
             </if>
+            <if test="type != null and type != '' "  >
+                and tpe = #{type,jdbcType=VARCHAR}
+            </if>
         </where>
     </sql>
 
@@ -223,13 +239,16 @@
                 <if test="p.sort != null" >
                     and sort = #{p.sort,jdbcType=INTEGER}
                 </if>
+                <if test="p.type != null and p.type != '' "  >
+                    and type = #{p.type,jdbcType=VARCHAR}
+                </if>
             </if>
 
         </where>
     </sql>
 
 
-    <select id="findPageWithResult" parameterType="online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery" resultMap="BaseResultMap">
+    <select id="findPageWithResult" parameterType="online.zzzzzzz.basics.entity.Page"  resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from  blog_gallery
@@ -238,7 +257,7 @@
     </select>
 
 
-    <select id="findPageWithCount" parameterType="online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery" resultType="Integer">
+    <select id="findPageWithCount" parameterType="online.zzzzzzz.basics.entity.Page"  resultType="Integer">
         select count(1)
         from blog_gallery
         <include refid="pageFindPageWithWhere" />

@@ -60,12 +60,22 @@
                 </h2>
                 <div class="text-muted mt-1">1-12 of 241 photos</div>
               </div>
+              <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                <a href="#" class="btn  btn-primary  btn-icon" aria-label="Dribbble" id="galleryAll">
+                  all
+                </a>
+              </div>
+              <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                <a href="#" class="btn  btn-primary  btn-icon" aria-label="Dribbble" id="galleryBlog">
+                  blog
+                </a>
+              </div>
               <!-- Page title actions -->
               <div class="col-auto ms-auto d-print-none">
                 <div class="d-flex">
                   <div class="me-3">
                     <div class="input-icon">
-                      <input type="text" value="" class="form-control" placeholder="Search…">
+                      <input type="text" value="" class="form-control" placeholder="Search…" autocomplete="off">
                       <span class="input-icon-addon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
                       </span>
@@ -285,7 +295,6 @@
              reads2.readAsBinaryString(gFiles[i]);
              //base64预览
              reads.onload=function (e) {
-
                spans[i].style.backgroundImage ='url('+ reads.result+')';
                spans[i].style.backgroundSize = "cover" ;
                spans[i].lastElementChild.style.display = 'none';
@@ -296,12 +305,25 @@
                arr.push(s);
              }
            }
-
          }
        };
 
        //加载数据
+       pageDataGallery.p.type='gallery';
        imgList(1,12);
+
+
+       document.getElementById("galleryAll").onclick =function (e) {
+         //加载数据
+         pageDataGallery.p.type=null;
+         imgList(1,12);
+       };
+
+       document.getElementById("galleryBlog").onclick = function (e) {
+         //加载数据
+         pageDataGallery.p.type='blog';
+         imgList(1,12);
+       }
 
      });
 

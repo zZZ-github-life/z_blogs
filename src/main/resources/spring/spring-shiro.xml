@@ -56,6 +56,7 @@
                 /medias/** =anon
                 /xml/** =anon
                 /webfonts/** =anon
+                /favicon.png =anon
                 /GuestBookController/listPage = anon
                 /GuestBookController/save = anon
                 /blogBlogs/frontList = anon

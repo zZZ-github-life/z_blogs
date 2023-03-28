@@ -134,9 +134,7 @@
   text-decoration: underline;
 }
 
-.typo#typo a {
-  border-bottom: 1px solid #1abc9c;
-}
+
 
 .typo#typo a:hover {
   border-bottom-color: #555;

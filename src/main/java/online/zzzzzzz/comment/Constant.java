@@ -11,8 +11,8 @@ public interface Constant {
     
     
     public static final String DOMAIN="http://zzzzzzz.online";
-    public static final String WEBSITENAME="cafebabe"; //TODO 网站名字叫什么
-    public static final String MOTTO="cafebabe"; //TODO 座右铭
+    public static final String WEBSITENAME="Needle";
+    public static final String MOTTO="Needle"; //TODO 座右铭
     
     
     public static final String ARTICLE_PATH="/html/article/page/";

@@ -34,7 +34,7 @@
     </sql>
 
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="delete" parameterType="java.lang.Integer">
       delete from blog_blogs
       where id = #{id,jdbcType=INTEGER}
     </delete>
@@ -301,7 +301,8 @@
 
     <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
+        id, is_original, title, classify_id, tags_ids, gallery_id, publish_date, is_praise,
+      is_up, is_review, is_declare, is_public, is_draft, words, duration, hits,  href,content_md
         from  blog_blogs
         where id = #{id,jdbcType=INTEGER}
     </select>
@@ -524,6 +525,12 @@
                     <if test="isDraft !=null">
                         and  b.is_draft =#{isDraft}
                     </if>
+                    <if test="isPublic !=null">
+                        and  b.is_public =#{isPublic}
+                    </if>
+                    <if test="isPublic !=null">
+                        and  b.is_public =#{isPublic}
+                    </if>
                 </where>
         ) x ,blog_tags y where find_in_set(y.id,x.tagsIds) group  by x.id  order by dateDesc desc
         limit #{start},#{pageSize}
@@ -618,5 +625,11 @@
         </if>
 
     </select>
+
+
+    <update id="updateClassifyAndTagsOfNum" >
+        update blog_classify bc set bc.classify_num =IFNULL((select count(bb.classify_id) from blog_blogs bb where  bb.classify_id =bc.id group by bc.id),0);
+        update blog_tags bt set bt.tags_num =IFNULL((select count(bb.tags_ids) from   blog_blogs bb where  FIND_IN_SET(bt.id, bb.tags_ids ) group by bt.id),0);
+    </update>
 
 </mapper>

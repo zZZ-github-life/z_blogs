@@ -907,7 +907,19 @@ span.blog-chip:hover .blog-tags-num{
     .top-a{
         width: 96%
     }
+    .articlepage-title{
+        font-size: 2rem !important;
+    }
 }
+
+@media only screen and (max-width: 704px) {
+    .iw{
+        display: none!important;
+    }
+}
+
+
+
 /*搜索*/
 .modal-overlay{
     z-index: 1002;
@@ -1109,3 +1121,17 @@ html::-webkit-scrollbar-thumb:hover {
     font-size: 16px;
     color: #eaeadf;
 }
+
+/*文章*/
+.articlepage-title{
+    margin: auto;
+    font-family: "Bodoni MT Black",sans-serif;
+    line-height: 2.3;
+    position: relative;
+    color: #fff;
+    mix-blend-mode: lighten;
+    transition: background 1s;
+    font-size: 3rem;
+    font-weight: 600;
+}
+jkkkjkj

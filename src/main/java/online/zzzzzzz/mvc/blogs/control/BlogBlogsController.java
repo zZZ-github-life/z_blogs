@@ -253,6 +253,7 @@ public class BlogBlogsController extends BaseController {
             
             Global.singleThreadExecutor.execute(() -> { //等待事务提交，开启线程更新页面
                 try {
+                    blogBlogsMapper.updateClassifyAndTagsOfNum();
                     blogBlogsService.generateIndex();
                     blogBlogsService.generateClassify();
                     blogBlogsService.generateArchive();
@@ -284,15 +285,29 @@ public class BlogBlogsController extends BaseController {
             if (category!=null){
                 switch (category){
                     case 0:map.put("isOriginal","1");break;
-                    case 1:map.put("isDraft","1");break;
-                    case 2:map.put("isUp","1");break;
+                    case 1:map.put("isPublic","1");break;
+                    case 2:map.put("isDraft","1");break;
                     case 3:map.put("a","1");break;
                     case 4:map.put("b","1");break;
-                    case 5:map.put("c","1");break;
+                    case 5:map.put("isUp","1");break;
                 }
             }
             Map<String, Object> data = blogBlogsService.adminList(map);
             repJson.setData(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+            repJson.setSuccess(false);
+        }
+        return repJson;
+    }
+    
+    @ResponseBody
+    @RequestMapping("delBlog")
+    public RepJson delBlog(Integer id) {
+        
+        RepJson repJson = new RepJson();
+        try {
+            blogBlogsService.delete(id);
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);

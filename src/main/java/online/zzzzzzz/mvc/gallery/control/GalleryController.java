@@ -8,6 +8,7 @@ import online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery;
 import online.zzzzzzz.mvc.gallery.service.GalleryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,9 +18,7 @@ import java.io.FileInputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author zZZ....
@@ -33,7 +32,13 @@ public class GalleryController  extends BaseController {
     @Autowired
     private GalleryService galleryService;
     
-    
+    /**
+     * 批量上传图片.自动剔除重复图片
+     * @param $cusFiles_v
+     * @param fileNames
+     * @param fileMD5s
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/fileUpload")
     public RepJson fileUpload(MultipartFile[] $cusFiles_v,String fileNames,String fileMD5s) {
@@ -53,7 +58,7 @@ public class GalleryController  extends BaseController {
                         String filePath = dir+md5s[i];  //图片md5  防止重复
                         Global.createDir(dir);
                         File file = new File(filePath+suffix);
-                        if (file.exists()) continue;
+                       // if (file.exists()) continue;
                         
                         String absPath = Global.getAbsPath(file.getPath());
                         sb.append(",").append(absPath);
@@ -65,7 +70,7 @@ public class GalleryController  extends BaseController {
                         blogGallery.setPath(absPath);
                         blogGallery.setUploadTime(new Date());
                         blogGallery.setSize(multipartFile.getSize());
-                        
+                        blogGallery.setType("gallery");
                         galleryService.insertDuplicateKey(blogGallery);
                         multipartFile.transferTo(file); //保存图片
                     }
@@ -84,10 +89,47 @@ public class GalleryController  extends BaseController {
         return repJson;
     }
     
+    /**
+     * 单个文件上传，不做任何限制
+     * @param file
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("parseFile")
+    public RepJson parseFile(MultipartFile file) {
+        
+        RepJson repJson = new RepJson();
+        try {
+            String suffix = Objects.requireNonNull(file.getOriginalFilename()).substring(file.getOriginalFilename().lastIndexOf(".") );
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+    
+            String date = sdf.format(new Date());
+            String dir = Global.fileRootPath() + File.separator + date + File.separator;
+            File img = new File(dir + UUID.randomUUID().toString() + suffix);
+           
+            String absPath = Global.getAbsPath(img.getPath());
+    
+            BlogGallery blogGallery = new BlogGallery();
+            blogGallery.setContentType(file.getContentType());
+            blogGallery.setImgName("blog_"+new Random().nextInt());
+           // blogGallery.setMd5();
+            blogGallery.setPath(absPath);
+            blogGallery.setUploadTime(new Date());
+            blogGallery.setSize(file.getSize());
+            blogGallery.setType("article");
+            galleryService.insertDuplicateKey(blogGallery);
+            file.transferTo(img); //保存图片
+            repJson.setData(absPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+            repJson.setSuccess(false);
+        }
+        return repJson;
+    }
     
     @ResponseBody
     @RequestMapping("/list")
-    public RepJson list(Page<BlogGallery> page) {
+    public RepJson list(@RequestBody Page<BlogGallery> page) {
         
         RepJson repJson = new RepJson();
         try {

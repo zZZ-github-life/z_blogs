@@ -85,6 +85,7 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
         return hashMap;
     }
     
+    
     @Transactional(rollbackFor = Exception.class)
     public void generateArticle(BlogBlogs blogBlogs) {
         try {
@@ -99,15 +100,12 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
                 blogBlogs.setHref(Constant.ARTICLE_PATH+blogBlogs.fileName+Constant.HTML_SUFFIX);
                
             } else {
-                Remark remark = new Remark();
-                String md = remark.convert(blogBlogs.getContentHtml());
-                blogBlogs.setContentMd(md);
                 blogBlogs.setUpdateTime(new Date());
             }
             
             blogBlogs.setContent(Tools.convert(blogBlogs.getContentHtml()));
             String content = blogBlogs.getContent();
-            blogBlogs.setAbout(content.substring(0, Math.min(content.length(), 62)));
+            blogBlogs.setAbout(content.substring(0, Math.min(content.length(), 100)));
             
             save(blogBlogs);
             classifyMapper.updateSQL("update blog_classify set classify_num=classify_num+1 where id = "+blogBlogs.getClassifyId());
@@ -150,6 +148,7 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
             var.put("classify", blogClassify);
             var.put("tags", tags);
             var.put("DOMAIN", Constant.DOMAIN);
+            var.put("WEBSITENAME", Constant.WEBSITENAME);
             var.put("blogGuestBookList", pageTop);
             var.put("currentLines", pageTop.size());
             var.put("galleryPath", gallery.getPath());
@@ -537,6 +536,25 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
     
     public List<Map<String, Object>> poetryRand(int limit) {
         return blogBlogsMapper.poetryRand(limit);
+    }
+    
+    public void updateClassifyAndTagsOfNum() {
+        blogBlogsMapper.updateClassifyAndTagsOfNum();
+    }
+    
+    /**
+     * 初始化化博客主站
+     */
+    public void initHtml() {
+        updateClassifyAndTagsOfNum();
+        generateIndex();
+        generateClassify();
+        generateArchive();
+        generateNavigation();
+        generateGuestBook();
+        generateArticles();
+        generate404();
+        generateRESSAndSearch();
     }
     
 }

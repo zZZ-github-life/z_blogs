@@ -47,6 +47,11 @@ public class BlogGallery extends BaseEntity {
      */
     private Integer sort;
     
+    /**
+     * 排序
+     */
+    private String type;
+    
     public Integer getId() {
         return id;
     }
@@ -110,4 +115,15 @@ public class BlogGallery extends BaseEntity {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
+    
+    public String getType() {
+        
+        return type;
+    }
+    
+    public void setType(String type) {
+        
+        this.type = type;
+    }
+    
 }

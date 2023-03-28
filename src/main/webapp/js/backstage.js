@@ -42,6 +42,12 @@ jQuery.fn.serializeObject = function() {
 function toTop() {
     $('body,html').animate({scrollTop: 0}, 0);
 }
+function getUrlParam(name){
+    let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    let r = window.location.search.substr(1).match(reg);
+    if (r!=null) {return unescape(r[2]);}
+    return null;
+}
 /**
  * 警告框
  * @param lev 提醒等级 success, info ,warning ,danger
@@ -593,32 +599,28 @@ function blog_tags_del(id){
 /*=======================================================================tags end============================================================*/
 
 /*============================================================gallery start ============================================================*/
-//将字符串转化为dom元素
-function strToEle(str) {
-    const template =` <div class="col-sm-6 col-lg-4">${str}</div>`;
-    let tempEle = document.createElement('div');
-    tempEle.innerHTML = template;
-    return tempEle.firstElementChild;
-}
-
 let gFiles;
 let arr;
 
 //图片列表
-let pageDataGallery={currentPage:0,pageSize:12,p:null} ; //记录分页值
-function imgList(currentPage,pageSize,queryPerm){
+let pageDataGallery={currentPage:0,pageSize:12,p:{}} ; //记录分页值
+function imgList(currentPage,pageSize){
     if (currentPage === undefined || currentPage <=0 ){
         currentPage =1;
     }
     if(pageSize === undefined || pageSize <=0){
         pageSize =12;
     }
-    pageDataGallery ={currentPage:currentPage,pageSize:pageSize,p:queryPerm};
+
+    pageDataGallery.currentPage =currentPage;
+    pageDataGallery.pageSize =pageSize;
 
     jQuery.ajax({
         type:'post',
         url:'/galleryController/list',
-        data:pageDataGallery,
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        data:JSON.stringify(pageDataGallery),
         beforeSend:function(){
             $('#blog_gallery_cards').append($('div[data-z-placeholder="1"]'));
             $('div[data-z-placeholder="1"]').show();
@@ -812,12 +814,13 @@ function sfm(len) {
 }
 function publish(boo,el) {
     let data ={
+        id:document.getElementById("blogListArticleId").value?document.getElementById("blogListArticleId").value:null,
         isOriginal: $('#isOriginal').val() === '1'?true:false,
         title:$('#title').val(),
         classifyId:$("input[name='classifyId']:checked").val(),
         tagsIds:"",
         galleryId:$('#galleryId').val(),
-        publishDate:$('#publishDate').val(),
+        publishDate:document.getElementById('publishDate').value?document.getElementById('publishDate').value:new Date().toLocaleDateString(),
         isPraise:false,
         isUp:false,
         isReview:false,
@@ -829,6 +832,7 @@ function publish(boo,el) {
         content:'0',
         contentMd:'0',
         contentHtml:'0',
+        href:document.getElementById("blogHref").value?document.getElementById("blogHref").value:null,
     };
 
     let arry = [];
@@ -958,7 +962,7 @@ function getImg() {
     if (!send) {
         return
     }
-    let pageData = {currentPage: ++currentPage, pageSize: 30};
+    let pageData = {currentPage: ++currentPage, pageSize: 30,p:{type:"gallery"}};
     //查询图片列表
     jQuery.ajax({
         type: 'post',

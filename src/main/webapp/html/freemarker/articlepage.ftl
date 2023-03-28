@@ -30,8 +30,7 @@
         <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css-->
         <link rel="stylesheet" href="${basePath}/libs/tocbot/tocbot.css"><!--目录-->
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook_style.css">
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.css">
+        <link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.min.css">
 
         <style type="text/css">
             .bottom-main{
@@ -225,9 +224,9 @@
                 <div class="blog-bg-img blog-home-flex blog-wh-100"  style="background-image:url(${galleryPath}),url(${basePath}/medias/banner/1.jpg);visibility: visible">
                     <div class="container">
                         <div class="row">
-                            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                            <div >
                                 <div class="brand">
-                                    <h1 class="blog-text-center blog-title">${blog.title}</h1>
+                                    <h1 class="blog-text-center articlepage-title">${blog.title}</h1>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +279,7 @@
                                 <div class="post-info">
 
                                     <div class="post-date info-break-policy">
-                                        <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                                        <i class="far fa-calendar-minus fa-fw"></i><span class="iw">发布日期：</span>
                                           ${(blog.publishDate)?string("yyyy/MM/dd")}
                                     </div>
 
@@ -289,21 +288,21 @@
 
 
                                     <div class="info-break-policy">
-                                        <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                        <i class="far fa-file-word fa-fw"></i><span class="iw">文章字数：</span>
                                         ${blog.words}
                                     </div>
 
 
 
                                     <div class="info-break-policy">
-                                        <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                                        <i class="far fa-clock fa-fw"></i><span class="iw">阅读时长：</span>
                                         ${blog.duration}
                                     </div>
 
 
 
                                     <div id="busuanzi_container_page_pv" class="info-break-policy" style="display: inline;">
-                                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                                        <i class="far fa-eye fa-fw"></i><span class="iw">阅读次数：</span>
 
                                         <span id="busuanzi_value_page_pv">${blog.hits!"10"}</span>
                                     </div>
@@ -319,13 +318,13 @@
                             <hr>
                             <div class="card-content" id="commentsId">
                                 <div class="row">
-                                    <span class="rep-bold"><i class="fas fa-user"></i> 文章作者：</span> <span class="href-b">cafebabe</span>
+                                    <span class="rep-bold"><i class="fas fa-user"></i> 文章作者：</span> <span class="href-b">${WEBSITENAME}</span>
                                 </div>
                                 <div class="row">
                                     <span class="rep-bold"><i class="fas fa-user"></i> 文章链接：</span> <a href="${DOMAIN}${blog.href}" target="_blank" class="href-b">${DOMAIN}${blog.href}</a>
                                 </div>
                                 <div class="row">
-                                    <span class="rep-bold"><i class="fas fa-user"></i> 转载声明：</span>本博客所有文章除特別声明外，均采用 CC BY 4.0 许可协议。转载请注明来源 cafebabe !
+                                    <span class="rep-bold"><i class="fas fa-user"></i> 转载声明：</span>本博客所有文章除特別声明外，均采用 CC BY 4.0 许可协议。转载请注明来源 ${WEBSITENAME} !
                                 </div>
                                 <#if blog.isPraise >
                                 <div class="row">
