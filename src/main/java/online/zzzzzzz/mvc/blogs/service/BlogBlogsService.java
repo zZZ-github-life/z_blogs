@@ -1,6 +1,5 @@
 package online.zzzzzzz.mvc.blogs.service;
 
-import com.overzealous.remark.Remark;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import online.zzzzzzz.basics.entity.Page;
@@ -18,7 +17,6 @@ import online.zzzzzzz.mvc.gallery.dao.entity.BlogGallery;
 import online.zzzzzzz.mvc.guestbook.dao.GuestBookMapper;
 import online.zzzzzzz.mvc.guestbook.dao.entity.BlogGuestBook;
 import online.zzzzzzz.mvc.guestbook.service.GuestBookService;
-import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import online.zzzzzzz.mvc.tags.dao.BlogTagsMapper;
 import online.zzzzzzz.mvc.tags.dao.entity.BlogTags;
 import online.zzzzzzz.mvc.tools.dao.ToolsMapper;
@@ -29,14 +27,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author zZZ....

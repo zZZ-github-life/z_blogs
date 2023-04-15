@@ -23,7 +23,7 @@
         <result column="content_md" jdbcType="VARCHAR" property="contentMd" />
         <result column="content_html" jdbcType="VARCHAR" property="contentHtml" />
         <result column="href" jdbcType="VARCHAR" property="href" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="href" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
         <result column="about" jdbcType="VARCHAR" property="about" />
     </resultMap>
 

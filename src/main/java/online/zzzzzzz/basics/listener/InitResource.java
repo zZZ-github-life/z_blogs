@@ -63,7 +63,6 @@ public class InitResource   {
 
     public void PreDestroy(){
         try {
-            
             sysMapper.insertOrUpdate("PV",PV.toString());
             sysMapper.insertOrUpdate("TV",TV.toString());
             sysMapper.insertOrUpdate("UV",UV.toString());
@@ -74,7 +73,5 @@ public class InitResource   {
         }catch (Exception e){
             e.printStackTrace();
         }
-  
-    
     }
 }

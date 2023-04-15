@@ -465,7 +465,7 @@
 
         <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库-->
         <script src="${basePath}/js/music.js"  ></script><!--音乐-->
-        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.min.js" async="async"></script>
+        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.js" async="async"></script>
 
         <script>
 

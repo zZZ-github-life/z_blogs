@@ -37,14 +37,13 @@
     <!--shiro与spring整合的过滤器，此过滤器名称与web.xml中相同-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
+        <property name="loginUrl" value="/login.html"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
         <property name="successUrl" value="/home"/>   <!--登陆成功地址：登陆成功后自动跳转此url-->
         <property name="unauthorizedUrl" value="/unauthorized"/>    <!--此地址可以不用授权-->
 
         <!--shiro的拦截权限配置，访问优先级从上到下-->
         <property name="filterChainDefinitions">
             <value>
-
                 # 无需认证:
                 /login = anon
                 /SSO = anon
@@ -70,12 +69,7 @@
                 /vCode = anon
                 # 需要认证
                 /** = authc
-
-
-
             </value>
         </property>
     </bean>
-
-
 </beans>

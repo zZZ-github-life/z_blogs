@@ -967,7 +967,9 @@ function getImg() {
     jQuery.ajax({
         type: 'post',
         url: '/galleryController/list',
-        data: pageData,
+        contentType: "application/json;charset=utf-8",
+        data:JSON.stringify(pageData),
+        dataType:'json',
         success: function (data) {
 
             if (data.success && data.data.list.length != 0) {
