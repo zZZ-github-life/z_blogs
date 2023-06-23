@@ -9,7 +9,7 @@ var localIP; //记录城市
 var z_poetry=['人生的出发，总是太天真，先试再说吧。破局之后，亦有春天来到',
     '你不能通过躲避生活，去找到平静',
     '如今往回看，事事可以后悔，但事事也可以若无其事',
-    '往往最出色的人偏偏会就会爱上毁灭他的人','凛冬将至，杀死心中的男孩',
+    '往往最出色的人偏偏会就会爱上毁灭他的人','即便矮小之人，也能投射出巨大的影子',
     '我要去赶火车，走夜路，先活过那条衰鸣的狗，再回来认我的命',
     '念旧的人总容易受伤，喜欢拿余生等一句别来无恙']; //记录文案
 document.addEventListener('DOMContentLoaded', function() {
@@ -258,7 +258,7 @@ function setCity() {
             }
         })
     }else {
-        document.getElementById("city").innerText=city?city:"\u8fdc\u65b9";
+        document.getElementById("city").innerText=((city||city=='00') ?city:"\u8fdc\u65b9");
     }
 }
 

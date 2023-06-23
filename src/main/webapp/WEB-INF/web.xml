@@ -26,7 +26,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <!--spring监听器加载 配置文件，该监听器实现了ServletContextListener-->
+    <!--spring 启动的入口，该监听器实现了ServletContextListener-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

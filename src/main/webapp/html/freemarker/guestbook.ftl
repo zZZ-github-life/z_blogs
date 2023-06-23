@@ -119,7 +119,7 @@
                         <i class="fas fa-tags"></i>&nbsp;&nbsp;既然来了，就留下足迹吧～
                     </div>
                     <hr/>
-                    <p >今天天气晴朗，</p>
+                    <p >今天天气晴朗，往后每天晴朗</p>
                 </div>
             </div>
         </div>

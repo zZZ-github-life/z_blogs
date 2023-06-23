@@ -30,7 +30,9 @@
   .blog-slider {
     min-height: 500px;
     height: auto;
-    margin: 180px auto;
+    /*margin: 180px auto;*/
+    margin-top: 132px;
+    margin-bottom: 18px;
   }
 }
 

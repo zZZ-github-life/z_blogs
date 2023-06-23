@@ -1020,7 +1020,7 @@
                     hasInnerContainers: true,
                 });
                 M.Tooltip.init(document.getElementById("shang"), {
-                    html:'<img src="${basePath}/medias/zhifu.jpg" style="width: 14rem">',
+                    html:'<img src="${basePath}/medias/weixin_zhifu.jpg" style="width: 14rem">',
                 });
             });
         </script>

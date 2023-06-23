@@ -73,8 +73,10 @@
                     <a href="/" class="brand-logo"><img style="width: 148px;vertical-align: middle;padding-bottom: 14px;" src="/img/logo.png" alt=""></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
-                  <#--     <a onclick="pjax('/html/article/primary/index1.html')" class="waves-effect faa-parent  animated-hover">-->
+                       <a onclick="pjax('/html/article/primary/index1.html')" class="waves-effect faa-parent  animated-hover">
+<#--
                             <a href="/" class="waves-effect faa-parent  animated-hover">
+-->
                                 <i class="fas fa-home faa-horizontal faa-slow" style="zoom: 0.7;"></i>
                                 <span>首页</span>
                             </a>
@@ -186,7 +188,7 @@
 
         <div id="pjax">
             <!--banner-->
-            <div class=" height-100" style="margin-top: -75px">
+            <div class=" height-100" style="margin-top: -75px;position: relative">
                 <!--            <div class="video-box">-->
                 <!--                <video class="video-background" preload="auto" loop playsinline autoplay  src="${basePath}/medias/videos/cloud.mp4"  tabindex="-1" muted="muted"></video>-->
                 <!--            </div>-->
@@ -224,21 +226,22 @@
                         </div>
                     </div>
                 </div>
+                <!--波浪-->
+                <div class="cloud">
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                        <defs>
+                            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                        </defs>
+                        <g class="parallax">
+                            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(250,247,239,0.7"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(250,247,239,0.5)"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgb(250,247,239,0.3)"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(250,247,239)"></use>
+                        </g>
+                    </svg>
+                </div>
             </div>
-            <!--波浪-->
-            <div class="cloud">
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(250,247,239,0.7"></use>
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(250,247,239,0.5)"></use>
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgb(250,247,239,0.3)"></use>
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(250,247,239)"></use>
-                    </g>
-                </svg>
-            </div>
+
             <!--主体内容-->
             <main class="blog-main">
                 <!--头-->
@@ -335,7 +338,7 @@
                                     </div>
                                     <div class="card-action cat-action-tags">
                                         <#list blog.tagsName?split(",") as tagName>
-                                            <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
+                                            <a href="#"  onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                 <span class="tags-m bg-color">${tagName}</span>
                                             </a>
                                         </#list>
