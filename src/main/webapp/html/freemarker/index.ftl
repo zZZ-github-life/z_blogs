@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><!--手机端窗口大小-->
@@ -279,7 +279,7 @@
                             <!--推荐-->
                             <div>
                                 <div class="blog-index-title center-align">
-                                    <i class="fas fa-video-camera"></i>
+                                    <i class="fa fa-video-camera"></i>
                                     置顶推荐
                                 </div>
                             </div>
