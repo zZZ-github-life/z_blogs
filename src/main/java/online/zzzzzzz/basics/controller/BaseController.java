@@ -1,11 +1,17 @@
 package online.zzzzzzz.basics.controller;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
+
+
 
 /**
  * @description 基础控制层，封装常用方法
@@ -17,7 +23,8 @@ public abstract class BaseController {
   
     
     protected Logger log = Logger.getLogger(this.getClass());
-    
+
+
 
     protected void sendHtml(HttpServletResponse response,String html) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -63,4 +70,7 @@ public abstract class BaseController {
             map.put("start",start);
         }
     }
+
+
+
 }

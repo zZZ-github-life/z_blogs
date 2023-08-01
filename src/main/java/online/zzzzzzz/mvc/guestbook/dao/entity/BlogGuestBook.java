@@ -7,7 +7,9 @@ package online.zzzzzzz.mvc.guestbook.dao.entity;
  */
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import online.zzzzzzz.basics.annotation.NotEmpty;
 import online.zzzzzzz.basics.entity.BaseEntity;
+
 
 import java.util.Date;
 import java.util.List;
@@ -47,15 +49,18 @@ public class BlogGuestBook extends BaseEntity {
         /**
          * 来自--地址
          */
+        @NotEmpty
         private String address;
         /**
          * 来自--ip
          */
+        @NotEmpty
         private String ip;
         
         /**
          * 评论内容
          */
+        @NotEmpty
         private String content;
         
         /**
@@ -72,6 +77,7 @@ public class BlogGuestBook extends BaseEntity {
         /**
          * 博客id(为-1时表示留言板评论)
          */
+        @NotEmpty
         private Integer blogId;
         
         /**

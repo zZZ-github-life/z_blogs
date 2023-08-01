@@ -81,7 +81,7 @@
                                 <div class="card horizontal">
                                     <div class="card-image">
                                         <a href="${blog.href}" target="_blank">
-                                            <img  src="${blog.path}" alt="${blog.title}">
+                                            <img  src="${blog.path}" alt="${blog.title}" onerror="noFind(this,'/img/404-4l2eq2.jpg')">
                                         </a>
                                     </div>
                                     <div class="card-stacked">
@@ -91,7 +91,7 @@
                                         <div class="card-action">
 
                                             <#list blog.tagsName?split(",") as tagName>
-                                                <a href="#" target="_blank"  onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
+                                                <a href="#"  onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                     <span class="tags-m bg-color">${tagName}</span>
                                                 </a>
                                             </#list>
@@ -116,7 +116,7 @@
                                     <div class="card horizontal">
                                         <div class="card-image">
                                             <a href="${blog.href}" target="_blank">
-                                                <img  src="${blog.path}" alt="${blog.title}">
+                                                <img  src="${blog.path}" alt="${blog.title}" onerror="noFind(this,'/img/404-4l2eq2.jpg')">
                                             </a>
                                         </div>
                                         <div class="card-stacked">
@@ -125,7 +125,7 @@
                                             </div>
                                             <div class="card-action">
                                                 <#list blog.tagsName?split(",") as tagName>
-                                                    <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
+                                                    <a href="#"  onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                         <span class="tags-m bg-color">${tagName}</span>
                                                     </a>
                                                 </#list>
@@ -148,7 +148,7 @@
                                     <div class="card horizontal">
                                         <div class="card-image">
                                             <a href="${blog.href}" target="_blank">
-                                                <img  src="${blog.path}" alt="${blog.title}">
+                                                <img  src="${blog.path}" alt="${blog.title}" onerror="noFind(this,'/img/404-4l2eq2.jpg')">
                                             </a>
                                         </div>
                                         <div class="card-stacked">
@@ -157,7 +157,7 @@
                                             </div>
                                             <div class="card-action">
                                                 <#list blog.tagsName?split(",") as tagName>
-                                                    <a href="#" target="_blank" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
+                                                    <a href="#" onclick="pjax('/blogBlogs/tagsBt?type=tags&key=${tagName}',5)">
                                                         <span class="tags-m bg-color">${tagName}</span>
                                                     </a>
                                                 </#list>
@@ -192,7 +192,7 @@
 
 
 
-<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>
+<#--<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>-->
 <script type="text/javascript">
     $(function (e) {
         let pageData={currentLines:${currentLines},pageSize:10};

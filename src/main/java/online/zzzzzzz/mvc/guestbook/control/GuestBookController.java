@@ -2,28 +2,28 @@ package online.zzzzzzz.mvc.guestbook.control;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import online.zzzzzzz.basics.controller.BaseController;
 import online.zzzzzzz.basics.entity.Page;
 import online.zzzzzzz.basics.entity.RepJson;
-import online.zzzzzzz.comment.Constant;
-import online.zzzzzzz.comment.EmailUtil;
-import online.zzzzzzz.comment.Global;
+import online.zzzzzzz.comment.*;
 import online.zzzzzzz.mvc.blogs.dao.BlogBlogsMapper;
+import online.zzzzzzz.mvc.door.Role.Role;
+import online.zzzzzzz.mvc.door.service.DoorService;
 import online.zzzzzzz.mvc.guestbook.dao.entity.BlogGuestBook;
 import online.zzzzzzz.mvc.guestbook.service.GuestBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.util.HtmlUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zZZ....
@@ -32,7 +32,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/GuestBookController")
-public class GuestBookController {
+public class GuestBookController extends BaseController {
     
     @Autowired
     private GuestBookService guestBookService;
@@ -85,16 +85,37 @@ public class GuestBookController {
         }
         return repJson;
     }
-    
+
+    @Autowired
+    private DoorService doorService;
+
+
+
     @ResponseBody
     @RequestMapping("/save")
-    public RepJson save(BlogGuestBook blogGuestBook) {
-        
+    public RepJson save(BlogGuestBook blogGuestBook, HttpServletRequest request) {
+
         RepJson repJson = new RepJson();
+
         try {
+
+            //验证必填属性
+            boolean b = Tools.objectCheckIsNotNull(blogGuestBook);
+            if (!b){
+                repJson.setSuccess(false);
+                return repJson;
+            }
+
+            //限制访问次数
+            String ipAddress = IPUtils.getIpAddress(request);
+            RepJson allowAcc = doorService.isAllowAcc(ipAddress, Role.guestbook);
+
+            if (!allowAcc.isSuccess()){
+                return allowAcc;
+            }
             boolean type = blogGuestBook.getParentId()==-1;
             String nickname = blogGuestBook.getNickname();
-            blogGuestBook.setContent(HtmlUtils.htmlEscape(blogGuestBook.getContent(),"UTF-8"));
+            blogGuestBook.setContent(HtmlUtils.htmlEscape(blogGuestBook.getContent(),"UTF-8")); //防止html注入
            
             String email = blogGuestBook.getEmail();
             Integer id = blogGuestBook.getId();

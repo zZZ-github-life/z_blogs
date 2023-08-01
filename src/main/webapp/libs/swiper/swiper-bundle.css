@@ -1,9 +1,3 @@
-/**
- * Swiper 6.4.15
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- */
-
 :root {
     --swiper-theme-color: #007aff
 }
@@ -468,7 +462,7 @@ button.swiper-pagination-bullet {
 .swiper-container-cube .swiper-cube-shadow {
     position: absolute;
     left: 0;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: 100%;
     opacity: .6;

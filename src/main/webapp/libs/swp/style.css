@@ -247,7 +247,7 @@
 
 .blog-slider_pagination {
   position: absolute;
-  z-index: 21;
+  z-index: 7;
   right: 20px;
   width: 11px !important;
   text-align: center;

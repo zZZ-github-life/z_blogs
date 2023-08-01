@@ -4,7 +4,7 @@
     @date: 2022/8/4
 -->
 
-<link rel="stylesheet" type="text/css" href="${basePath}/libs/jqcloud/jqcloud.css">
+<#--<link rel="stylesheet" type="text/css" href="${basePath}/libs/jqcloud/jqcloud.css">-->
 <style>
     div.jqcloud span:hover { color: #ff397e; font-weight: bolder ;}
     #tagsCloud {
@@ -135,8 +135,8 @@
 
 </main>
 
-<script type="text/javascript" src="${basePath}/libs/jqcloud/jqcloud.js"></script>
-<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>
+<#--<script type="text/javascript" src="${basePath}/libs/jqcloud/jqcloud.js"></script>-->
+<#--<script type="text/javascript" src="${basePath}/libs/echarts/echarts.min.js"></script>-->
 <script type="text/javascript">
 
     //pjax页面的js需写在 load函数中

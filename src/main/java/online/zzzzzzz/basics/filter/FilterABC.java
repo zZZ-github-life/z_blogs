@@ -12,18 +12,23 @@ import java.io.IOException;
  * @author  zZZ....
  * @date  2021-07-25
  */
-@WebFilter("/*")
+@WebFilter(urlPatterns = "/*",dispatcherTypes = DispatcherType.ASYNC)
 public class FilterABC implements Filter {
     
     private String[] ref ={"http://127.0.0.1/","http://localhost/", Constant.DOMAIN};
-    
+
+    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     
     }
     
     public void doFilter(ServletRequest servletRequest, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = ((HttpServletRequest) servletRequest);
-        request.getSession();//对应  online.zouxiaolong.basics.filter.TVListener
+        StringBuffer requestURL = request.getRequestURL();
+        if (!requestURL.toString().contains("/chat")){  //SSE聊天 建立连接时 直接调用会抛出异常
+            request.getSession();//对应  online.zouxiaolong.basics.filter.TVListener
+        }
+
         filterChain.doFilter(servletRequest,response);
         
 //        String referer = request.getHeader("referer");
@@ -33,7 +38,8 @@ public class FilterABC implements Filter {
 //            request.getRequestDispatcher("/").forward(servletRequest, response);
 //        }
     }
-    
+
+    @Override
     public void destroy() {
     
     }

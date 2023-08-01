@@ -6,8 +6,6 @@
 
 <title>留言板 | zZZ....</title>
 
-<link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.min.css">
-
 
 <style type="text/css">
     .heart {
@@ -115,11 +113,15 @@
         <div class="card">
             <div class="card-content">
                 <div data-aos="fade-in"  >
-                    <div class="tag-title left-align">
+                    <div class="guestbook-tag-title left-align">
                         <i class="fas fa-tags"></i>&nbsp;&nbsp;既然来了，就留下足迹吧～
                     </div>
                     <hr/>
-                    <p >今天天气晴朗，往后每天晴朗</p>
+                    <ul class="guestbook-ul">
+                        <li> 如果你有任何更好的见解欢迎留言</li>
+                        <li> 留言时建议留下你的昵称与邮箱，方便及时收到回复</li>
+                        <li> 如果有需要联系博主，可以查看站点首页的联系方式</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -149,7 +151,7 @@
                                     <input name="link" id="blog_link" placeholder="网址(你的网址)" class="vlink vinput" type="text">
                                 </div>
                                 <div class="vedit">
-                                    <textarea id="veditor" name="content"   class="veditor vinput" placeholder="嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~"></textarea>
+                                    <textarea id="veditor" name="content"   class="veditor vinput" placeholder="说点你想说的吧..."></textarea>
                                     <div class="vrow">
                                         <div id="blog_warning" class="vcol vcol-60 status-bar"></div>
                                         <div class="vcol vcol-40 vctrl text-right">
@@ -174,7 +176,49 @@
                                 </div>
                                 <div class="vemojis" style="display: none;">
                                     <i title="tieba-1"><img alt="qq-98" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-1.png"></i>
-                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-1.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-2.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-3.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-4.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-5.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-6.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-7.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-8.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-9.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-10.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-11.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-12.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-13.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-14.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-15.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-16.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-17.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-18.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-19.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-20.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-21.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-22.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-23.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-24.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-25.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-26.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-27.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-28.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-29.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-30.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-31.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-32.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-33.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-34.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-35.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-36.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-37.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-38.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-40.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-41.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-42.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-43.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-49.png"></i>
+                                    <i title="tieba-2"><img alt="qq-99" referrerpolicy="no-referrer" class="vemoji" src="/img/emoji/tieba-51.png"></i>
 
                                 </div>
                                 <div class="vinput vpreview" style="display:none;"></div>
@@ -353,7 +397,7 @@
                     htmlTitle: '啊(⊙o⊙)？',
                     htmlBody: blogVerify,
                 });
-                return;
+                return false;
             }
             let textarea = document.getElementById('veditor');
             let nickname = document.getElementById('blog_nickname').value;
@@ -383,13 +427,13 @@
                 parentId: parentId,
                 browserVersion:browserVersion,
                 osVersion:osVersion,
-                address:address,
-                ip:ip,
+                address:localStorage.getItem(localIP),
+                ip:localIP,
                 content:content,
                 idCard:'访客',
                 city:localStorage.getItem(localIP)
 
-        };
+        }
             $.ajax({
                 url:'${basePath}/GuestBookController/save',
                 type:'post',
@@ -401,7 +445,7 @@
                 success:function (res) {
                     //document.querySelector("#dyzgz").scrollIntoView(true); //定位到指定位置
                     if (res.success){
-                        if (parentId != '-1'){  //直接留言，否则回复留言
+                        if (res.data.parentId !== -1){  //直接留言，否则回复留言
                             vEditorReset(); //重置输入框
                             let parentIds = res.data.parentIds;
                             let lastIndex = parentIds.indexOf(',',4);
@@ -431,12 +475,32 @@
                             document.getElementById('firstSpan').remove();
                         }
                         totalGus.innerText=(parseInt(totalGus.innerText.trim())+1);
-                    }else {
-                        /*通知提示*/
+
                         M.toast({
-                            htmlTitle: '这是一个艺术长廊',
-                            htmlBody: '评论失败，稍后再试...',
+                            htmlTitle: '留言成功！',
+                            htmlBody: '留言已经提交，稍等回复..',
                         });
+                    }else {
+
+                        /*通知提示*/
+                        if (res.code===3){
+                            M.toast({
+                                htmlTitle: '网址被攻击啦！',
+                                htmlBody: '不好意思，限制了使用次数，明天再来吧~',
+                            });
+                        }else if (res.code===2){
+                            M.toast({
+                                htmlTitle: '网址被攻击啦！',
+                                htmlBody: '留言过快，休息一分钟再试...~',
+                            });
+
+                        }else {
+                            M.toast({
+                                htmlTitle: '留言失败！',
+                                htmlBody: '稍后再试...',
+                            });
+                        }
+
                     }
                 },
                 complete:function(){
@@ -444,9 +508,10 @@
                 },
                 error:function (data) {
                     M.toast({
-                        htmlTitle: '这是一个艺术长廊',
-                        htmlBody: '评论失败，稍后再试...',
+                        htmlTitle: '留言失败！',
+                        htmlBody: '是不是断网了...',
                     });
+                    loaded();
                 }
             })
         };
@@ -532,7 +597,7 @@
                 '            <span class="vtag vvisitor">'+data.idCard+'</span>\n' +
                 '            <span class="vsys"><i class="fab fa-chrome"></i> '+data.browserVersion+'</span>\n' +
                 '            <span class="vsys"><i class="fab fa-windows"></i> '+data.osVersion+'</span>\n' +
-                '            <span class="vsys"><i class="fa fa-map-marker"></i> '+data.city+'</span>\n' +
+                '            <span class="vsys"><i class="fa fa-map-marker"></i> '+data.address+'</span>\n' +
                 '        </div>\n' +
                 '        <div class="vmeta"><span class="vtime">'+data.createDate+'</span><span class="vat" data-vm-id="'+(data.vmId ?data.vmId:data.id)+'" onclick="getCommentsDiv(this)" data-self-id="'+data.id+'">回复</span>\n' +
                 '        </div>\n' +

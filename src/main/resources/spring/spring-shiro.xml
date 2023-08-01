@@ -47,6 +47,7 @@
                 # 无需认证:
                 /login = anon
                 /SSO = anon
+                /chat = anon
                 /html/article/** =anon
                 /css/** =anon
                 /img/** =anon
@@ -55,6 +56,7 @@
                 /medias/** =anon
                 /xml/** =anon
                 /webfonts/** =anon
+                /merged/** =anon
                 /favicon.png =anon
                 /GuestBookController/listPage = anon
                 /GuestBookController/save = anon
@@ -67,6 +69,7 @@
                 /blogBlogs/poetry = anon
                 /blogBlogs/tagsBt/** = anon
                 /vCode = anon
+                /noAuth/** = anon
                 # 需要认证
                 /** = authc
             </value>

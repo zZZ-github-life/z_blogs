@@ -31,7 +31,6 @@
                                 <i class="fa fa-angle-double-down faa-float   animated"></i>开始阅读
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -90,7 +89,7 @@
                 <!--推荐-->
                 <div>
                     <div class="blog-index-title center-align">
-                        <i class="fas fa-video-camera"></i>
+                        <i class="far fa-thumbs-up"></i>
                         置顶推荐
                     </div>
                 </div>

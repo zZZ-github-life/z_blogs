@@ -19,19 +19,68 @@ document.addEventListener('DOMContentLoaded', function() {
         duration:900
     });
 });
-let $backTop;
+let $backTop; let $chatBom;
 $(function () {
     $backTop = $('#backTop');
+    $chatBom = $('#chatBom');
     blogNProgress();/*滚动函数*/
     $('.modal').modal(); //初始化模特框
     $('.sidenav').sidenav({inDuration:500,outDuration:500}); //手机菜单
     searchFunc('/xml/search.xml', 'searchInput', 'searchResult'); //搜索
     /*回到顶部*/
-    $('#backTop').click(function () {
+    $backTop.click(function () {
        // $('body,html').animate({scrollTop: 0}, 400);
         scrollToTop();
+        // if ($('#Chat').is(":hidden")){
+        //     $backTop.slideUp(300);
+        // }
         return false;
     });
+
+    initSSE();
+
+    $chatBom.click(function (){
+        $('#Chat').fadeToggle(700);
+       return false;
+    });
+
+    //聊天发送
+   $('#inputMessage').bind('keypress', function (event) {
+       event=(event)?event:((window.event)?window.event:"");
+       let keyCode=event.keyCode?event.keyCode:(event.which?event.which:event.charCode);
+       let altKey = event.ctrlKey || event.metaKey;
+       if(keyCode === 13 && altKey){ //ctrl+enter换行
+           let newDope=$(this).val()+"\n";// 获取textarea数据进行 换行
+           $(this).val(newDope);
+       }else if(keyCode===13){ //enter发送
+           chatSend();
+           event.preventDefault();//禁止回车的默认换行
+       }
+
+   })
+    $('#chatSend').click(function (){
+        chatSend();
+    });
+
+   $('#bellId').click(function (){
+       if (this.classList.contains("fa-bell-slash")){
+           mp3Res=new Audio("/medias/videos/tururu.mp3")
+           mp3Send=new Audio("/")
+           this.classList.remove("fa-bell-slash")
+           this.classList.add("fa-bell")
+       }else {
+           mp3Res=null;
+           mp3Send=null
+           this.classList.remove("fa-bell")
+           this.classList.add("fa-bell-slash")
+       }
+   });
+
+   $('#hideId').click(function (){
+       $('#Chat').fadeToggle(300);
+       return false;
+   });
+
     if (!localIP){
         $.get("/blogBlogs/getIp",function (res) {
             if (res.success){
@@ -51,13 +100,53 @@ $(function () {
 
     setPTU();
 
-
-
-    console.clear();  // 清空
+   // console.clear();  // 清空
     console.log("\n %c needle %c  但凡好剑都有自己的名号。珊莎有她的缝衣针，现在我也有了自己的“缝衣针” \n", "font-weight:900;color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 });
 
+async function initSSE(){
+    /*聊天插件*/
+    if (window.EventSource) {
+        let div;
+        let ccm=$('#chatContentMessage');
+        const source = new EventSource('/chat/subscribe');
+        source.addEventListener("receive", (event) => {
+            if ((!div) || div.id!==event.lastEventId){
+                div =document.createElement('div');
+                div.classList.add('chat-message-robot');
+                div.classList.add('chat-message');
+                div.id=event.lastEventId;
+            }
+            let msg = document.createTextNode(event.data);
+            ccm.append(div)
+            div.appendChild(msg);
+            let cct=$('#chatContent');
+            cct.animate({
+                scrollTop: cct[0].scrollHeight
+            }, 500);
 
+        })
+
+        source.addEventListener("over", (event) => {
+            div =null;
+            console.log("over")
+            if (mp3Res){
+                mp3Res.loop = false
+                mp3Res.play();
+            }
+        })
+
+        source.onerror=function (event){
+            source.close();
+        }
+
+    }else {
+        window.requestAnimationFrame(function (e) {
+            $('#chatContentMessage').append('<div class="chat-message-robot chat-message">你好，我是智能机器人Chat-N。你的浏览器太老旧了，切换成谷歌或者更新的ie浏览器跟我交流吧~</div>')
+        });
+    }
+
+}
 
 function blogNProgress(){
     let h1 = 0
@@ -73,15 +162,24 @@ function blogNProgress(){
         if (s === h1) {
             $(".nav-header").removeClass("nav-transparent");
             $backTop.slideUp(300);
+            if ($('#Chat').is(":hidden")){
+                $chatBom.slideUp(300);
+            }
         }
         if (s > h1) {
             $(".nav-header").addClass("nav-transparent");
-            $backTop.slideDown(300);
+
+                $backTop.slideDown(300);
+
+            $chatBom.slideDown(300);
         }
     });
     if (ss > h1) {
         $(".nav-header").addClass("nav-transparent");
         $backTop.slideDown(300);
+        if ($('#Chat').is(":hidden")){
+            $chatBom.slideDown(300);
+        }
     }
 
 }
@@ -258,7 +356,7 @@ function setCity() {
             }
         })
     }else {
-        document.getElementById("city").innerText=((city||city=='00') ?city:"\u8fdc\u65b9");
+        document.getElementById("city").innerText=((city && city!='00') ?city:"\u8fdc\u65b9");
     }
 }
 
@@ -275,15 +373,6 @@ function setPTU() {
             }
         }
     })
-}
-
-function noFind(_this,path){
-    if (path){
-        _this.src=path;
-    }else {
-        _this.src="/img/404_front.jpg";
-    }
-    _this.οnerrοr=null;
 }
 
 function getCookie(cname) {
@@ -315,6 +404,45 @@ function heapAdd(id) {
         }
     })
 
+}
+let mp3Send,mp3Res;
+function chatSend(){
+    let msg =$('#inputMessage')[0]
+    if (msg.value.trim()===''){
+        msg.classList.add('shake')
+        setTimeout(()=>{ msg.classList.remove('shake') }, 800)
+        return false;
+    }
+
+    window.requestAnimationFrame(function (e) {
+        if (mp3Send){ //发送提示音
+
+            mp3Send.loop = false
+            mp3Send.play().then(r => {
+
+            })
+        }
+
+        let ccm = $('#chatContentMessage');
+        let im =$('#inputMessage');
+        let content=im.val().trim();
+        ccm.append('<div class="chat-message-me chat-message">'+content+ '</div>');
+        im.val('');
+        let cct=$('#chatContent');
+        cct.animate({
+            scrollTop: cct[0].scrollHeight
+        }, 500);
+
+        let conData ={"content":content};
+        $.ajax({
+            url:"/chat/send",
+            type:"post",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(conData)
+        })
+
+    });
 }
 
 //获取系统版本，和浏览器版本
@@ -447,6 +575,4 @@ function getVersionToJson(e) {
     void 0 == t.browser && (t.browser = "Unknow App"),
         t
 }
-
-let a=3;
 

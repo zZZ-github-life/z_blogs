@@ -24,5 +24,7 @@ public interface SysMapper {
     
     @Select("select sum(words) sum from blog_blogs ")
     Integer getWC();
-    
+
+    @Select("select * from privacy")
+    List<Map<String,String>> getConfig();
 }

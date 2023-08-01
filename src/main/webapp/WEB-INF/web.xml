@@ -21,10 +21,10 @@
   -
   - $Id$
   -->
-<web-app version="2.4"
-         xmlns="http://java.sun.com/xml/ns/j2ee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
 
     <!--spring 启动的入口，该监听器实现了ServletContextListener-->
     <listener>
@@ -44,11 +44,11 @@
             <param-value>classpath:spring/spring-mvc.xml</param-value> <!--使用servlet加载springMVC的配置文件-->
         </init-param>
         <load-on-startup>1</load-on-startup> <!--项目启动时优先加载此servlet-->
+        <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
-
     </servlet-mapping>
 
 
@@ -64,10 +64,12 @@
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>
+
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>ASYNC</dispatcher>
     </filter-mapping>
 
     <filter>
@@ -81,6 +83,7 @@
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>ASYNC</dispatcher>
     </filter-mapping>
 
     <!--欢迎页-->

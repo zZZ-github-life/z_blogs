@@ -20,17 +20,20 @@
 
         <link rel="icon" type="image/png" href="${basePath}/img/favicon.png">
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/typoCss/typo.css">
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/materialize/css/materialize.css"><!--Materialize-UI-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/all.css"><!--字体图标库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/fontawesome-animation.min.css"><!--字体动画库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/nprogress/nprogress.css"><!--进度条-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css-->
-        <link rel="stylesheet" href="${basePath}/libs/tocbot/tocbot.css"><!--目录-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/typoCss/typo.css">-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/materialize/css/materialize.css"><!--Materialize-UI&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/all.css"><!--字体图标库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/fontawesome-animation.min.css"><!--字体动画库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/nprogress/nprogress.css"><!--进度条&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/tocbot/tocbot.css"><!--目录&ndash;&gt;-->
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.min.css">
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/css/guestbook.css">-->
+
+        <link rel="stylesheet" type="text/css" href="${basePath}/merged/css/index.min.css">
+        <link rel="stylesheet" type="text/css" href="${basePath}/merged/css/article.min.css">
+
 
         <style type="text/css">
             .bottom-main{
@@ -136,11 +139,13 @@
         </style>
 
 
-        <script type="text/javascript" src="${basePath}/libs/jquery/jquery.min.js"></script><!--jq-->
-        <script type="text/javascript" src="${basePath}/libs/materialize/js/materialize.js"></script> <!--Materialize-UI-->
-        <script src="${basePath}/libs/nprogress/nprogress.js"></script><!--进度条-->
-        <script src="${basePath}/js/main-front.js"></script><!--个人js-->
-        <script src="${basePath}/libs/tocbot/tocbot.js"></script><!--目录生成-->
+<#--        <script type="text/javascript" src="${basePath}/libs/jquery/jquery.min.js"></script><!--jq&ndash;&gt;-->
+<#--        <script type="text/javascript" src="${basePath}/libs/materialize/js/materialize.js"></script> <!--Materialize-UI&ndash;&gt;-->
+<#--        <script src="${basePath}/libs/nprogress/nprogress.js"></script><!--进度条&ndash;&gt;-->
+<#--        <script src="${basePath}/js/main-front.js"></script><!--个人js&ndash;&gt;-->
+<#--        <script src="${basePath}/libs/tocbot/tocbot.js"></script><!--目录生成&ndash;&gt;-->
+
+        <script src="${basePath}/merged/js/index.min.js" type="text/javascript"></script>
 
         <title>${blog.title}</title>
 
@@ -343,7 +348,7 @@
 
                         <!--评论-->
                         <#if blog.isReview >
-                        <div   data-aos="fade-up">
+                        <div  data-aos="fade-up">
                             <div class="card" >
                                 <div class="card-content">
 
@@ -955,7 +960,7 @@
             <div id="modal1" class="modal">
                 <div class="search-modal">
                     <i class="fas fa-search  faa-pulse search-i"></i>
-                    <div class="search-input" id="searchInput" aria-placeholder="感受光速搜索吧~"  contenteditable></div>
+                    <div class="search-input" id="searchInput" aria-placeholder="站点内光速搜索..."  contenteditable></div>
                 </div>
 
                 <div class="search-contain" id="searchResult">
@@ -1001,9 +1006,9 @@
         </footer>
 
 
-        <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库-->
+<#--        <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库&ndash;&gt;-->
 
-        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.min.js" async="async"></script>
+<#--        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.min.js" async="async"></script>-->
 
         <script>
 

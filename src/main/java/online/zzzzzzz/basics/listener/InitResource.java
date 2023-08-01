@@ -2,14 +2,17 @@ package online.zzzzzzz.basics.listener;
 
 import online.zzzzzzz.comment.Global;
 import online.zzzzzzz.mvc.blogs.service.BlogBlogsService;
+import online.zzzzzzz.mvc.chat.ChatController;
 import online.zzzzzzz.mvc.sys.Task;
 import online.zzzzzzz.mvc.sys.dao.SysMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -26,13 +29,18 @@ public class InitResource   {
     @Autowired
     public  ServletContext sc;
     public static ServletContext servletContext;
-    
+
+    public static Map<String,String> config; //隐私配置
+
     @Autowired
     private SysMapper sysMapper;
     
     @Autowired
     private BlogBlogsService blogBlogsService;
-    
+
+
+
+
     @PostConstruct
     public void PostConstruct() {
     
@@ -57,7 +65,15 @@ public class InitResource   {
         blogBlogsService.initHtml();
         long end = System.currentTimeMillis();
         System.out.println("生成博客站点页面耗时："+(end-start));
-    
+
+
+        //加载配置
+        List<Map<String, String>> prs = sysMapper.getConfig();
+        config=new HashMap<>();
+        for (Map<String, String> pr : prs) {
+            config.put(pr.get("key"),pr.get("value"));
+        }
+
     }
     
 
@@ -69,7 +85,9 @@ public class InitResource   {
             sysMapper.insertOrUpdate("WC",WC.toString());
     
             Global.singleThreadExecutor.shutdown();
-            System.out.println("spring容器关闭");
+
+            ChatController.timer.cancel();
+            System.out.println("容器关闭");
         }catch (Exception e){
             e.printStackTrace();
         }

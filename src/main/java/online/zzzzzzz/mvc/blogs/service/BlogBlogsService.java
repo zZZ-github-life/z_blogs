@@ -545,6 +545,7 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
      * 初始化化博客主站
      */
     public void initHtml() {
+        log.info("开始生成站点页面");
         updateClassifyAndTagsOfNum();
         generateIndex();
         generateClassify();
@@ -554,6 +555,7 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
         generateArticles();
         generate404();
         generateRESSAndSearch();
+        log.info("结束生成站点页面");
     }
     
 }

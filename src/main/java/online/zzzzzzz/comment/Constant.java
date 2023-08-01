@@ -8,8 +8,9 @@ package online.zzzzzzz.comment;
  */
 
 public interface Constant {
-    
-    
+
+    public static final String YMDHMS="yyyy-MM-dd HH:mm:ss";
+
     public static final String DOMAIN="http://zzzzzzz.online";
     public static final String WEBSITENAME="Needle";
     public static final String MOTTO="Needle"; //TODO 座右铭
@@ -22,7 +23,8 @@ public interface Constant {
     
     
     public static final String CAPTCHA="CAPTCHA"; //验证码名称
-    
+    public static final String CHATCOOKIE="CHATCOOKIE"; //验证码名称
+
     
     
     

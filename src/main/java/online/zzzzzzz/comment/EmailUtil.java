@@ -2,6 +2,7 @@ package online.zzzzzzz.comment;
 
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.MailSSLSocketFactory;
+import online.zzzzzzz.basics.listener.InitResource;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.mail.*;
@@ -20,21 +21,16 @@ import java.util.*;
  */
 
 public class EmailUtil {
-    
-    static String username = "cafebabe.z@foxmail.com";
-    
-    static String password = "ubyqgvqcvkkcbcge";
-    
-    static String host = "smtp.qq.com";
-    static String impServer = "imap.qq.com";
-    
+
     static String subject = "Hello，你在站点上的留言有了新回复";
+
+
     
     public static Session getSendSession() throws GeneralSecurityException {
         //创建一个配置文件并保存
         Properties properties = new Properties();
         
-        properties.setProperty("mail.host", host);
+        properties.setProperty("mail.host", InitResource.config.get("email.host"));
         
         properties.setProperty("mail.transport.protocol", "smtp");
         
@@ -52,7 +48,7 @@ public class EmailUtil {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(InitResource.config.get("email.username"), InitResource.config.get("email.password"));
             }
         });
     }
@@ -79,7 +75,7 @@ public class EmailUtil {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
             
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(InitResource.config.get("email.username"), InitResource.config.get("email.password"));
             }
         });
     }
@@ -102,13 +98,13 @@ public class EmailUtil {
             transport = session.getTransport();
             
             //连接服务器
-            transport.connect(host, username, password);
+            transport.connect(InitResource.config.get("email.host"),InitResource.config.get("email.username"), InitResource.config.get("email.password"));
             
             //创建邮件对象
             MimeMessage mimeMessage = new MimeMessage(session);
             
             //邮件发送人
-            mimeMessage.setFrom(new InternetAddress(username));
+            mimeMessage.setFrom(new InternetAddress(InitResource.config.get("email.username")));
             
             //邮件接收人
             mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(receiveUser));
@@ -142,22 +138,22 @@ public class EmailUtil {
      * @param message 需要回复的邮件
      * @param content 邮件内容
      * @param subject 邮件主体
-     * @throws MessagingException
-     * @throws GeneralSecurityException
+     * @throws MessagingException MessagingException
+     * @throws GeneralSecurityException GeneralSecurityException
      */
     public static void replyMail(Message message,String content,String subject) throws MessagingException, GeneralSecurityException {
         Session session = getSendSession();
         InternetAddress internetAddress = (InternetAddress) message.getFrom()[0];
     
         MimeMessage replyMessage = (MimeMessage)message.reply(false);
-        replyMessage.setFrom(username);
+        replyMessage.setFrom(InitResource.config.get("email.username"));
         replyMessage.setRecipients(MimeMessage.RecipientType.TO, internetAddress.getAddress());
         replyMessage.setContent(content,"text/html");
         if (StringUtils.isNotBlank(subject)){
             replyMessage.setSubject(subject);
         }
         Transport transport = session.getTransport("smtp");
-        transport.connect(host,  username, password);
+        transport.connect(InitResource.config.get("email.host"),  InitResource.config.get("email.username"), InitResource.config.get("email.password"));
         Transport.send(replyMessage);
         transport.close();
     }
@@ -175,7 +171,7 @@ public class EmailUtil {
         try {
             Session receiveSession = getReceiveSession();
             store = (IMAPStore) receiveSession.getStore("imap");
-            store.connect(impServer, username, password);
+            store.connect(InitResource.config.get("email.host"),  InitResource.config.get("email.username"), InitResource.config.get("email.password"));
             folder = store.getFolder("INBOX");// 获得用户的邮件帐户
             folder.open(Folder.READ_WRITE); // 设置对邮件帐户的访问权限
          //   int n = folder.getUnreadMessageCount();// 得到未读数量

@@ -15,16 +15,19 @@
 
         <link rel="icon" type="image/png" href="${basePath}/img/favicon.png">
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swiper/swiper-bundle.min.css"><!--轮播图-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swp/style.min.css">
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swiper/swiper-bundle.css"><!--轮播图&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/swp/style.css">-->
 
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/materialize/css/materialize.css"><!--Materialize-UI-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/all.css"><!--字体图标库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/fontawesome-animation.min.css"><!--字体动画库-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/libs/nprogress/nprogress.css"><!--进度条-->
-        <link rel="stylesheet"  href="${basePath}/css/music.css"> <!--音乐-->
-        <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/aos/aos.css"><!--动画滚动库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/materialize/css/materialize.css"><!--Materialize-UI&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/all.css"><!--字体图标库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/awesome/css/fontawesome-animation.min.css"><!--字体动画库&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/libs/nprogress/nprogress.css"><!--进度条&ndash;&gt;-->
+<#--        <link rel="stylesheet"  href="${basePath}/css/music.css"> <!--音乐&ndash;&gt;-->
+<#--        <link rel="stylesheet" type="text/css" href="${basePath}/css/main-front.css"><!--个人css&ndash;&gt;-->
+
+        <link rel="stylesheet" type="text/css" href="${basePath}/merged/css/index.min.css">
+        <link rel="stylesheet" type="text/css" href="${basePath}/merged/css/home.min.css">
 
         <style type="text/css">
             .heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}
@@ -52,14 +55,26 @@
                 min-height: 800px;
             }
         </style>
+        <script>
+            function noFind(_this,path){ //声明顶部，防止网速加载过慢
+                if (path){
+                    _this.src=path;
+                }else {
+                    _this.src="/img/404_front.jpg";
+                }
+                if (! _this.src){
+                    _this.οnerrοr=null;
+                }
+            }
+        </script>
 
 
-        <script type="text/javascript" src="${basePath}/libs/jquery/jquery.min.js"></script><!--jq-->
-        <script type="text/javascript" src="${basePath}/libs/materialize/js/materialize.js"></script> <!--Materialize-UI-->
-        <script type="text/javascript" src="${basePath}/libs/dplayer/1.26.0/DPlayer.js"></script> <!--视频播放器DPlayer-->
-        <script src="${basePath}/libs/swiper/swiper-bundle.js"></script><!--轮播图-->
-        <script src="${basePath}/libs/nprogress/nprogress.js"></script><!--进度条-->
-        <script src="${basePath}/js/main-front.js"></script><!--个人js-->
+<#--        <script type="text/javascript" src="${basePath}/libs/jquery/jquery.min.js"></script><!--jq&ndash;&gt;-->
+<#--        <script type="text/javascript" src="${basePath}/libs/materialize/js/materialize.js"></script> <!--Materialize-UI&ndash;&gt;-->
+<#--        <script type="text/javascript" src="${basePath}/libs/dplayer/1.26.0/DPlayer.js"></script> <!--视频播放器DPlayer&ndash;&gt;-->
+<#--        <script src="${basePath}/libs/swiper/swiper-bundle.js"></script><!--轮播图&ndash;&gt;-->
+<#--        <script src="${basePath}/libs/nprogress/nprogress.js"></script><!--进度条&ndash;&gt;-->
+<#--        <script src="${basePath}/js/main-front.js"></script><!--个人js&ndash;&gt;-->
 
         <title>Needle | welcome to Needle</title>
 
@@ -130,9 +145,9 @@
                     <ul id="slide-out" class="sidenav sidenav-width" style="background-color: oldlace">
                         <li><div class="user-view">
                                 <div class="background">
-                                    <img src="/medias/banner/1.jpg">
+                                    <img src="/medias/banner/1.jpg" alt="">
                                 </div>
-                                <a href="javaScript:void(0)"><img style="width: 167px" src="/img/logo.png"></a>
+                                <a href="javaScript:void(0)"><img style="width: 167px" src="/img/logo.png" alt=""></a>
                                 <a href="javaScript:void(0)"><span class="phone-qm">当下即是未来</span></a>
                             </div>
                         </li>
@@ -279,7 +294,7 @@
                             <!--推荐-->
                             <div>
                                 <div class="blog-index-title center-align">
-                                    <i class="fa fa-video-camera"></i>
+                                    <i class="far fa-thumbs-up"></i>
                                     置顶推荐
                                 </div>
                             </div>
@@ -368,10 +383,78 @@
         <!--页脚-->
         <footer class="page-footer">
 
+
+            <!-- Chat GPT -->
+            <div id="Chat" class="chat-wrapper" style="display: none">
+
+                <div class="chat-header">
+                    <div class="chat-header-title">
+                        <div class="chat-header-hot">
+                            <img alt="" src="${basePath}/img/article/chatbots.svg">
+                        </div>
+                        <div class="chat-header-hi" >
+                            <span>Hi there ！</span>
+                        </div>
+
+                        <div></div>
+
+                        <div class="chat-header-buttom">
+
+                            <i class="fas fa-bell-slash" id="bellId" style="float: left"></i>
+                            &nbsp;
+                            <i class="fas fa-angle-down" id="hideId"  style="float: right"></i>
+                        </div>
+
+                    </div>
+                    <div class="chat-header-banner">
+                        <div >
+                            你好，我是智能机器人Chat-N。有什么可以为您效劳的吗？
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-content" id="chatContent">
+                    <div class="chat-content-message" id="chatContentMessage">
+
+                        <div class="chat-message-robot chat-message" id="msgRoot">你好呀，想聊点什么呢？</div>
+                        <!--                        <div class="chat-message-me chat-message"> 我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天</div>-->
+                        <!--                 -->
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <div class="chat-footer-input">
+
+                        <label>
+                            <textarea id="inputMessage" class="chat-footer-textarea" placeholder="Enter your message..."></textarea>
+                        </label>
+
+                    </div>
+                    <div class="chat-footer-bottom">
+                        <div>
+                            <i class="fas fa-bell-slash" ></i>
+                            &nbsp;
+                            <i class="fas fa-angle-down" ></i>
+                        </div>
+                        <div class="chat-send" id="chatSend">
+                            <a class="waves-effect ">
+                                <i class="fas fa-paper-plane" style="font-size: 1.7rem;color: #8fa4c4;"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
             <!-- 回到顶部按钮 start -->
-            <div id="backTop" class="top-scroll">
+            <div id="backTop"  class="top-scroll">
                 <a class="btn-floating btn-large waves-effect waves-light" href="#!">
                     <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+            <div id="chatBom" class="chat-windows">
+                <a  class="btn-floating btn-large waves-effect waves-light Chat-GPT-bottom" href="#!">
+                    <i class="fas fa-comment-dots" aria-hidden="true" ></i>
                 </a>
             </div>
 
@@ -379,7 +462,7 @@
             <div id="modal1" class="modal">
                 <div class="search-modal">
                     <i class="fas fa-search  faa-pulse search-i"></i>
-                    <div class="search-input" id="searchInput" aria-placeholder="感受光速搜索吧~"  contenteditable></div>
+                    <div class="search-input" id="searchInput" aria-placeholder="站点内光速搜索..."  contenteditable></div>
                 </div>
 
                 <div class="search-contain" id="searchResult">
@@ -423,7 +506,8 @@
                 </div>
             </div>
         </footer>
-
+        <#--nodejs grunt压缩的js-->
+        <script src="${basePath}/merged/js/index.min.js" type="text/javascript"></script>
         <script>
             //初始化DPlayer播放器
             const dp = new DPlayer({
@@ -465,10 +549,11 @@
             });
         </script>
 
+<#--       -->
 
-        <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库-->
-        <script src="${basePath}/js/music.js"  ></script><!--音乐-->
-        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.js" async="async"></script>
+<#--        <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库&ndash;&gt;-->
+<#--        <script src="${basePath}/js/music.js"  ></script><!--音乐&ndash;&gt;-->
+<#--        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.js" async="async"></script>-->
 
         <script>
 
@@ -547,6 +632,6 @@
                 //获取当前人的ip 城市
             });
         </script>
-
+        <script src="${basePath}/libs/echarts/echarts.min.js" ></script>
     </body>
 </html>

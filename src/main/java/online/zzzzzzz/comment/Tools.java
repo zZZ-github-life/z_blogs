@@ -1,5 +1,6 @@
 package online.zzzzzzz.comment;
 
+import online.zzzzzzz.basics.annotation.NotEmpty;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
@@ -8,6 +9,7 @@ import org.jsoup.safety.Whitelist;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,6 +119,35 @@ public class Tools {
         }
         return null;
     }
-    
-    
+
+
+    /**
+     * 验证指定对象的属性是否为非空
+     * @param object 需要验证的对象
+     * @return 有空返回 false
+     */
+    public static boolean objectCheckIsNotNull(Object object) {
+
+        if (object==null){
+            return false;
+        }
+        Class<?> clazz = object.getClass(); // 得到类对象
+            Field[] fields = clazz.getDeclaredFields(); // 得到所有属性
+            for (Field field : fields) {
+                field.setAccessible(true);
+                Object fieldValue ;
+                try {
+                    boolean annotationPresent = field.isAnnotationPresent(NotEmpty.class);
+                    if (annotationPresent &&  (fieldValue = field.get(object))!=null){
+                        return !field.getGenericType().getTypeName().equals("java.lang.String") || !StringUtils.isBlank(fieldValue.toString());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+
+
+        }
+        return true;
+    }
 }

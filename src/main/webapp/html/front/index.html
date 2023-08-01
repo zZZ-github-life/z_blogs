@@ -576,10 +576,77 @@
         <!--页脚-->
         <footer class="page-footer">
 
+            <!-- Chat GPT -->
+            <div id="Chat" class="chat-wrapper" style="display: none">
+
+                <div class="chat-header">
+                    <div class="chat-header-title">
+                        <div class="chat-header-hot">
+                            <img alt="" src="/img/article/chatbots.svg">
+                        </div>
+                        <div class="chat-header-hi" >
+                            <span>Hi there ！</span>
+                        </div>
+
+                        <div></div>
+
+                        <div class="chat-header-buttom">
+
+                            <i class="fas fa-bell-slash" id="bellId" style="float: left"></i>
+                            &nbsp;
+                            <i class="fas fa-angle-down" id="hideId"  style="float: right"></i>
+                        </div>
+
+                    </div>
+                    <div class="chat-header-banner">
+                        <div >
+                            你好，我是智能机器人Chat-N。有什么可以为您效劳的吗？
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-content" id="chatContent">
+                    <div class="chat-content-message" id="chatContentMessage">
+
+                        <div class="chat-message-robot chat-message" id="msgRoot">你好呀，想聊点什么呢？</div>
+<!--                        <div class="chat-message-me chat-message"> 我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天</div>-->
+<!--                 -->
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <div class="chat-footer-input">
+
+                        <label>
+                            <textarea id="inputMessage" class="chat-footer-textarea" placeholder="Enter your message..."></textarea>
+                        </label>
+
+                    </div>
+                    <div class="chat-footer-bottom">
+                        <div>
+                            <i class="fas fa-bell-slash" ></i>
+                            &nbsp;
+                            <i class="fas fa-angle-down" ></i>
+                        </div>
+                        <div class="chat-send" id="chatSend">
+                            <a class="waves-effect ">
+                                <i class="fas fa-paper-plane" style="font-size: 1.7rem;color: #8fa4c4;"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
             <!-- 回到顶部按钮 start -->
-            <div id="backTop" class="top-scroll">
+            <div id="backTop"  class="top-scroll">
                 <a class="btn-floating btn-large waves-effect waves-light" href="#!">
                     <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+            <div id="chatBom" class="chat-windows">
+                <a  class="btn-floating btn-large waves-effect waves-light Chat-GPT-bottom" href="#!">
+                    <i class="fas fa-comment-dots" aria-hidden="true" ></i>
                 </a>
             </div>
 

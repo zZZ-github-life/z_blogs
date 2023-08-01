@@ -32,9 +32,9 @@ public class LoginController {
      * 存在线程安全问题，线程同步
      * 性能较低，考虑自动清理机制，未考虑conCurrentHashMap
      */
-    private Map<String, String> codes = Collections.synchronizedMap(new WeakHashMap<>());
+    private final Map<String, String> codes = Collections.synchronizedMap(new WeakHashMap<>());
     
-    private Random randObj = new Random();
+    private final Random randObj = new Random();
     
     /**
      * 单点登陆

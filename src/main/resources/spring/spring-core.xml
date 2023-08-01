@@ -13,6 +13,7 @@
 ">
 
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
+    <context:property-placeholder location="classpath:properties/blog.properties"/>
 
     <context:component-scan base-package="online.zzzzzzz.mvc.*.dao,online.zzzzzzz.mvc.*.service">
         <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
@@ -87,5 +88,6 @@
 
     <!--定时任务-->
     <bean class="online.zzzzzzz.mvc.sys.Task"/>
+
 
 </beans>

@@ -5,10 +5,7 @@ import freemarker.template.Template;
 import online.zzzzzzz.basics.controller.BaseController;
 import online.zzzzzzz.basics.entity.RepJson;
 import online.zzzzzzz.basics.listener.InitResource;
-import online.zzzzzzz.comment.Constant;
-import online.zzzzzzz.comment.Global;
-import online.zzzzzzz.comment.IPUtils;
-import online.zzzzzzz.comment.OSUtil;
+import online.zzzzzzz.comment.*;
 import online.zzzzzzz.mvc.blogs.dao.BlogBlogsMapper;
 import online.zzzzzzz.mvc.blogs.dao.entity.BlogBlogs;
 import online.zzzzzzz.mvc.blogs.service.BlogBlogsService;
@@ -25,13 +22,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.net.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -200,11 +201,17 @@ public class BlogBlogsController extends BaseController {
         }
         return repJson;
     }
-    
-    
+
+
+    /**
+     * 获取访问量的数据，以及聊天cookie设置（防止盗用）
+     * @param request request
+     * @param response response
+     * @return json
+     */
     @ResponseBody
     @RequestMapping("ptu")
-    public RepJson ptu() {
+    public RepJson ptu(HttpServletRequest request,HttpServletResponse response) {
         
         RepJson repJson = new RepJson();
         try {
@@ -214,7 +221,16 @@ public class BlogBlogsController extends BaseController {
             map.put("UV", InitResource.UV);
             map.put("WC", InitResource.WC);
             repJson.setData(map);
-            
+
+            //设置chat的cookie
+            Cookie cookie;
+            if ((cookie = Tools.getCookie(request, Constant.CHATCOOKIE))==null) {
+                cookie = new Cookie(Constant.CHATCOOKIE, UUID.randomUUID().toString());
+            }
+            cookie.setHttpOnly(true);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
@@ -430,5 +446,44 @@ public class BlogBlogsController extends BaseController {
         }
   
     }
-    
+
+    @GetMapping("chat")
+    public RepJson chat(@RequestBody Map<String,Object> map){
+        RepJson repJson = new RepJson();
+        try {
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return repJson;
+
+    }
+
+    public static void main(String[] args) {
+        RepJson repJson = new RepJson();
+        try {
+            // 设置代理
+            Proxy webProxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 2954));
+
+            // 使用代理
+            URL weburl = new URL("http://zzzzzzz.online/blogBlogs/ptu");
+            System.out.println("打开代理");
+            HttpURLConnection webProxyConnection = (HttpURLConnection) weburl.openConnection();
+
+            InputStream inputStream = webProxyConnection.getInputStream();
+            Socket socket = new Socket("http://zzzzzzz.online/blogBlogs/ptu", 80);
+
+            int line;
+            byte[] bytes = new byte[1024];
+            StringBuilder stringBuilder = new StringBuilder();
+            while ( (line=inputStream.read(bytes))!=-1){
+                stringBuilder.append(new String(bytes,0,line));
+            }
+            System.out.println(stringBuilder.toString());
+            repJson.setMsg(stringBuilder.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
