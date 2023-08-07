@@ -37,7 +37,6 @@ $(function () {
         return false;
     });
 
-    initSSE();
 
     $chatBom.click(function (){
         $('#Chat').fadeToggle(700);
@@ -84,6 +83,7 @@ $(function () {
     if (!localIP){
         $.get("/blogBlogs/getIp",function (res) {
             if (res.success){
+                initSSE();
                 localIP =res.data;
                 setCity(); //减少根据ip寻址
             }
@@ -99,6 +99,14 @@ $(function () {
     }
 
     setPTU();
+
+    if (!window.mytest){
+        window.mytest="1";
+        console.log("888")
+    }else {
+        console.log(window.mytest)
+    }
+
 
    // console.clear();  // 清空
     console.log("\n %c needle %c  但凡好剑都有自己的名号。珊莎有她的缝衣针，现在我也有了自己的“缝衣针” \n", "font-weight:900;color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");

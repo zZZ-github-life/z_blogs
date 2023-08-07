@@ -34,6 +34,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -449,16 +450,16 @@ public class BlogBlogsService extends BaseService<BlogBlogsMapper, BlogBlogs> {
             String realPath = InitResource.servletContext.getRealPath("/xml/");
             File file = new File(realPath + "RESS" + Constant.XML_SUFFIX);
             File file1 = new File(realPath + "search" + Constant.XML_SUFFIX);
-            outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+            outputStreamWriter = new OutputStreamWriter(Files.newOutputStream(file.toPath()), StandardCharsets.UTF_8);
             template.process(var, outputStreamWriter);
     
-            outputStreamWriter1 = new OutputStreamWriter(new FileOutputStream(file1), StandardCharsets.UTF_8);
+            outputStreamWriter1 = new OutputStreamWriter(Files.newOutputStream(file1.toPath()), StandardCharsets.UTF_8);
             template1.process(var, outputStreamWriter1);
     
     
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+           // throw new RuntimeException();
         }finally {
             if (outputStreamWriter!=null){
                 try {

@@ -125,18 +125,37 @@ public class BlogBlogsController extends BaseController {
         }
         return repJson;
     }
-    
+
+    /**
+     * 获取客户端ip地址，以及聊天cookie设置（防止盗用）
+     * @param request request
+     * @param response response
+     * @return json
+     */
     @ResponseBody
     @RequestMapping("getIp")
-    public RepJson getIp(HttpServletRequest httpServletRequest) {
+    public RepJson getIp(HttpServletRequest request,HttpServletResponse response) {
         
         RepJson repJson = new RepJson();
         try {
-            String ipAddress = IPUtils.getIpAddress(httpServletRequest);
+            String ipAddress = IPUtils.getIpAddress(request);
             repJson.setData(ipAddress);
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
+        }
+
+        try {
+            //设置chat的cookie
+            Cookie cookie;
+            if ((cookie = Tools.getCookie(request, Constant.CHATCOOKIE))==null) {
+                cookie = new Cookie(Constant.CHATCOOKIE, UUID.randomUUID().toString());
+            }
+            cookie.setHttpOnly(true);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return repJson;
     }
@@ -203,15 +222,9 @@ public class BlogBlogsController extends BaseController {
     }
 
 
-    /**
-     * 获取访问量的数据，以及聊天cookie设置（防止盗用）
-     * @param request request
-     * @param response response
-     * @return json
-     */
     @ResponseBody
     @RequestMapping("ptu")
-    public RepJson ptu(HttpServletRequest request,HttpServletResponse response) {
+    public RepJson ptu() {
         
         RepJson repJson = new RepJson();
         try {
@@ -222,14 +235,6 @@ public class BlogBlogsController extends BaseController {
             map.put("WC", InitResource.WC);
             repJson.setData(map);
 
-            //设置chat的cookie
-            Cookie cookie;
-            if ((cookie = Tools.getCookie(request, Constant.CHATCOOKIE))==null) {
-                cookie = new Cookie(Constant.CHATCOOKIE, UUID.randomUUID().toString());
-            }
-            cookie.setHttpOnly(true);
-            cookie.setPath("/");
-            response.addCookie(cookie);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -447,18 +452,6 @@ public class BlogBlogsController extends BaseController {
   
     }
 
-    @GetMapping("chat")
-    public RepJson chat(@RequestBody Map<String,Object> map){
-        RepJson repJson = new RepJson();
-        try {
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return repJson;
-
-    }
 
     public static void main(String[] args) {
         RepJson repJson = new RepJson();

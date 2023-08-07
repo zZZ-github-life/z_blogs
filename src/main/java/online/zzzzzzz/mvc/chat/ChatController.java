@@ -74,20 +74,23 @@ public class ChatController {
      * @return SseEmitter
      */
     @GetMapping(value = "/subscribe",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public SseEmitter chat(HttpServletRequest request){
-        String cookieValue = Tools.getCookieValue(request,Constant.CHATCOOKIE);//利用cookie，检查是否同源
-        if (StringUtils.isBlank(cookieValue) || chat.get(Constant.CHATCOOKIE)!=null){ //不存在表示不同源，集合中已经存在了说明已经建立了链接。
+    public SseEmitter subscribe(HttpServletRequest request){
+        String cookieValue;//利用cookie，检查是否同源
+        if (StringUtils.isBlank(cookieValue = Tools.getCookieValue(request,Constant.CHATCOOKIE))
+                || chat.get(Constant.CHATCOOKIE)!=null //不存在表示不同源，集合中已经存在了说明已经建立了链接。
+                || chat.containsKey(cookieValue)){
             return null;
         }
 
-        SseEmitterImpl sseEmitter = new SseEmitterImpl(10 * 60 * 1000L);
+
+
+        SseEmitterImpl sseEmitter = new SseEmitterImpl(0);
 
         chat.put(cookieValue,sseEmitter);
 
         sseEmitter.onCompletion(() -> chat.remove(cookieValue));
 
         sseEmitter.onError(throwable -> {
-            System.out.println("删除");
             chat.remove(cookieValue);
         });
 
@@ -122,8 +125,7 @@ public class ChatController {
 
 
 
-       // try(Socket socket = new Socket(InitResource.config.get("chat.ip"), Integer.parseInt(InitResource.config.get("chat.port")));
-        try(Socket socket = new Socket("127.0.0.1", 45248);
+       try(Socket socket = new Socket(InitResource.config.get("chat.ip"), Integer.parseInt(InitResource.config.get("chat.port")));
             OutputStream outputStream = socket.getOutputStream();
             InputStream inputStream = socket.getInputStream()) {
 
@@ -141,7 +143,6 @@ public class ChatController {
             sseEmitter.send(SseEmitter.event().name("over").id(uuid));
         }catch (Exception e){
             e.printStackTrace();
-            // sseEmitter.completeWithError(e);
         }
 
        // sseEmitter.send(SseEmitter.event().name("receive").data( UUID.randomUUID().toString()).id( UUID.randomUUID().toString()));
@@ -238,6 +239,9 @@ public class ChatController {
     static class SseEmitterImpl extends SseEmitter{
         public SseEmitterImpl(long timeout){
             super(timeout);
+        }
+        public SseEmitterImpl(){
+            super();
         }
         @Override
         protected void extendResponse(ServerHttpResponse outputMessage) {

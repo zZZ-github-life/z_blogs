@@ -22,7 +22,7 @@
                     <link>${blog.href}</link>
                     <description>
                         <![CDATA[
-                        blog.about
+                        ${blog.about}
                         ]]>
                     </description>
                     <pubDate>${blog.publishDate}</pubDate>
