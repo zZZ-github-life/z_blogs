@@ -5,8 +5,8 @@
 * 
 * */
 
-var localIP; //记录城市
-var z_poetry=['人生的出发，总是太天真，先试再说吧。破局之后，亦有春天来到',
+let localIP, eventSource;
+let z_poetry=['人生的出发，总是太天真，先试再说吧。破局之后，亦有春天来到',
     '你不能通过躲避生活，去找到平静',
     '如今往回看，事事可以后悔，但事事也可以若无其事',
     '往往最出色的人偏偏会就会爱上毁灭他的人','即便矮小之人，也能投射出巨大的影子',
@@ -83,7 +83,7 @@ $(function () {
     if (!localIP){
         $.get("/blogBlogs/getIp",function (res) {
             if (res.success){
-                initSSE();
+                initSSE(); //提前建立连接
                 localIP =res.data;
                 setCity(); //减少根据ip寻址
             }
@@ -100,52 +100,57 @@ $(function () {
 
     setPTU();
 
-    if (!window.mytest){
-        window.mytest="1";
-        console.log("888")
-    }else {
-        console.log(window.mytest)
-    }
-
-
    // console.clear();  // 清空
     console.log("\n %c needle %c  但凡好剑都有自己的名号。珊莎有她的缝衣针，现在我也有了自己的“缝衣针” \n", "font-weight:900;color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 });
 
 async function initSSE(){
     /*聊天插件*/
+    if (eventSource){
+        return;
+    }
     if (window.EventSource) {
         let div;
         let ccm=$('#chatContentMessage');
-        const source = new EventSource('/chat/subscribe');
-        source.addEventListener("receive", (event) => {
+        eventSource = new EventSource('/chat/subscribe');
+        eventSource.addEventListener("receive", (event) => {
             if ((!div) || div.id!==event.lastEventId){
                 div =document.createElement('div');
                 div.classList.add('chat-message-robot');
                 div.classList.add('chat-message');
                 div.id=event.lastEventId;
             }
-            let msg = document.createTextNode(event.data);
+            document.getElementById("chatLoading").style.display='none';
+           // let msg = document.createTextNode(event.data);
             ccm.append(div)
-            div.appendChild(msg);
+            div.innerHTML=event.data;
             let cct=$('#chatContent');
             cct.animate({
                 scrollTop: cct[0].scrollHeight
             }, 500);
 
+            $("#inputMessage").removeAttr("readonly");
+            $("#inputMessage").css("cursor","");
+
         })
 
-        source.addEventListener("over", (event) => {
+        eventSource.addEventListener("over", (event) => {
             div =null;
-            console.log("over")
             if (mp3Res){
                 mp3Res.loop = false
                 mp3Res.play();
             }
         })
 
-        source.onerror=function (event){
-            source.close();
+        eventSource.onopen=function (event){
+
+        }
+        eventSource.onerror=function (event){
+            eventSource.close();
+            eventSource=null;
+            console.log("4444")
+            $("#inputMessage").removeAttr("readonly");
+            $("#inputMessage").css("cursor","");
         }
 
     }else {
@@ -422,35 +427,45 @@ function chatSend(){
         return false;
     }
 
-    window.requestAnimationFrame(function (e) {
-        if (mp3Send){ //发送提示音
+    initSSE().then( //发送之前检查是否建立连接
 
-            mp3Send.loop = false
-            mp3Send.play().then(r => {
+        window.requestAnimationFrame(function (e) {
+            if (mp3Send){ //发送提示音
 
+                mp3Send.loop = false
+                mp3Send.play().then(r => {
+
+                })
+            }
+
+            let ccm = $('#chatContentMessage');
+            let im =$('#inputMessage');
+            let content=im.val().trim();
+            ccm.append('<div class="chat-message-me chat-message">'+content+ '</div>');
+            im.val('');
+            let chatLoading = document.getElementById("chatLoading");
+            ccm.append(chatLoading)
+            chatLoading.style.display='block';
+            im.attr("readonly","readonly");
+            im.css("cursor","not-allowed");
+            let cct=$('#chatContent');
+            cct.animate({
+                scrollTop: cct[0].scrollHeight
+            }, 500);
+
+            let conData ={"content":content};
+            $.ajax({
+                url:"/chat/send",
+                type:"post",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                data:JSON.stringify(conData)
             })
-        }
 
-        let ccm = $('#chatContentMessage');
-        let im =$('#inputMessage');
-        let content=im.val().trim();
-        ccm.append('<div class="chat-message-me chat-message">'+content+ '</div>');
-        im.val('');
-        let cct=$('#chatContent');
-        cct.animate({
-            scrollTop: cct[0].scrollHeight
-        }, 500);
-
-        let conData ={"content":content};
-        $.ajax({
-            url:"/chat/send",
-            type:"post",
-            dataType: "json",
-            contentType: "application/json;charset=utf-8",
-            data:JSON.stringify(conData)
         })
+    ); //检查连接
 
-    });
+
 }
 
 //获取系统版本，和浏览器版本

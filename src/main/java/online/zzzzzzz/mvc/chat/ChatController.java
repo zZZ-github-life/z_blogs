@@ -84,17 +84,16 @@ public class ChatController {
 
 
 
-        SseEmitterImpl sseEmitter = new SseEmitterImpl(0);
+        SseEmitterImpl sseEmitter = new SseEmitterImpl(30*60*1000);
 
         chat.put(cookieValue,sseEmitter);
 
         sseEmitter.onCompletion(() -> chat.remove(cookieValue));
 
-        sseEmitter.onError(throwable -> {
-            chat.remove(cookieValue);
-        });
+        sseEmitter.onError(throwable -> chat.remove(cookieValue));
 
         sseEmitter.onTimeout(() -> chat.remove(cookieValue));
+
         return sseEmitter;
     }
 
@@ -123,8 +122,6 @@ public class ChatController {
             return null;
         }
 
-
-
        try(Socket socket = new Socket(InitResource.config.get("chat.ip"), Integer.parseInt(InitResource.config.get("chat.port")));
             OutputStream outputStream = socket.getOutputStream();
             InputStream inputStream = socket.getInputStream()) {
@@ -138,7 +135,7 @@ public class ChatController {
             String line;
             BufferedReader br = new BufferedReader( new InputStreamReader(inputStream));
             while ((line=br.readLine())!=null){
-                sseEmitter.send(SseEmitter.event().name("receive").data(line.replaceAll("\\n\\n","<br>")).id(uuid));
+                sseEmitter.send(SseEmitter.event().name("receive").data(line.replaceAll("\\\\n","<br>")).id(uuid));
             }
             sseEmitter.send(SseEmitter.event().name("over").id(uuid));
         }catch (Exception e){

@@ -418,6 +418,15 @@
                         <div class="chat-message-robot chat-message" id="msgRoot">你好呀，想聊点什么呢？</div>
                         <!--                        <div class="chat-message-me chat-message"> 我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天我是只能机器人小天</div>-->
                         <!--                 -->
+                        <div class="chat-message-robot chat-message " id="chatLoading" style="display: none">
+
+                            <div class="loading-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <div class="chat-footer">

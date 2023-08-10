@@ -27,7 +27,7 @@ public interface BlogBlogsMapper extends Mapper<BlogBlogs> {
     @Select("select bb.*,bg.path path,bc.classify_name  classify_name from blog_blogs bb  left join blog_gallery bg on bb.gallery_id =bg.id left join blog_classify bc on bb.classify_id = bc.id  left join blog_tags bt on FIND_IN_SET(bt.id,bb.tags_ids) where bt.tags_name =#{name}")
     List<Map<String, Object>> tagsList(String name);
     
-    @Select("select bb.*,bg.path path,bc.classify_name  classify_name from blog_blogs bb  left join blog_gallery bg on bb.gallery_id =bg.id left join blog_classify bc on bb.classify_id = bc.id  left join blog_tags bt on FIND_IN_SET(bt.id,bb.tags_ids) where bc.classify_name =#{name}")
+    @Select("select bb.*,bg.path path,bc.classify_name  classify_name from blog_blogs bb  left join blog_gallery bg on bb.gallery_id =bg.id left join blog_classify bc on bb.classify_id = bc.id where bc.classify_name =#{name}")
     List<Map<String, Object>> classifyList(String name);
     
     

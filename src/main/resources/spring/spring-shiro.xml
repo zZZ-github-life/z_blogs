@@ -15,7 +15,9 @@
 
 
     <!--shiro的缓存 加载默认配置-->
-    <bean id="cacheManager"  class="org.apache.shiro.cache.ehcache.EhCacheManager"></bean>
+    <bean id="cacheManager"  class="org.apache.shiro.cache.ehcache.EhCacheManager">
+
+    </bean>
 
     <!--自定义登陆实现逻辑-->
     <bean id="authRealm" class="online.zzzzzzz.basics.shiro.AuthRealm">
@@ -37,7 +39,7 @@
     <!--shiro与spring整合的过滤器，此过滤器名称与web.xml中相同-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.html"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
+        <property name="loginUrl" value="/login"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
         <property name="successUrl" value="/home"/>   <!--登陆成功地址：登陆成功后自动跳转此url-->
         <property name="unauthorizedUrl" value="/unauthorized"/>    <!--此地址可以不用授权-->
 
@@ -47,7 +49,7 @@
                 # 无需认证:
                 /login = anon
                 /SSO = anon
-                /chat = anon
+                /chat/** = anon
                 /html/article/** =anon
                 /css/** =anon
                 /img/** =anon

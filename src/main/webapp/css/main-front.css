@@ -1356,10 +1356,55 @@ ul.guestbook-ul li::marker{
     text-align: center;
 }
 
+.loading-dots {
+    position: relative;
+    width: 24px;
+    height: 4px;
+}
+
+.loading-dots span {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #555;
+    position: absolute;
+    animation: loading 1s infinite linear;
+}
+
+.loading-dots span:nth-child(1) {
+    left: 0;
+    animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+    left: 10px;
+    animation-delay: 0.1s;
+}
+
+.loading-dots span:nth-child(3) {
+    left: 20px;
+    animation-delay: 0.2s;
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 .shake {
     animation: shake 800ms ease-in-out;
 }
-@keyframes shake { /* 水平抖动，核心代码 */
+@keyframes shake {
     10%, 90% { transform: translate3d(-1px, 0, 0); }
     20%, 80% { transform: translate3d(+2px, 0, 0); }
     30%, 70% { transform: translate3d(-4px, 0, 0); }
