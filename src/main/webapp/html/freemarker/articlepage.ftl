@@ -145,7 +145,7 @@
 <#--        <script src="${basePath}/js/main-front.js"></script><!--个人js&ndash;&gt;-->
 <#--        <script src="${basePath}/libs/tocbot/tocbot.js"></script><!--目录生成&ndash;&gt;-->
 
-        <script src="${basePath}/merged/js/index.min.js" type="text/javascript"></script>
+
 
         <title>${blog.title}</title>
 
@@ -1009,7 +1009,7 @@
 <#--        <script src="${basePath}/libs/aos/aos.js"></script><!--动画滚动库&ndash;&gt;-->
 
 <#--        <script type="text/javascript"  src="${basePath}/libs/background/ribbon-refresh.min.js" async="async"></script>-->
-
+        <script src="${basePath}/merged/js/index.min.js" type="text/javascript"></script>
         <script>
 
             $(document).ready(function(){

@@ -106,7 +106,7 @@ $(function () {
 
 async function initSSE(){
     /*聊天插件*/
-    if (eventSource){
+    if (eventSource || localStorage.getItem("chatKey")){
         return;
     }
     if (window.EventSource) {
@@ -143,12 +143,16 @@ async function initSSE(){
         })
 
         eventSource.onopen=function (event){
-
+            localStorage.setItem("chatKey","chatKey");
+            //监听浏览器窗口关闭
+            window.addEventListener('beforeunload', (event) => {
+                localStorage.removeItem("chatKey");
+            });
         }
         eventSource.onerror=function (event){
             eventSource.close();
             eventSource=null;
-            console.log("4444")
+            localStorage.removeItem("chatKey");
             $("#inputMessage").removeAttr("readonly");
             $("#inputMessage").css("cursor","");
         }

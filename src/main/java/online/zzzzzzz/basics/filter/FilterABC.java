@@ -24,11 +24,11 @@ public class FilterABC implements Filter {
     
     public void doFilter(ServletRequest servletRequest, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = ((HttpServletRequest) servletRequest);
-        StringBuffer requestURL = request.getRequestURL();
+     //   StringBuffer requestURL = request.getRequestURL();
 //        if (!requestURL.toString().contains("/chat")){  //SSE聊天 建立连接时 直接调用会抛出异常
 //            request.getSession();//对应  online.zouxiaolong.basics.filter.TVListener
 //        }
-        request.getSession();
+        request.getSession();//对应  online.zouxiaolong.basics.filter.TVListener
        // response.setCharacterEncoding("UTF-8");
 
         filterChain.doFilter(servletRequest,response);

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -64,7 +65,7 @@ public class ChatController {
                     e.printStackTrace();
                 }
             }
-        },6000,60*1000);
+        },6000,6*1000);
 
     }
 
@@ -73,17 +74,18 @@ public class ChatController {
      * @param request res
      * @return SseEmitter
      */
-    @GetMapping(value = "/subscribe",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public SseEmitter subscribe(HttpServletRequest request){
+    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE + ";charset=UTF-8")
+    public SseEmitter subscribe(HttpServletRequest request, HttpServletResponse response){
         String cookieValue;//利用cookie，检查是否同源
         if (StringUtils.isBlank(cookieValue = Tools.getCookieValue(request,Constant.CHATCOOKIE))
-                || chat.get(Constant.CHATCOOKIE)!=null //不存在表示不同源，集合中已经存在了说明已经建立了链接。
-                || chat.containsKey(cookieValue)){
+            //    || chat.get(Constant.CHATCOOKIE)!=null //不存在表示不同源，集合中已经存在了说明已经建立了链接。
+              //  || chat.containsKey(cookieValue)
+        ){
             return null;
         }
 
 
-
+      //  response.setHeader("Content-Type","text/event-stream;charset=UTF-8");
         SseEmitterImpl sseEmitter = new SseEmitterImpl(30*60*1000);
 
         chat.put(cookieValue,sseEmitter);
@@ -240,11 +242,11 @@ public class ChatController {
         public SseEmitterImpl(){
             super();
         }
-        @Override
-        protected void extendResponse(ServerHttpResponse outputMessage) {
-            super.extendResponse(outputMessage);
-            HttpHeaders headers = outputMessage.getHeaders();
-            headers.setContentType(new MediaType(MediaType.TEXT_EVENT_STREAM, StandardCharsets.UTF_8));
-        }
+//        @Override
+//        protected void extendResponse(ServerHttpResponse outputMessage) {
+//            super.extendResponse(outputMessage);
+//            HttpHeaders headers = outputMessage.getHeaders();
+//            headers.setContentType(new MediaType(MediaType.TEXT_EVENT_STREAM_VALUE, "",StandardCharsets.UTF_8));
+//        }
     }
 }

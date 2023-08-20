@@ -456,14 +456,14 @@
             </div>
 
             <!-- 回到顶部按钮 start -->
-            <div id="backTop"  class="top-scroll">
-                <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-                    <i class="fas fa-arrow-up"></i>
-                </a>
-            </div>
             <div id="chatBom" class="chat-windows">
                 <a  class="btn-floating btn-large waves-effect waves-light Chat-GPT-bottom" href="#!">
                     <i class="fas fa-comment-dots" aria-hidden="true" ></i>
+                </a>
+            </div>
+            <div id="backTop"  class="top-scroll">
+                <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+                    <i class="fas fa-arrow-up"></i>
                 </a>
             </div>
 
