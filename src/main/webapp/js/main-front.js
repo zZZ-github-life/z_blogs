@@ -148,6 +148,10 @@ async function initSSE(){
             window.addEventListener('beforeunload', (event) => {
                 localStorage.removeItem("chatKey");
             });
+            // 页面隐藏时触发,等价于页面关闭
+            window.addEventListener('pagehide', () => {
+                localStorage.removeItem("chatKey");
+            });
         }
         eventSource.onerror=function (event){
             eventSource.close();

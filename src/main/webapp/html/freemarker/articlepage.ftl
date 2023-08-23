@@ -284,8 +284,7 @@
                                 <div class="post-info">
 
                                     <div class="post-date info-break-policy">
-                                        <i class="far fa-calendar-minus fa-fw"></i><span class="iw">发布日期：</span>
-                                          ${(blog.publishDate)?string("yyyy/MM/dd")}
+                                        <i class="far fa-calendar-minus fa-fw"></i><span class="iw"> 发布日期：</span>${(blog.publishDate)?string("yyyy/MM/dd")}
                                     </div>
 
 
@@ -293,23 +292,19 @@
 
 
                                     <div class="info-break-policy">
-                                        <i class="far fa-file-word fa-fw"></i><span class="iw">文章字数：</span>
-                                        ${blog.words}
+                                        <i class="far fa-file-word fa-fw"></i><span class="iw"> 文章字数：</span>${blog.words}
                                     </div>
 
 
 
                                     <div class="info-break-policy">
-                                        <i class="far fa-clock fa-fw"></i><span class="iw">阅读时长：</span>
-                                        ${blog.duration}
+                                        <i class="far fa-clock fa-fw"></i><span class="iw"> 阅读时长：</span>${blog.duration}
                                     </div>
 
 
 
                                     <div id="busuanzi_container_page_pv" class="info-break-policy" style="display: inline;">
-                                        <i class="far fa-eye fa-fw"></i><span class="iw">阅读次数：</span>
-
-                                        <span id="busuanzi_value_page_pv">${blog.hits!"10"}</span>
+                                        <i class="far fa-eye fa-fw"></i><span class="iw"> 阅读次数：</span><span id="busuanzi_value_page_pv">${(blog.hits)!10}</span>
                                     </div>
 
                                 </div>

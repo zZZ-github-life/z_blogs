@@ -74,7 +74,7 @@ public class ChatController {
      * @param request res
      * @return SseEmitter
      */
-    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE + ";charset=UTF-8")
+    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE )
     public SseEmitter subscribe(HttpServletRequest request, HttpServletResponse response){
         String cookieValue;//利用cookie，检查是否同源
         if (StringUtils.isBlank(cookieValue = Tools.getCookieValue(request,Constant.CHATCOOKIE))
@@ -242,11 +242,11 @@ public class ChatController {
         public SseEmitterImpl(){
             super();
         }
-//        @Override
-//        protected void extendResponse(ServerHttpResponse outputMessage) {
-//            super.extendResponse(outputMessage);
-//            HttpHeaders headers = outputMessage.getHeaders();
-//            headers.setContentType(new MediaType(MediaType.TEXT_EVENT_STREAM_VALUE, "",StandardCharsets.UTF_8));
-//        }
+        @Override
+        protected void extendResponse(ServerHttpResponse outputMessage) {
+            super.extendResponse(outputMessage);
+            HttpHeaders headers = outputMessage.getHeaders();
+            headers.setContentType(new MediaType(MediaType.TEXT_EVENT_STREAM,StandardCharsets.UTF_8));
+        }
     }
 }
