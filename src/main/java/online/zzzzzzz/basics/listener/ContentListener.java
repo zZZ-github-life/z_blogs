@@ -8,6 +8,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -42,10 +44,10 @@ public class ContentListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
         
         try {
-            String path = Objects.requireNonNull(Global.class.getClassLoader().getResource("/properties/blog.properties")).getPath();
+            String path = Objects.requireNonNull(Global.class.getClassLoader().getResource("properties/blog.properties")).getPath();
             System.out.println(path);
-            Global.cusProperties.setProperty("article.num", Global.atomicInteger.get()+"");
-            Global.cusProperties.store(new OutputStreamWriter(new FileOutputStream(path)),"article.num");
+            Global.cusProperties.setProperty("article.num", String.valueOf(Global.atomicInteger.get()));
+            Global.cusProperties.store(new OutputStreamWriter(Files.newOutputStream(Paths.get(path))),"article.num");
         } catch (Exception e) {
             e.printStackTrace();
         }

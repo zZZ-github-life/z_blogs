@@ -68,7 +68,7 @@
 
                     <div class="row">
                         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-                            本站用于记录工作与学习之中的一些问题和心得。初衷是做一个在线记录文本，因为会有太多忘掉的技术栈。最开始在网上看了一些别人的博客站点，慢慢的想法越来越多，于是动手搭建了此站点。从搭建框架、搭建云服务、购买域名、开发功能、部署上线断断续续花了差不多一年时间。在后面，会持续优化、开发一些新的功能。<p><span style="font-family: fantasy">Needle</span>：取自权游里二丫手中的短剑</p>
+                            本站用于记录工作与学习之中的一些问题和见解。初衷是做一个在线记录文本，因为会有太多忘掉的技术栈。最开始在网上看了一些别人的博客站点，慢慢的想法越来越多，于是动手搭建了此站点。从找ui素瓷，搭建框架、搭建云服务、开发功能、部署上线断断续续花了差不多一年时间。在后面，会持续优化、开发一些新的功能。<p><span style="font-family: fantasy">Needle</span>：取自权游里二丫手中的短剑</p>
                         </div>
                     </div>
                 </div>
@@ -253,18 +253,18 @@
                 quality: [
                     {
                         name: 'HD',
-                        url: '${basePath}/medias/videos/demo.mp4',
+                        url: '${basePath}/medias/videos/home.mp4',
                         type: 'mp4',
                     },
                     {
                         name: 'SD',
-                        url: 'demo.mp4',
+                        url: 'home.mp4',
                         type: 'normal',
                     },
                 ],
                 defaultQuality: 0,
-                pic: '${basePath}/medias/videos/demo-pic.png',
-                thumbnails: '/img/4041.jpg',
+                pic: '${basePath}/medias/videos/home.png',
+                thumbnails: '${basePath}/medias/videos/home.png',
             },
         });
 

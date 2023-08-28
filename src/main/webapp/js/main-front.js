@@ -106,7 +106,7 @@ $(function () {
 
 async function initSSE(){
     /*聊天插件*/
-    if (eventSource || localStorage.getItem("chatKey")){
+    if (eventSource){
         return;
     }
     if (window.EventSource) {
@@ -129,6 +129,10 @@ async function initSSE(){
                 scrollTop: cct[0].scrollHeight
             }, 500);
 
+            if (mp3Res){
+                mp3Res.loop = false
+                mp3Res.play();
+            }
             $("#inputMessage").removeAttr("readonly");
             $("#inputMessage").css("cursor","");
 
@@ -136,27 +140,14 @@ async function initSSE(){
 
         eventSource.addEventListener("over", (event) => {
             div =null;
-            if (mp3Res){
-                mp3Res.loop = false
-                mp3Res.play();
-            }
         })
 
         eventSource.onopen=function (event){
-            localStorage.setItem("chatKey","chatKey");
-            //监听浏览器窗口关闭
-            window.addEventListener('beforeunload', (event) => {
-                localStorage.removeItem("chatKey");
-            });
-            // 页面隐藏时触发,等价于页面关闭
-            window.addEventListener('pagehide', () => {
-                localStorage.removeItem("chatKey");
-            });
+
         }
         eventSource.onerror=function (event){
             eventSource.close();
             eventSource=null;
-            localStorage.removeItem("chatKey");
             $("#inputMessage").removeAttr("readonly");
             $("#inputMessage").css("cursor","");
         }

@@ -86,6 +86,12 @@ public class ChatController {
 
 
       //  response.setHeader("Content-Type","text/event-stream;charset=UTF-8");
+
+
+        SseEmitterImpl existSSE = chat.get(cookieValue);
+
+        if (existSSE!=null)existSSE.complete();
+
         SseEmitterImpl sseEmitter = new SseEmitterImpl(30*60*1000);
 
         chat.put(cookieValue,sseEmitter);
