@@ -143,7 +143,7 @@ public class ChatController {
             String line;
             BufferedReader br = new BufferedReader( new InputStreamReader(inputStream));
             while ((line=br.readLine())!=null){
-                sseEmitter.send(SseEmitter.event().name("receive").data(line.replaceAll("\\\\n","<br>")).id(uuid));
+                sseEmitter.send(SseEmitter.event().name("receive").data(line.replaceAll("\\\\n","<br>").replaceAll("\\\\\"","\"")).id(uuid));
             }
             sseEmitter.send(SseEmitter.event().name("over").id(uuid));
         }catch (Exception e){
