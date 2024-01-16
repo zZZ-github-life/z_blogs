@@ -20,10 +20,7 @@ import java.io.IOException;
 
 @WebServlet("/downLoadFile/*")
 public class DownLoadFile extends HttpServlet {
-    
-    
-    
-    
+
     public void downLoadFile(HttpServletRequest request,HttpServletResponse response){
         String requestURI = request.getRequestURI();
         try{
@@ -45,8 +42,6 @@ public class DownLoadFile extends HttpServlet {
             String[] s={};
             s= new String[]{"4", "5"};
         }
-        
-    
     }
     
     

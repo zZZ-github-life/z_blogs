@@ -271,26 +271,10 @@ public class BlogBlogsController extends BaseController {
         RepJson repJson = new RepJson();
         try {
             blogBlogsService.generateArticle(blogBlogs);
-            
-            Global.singleThreadExecutor.execute(() -> { //等待事务提交，开启线程更新页面
-                try {
-                    blogBlogsMapper.updateClassifyAndTagsOfNum();
-                    blogBlogsService.generateIndex();
-                    blogBlogsService.generateClassify();
-                    blogBlogsService.generateArchive();
-                    blogBlogsService.generateRESSAndSearch();
-                    SysMapper sysMapper = (SysMapper)  Global.getBean("sysMapper");
-                    Integer wc = sysMapper.getWC();
-                    InitResource.WC =new AtomicLong(wc);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            });
+            updateHomePage();
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
-            
-            
         }
         return repJson;
     }
@@ -329,13 +313,31 @@ public class BlogBlogsController extends BaseController {
         RepJson repJson = new RepJson();
         try {
             blogBlogsService.delete(id);
+            updateHomePage();
         } catch (Exception e) {
             e.printStackTrace();
             repJson.setSuccess(false);
         }
         return repJson;
     }
-    
+
+    private void updateHomePage() {
+        Global.singleThreadExecutor.execute(() -> { //等待事务提交，开启线程更新页面
+            try {
+                blogBlogsMapper.updateClassifyAndTagsOfNum();
+                blogBlogsService.generateIndex();
+                blogBlogsService.generateClassify();
+                blogBlogsService.generateArchive();
+                blogBlogsService.generateRESSAndSearch();
+                SysMapper sysMapper = (SysMapper)  Global.getBean("sysMapper");
+                Integer wc = sysMapper.getWC();
+                InitResource.WC =new AtomicLong(wc);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+    }
+
     @ResponseBody
     @RequestMapping("get")
     public RepJson get(Integer id) {

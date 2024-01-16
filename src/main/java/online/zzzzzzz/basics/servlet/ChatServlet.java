@@ -21,9 +21,6 @@ public class ChatServlet extends HttpServlet {
         try(ServletOutputStream out = resp.getOutputStream(); Socket socket = new Socket("",45248)) {
             resp.setContentType("text/event-stream");
             resp.setCharacterEncoding("UTF-8");
-
-
-
         }catch (Exception e){
             e.printStackTrace();
         }

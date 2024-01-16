@@ -195,12 +195,6 @@
                             </a>
                         </li>
                         <li>
-                            <a   onclick="pjax('/html/article/primary/404.html',5)" class="waves-effect faa-parent animated-hover">
-                                <i class="fas fa-link faa-horizontal faa-slow" style="zoom: 0.7;"></i>
-                                <span>友情链接</span>
-                            </a>
-                        </li>
-                        <li>
                             &nbsp;
                             &nbsp;
                             &nbsp;
