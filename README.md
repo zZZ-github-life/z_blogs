@@ -64,15 +64,15 @@ z_blogs是一款简约大气的个人博客，在ui设计上借鉴了网上的�
 ### 开发环境
 idea，maven3.5，tomcat8，jdk8，File Watcher,node.js
 
-| 技术           | 说明           | 手册                                                                                                                                                                 |
-|--------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| idea         | 开发集成工具       | [https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/22-modules.html](https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/22-modules.html) |
-| maven3.5     | 	项目依赖管理工具    | [https://mybatis.org/mybatis-3/zh_CN/index.html](https://mybatis.org/mybatis-3/zh_CN/index.html)                                                                   |
-| tomcat8      | web容器        | [https://shiro.apache.org/](https://shiro.apache.org/)                                                                                                             |
-| jdk8         | Java开发版本     | [http://freemarker.foofun.cn/](http://freemarker.foofun.cn/)                                                                                                       |
-| File Watcher | 开发时动态检测文件变化  | [https://springdoc.cn/spring/web.html#spring-web](https://springdoc.cn/spring/web.html#spring-web)                                                                 |
-| node.js      | 打包依赖库        | [https://github.com/lionsoul2014/ip2region](https://github.com/lionsoul2014/ip2region)                                                                             |
-| grunt.js     | css/js打包压缩工具 | [https://springdoc.cn/spring/web.html#spring-web](https://springdoc.cn/spring/web.html#spring-web）                                                                 |
+| 技术           | 说明             | 手册                                                                                                                                                                 |
+|--------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| idea         | 开发集成工具         | [https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/22-modules.html](https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/22-modules.html) |
+| maven3.5     | 	项目依赖管理工具      | [https://mybatis.org/mybatis-3/zh_CN/index.html](https://mybatis.org/mybatis-3/zh_CN/index.html)                                                                   |
+| tomcat8      | web容器          | [https://shiro.apache.org/](https://shiro.apache.org/)                                                                                                             |
+| jdk8         | Java开发版本       | [http://freemarker.foofun.cn/](http://freemarker.foofun.cn/)                                                                                                       |
+| File Watcher | 开发时动态检测文件变化    | [https://springdoc.cn/spring/web.html#spring-web](https://springdoc.cn/spring/web.html#spring-web)                                                                 |
+| node.js      | 打包依赖库          | [https://github.com/lionsoul2014/ip2region](https://github.com/lionsoul2014/ip2region)                                                                             |
+| grunt.js     | css/js打包压缩工具   | [https://springdoc.cn/spring/web.html#spring-web](https://springdoc.cn/spring/web.html#spring-web）                                                                 |
 
 
 
